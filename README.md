@@ -1,4 +1,4 @@
-# Proximity, Separation and LCC Metrics in Graphs
+# NetMedPy: A Python package for Network Medicine 
 
 ## Introduction
 
