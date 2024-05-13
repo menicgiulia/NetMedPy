@@ -123,11 +123,4 @@ An example on the use of the implemented functions is available in the file 'Exa
 1. Menche, Jörg, et al. "Uncovering disease-disease relationships through the incomplete interactome." Science 347.6224 (2015). [DOI 10.1126/science.1257601](https://doi.org/10.1126/science.1257601)
 2. Guney, Emre, et al. "Network-based in silico drug efficacy screening." Nature Communications 7,1 (2015). [DOI 10.1038/ncomms10331](https://doi.org/10.1038/ncomms10331)
 
-## Authors
 
-- Andres Aldana Gonzalez (a.aldana@northeastern.edu)
-- Rodrigo Dorantes Gilardi (r.dorantesgilardi@northeastern.edu)
-
-## Contact
-
-For further inquiries or additional details, reach out to the authors or consult the given documentation.
