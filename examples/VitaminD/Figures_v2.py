@@ -114,10 +114,10 @@ def plot_screening(df):
 def plot_amspl(df):
 
     metrics = df.columns
-    metrics = df.columns[2:len(metrics)]    
+    metrics = df.columns[2:len(metrics)]
 
     plt.figure(figsize=(11,12))
-    
+
     for m in metrics:
         plt.plot(df['Disease'], df[m]/max(df[m]), marker='o',
                  linestyle='-',markersize=12,linewidth=2,label=m)
@@ -149,34 +149,36 @@ def plot_amspl(df):
 
 
 def save(obj, file):
-    with open('output/' + file,"wb") as file:
+    with open('examples/VitaminD/output/' + file,"wb") as file:
         pickle.dump(obj,file)
 
 def load(file):
-    with open('output/' + file,"rb") as file:
+    with open('examples/VitaminD/output/' + file,"rb") as file:
         obj = pickle.load(file)
 
     return obj
 
-    
-lcc_size = load("lcc_size.pkl")
-plot_lcc_significance(lcc_size)
 
-screen = load('screen.pkl')
-amspl = load('amspl.pkl')
+if __name__=="__main__":
 
-df = screen['z_score'].T
-df = df.reset_index()
-df.columns= ['Disease','z_score']
+    lcc_size = load("lcc_size.pkl")
+    plot_lcc_significance(lcc_size)
+
+    screen = load('screen.pkl')
+    amspl = load('amspl.pkl')
+
+    df = screen['z_score'].T
+    df = df.reset_index()
+    df.columns= ['Disease','z_score']
 
 
-for k,v in amspl.items():
-    nd = v.T.reset_index()
-    nd.columns = ['Disease',k]
-    
-    df = pd.merge(df,nd,on='Disease')
+    for k,v in amspl.items():
+        nd = v.T.reset_index()
+        nd.columns = ['Disease',k]
 
-df = df.sort_values(by='z_score',ascending=True)
+        df = pd.merge(df,nd,on='Disease')
 
-plot_screening(df)
-plot_amspl(df)
+    df = df.sort_values(by='z_score',ascending=True)
+
+    plot_screening(df)
+    plot_amspl(df)

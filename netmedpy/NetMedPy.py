@@ -1,21 +1,56 @@
 # -*- coding: utf-8 -*-
 """
-Proximity and Separation Metrics in Graphs.
+Functionality
+----------------
 
-This module provides a collection of functions to compute Largers Connected Components (LCC), proximity and separation metrics between sets of nodes
-in a graph. The metrics have been developed based on various research works, including the approach by Menche et al., 2015.
+This module provides the main NetMedPy functions for Network Medicine and 
+network topology analysis. Functions allow for different notions of distance
+between nodes and null models.
 
 The main functions in this module include:
-    - `proximity`: Computes the proximity between two sets of nodes in a graph.
-    - `separation`: Calculates the separation between two sets of nodes in a network.
-    - `separation_z_score`: Determines the z-score of the separation between two node sets based on randomized samples.
-    - `extract_lcc`: Computes the Largest Connected Component (LCC) for a specified subset of nodes within a graph.
-    - `lcc_significance`: Calculates the statistical significance of the LCC, as defined by a subset of nodes in a graph, according to a specified null model.
+    
+- `extract_lcc`: Computes the Largest Connected Component (LCC) for a specified subset of nodes within a graph.
+- `lcc_significance`: Calculates the statistical significance of the LCC, as defined by a subset of nodes in a graph, according to a specified null model.
+- `all_pair_distances`: Calculates distances between every pair of nodes in a graph.
+- `save_distances`: Saves the precomputed distance matrix to a `pickle` file.
+- `load_distances`: Loads a precomputed distance matrix from a `pickle` file.
+- `get_amspl`: Calculates the Average Minimum Shortest Path Length between nodes.
+- `proximity`: Computes the proximity between two sets of nodes in a graph.
+- `separation`: Calculates the separation between two sets of nodes in a network.
+- `separation_z_score`: Determines the z-score of the separation between two node sets based on randomized samples. 
+- `screening`: Screens for proximity/separation between sets of source and target nodes.
+
+
+Distance metrics.
+------------------
+
+When calculating the distance matrix, four distance metrics are available to the user:
+    
+- `shortest_path`: Distance is based in the length of the path with the least number of edges or lowest total weight that connects two nodes
+- `random_walk`: Distance is based in the probability of reaching one node from another via a random walk.
+- `biased_random_walk`: Same as random_walk but compensating the bias induced by the degree of the target node.
+- `communicability`: Distance is based on the concept of communicability, defined as the ability of nodes to communicate or send information through all available paths in a network, considering the indirect and direct connections.
+
+
+Null models.
+-------------
+
+The NetMedPy functions involving statistical analysis allow the user to select among the following null models:
+
+- `degree_match`: selects random samples replicating the original node-set's degree distribution.
+- `log_binning`: categorizes the degrees of all nodes within the network into logarithmically sized bins. Samples are then drawn by matching the degree of the original nodes to those within the corresponding bins. 
+- `strength_binning`: analogous to log_binning, using the strength of the nodes instead of their degrees.
+- `uniform`: randomly selects nodes from the entire network, disregarding their degree or strength.
+- `custom`: allows users to specify custom null models.
+
 
 These functions use both exact and approximate methods for degree-preserving and non-degree preserving randomization of node sets. Additionally,
-precomputed distance matrices can be leveraged for efficient computation.
+precomputed distance matrices are leveraged for efficient computation.
+
 
 Required packages:
+-------------------
+
     - networkx
     - numpy
     - pickle
@@ -23,13 +58,16 @@ Required packages:
     - random
     - scipy
     - ray
+    
 
 Authors:
+---------
     - Andres Aldana Gonzalez (a.aldana@northeastern.edu)
     - Rodrigo Dorantes Gilardi (r.dorantesgilardi@northeastern.edu)
 
 
 References:
+------------
     - Menche, Jörg, et al. "Uncovering disease-disease relationships through the incomplete interactome." Science 347.6224 (2015). DOI 10.1126/science.1257601
     - Guney, Emre, et al.  "Network-based in silico drug efficacy screening." Nature Communications 7,1 (2015). DOI 10.1038/ncomms10331
 """
@@ -197,7 +235,7 @@ def _RWR_Matrix(G, c):
 
 
 @ray.remote
-def _user_source_distance(source_nodes, graph, node_to_idx, distance, kwargs):
+def _custom_source_distance(source_nodes, graph, node_to_idx, distance, kwargs):
      mat_array = np.full((len(source_nodes),len(graph) + 1), np.inf)
      current_row = 0
 
@@ -219,7 +257,7 @@ def _user_source_distance(source_nodes, graph, node_to_idx, distance, kwargs):
 
 
 
-def _user_all_distance(graph, node_to_idx, distance, num_cpus, n_tasks, kwargs):
+def _custom_all_distance(graph, node_to_idx, distance, num_cpus, n_tasks, kwargs):
     ray.shutdown()
     ray.init(num_cpus=num_cpus)
 
@@ -229,7 +267,7 @@ def _user_all_distance(graph, node_to_idx, distance, num_cpus, n_tasks, kwargs):
 
     chunks = _split_into_chunks(list(graph.nodes), n_tasks)
 
-    res = [_user_source_distance.remote(chunk, graph_ref, node_to_idx_ref, distance_ref, kwargs)
+    res = [_custom_source_distance.remote(chunk, graph_ref, node_to_idx_ref, distance_ref, kwargs)
            for chunk in chunks]
 
     results = ray.get(res)
@@ -238,7 +276,7 @@ def _user_all_distance(graph, node_to_idx, distance, num_cpus, n_tasks, kwargs):
     return results
 
 
-def all_pair_distances(graph,distance="shortest_path",user_distance=None,
+def all_pair_distances(graph,distance="shortest_path",custom_distance=None,
                        reset=0.2, n_processors=None, n_tasks=None, **kwargs):
     """
     Calculates distances between every pair of nodes in a graph according to the specified method and returns
@@ -252,10 +290,10 @@ def all_pair_distances(graph,distance="shortest_path",user_distance=None,
 
     distance : str, optional
         The method used to calculate distances. Options include 'shortest_path', 'random_walk', 'biased_random_walk',
-        'communicability', and 'user'. Default is 'shortest_path'.
+        'communicability', and 'custom'. Default is 'shortest_path'.
 
-    user_distance : function, optional
-        A custom function for distance calculation, used when 'distance' is set to 'user'. This function should
+    custom_distance : function, optional
+        A custom function for distance calculation, used when 'distance' is set to 'custom'. This function should
         have the signature `function_name(a, networkx.Graph, **kwargs)`, where 'a' is the source node, 'networkx.Graph'
         is the graph, and '**kwargs' are additional arguments. It should return a dictionary where each key 'k' is a
         target node and the value is the distance from the source node 'a' to 'k'. The dictionary must include distances
@@ -290,8 +328,8 @@ def all_pair_distances(graph,distance="shortest_path",user_distance=None,
     if nx.number_connected_components(graph) > 1:
         raise ValueError("The network is not connected (it contains more than one connected component)")
     
-    if not distance in ["shortest_path","random_walk","biased_random_walk","communicability","user"]:
-        raise ValueError("distance must be shortest_path|random_walk|biased_random_walk|communicability|user")
+    if not distance in ["shortest_path","random_walk","biased_random_walk","communicability","custom"]:
+        raise ValueError("distance must be shortest_path|random_walk|biased_random_walk|communicability|custom")
     
     if distance=="random_walk" or distance=="biased_random_walk":
         if reset < 0 or reset > 1:
@@ -381,8 +419,8 @@ def all_pair_distances(graph,distance="shortest_path",user_distance=None,
 
         D.matrix = B
 
-    elif distance == "user":
-        res = _user_all_distance(graph, D.node_to_idx, user_distance ,num_cpus,n_tasks, kwargs)
+    elif distance == "custom":
+        res = _custom_all_distance(graph, D.node_to_idx, custom_distance ,num_cpus,n_tasks, kwargs)
         res_mat = np.zeros((len(graph),len(graph)))
 
         for sub_mat in res:
@@ -607,12 +645,12 @@ def _proximity_dmatrix(net,T,S,D,null_model,node_bucket, n_iter,bin_size):
         bucket = _dictionary_from_binning(lower, upper, nodes)
     elif null_model == 'strength_binning':
         bucket = _get_strength_binning(net, bin_size=bin_size)
-    elif null_model == 'user':
+    elif null_model == 'custom':
         bucket = node_bucket
     elif null_model == 'uniform':
         bucket = set(net.nodes)
     else:
-        raise ValueError("Null model should be: 'degree_match'|'log_binning'|'uniform'|'user'")
+        raise ValueError("Null model should be: 'degree_match'|'log_binning'|'uniform'|'custom'")
 
     d_c = _get_amspl_dmatrix(T,S,D)
     distribution = []
@@ -620,12 +658,12 @@ def _proximity_dmatrix(net,T,S,D,null_model,node_bucket, n_iter,bin_size):
         if null_model in ["degree_match","log_binning"]:
             ran_T  = _sample_preserving_degrees(net, T,bucket)
             ran_S  = _sample_preserving_degrees(net, S, bucket)
-        elif null_model in ["user","strength_binning"]:
+        elif null_model in ["custom","strength_binning"]:
             ran_T = _sample_node_proxy(net, T, bucket)
             ran_S = _sample_node_proxy(net,S,bucket)
         else:
-            ran_T = random.sample(bucket, len(T))
-            ran_S = random.sample(bucket, len(S))
+            ran_T = random.sample(list(bucket), len(T))
+            ran_S = random.sample(list(bucket), len(S))
         ran_d_c = _get_amspl_dmatrix(ran_T, ran_S,D)
         distribution.append(ran_d_c)
     mu = np.mean(distribution)
@@ -655,12 +693,12 @@ def _proximity_symmetric(net,T,S,D,null_model, node_bucket,n_iter,bin_size):
         bucket = _dictionary_from_binning(lower, upper, nodes)
     elif null_model == 'strength_binning':
         bucket = _get_strength_binning(net, bin_size=bin_size)
-    elif null_model == 'user':
+    elif null_model == 'custom':
         bucket = node_bucket
     elif null_model == 'uniform':
         bucket = set(net.nodes)
     else:
-        raise ValueError("Null model should be: 'degree_match'|'log_binning'|'uniform'|'user'")
+        raise ValueError("Null model should be: 'degree_match'|'log_binning'|'uniform'|'custom'")
 
     dts = _get_amspl_dmatrix(T, S,D)
     dst = _get_amspl_dmatrix(S, T,D)
@@ -670,12 +708,12 @@ def _proximity_symmetric(net,T,S,D,null_model, node_bucket,n_iter,bin_size):
         if null_model in ["degree_match","log_binning"]:
             ran_T  = _sample_preserving_degrees(net, T,bucket)
             ran_S  = _sample_preserving_degrees(net, S, bucket)
-        elif null_model in ["user","strength_binning"]:
+        elif null_model in ["custom","strength_binning"]:
             ran_T = _sample_node_proxy(net, T, bucket)
             ran_S = _sample_node_proxy(net,S,bucket)
         else:
-            ran_T = random.sample(bucket, len(T))
-            ran_S = random.sample(bucket, len(S))
+            ran_T = random.sample(list(bucket), len(T))
+            ran_S = random.sample(list(bucket), len(S))
 
         rants = _get_amspl_dmatrix(ran_T, ran_S,D)
         ranst = _get_amspl_dmatrix(ran_S, ran_T,D)
@@ -726,10 +764,10 @@ def proximity(net,T,S,D,null_model = 'degree_match',node_bucket = None, n_iter=1
 
    null_model : str, optional
        Method for degree-preserving randomization. Valid options are 'degree_match', 'log_binning', 'uniform',
-       'strength_binning' and 'user'. Default is 'degree_match'.
+       'strength_binning' and 'custom'. Default is 'degree_match'.
 
    node_bucket : dictionary, optional
-       A collection of nodes to be used in 'user' mode, mandatory when the null_model is set to 'user'.
+       A collection of nodes to be used in 'custom' mode, mandatory when the null_model is set to 'custom'.
        This parameter should be a dictionary where each key represents a node ('node_k') from the network,
        and the corresponding value is a list of alternative nodes ('proxy_i').
        These alternatives are used by the null model for resampling:
@@ -765,8 +803,8 @@ def proximity(net,T,S,D,null_model = 'degree_match',node_bucket = None, n_iter=1
        - If the network is not connected (contains more than one connected component).
        - If 'n_iter' is less than or equal to 0.
        - If 'bin_size' is less than 1 when 'log_binning' or 'strength_binning' is used.
-       - If 'null_model' is not one of ['degree_match', 'log_binning', 'strength_binning', 'uniform', 'user'].
-       - If 'node_bucket' is not provided when 'null_model' is 'user'.
+       - If 'null_model' is not one of ['degree_match', 'log_binning', 'strength_binning', 'uniform', 'custom'].
+       - If 'node_bucket' is not provided when 'null_model' is 'custom'.
 
    Warnings:
    ----------
@@ -798,8 +836,8 @@ def proximity(net,T,S,D,null_model = 'degree_match',node_bucket = None, n_iter=1
         raise ValueError("n_iter must be greater than 0")
 
 
-    if not null_model in ['degree_match','log_binning','uniform','user',"strength_binning"]:
-        raise ValueError("Null model should be: 'degree_match'|'log_binning'|'uniform'|'user'")
+    if not null_model in ['degree_match','log_binning','uniform','custom',"strength_binning"]:
+        raise ValueError("Null model should be: 'degree_match'|'log_binning'|'uniform'|'custom'")
 
     if null_model == 'log_binning':
         if bin_size < 1:
@@ -808,9 +846,9 @@ def proximity(net,T,S,D,null_model = 'degree_match',node_bucket = None, n_iter=1
     elif null_model == 'strength_binning':
         if bin_size < 1:
             raise ValueError("bin_size must be greater or equal than 1")
-    elif null_model == 'user':
+    elif null_model == 'custom':
         if node_bucket == None:
-            raise ValueError("In user mode, node_bucket must be provided")
+            raise ValueError("In custom mode, node_bucket must be provided")
 
 
     if symmetric:
@@ -974,10 +1012,10 @@ def separation_z_score(net,A,B,D,null_model='degree_match', node_bucket = None, 
 
     null_model : str, optional
         Method for degree-preserving randomization. Options are 'degree_match', 'log_binning', 'uniform',
-        and 'user'. Default is 'degree_match'.
+        and 'custom'. Default is 'degree_match'.
 
     node_bucket : dictionary, optional
-        A collection of nodes to be used in 'user' mode, mandatory when the null_model is set to 'user'.
+        A collection of nodes to be used in 'custom' mode, mandatory when the null_model is set to 'custom'.
         This parameter should be a dictionary where each key represents a node ('node_k') from the network,
         and the corresponding value is a list of alternative nodes ('proxy_i').
         These alternatives are used by the null model for resampling:
@@ -1011,8 +1049,8 @@ def separation_z_score(net,A,B,D,null_model='degree_match', node_bucket = None, 
         - If the network is not connected (contains more than one connected component).
         - If 'n_iter' is less than or equal to 0.
         - If 'bin_size' is less than 1 when 'log_binning' or 'strength_binning' is used.
-        - If 'null_model' is not one of ['degree_match', 'log_binning', 'strength_binning', 'uniform', 'user'].
-        - If 'node_bucket' is not provided when 'null_model' is 'user'.
+        - If 'null_model' is not one of ['degree_match', 'log_binning', 'strength_binning', 'uniform', 'custom'].
+        - If 'node_bucket' is not provided when 'null_model' is 'custom'.
 
     Warnings:
     ----------
@@ -1055,12 +1093,12 @@ def separation_z_score(net,A,B,D,null_model='degree_match', node_bucket = None, 
         bucket = _get_strength_binning(net, bin_size=bin_size)
     elif null_model == 'uniform':
         bucket = set(net.nodes)
-    elif null_model == 'user':
+    elif null_model == 'custom':
         bucket = node_bucket
         if node_bucket == None:
-            raise ValueError("In user mode, node_bucket must be provided")
+            raise ValueError("In custom mode, node_bucket must be provided")
     else:
-        raise ValueError("Null model should be: 'degree_match'|'log_binning'|'uniform'|'user'")
+        raise ValueError("Null model should be: 'degree_match'|'log_binning'|'uniform'|'custom'")
 
     s = _sep(valid_a, valid_b, D)
     distribution = []
@@ -1068,12 +1106,12 @@ def separation_z_score(net,A,B,D,null_model='degree_match', node_bucket = None, 
         if null_model in ["degree_match","log_binning"]:
             ran_A  = _sample_preserving_degrees(net, valid_a,bucket)
             ran_B  = _sample_preserving_degrees(net, valid_b, bucket)
-        elif null_model in ["user","strength_binning"]:
+        elif null_model in ["custom","strength_binning"]:
             ran_A = _sample_node_proxy(net, valid_a, bucket)
             ran_B = _sample_node_proxy(net,valid_b,bucket)
         else:
-            ran_A = random.sample(bucket, len(valid_a))
-            ran_B = random.sample(bucket, len(valid_b))
+            ran_A = random.sample(list(bucket), len(valid_a))
+            ran_B = random.sample(list(bucket), len(valid_b))
         ran_sep = _sep(ran_A, ran_B,D)
         distribution.append(ran_sep)
     mu = np.mean(distribution)
@@ -1170,10 +1208,10 @@ def lcc_significance(net, A, null_model='degree_match', node_bucket = None, n_it
 
     null_model : str, optional (default='degree_match')
         The method used for generating the null model. Can be 'degree_match', 'log_binning',
-        'uniform', or 'user'.
+        'uniform', or 'custom'.
 
     node_bucket : dictionary, optional
-        A collection of nodes to be used in 'user' mode, mandatory when the null_model is set to 'user'.
+        A collection of nodes to be used in 'custom' mode, mandatory when the null_model is set to 'custom'.
         This parameter should be a dictionary where each key represents a node ('node_k') from the network,
         and the corresponding value is a list of alternative nodes ('proxy_i').
         These alternatives are used by the null model for resampling:
@@ -1204,8 +1242,8 @@ def lcc_significance(net, A, null_model='degree_match', node_bucket = None, n_it
     ValueError:
         - If 'n_iter' is less than or equal to 0.
         - If 'bin_size' is less than 1 when 'log_binning' or 'strength_binning' is used.
-        - If 'null_model' is not one of ['degree_match', 'log_binning', 'strength_binning', 'uniform', 'user'].
-        - If 'node_bucket' is not provided when 'null_model' is 'user'.
+        - If 'null_model' is not one of ['degree_match', 'log_binning', 'strength_binning', 'uniform', 'custom'].
+        - If 'node_bucket' is not provided when 'null_model' is 'custom'.
 
     Warnings:
     -----------
@@ -1238,12 +1276,12 @@ def lcc_significance(net, A, null_model='degree_match', node_bucket = None, n_it
             raise ValueError("bin_size must be greater or equal than 1")
     elif null_model == 'uniform':
         bucket = set(net.nodes).difference(set_a)
-    elif null_model == 'user':
+    elif null_model == 'custom':
         bucket = node_bucket
         if node_bucket == None:
-            raise ValueError("In user mode, node_bucket must be provided")
+            raise ValueError("In custom mode, node_bucket must be provided")
     else:
-        raise ValueError("Null model should be in ['degree_match'|'log_binning'|'uniform'|'user']")
+        raise ValueError("Null model should be in ['degree_match'|'log_binning'|'uniform'|'custom']")
 
     lcc = extract_lcc(set_a,net)
 
@@ -1252,7 +1290,7 @@ def lcc_significance(net, A, null_model='degree_match', node_bucket = None, n_it
         if null_model != 'uniform':
             rs = _sample_preserving_degrees(net, set_a, bucket)
         else:
-            rs = random.sample(bucket, len(set_a))
+            rs = random.sample(list(bucket), len(set_a))
         sub = extract_lcc(rs,net)
         distribution.append(len(sub))
 
@@ -1374,7 +1412,7 @@ def screening(sources,targets, network, distance_matrix, score="proximity", prop
         Default is ["z_score"].
 
     node_bucket : dictionary, optional
-        A collection of nodes to be used in 'user' mode, mandatory when the null_model is set to 'user'.
+        A collection of nodes to be used in 'custom' mode, mandatory when the null_model is set to 'custom'.
         This parameter should be a dictionary where each key represents a node ('node_k') from the network,
         and the corresponding value is a list of alternative nodes ('proxy_i').
         These alternatives are used by the null model for resampling:
@@ -1426,12 +1464,12 @@ def screening(sources,targets, network, distance_matrix, score="proximity", prop
     elif null_model == 'strength_binning':
         if bin_size < 1:
             raise ValueError("bin_size must be greater or equal than 1")
-    elif null_model == 'user':
+    elif null_model == 'custom':
         if node_bucket == None:
-            raise ValueError("In user mode, node_bucket must be provided")
+            raise ValueError("In custom mode, node_bucket must be provided")
     else:
         if null_model not in ['degree_match','uniform']:
-            raise ValueError("Null model should be: 'degree_match'|'log_binning'|'uniform'|'user'")
+            raise ValueError("Null model should be: 'degree_match'|'log_binning'|'uniform'|'custom'")
 
 
     if score not in ["proximity","separation_z_score","separation"]:

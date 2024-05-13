@@ -8,9 +8,11 @@ dependencies are installed before proceeding:
 Required packages:
 - networkx
 - numpy
+- pickle
 - multiprocessing
+- random
+- scipy
 - ray
-- pandas
 
 Setup and Execution Instructions:
 
@@ -110,8 +112,8 @@ if __name__ == "__main__":
     D = netmedpy.all_pair_distances(G, distance="shortest_path", n_processors=10, n_tasks=100)
     mat = D.matrix
     
-    #netmedpy.save_distances(D, "distances.pkl") # If you want to save the distance matrix
-    #D = netmedpy.load_distances("distances.pkl") # If you want to load a pre-computed distance matrix
+    netmedpy.save_distances(D, "distances.pkl") # If you want to save the distance matrix
+    D = netmedpy.load_distances("distances.pkl") # If you want to load a pre-computed distance matrix
 
     # --- PROXIMITY ANALYSIS ---
     p = netmedpy.proximity(G, S, T, D, null_model='degree_match', n_iter=1000)
@@ -142,7 +144,7 @@ if __name__ == "__main__":
 
 
     #User defined distance.
-    #Users can define their own distances by setting distance='user' and user_distance= function that calculates the distance between a single node and every other node.
+    #Users can define their own distances by setting distance='custom' and custom_distance= function that calculates the distance between a single node and every other node.
     #The result should be a dictionary with the distance between the source node and all other nodes in the network.
     def d(source, graph, v):
         d = {}
@@ -152,7 +154,7 @@ if __name__ == "__main__":
 
         return d
 
-    D = netmedpy.all_pair_distances(G, distance='user',user_distance=d,v=3)
+    D = netmedpy.all_pair_distances(G, distance='custom',custom_distance=d,v=3)
 
     print("Distance: user defined")
     print(D.matrix[:5,:5])

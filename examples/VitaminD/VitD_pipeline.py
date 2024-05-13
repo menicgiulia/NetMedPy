@@ -177,7 +177,7 @@ def plot_amspl(amspl):
 
 
 def save(obj, file):
-    with open('output/' + file,"wb") as file:
+    with open('examples/VitaminD/output/' + file,"wb") as file:
         pickle.dump(obj,file)
 
 def load(file):
@@ -191,15 +191,15 @@ if __name__=="__main__":
     ## 1) LOAD DATA
 
     #Load PPI network
-    with open("data/ppi_network.pkl","rb") as file:
+    with open("examples/VitaminD/data/ppi_network.pkl","rb") as file:
       ppi = pickle.load(file)
 
     #Load drug targets
-    with open("data/vitd_targets.pkl","rb") as file:
+    with open("examples/VitaminD/data/vitd_targets.pkl","rb") as file:
       targets = pickle.load(file)
 
     #Load disease genes
-    with open("data/disease_genes.pkl","rb") as file:
+    with open("examples/VitaminD/data/disease_genes.pkl","rb") as file:
       disease_genes = pickle.load(file)
 
 
@@ -232,7 +232,7 @@ if __name__=="__main__":
 
     ## 3) CALCULATE SHORTEST PATH DISTANCE BETWEEN NODE PAIRS
     sp_distance = netmedpy.all_pair_distances(ppi,distance="shortest_path",
-                                              n_processiors=20,n_tasks=2000)
+                                              n_processors=20,n_tasks=2000)
 
 
     ## 4) EVALUATE AMSPL BETWEEN INFLAMMATION AND HUNTINGTON DISEASE
