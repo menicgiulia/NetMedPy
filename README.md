@@ -1,4 +1,5 @@
 # NetMedPy: A Python package for Network Medicine 
+##### Authors: Andrés Aldana, Michael Sebek, Gordana Ispirova, Rodrigo Dorantes-Gilardi, Giulia Menichetti (giulia.menichetti@channing.harvard.edu)
 
 ## Introduction
 
