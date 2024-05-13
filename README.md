@@ -9,7 +9,7 @@ In network medicine, understanding relationships between various node sets (prim
 **Separation**: Depicts how distant two sets of nodes are from one another.<br/>
 **LCC (Largest Connected Component)**: Represents the largest subgraph in which any two nodes are connected to each other by paths. The significance of LCC lies in its ability to indicate the major component of a network where most crucial interactions occur.
 
-![NetMedPy ipeline workflow example](/images/OverviewPipeline.png)
+!/images/OverviewPipeline.png
 This Python implementation uses precomputed distance matrices to optimize calculations. With precalculated distances between every node pair, the code can rapidly compute proximity and separation.
 
 ## Getting Started
