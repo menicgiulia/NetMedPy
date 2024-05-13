@@ -1,0 +1,13 @@
+Disease,Prescription,Drug_Targets
+inflammation,Ibuprofen,28
+inflammation,Dexamethasone,27
+coronary artery disease,Atorvastatin,26
+coronary artery disease,Amlodipine,14
+chronic obstructive pulmonary disease,Salmeterol,13
+chronic obstructive pulmonary disease,Fluticasone furoate,10
+lung neoplasm,Pralsetinib,25
+lung neoplasm,Nintedanib,21
+factor ix,Coagulation Factor IX Human,7
+factor ix,Nonacog beta pegol,3
+fragile x,Risperidone,17
+fragile x,Fluoxetine,18
