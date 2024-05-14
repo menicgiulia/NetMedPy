@@ -235,7 +235,7 @@ if __name__=="__main__":
                                               n_processors=20,n_tasks=2000)
 
 
-    ## 4) EVALUATE AMSPL BETWEEN INFLAMMATION AND HUNTINGTON DISEASE
+    ## 4) EVALUATE AMSPL BETWEEN INFLAMMATION AND FACTOR IX DEFICIENCY DISEASE
     inflammation = netmedpy.proximity(ppi, targets,
                                       dgenes["Inflammation"], sp_distance,
                                       null_model="degree_match",n_iter=10000,

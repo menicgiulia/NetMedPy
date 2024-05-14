@@ -1371,6 +1371,7 @@ def _to_dict_tables(results, properties,target_names,source_names):
             score = r[2]
 
             df.loc[source,target] = score[p]
+        df = df.apply(pd.to_numeric, errors='coerce')
         table_res[p] = df
 
     return table_res
