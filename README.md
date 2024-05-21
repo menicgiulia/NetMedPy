@@ -1,13 +1,13 @@
 # NetMedPy: A Python package for Network Medicine 
-#### Authors: Andrés Aldana, Michael Sebek, Gordana Ispirova, Rodrigo Dorantes-Gilardi, Joseph Loscalzo, Giulia Menichetti (giulia.menichetti@channing.harvard.edu)
+#### Authors: Andrés Aldana, Michael Sebek, Gordana Ispirova, Rodrigo Dorantes-Gilardi, Giulia Menichetti (giulia.menichetti@channing.harvard.edu)
 
 ## Introduction
 
 In network medicine, understanding relationships between various node sets (primarily genes) can offer deep insights into the patterns and structure of a PPI (Protein-Protein Interaction) network. This README introduces the concepts of `proximity`, `separation`, and `LCC (Largest Connected Component)`, and provides guidance on executing the related code.
 
 **Proximity**: Represents the closeness or average distance between two node sets. A lower average distance suggests a higher proximity.<br/>
-**Separation**: Depicts how distant two sets of nodes are from one another.<br/>
-**LCC (Largest Connected Component)**: Represents the largest subgraph in which any two nodes are connected to each other by paths. The significance of LCC lies in its ability to indicate the major component of a network where most crucial interactions occur.
+**Separation**: Quantifies the average distance between two sets of nodes and compares it with the average distances within each set.<br/>
+**LCC (Largest Connected Component)**: Represents the largest subgraph in which any two nodes are connected to each other by at least a path. The significance of LCC lies in its ability to indicate the major component of a network where most of the crucial interactions occur.
 
 The pipeline workflow is depicted in the figure below.
 ![Pipeline](/Images/OverviewPipeline.png)
