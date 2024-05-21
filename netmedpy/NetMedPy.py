@@ -1377,6 +1377,50 @@ def _to_dict_tables(results, properties,target_names,source_names):
     return table_res
 
 
+def to_dictionary(dataframe, group_names, node_names):
+    """
+    Converts a DataFrame into a dictionary where the keys are unique group names 
+    and the values are sets of node names associated with each group.
+
+    Parameters:
+    -------------
+    dataframe : pandas.DataFrame
+        The input DataFrame containing the data to be converted into a dictionary.
+        
+    group_names : str
+        The column name in the DataFrame that contains the group identifiers.
+        
+    node_names : str
+        The column name in the DataFrame that contains the node identifiers.
+
+    Returns:
+    ----------
+    dict
+        A dictionary where each key is a unique group name from the `group_names` 
+        column, and each value is a set of node names from the `node_names` column 
+        associated with that group.
+        
+    Example:
+    ----------
+    >>> import pandas as pd
+    >>> data = {'group': ['A', 'A', 'B', 'B', 'C'], 
+                'node': ['x', 'y', 'x', 'z', 'y']}
+    >>> df = pd.DataFrame(data)
+    >>> to_dictionary(df, 'group', 'node')
+    {'A': {'x', 'y'}, 'B': {'x', 'z'}, 'C': {'y'}}
+    """
+    unique_names = list(dataframe[group_names].unique())
+    
+    res = {}
+    
+    for l in unique_names:
+        nodes = dataframe[dataframe[group_names] == l]
+        nodes = set(nodes[node_names])
+        
+        res[l] = nodes
+    return res
+
+
 def screening(sources,targets, network, distance_matrix, score="proximity", properties=["z_score"],
               null_model= 'degree_match', node_bucket = None, n_iter=1000,bin_size=100,symmetric=False,
               n_procs=None):
