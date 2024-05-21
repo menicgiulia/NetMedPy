@@ -16,6 +16,33 @@ This Python implementation uses precomputed distance matrices to optimize calcul
 
 ## Getting Started
 
+## Package Structure
+Root folder organization:
+```plaintext
+│   .gitignore
+│   environment.yml                                 // yml file to create conda enviorement
+│   README.md
+│
+├───Images                                          // directory with figures from paper
+│   └───OverviewPipeline.png                        // pipeline flowchart figure from paper
+│
+└───examples                                        // directory with working examples using the netmedpy pipeline
+    │   
+    ├───VitamindD                                   // directory with Vitamin D example using the netmedpy pipeline      
+    │    ├───Basic_example.py                       // python script with Vitamin D example using the netmedpy pipeline  
+    │    └───data                                   // directory with pickle and csv files necessary to get the Vitamin D example working             
+    │         ├───Alias.csv                          
+    │         ├───disease_genes.pkl                 
+    │         ├───ppi_network.pkl                    
+    │         └───vitd_targets.pkl                   
+    │
+    └───netmedpy                                    // directory containing the python scripts that contain the functions of the netmedpy pipeline
+        ├───DistanceMatrix.py                       
+        ├───NetMedPy.py
+        ├───example.py                    
+        └───__init__.py                         
+```
+
 ### Prerequisites
 
 - Ensure you have Python installed.
@@ -124,30 +151,5 @@ An example on the use of the implemented functions is available in the file 'Exa
 1. Menche, Jörg, et al. "Uncovering disease-disease relationships through the incomplete interactome." Science 347.6224 (2015). [DOI 10.1126/science.1257601](https://doi.org/10.1126/science.1257601)
 2. Guney, Emre, et al. "Network-based in silico drug efficacy screening." Nature Communications 7,1 (2015). [DOI 10.1038/ncomms10331](https://doi.org/10.1038/ncomms10331)
 
-## Package Structure
-Root folder organization:
-```plaintext
-│   .gitignore
-│   environment.yml                                 // yml file to create conda enviorement
-│   README.md
-│
-├───Images                                          // directory with figures from paper
-│   └───OverviewPipeline.png                        // pipeline flowchart figure from paper
-│
-└───examples                                        // directory with working examples using the netmedpy pipeline
-    │   
-    ├───VitamindD                                   // directory with Vitamin D example using the netmedpy pipeline      
-    │    ├───Basic_example.py                       // python script with Vitamin D example using the netmedpy pipeline  
-    │    └───data                                   // directory with pickle and csv files necessary to get the Vitamin D example working             
-    │         ├───Alias.csv                          
-    │         ├───disease_genes.pkl                 
-    │         ├───ppi_network.pkl                    
-    │         └───vitd_targets.pkl                   
-    │
-    └───netmedpy                                    // directory containing the python scripts that contain the functions of the netmedpy pipeline
-        ├───DistanceMatrix.py                       
-        ├───NetMedPy.py
-        ├───example.py                    
-        └───__init__.py                         
-```
+
 
