@@ -27,20 +27,24 @@ Root folder organization:
 │   └───OverviewPipeline.png                        // pipeline flowchart figure from paper
 │
 └───examples                                        // directory with working examples using the netmedpy pipeline
-    │   
-    ├───VitamindD                                   // directory with Vitamin D example using the netmedpy pipeline      
-    │    ├───Basic_example.py                       // python script with Vitamin D example using the netmedpy pipeline  
-    │    └───data                                   // directory with pickle and csv files necessary to get the Vitamin D example working             
-    │         ├───Alias.csv                          
-    │         ├───disease_genes.pkl                 
-    │         ├───ppi_network.pkl                    
-    │         └───vitd_targets.pkl                   
-    │
-    └───netmedpy                                    // directory containing the python scripts that contain the functions of the netmedpy pipeline
-        ├───DistanceMatrix.py                       
-        ├───NetMedPy.py
-        ├───example.py                    
-        └───__init__.py                         
+│   │   
+│   ├───VitamindD                                   // directory with Vitamin D example using the netmedpy pipeline      
+│   │    ├───VitD_pipeline.py                       // python script with Vitamin D example using the netmedpy pipeline  
+│   │    ├───VitD_pipeline.ipynb                    // Jupyter notebook with Vitamin D example using the netmedpy pipeline  
+│   │    ├───data                                   // directory with pickle and csv files necessary to get the Vitamin D example working             
+│   │    │    ├───Alias.csv                          
+│   │    │    ├───disease_genes.pkl                 
+│   │    │    ├───ppi_network.pkl                    
+│   │    │    └───vitd_targets.pkl
+│   │    └───output                                 // directory where the output files from the Vitamin D example are saved
+│   │                          
+│   └───Basic_example.py                            // python script with dummy data to test the pipeline
+│
+└───netmedpy                                        // directory containing the python scripts that contain the functions of the netmedpy pipeline
+      ├───DistanceMatrix.py                       
+      ├───NetMedPy.py
+      ├───example.py                                // python script with dummy data to test the pipeline
+      └───__init__.py                         
 ```
 
 ### Prerequisites
