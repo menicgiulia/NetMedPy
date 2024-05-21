@@ -34,11 +34,11 @@ Setup and Execution Instructions:
             
         On Linux/Mac:
             
-            export PYTHONPATH="/path/to/netmedpy/directory/netmedpy:$PYTHONPATH"
+            export PYTHONPATH="/user_path_to/NetMedPy/netmedpy:$PYTHONPATH"
         
         On Windows:
         
-            set PYTHONPATH=C:\path\to\netmedpy\directory\netmedpy;%PYTHONPATH%
+            set PYTHONPATH=C:\user_path_to\NetMedPy\netmedpy;%PYTHONPATH%
 
     2) Navigate to the NetMedPy directory where this example script is located.
 
