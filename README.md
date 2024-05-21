@@ -17,7 +17,7 @@ This Python implementation uses precomputed distance matrices to optimize calcul
 ## Getting Started
 
 ## Package Structure
-Root folder organization:
+Root folder organization (__init__.py files removed for simplicity):
 ```plaintext
 │   .gitignore
 │   environment.yml                                 // yml file to create conda enviorement
@@ -43,10 +43,9 @@ Root folder organization:
 └───netmedpy                                        // directory containing the python scripts that contain the functions of the netmedpy pipeline
       ├───DistanceMatrix.py                       
       ├───NetMedPy.py
-      ├───example.py                                // python script with dummy data to test the pipeline
-      └───__init__.py                         
+      └───example.py                                // python script with dummy data to test the pipeline
+                            
 ```
-
 ### Prerequisites
 
 - Ensure you have Python installed.
