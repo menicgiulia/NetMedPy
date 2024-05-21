@@ -15,9 +15,9 @@ pip install networkx
 pip install ray
 """
 
-#Set the working directory to point to vitamin_D_example:
+#Set the working directory to VitaminD directory
 #import os
-#os.chdir("path_to_vitamin_d_example")
+#os.chdir("/user_path_to/NetMedPy/examples/VitaminD/")
 
 
 import networkx as nx
@@ -177,7 +177,7 @@ def plot_amspl(amspl):
 
 
 def save(obj, file):
-    with open('examples/VitaminD/output/' + file,"wb") as file:
+    with open('output/' + file,"wb") as file:
         pickle.dump(obj,file)
 
 def load(file):
@@ -191,15 +191,15 @@ if __name__=="__main__":
     ## 1) LOAD DATA
 
     #Load PPI network
-    with open("examples/VitaminD/data/ppi_network.pkl","rb") as file:
+    with open("data/ppi_network.pkl","rb") as file:
       ppi = pickle.load(file)
 
     #Load drug targets
-    with open("examples/VitaminD/data/vitd_targets.pkl","rb") as file:
+    with open("data/vitd_targets.pkl","rb") as file:
       targets = pickle.load(file)
 
     #Load disease genes
-    with open("examples/VitaminD/data/disease_genes.pkl","rb") as file:
+    with open("data/disease_genes.pkl","rb") as file:
       disease_genes = pickle.load(file)
 
 
