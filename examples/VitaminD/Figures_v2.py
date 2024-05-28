@@ -9,7 +9,7 @@ import networkx as nx
 import numpy as np
 import pandas as pd
 
-import netmedpy.NetMedPy as netmedpy
+import NetMedPy as netmedpy
 import matplotlib.pyplot as plt
 
 import pickle

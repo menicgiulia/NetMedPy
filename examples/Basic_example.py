@@ -28,16 +28,20 @@ Setup and Execution Instructions:
             
         On Linux/Mac:
             
-            export PYTHONPATH="/user_path_to/NetMedPy/netmedpy:$PYTHONPATH"
+            export PYTHONPATH="/user_path_to/NetMedPy/netmedpy":$PYTHONPATH
         
-        On Windows:
+        On Windows shell:
         
-            set PYTHONPATH=C:\user_path_to\NetMedPy\netmedpy;%PYTHONPATH%
+            set PYTHONPATH="C:\\user_path_to\\NetMedPy\\netmedpy";%PYTHONPATH%
+
+        On Powershell:
+
+            $env:PYTHONPATH = "C:\\user_path_to\\NetMedPy\\netmedpy;" + $env:PYTHONPATH
 
     2) Navigate to the NetMedPy directory where this example script is located.
 
     3) Run the script using Python 3 or higher:
-            python example.py
+            python Basic_example.py
             
     4) Enjoy
 
@@ -46,7 +50,7 @@ For any issues or further instructions, refer to the documentation or contact th
 @author: Andres Aldana Gonzalez (a.aldana@northeastern.edu)
 """
 import networkx as nx
-import netmedpy.NetMedPy as netmedpy
+import NetMedPy as netmedpy
 import random
 import seaborn as sns
 import matplotlib.pyplot as plt

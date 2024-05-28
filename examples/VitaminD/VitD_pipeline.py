@@ -18,13 +18,15 @@ pip install ray
 #Set the working directory to VitaminD directory
 #import os
 #os.chdir("/user_path_to/NetMedPy/examples/VitaminD/")
+import os
+os.chdir("C:\\Users\\aalda\\Dropbox (Personal)\\Barabasi Lab\\Postdoc\\proximitySeparationOptimization\\menic_netmedpy\\examples\\VitaminD")
 
 
 import networkx as nx
 import numpy as np
 import pandas as pd
 
-import netmedpy.NetMedPy as netmedpy
+import NetMedPy as netmedpy
 import matplotlib.pyplot as plt
 
 import pickle

@@ -1295,7 +1295,7 @@ def lcc_significance(net, A, null_model='degree_match', node_bucket = None, n_it
         distribution.append(len(sub))
 
         if i%100 == 0:
-            print(f"\rIteration {i} of {n_iter}",end="")
+            print(f"\rIter {i} de {n_iter}",end="")
     print("")
 
     l_lcc = len(lcc)
