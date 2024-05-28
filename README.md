@@ -42,8 +42,8 @@ Root folder organization (__init__.py files removed for simplicity):
 │
 └───netmedpy                                        // directory containing the python scripts that contain the functions of the netmedpy pipeline
       ├───DistanceMatrix.py                       
-      ├───NetMedPy.py
-      └───example.py                                // python script with dummy data to test the pipeline
+      └───NetMedPy.py
+      
                             
 ```
 ### Prerequisites
