@@ -15,34 +15,6 @@ The pipeline workflow is depicted in the figure below.
 This Python implementation uses precomputed distance matrices to optimize calculations. With precalculated distances between every node pair, the code can rapidly compute proximity and separation.
 
 ## Getting Started
-
-## Package Structure
-Root folder organization (__init__.py files removed for simplicity):
-```plaintext
-│   .gitignore
-│   environment.yml                                 // yml file to create conda enviorement
-│   README.md
-│
-├───Images                                          // directory with figures from paper
-│   └───OverviewPipeline.png                        // pipeline flowchart figure from paper
-│
-└───examples                                        // directory with working examples using the netmedpy pipeline
-│   │   
-│   ├───VitamindD                                   // directory with Vitamin D example using the netmedpy pipeline      
-│   │    ├───VitD_pipeline.py                       // python script with Vitamin D example using the netmedpy pipeline  
-│   │    ├───VitD_pipeline.ipynb                    // Jupyter notebook with Vitamin D example using the netmedpy pipeline  
-│   │    ├───data                                   // directory with pickle and csv files necessary to get the Vitamin D example working             
-│   │    │    ├───Alias.csv                          
-│   │    │    ├───disease_genes.pkl                 
-│   │    │    ├───ppi_network.pkl                    
-│   │    │    └───vitd_targets.pkl
-│   │    └───output                                 // directory where the output files from the Vitamin D example are saved
-│   │                          
-│   └───Basic_example.py                            // python script with dummy data to test the pipeline
-│
-└───netmedpy                                        // directory containing the python scripts that contain the functions of the netmedpy pipeline
-      ├───DistanceMatrix.py                       
-      └───NetMedPy.py
       
                             
 ```
@@ -145,6 +117,36 @@ p = lcc_data['p_val']
 
 print(f"LCC-size={size} z-score={z:0.2f} p-value={p:0.2f}")
 ```
+
+## Package Structure
+Root folder organization (__init__.py files removed for simplicity):
+```plaintext
+│   .gitignore
+│   environment.yml                                 // yml file to create conda enviorement
+│   README.md
+│
+├───Images                                          // directory with figures from paper
+│   └───OverviewPipeline.png                        // pipeline flowchart figure from paper
+│
+└───examples                                        // directory with working examples using the netmedpy pipeline
+│   │   
+│   ├───VitamindD                                   // directory with Vitamin D example using the netmedpy pipeline      
+│   │    ├───VitD_pipeline.py                       // python script with Vitamin D example using the netmedpy pipeline  
+│   │    ├───VitD_pipeline.ipynb                    // Jupyter notebook with Vitamin D example using the netmedpy pipeline  
+│   │    ├───data                                   // directory with pickle and csv files necessary to get the Vitamin D example working             
+│   │    │    ├───Alias.csv                          
+│   │    │    ├───disease_genes.pkl                 
+│   │    │    ├───ppi_network.pkl                    
+│   │    │    └───vitd_targets.pkl
+│   │    └───output                                 // directory where the output files from the Vitamin D example are saved
+│   │                          
+│   └───Basic_example.py                            // python script with dummy data to test the pipeline
+│
+└───netmedpy                                        // directory containing the python scripts that contain the functions of the netmedpy pipeline
+      ├───DistanceMatrix.py                       
+      └───NetMedPy.py
+```
+
 ## Further reading
 
 An example on the use of the implemented functions is available in the file 'Example.py'. Consult the full documentation of the appropiate functions in the file 'NetworkMetrics.pdf' or 'NetworkMetrics.md'
