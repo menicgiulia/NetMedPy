@@ -15,12 +15,11 @@ pip install networkx
 pip install ray
 """
 
-#Set the working directory to VitaminD directory
+#With the following lines of commands uncommented, you set the working directory to the VitaminD directory. 
+#With the following lines of commands commented, you first need to navigate to the directory manually.
+
 #import os
 #os.chdir("/user_path_to/NetMedPy/examples/VitaminD/")
-import os
-os.chdir("C:\\Users\\aalda\\Dropbox (Personal)\\Barabasi Lab\\Postdoc\\proximitySeparationOptimization\\menic_netmedpy\\examples\\VitaminD")
-
 
 import networkx as nx
 import numpy as np
