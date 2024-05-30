@@ -205,7 +205,7 @@ if __name__=="__main__":
 
 
 
-    ## 2) EXTRACT AND EVALUATE DISEASE MODULES
+    ## 2) SUBGRAPH STATISTICS AND FILTERING: EVALUATE THE SIZE AND SIGNIFICANCE OF THE LARGEST CONNECTED COMPONENT (LCC)
     lcc_size = pd.DataFrame(columns = ["disease","size","zscore","pval"])
 
     for d,genes in disease_genes.items():
@@ -220,7 +220,8 @@ if __name__=="__main__":
 
     plot_lcc_significance(lcc_size)
 
-    #Keep only diseases with an LCC larger than 10 and statistically significant
+    # For this analysis we keep only diseases with an LCC larger than 10 and statistically significant
+    # Filtering the disease sets to the LCC is optional and not mandatory for the subsequent analyses
     significant = lcc_size.query("size > 10 and zscore > 2 and pval<0.05")
     disease_names = significant.disease
 
