@@ -46,15 +46,15 @@ conda activate netmedpy_test
 
   On Linux/Mac:
       
-      export PYTHONPATH="/user_path_to/NetMedPy/netmedpy":$PYTHONPATH
+      export PYTHONPATH="/user_path_to/NetMedPy-main/netmedpy":$PYTHONPATH
   
   On Windows shell:
   
-      set PYTHONPATH="C:\\user_path_to\\NetMedPy\\netmedpy";%PYTHONPATH%
+      set PYTHONPATH="C:\\user_path_to\\NetMedPy-main\\netmedpy";%PYTHONPATH%
 
   On Powershell:
 
-      $env:PYTHONPATH = "C:\\user_path_to\\NetMedPy\\netmedpy;" + $env:PYTHONPATH
+      $env:PYTHONPATH = "C:\\user_path_to\\NetMedPy-main\\netmedpy;" + $env:PYTHONPATH
 
 
 - Install necessary libraries:
