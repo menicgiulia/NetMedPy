@@ -3,14 +3,15 @@
 
 ## Introduction
 
-In network medicine, understanding relationships between various node sets (primarily genes) can offer deep insights into the patterns and structure of a PPI (Protein-Protein Interaction) network. This README introduces the concepts of `proximity`, `separation`, and `LCC (Largest Connected Component)`, and provides guidance on executing the related code.
+Network medicine is a post-genomic discipline that harnesses network science principles to analyze the intricate interactions within biological systems, viewing diseases as localized disruptions in networks of genes, proteins, and other molecular entities [1].
 
-**Proximity**: Represents the closeness or average distance between two node sets. A lower average distance suggests a higher proximity.<br/>
-**Separation**: Quantifies the average distance between two sets of nodes and compares it with the average distances within each set.<br/>
-**LCC (Largest Connected Component)**: Represents the largest subgraph in which any two nodes are connected to each other by at least a path. The significance of LCC lies in its ability to indicate the major component of a network where most of the crucial interactions occur.
+The structure of the biological network plays an essential role in the system’s ability to efficiently propagate signals and withstand random failures. Consequently, most analyses in Network Medicine focus on quantifying the efficiency of the communication between different regions of the interactome or protein-protein interaction network.
+
+NetMedPy evaluates network localization (statistical analysis of the largest connected component/subgraph or LCC [2]), calculates proximity [3] and separation [2] between
+biological entities, and conducts screenings involving a large number of diseases and drug targets. NetMedPy extends the traditional Network Medicine analyses by providing four default network metrics (shortest paths, random walk, biased random walk, communicability) and four null models (perfect degree match, degree logarithmic binning, strength logarithmic binning, uniform). The user is allowed to introduce custom metrics and null models.
 
 The pipeline workflow is depicted in the figure below.
-![Pipeline](/Images/OverviewPipeline.png)
+![Pipeline](/images/OverviewPipeline.png)
 
 This Python implementation uses precomputed distance matrices to optimize calculations. With precalculated distances between every node pair, the code can rapidly compute proximity and separation.
 
@@ -18,9 +19,44 @@ This Python implementation uses precomputed distance matrices to optimize calcul
       
                             
 ```
-### Prerequisites
+### Setting up a work environment
+
+## Without installing the package
 
 - Ensure you have Python installed.
+- Copy the project at your local or remote machine:
+
+git clone https://github.com/menicgiulia/NetMedPy.git
+
+- Navigate to the project directory:
+
+cd NetMedPy-main
+
+It is recommended to work with Conda, but it is not essential. If you chose to work with Conda, these are the steps you need to take:
+- Ensure you have Conda installed.
+- Create a new conda environment with the environment.yml:
+
+conda env create -f environment.yml
+
+- Activate your conda :
+
+conda activate netmedpy_test
+
+- Set up your PYTHONPATH:
+
+  On Linux/Mac:
+      
+      export PYTHONPATH="/user_path_to/NetMedPy/netmedpy":$PYTHONPATH
+  
+  On Windows shell:
+  
+      set PYTHONPATH="C:\\user_path_to\\NetMedPy\\netmedpy";%PYTHONPATH%
+
+  On Powershell:
+
+      $env:PYTHONPATH = "C:\\user_path_to\\NetMedPy\\netmedpy;" + $env:PYTHONPATH
+
+
 - Install necessary libraries:
 
   ```bash
@@ -125,7 +161,7 @@ Root folder organization (__init__.py files removed for simplicity):
 │   environment.yml                                 // yml file to create conda enviorement
 │   README.md
 │
-├───Images                                          // directory with figures from paper
+├───images                                          // directory with figures from paper
 │   └───OverviewPipeline.png                        // pipeline flowchart figure from paper
 │
 └───examples                                        // directory with working examples using the netmedpy pipeline
@@ -153,8 +189,9 @@ An example on the use of the implemented functions is available in the file 'Exa
 
 ## References
 
-1. Menche, Jörg, et al. "Uncovering disease-disease relationships through the incomplete interactome." Science 347.6224 (2015). [DOI 10.1126/science.1257601](https://doi.org/10.1126/science.1257601)
-2. Guney, Emre, et al. "Network-based in silico drug efficacy screening." Nature Communications 7,1 (2015). [DOI 10.1038/ncomms10331](https://doi.org/10.1038/ncomms10331)
+1. Barabási, A. L., Gulbahce, N., & Loscalzo, J. (2011). Network medicine: a network-based approach to human disease. Nature reviews genetics, 12(1), 56-68.[DOI 10.1038/nrg2918](https://doi.org/10.1038/nrg2918)
+2. Menche, Jörg, et al. "Uncovering disease-disease relationships through the incomplete interactome." Science 347.6224 (2015). [DOI 10.1126/science.1257601](https://doi.org/10.1126/science.1257601)
+3. Guney, Emre, et al. "Network-based in silico drug efficacy screening." Nature Communications 7,1 (2015). [DOI 10.1038/ncomms10331](https://doi.org/10.1038/ncomms10331)
 
 
 
