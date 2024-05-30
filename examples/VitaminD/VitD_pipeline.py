@@ -254,7 +254,7 @@ if __name__=="__main__":
     plot_histograms(inflammation, factorix)
 
 
-    ### 5) CALCULATE PROXIMITY FROM VITAMIN D TO ALL DISEASES
+    ## 5) CALCULATE PROXIMITY FROM VITAMIN D TO ALL DISEASES
     vit_d = {"Vitamin D":targets}
     screen_data = netmedpy.screening(vit_d, dgenes, ppi,
                                      sp_distance,score="proximity",
@@ -267,7 +267,7 @@ if __name__=="__main__":
     plot_screening(screen_data['z_score'])
 
 
-    # 5) EVALUATE AMSPL UNDER DIFFERENT DISTANCES
+    ## 6) EVALUATE AMSPL UNDER DIFFERENT DISTANCES
     #Shortest Paths
     amspl = {"Shortest Path":screen_data["raw_amspl"]}
 
