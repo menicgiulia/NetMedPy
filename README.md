@@ -56,6 +56,9 @@ conda activate netmedpy_test
 
       $env:PYTHONPATH = "C:\\user_path_to\\NetMedPy-main\\netmedpy;" + $env:PYTHONPATH
 
+- Navigate the 
+
+
 
 - Install necessary libraries:
 
