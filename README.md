@@ -291,7 +291,8 @@ Root folder organization (__init__.py files removed for simplicity):
 │
 └───examples                                        // directory with working examples using the netmedpy pipeline
 │   │   
-│   ├───VitamindD                                   // directory with Vitamin D example using the netmedpy pipeline      
+│   ├───VitamindD                                   // directory with Vitamin D example using the netmedpy pipeline
+│   │    ├───Figures_v2.py                          // python script to recreate the figures from the paper  
 │   │    ├───VitD_pipeline.py                       // python script with Vitamin D example using the netmedpy pipeline  
 │   │    ├───VitD_pipeline.ipynb                    // Jupyter notebook with Vitamin D example using the netmedpy pipeline  
 │   │    ├───data                                   // directory with pickle and csv files necessary to get the Vitamin D example working             
