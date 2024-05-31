@@ -35,23 +35,24 @@ This Python implementation uses precomputed distance matrices to optimize calcul
 
 ##### With Conda
 
-It is recommended to work with Conda, but it is not essential. If you chose to work with Conda, these are the steps you need to take:
-
-- Ensure you have Conda installed.
-
-- Create a new conda environment with the environment.yml:
-
-      conda env create -f environment.yml
-
-- Activate your conda :
-
-      conda activate netmedpy_test
+      It is recommended to work with Conda, but it is not essential. If you chose to work with Conda, these are the steps you need to take:
+      
+      - Ensure you have Conda installed.
+      
+      - Create a new conda environment with the environment.yml:
+      
+            conda env create -f environment.yml
+      
+      - Activate your conda :
+      
+            conda activate netmedpy_test
 
 ##### Without Conda:
 
-- Ensure the following dependencies are installed before proceeding:
-
-      pip install networkx seaborn matplotlib numpy pandas ray 
+      - Ensure the following dependencies are installed before proceeding:
+      
+            pip install networkx seaborn matplotlib numpy pandas ray 
+            
 
 - Set up your PYTHONPATH:
 
