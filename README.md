@@ -143,7 +143,7 @@ To test the pipeline, we refer to the Vitamin D example, which can be found in t
 - A Python script: `VitD_pipeline.py`
 - A Jupyter notebook: `VitD_pipeline.ipynb`
 
-### Instructions
+### Instructions on testing the Vitamin D example
 
 1. Download the `examples` directory:
 If you haven't already, download the examples directory from the repository to your local or remote machine. This directory contains all the necessary files to run the example.
