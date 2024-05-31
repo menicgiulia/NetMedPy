@@ -21,7 +21,7 @@ This Python implementation uses precomputed distance matrices to optimize calcul
 
 ### Setting up a work environment
 
-#### Without installing the package
+#### 1. Without installing the package
 
 - Ensure you have Python installed.
   
@@ -80,7 +80,7 @@ It is recommended to work with Conda, but it is not essential. If you chose to w
 
       python Basic_example.py
 
-##
+#### 2. With installing the package
 
 
 - Install necessary libraries:
