@@ -64,7 +64,8 @@ It is recommended to work with Conda, but it is not essential. If you choose to 
    
       ```bash
       export PYTHONPATH="/user_path_to/NetMedPy-main/netmedpy":$PYTHONPATH
-  
+      ```
+      
     _On Windows shell_:
 
     ```bash
