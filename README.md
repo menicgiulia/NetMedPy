@@ -193,26 +193,6 @@ In the subdirectory VitaminD/data there are the files that contain the necessary
 - Navigate to the VitD_pipeline.ipynb in the Jupyter Notebook interface and start executing the cells.
 
 
-
-
-
-
-- Install necessary libraries:
-
-  ```bash
-  pip install networkx seaborn matplotlib scipy
-  ```
-
-Import NetworkMetrics module and networkx:
-
-```python
-import random
-import networkx
-import network_distances.NetworkMetrics as distances
-```
-
-Replace with the appropriate path to the `NetworkMetrics` module on your system.
-
 ### Create the network and sets
 
 As an example, consider a basic network G, and two sets of randomly selected node sets:
@@ -292,6 +272,17 @@ z = lcc_data['z_score']
 p = lcc_data['p_val']
 
 print(f"LCC-size={size} z-score={z:0.2f} p-value={p:0.2f}")
+```
+
+## Extract and evaluate disease modules
+```python
+lcc_size = pd.DataFrame(columns = ["disease","size","zscore","pval"])
+
+for d,genes in disease_genes.items():
+    data = netmedpy.lcc_significance(ppi, genes,
+                                     null_model="degree_match",n_iter=10000)
+    new_line = [d,data["lcc_size"],data["z_score"],data["p_val"]]
+    lcc_size.loc[len(lcc_size.index)] = new_line
 ```
 
 ## Package Structure
