@@ -164,6 +164,7 @@ In the subdirectory VitaminD/data there are the files that contain the necessary
     ```
        
     b) If you are working on a remote machine:
+  
     ```bash
       jupyter notebook --no-browser
     ```
