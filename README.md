@@ -193,87 +193,6 @@ In the subdirectory VitaminD/data there are the files that contain the necessary
 - Navigate to the VitD_pipeline.ipynb in the Jupyter Notebook interface and start executing the cells.
 
 
-### Create the network and sets
-
-As an example, consider a basic network G, and two sets of randomly selected node sets:
-
-```python
-G = nx.barabasi_albert_graph(1000, m)
-nodes = list(G.nodes())
-S = random.sample(nodes, 20)
-T = random.sample(nodes, 20)
-```
-
-### Precomputing distances
-
-```python
- D = distances.all_pair_distances(G)
-```
-
-### Save distance matrix as a pickle file
-
-```python
- distances.save_distances(D, "distances.pkl")
-```
-
-### Load distance matrix from a pickle file
-
-```python
-D = distances.load_distances("distances.pkl")
-```
-
-### Calculate proximity between S and T, using exact degree preserving randomization and 1000 iterations
-
-```python
-p = distances.proximity(G, S, T, D, degree_preserving='exact', n_iter=1000)
-```
-
-The result is a dictionary with the next attributes:
-
-- 'd_mu': The average distance in the randomized samples.
-- 'd_sigma': The standard deviation of distances in the randomized samples.
-- 'z_score': The z-score of the actual distance in relation to the randomized samples.
-- 'raw_amspl': The raw average minimum shortest path length between sets T and S.
-- 'dist': A list containing distances from each randomization iteration.
-
-To retrieve the z-score value of proximity:
-
-```python
-print(p['z_score'])
-```
-
-### Calculate separation between S and T
-
-Calculate the separation between S and T:
-
-```python
-sep = distances.separation(G, S, T, D)
-print(sep)
-```
-
-### Calculate the z-score significance of the separation value:
-
-```python
-s = distances.separation_z_score(G, S, T, D, degree_preserving='exact', n_iter=1000)
-print(s['z_score'])
-```
-### Calculate LCC significance
-
-```python
-#Let's select a random set of nodes to evaluate:
-G1 = G.subgraph(random.sample(nodes, 50))
-L = set(G1.nodes())
-
-lcc_data = metrics.lcc_significance(G,L, degree_preserving='exact',n_iter=10000)
-
-# Z-score and p-value
-size = lcc_data['lcc_size']
-z = lcc_data['z_score']
-p = lcc_data['p_val']
-
-print(f"LCC-size={size} z-score={z:0.2f} p-value={p:0.2f}")
-```
-
 ### Extract and evaluate disease modules
 
   - From a dictionary of diseases `disease_genes` the function lcc_significance will calculate the statistical significance of the size of the Largest Connected Component (LCC) of a subgraph induced by the node set `genes` in the network `ppi`. This function generates a null model distribution for the LCC size by resampling nodes from the network while preserving their degrees. The statistical significance of the observed LCC size is then determined by comparing it against this null model distribution.
@@ -289,7 +208,7 @@ lcc_size = pd.DataFrame(columns = ["disease","size","zscore","pval"])
 
 for d,genes in disease_genes.items():
     data = netmedpy.lcc_significance(ppi, genes,
-                                     null_model="degree_match",n_iter=10000)
+                                     null_model="log_binning",n_iter=10000)
     new_line = [d,data["lcc_size"],data["z_score"],data["p_val"]]
     lcc_size.loc[len(lcc_size.index)] = new_line
 
@@ -299,12 +218,9 @@ disease_names = significant.disease
 ```
 ### Evaluate Average Minimum Shortest Path Length (AMSPL) between Inflamation and Factor IX Deficiency disease
 
-  - The function proximity calculates the proximity between two sets of nodes in a given graph, based on the approach described by Guney et al., 2016.
-   The method computes either the average minimum shortest path length (AMSPL) or its symmetrical version (SASPL) between two sets of nodes.
+  - The function proximity calculates the proximity between two sets of nodes in a given graph, based on the approach described by Guney et al., 2016. The method computes either the average minimum shortest path length (AMSPL) or its symmetrical version (SASPL) between two sets of nodes.
 
-   The function first verifies if the network is connected. If it contains more than one connected component, a ValueError is raised.
-   It also checks for the existence of all nodes in sets T and S within the network. If any nodes are missing, it issues a warning
-   and proceeds with the existing nodes.
+   - The function first verifies if the network is connected. If it contains more than one connected component, a ValueError is raised. It also checks for the existence of all nodes in sets T and S within the network. If any nodes are missing, it issues a warning and proceeds with the existing nodes.
 
    - In this example the function calculates the proximity between the Vitamin D targets stored in `examples/VitaminD/data/vitd_targets.pkl` and the disease genes from the `examples/VitaminD/data/disease_genes.pkl` file for the two diseases: `Inflamation` and `Factor IX Deficiency`, the null model of choise in this case is `log_binning`.
 
@@ -320,17 +236,87 @@ disease_names = significant.disease
 
        
 ```python
-    inflammation = netmedpy.proximity(ppi, targets,
-                                      dgenes["Inflammation"], sp_distance,
-                                      null_model="log_binning",n_iter=10000,
-                                      symmetric=False)
+#Load PPI network
+with open("examples/VitaminD/data/ppi_network.pkl","rb") as file:
+  ppi = pickle.load(file)
 
-    factorix = netmedpy.proximity(ppi, targets,
-                                      dgenes["Factor IX Deficiency"], sp_distance,
-                                      null_model="log_binning",n_iter=10000,
-                                      symmetric=False)
+#Load drug targets
+with open("examples/VitaminD/data/vitd_targets.pkl","rb") as file:
+  targets = pickle.load(file)
 
-    plot_histograms(inflammation, factorix)
+#Load disease genes
+with open("examples/VitaminD/data/disease_genes.pkl","rb") as file:
+  disease_genes = pickle.load(file)
+
+inflammation = netmedpy.proximity(ppi, targets,
+                                  dgenes["Inflammation"], sp_distance,
+                                  null_model="log_binning",n_iter=10000,
+                                  symmetric=False)
+
+factorix = netmedpy.proximity(ppi, targets,
+                                  dgenes["Factor IX Deficiency"], sp_distance,
+                                  null_model="log_binning",n_iter=10000,
+                                  symmetric=False)
+
+plot_histograms(inflammation, factorix)
+```
+
+### Evaluate Average Minimum Shortest Path Length (AMSPL) under different distances 
+
+- The function `all_pair_distances` calculates distances between every pair of nodes in a graph according to the specified method and returns a DistanceMatrix object. This function supports multiple distance calculation methods, including shortest path, various types of random walks, and user-defined methods.
+  
+- The function `screening` screens for relationships between sets of source and target nodes within a given network, evaluating proximity or separation. This function facilitates drug repurposing and other network medicine applications by allowing the assessment of network-based relationships.
+
+- In this example using the `all_pair_distances` function the distance between every pair of nodes in the protein-protein interaction network stored in the file `examples/VitaminD/data/ppi_network.pkl` are calculated, using different parameters for the method of calculation: `random_walk`, `biased_random_walk`, and `communicability`.
+
+- For each calculation of the distance matrix the AMSPL is calculated using the `screening` function evaluating `proximity`.
+
+```python
+#Load PPI network
+with open("examples/VitaminD/data/ppi_network.pkl","rb") as file:
+  ppi = pickle.load(file)
+
+#Load drug targets
+with open("examples/VitaminD/data/vitd_targets.pkl","rb") as file:
+  targets = pickle.load(file)
+
+#Load disease genes
+with open("examples/VitaminD/data/disease_genes.pkl","rb") as file:
+  disease_genes = pickle.load(file)
+
+#Shortest Paths
+amspl = {"Shortest Path":screen_data["raw_amspl"]}
+
+#Random Walks
+sp_distance = netmedpy.all_pair_distances(ppi,distance="random_walk")
+screen_data = netmedpy.screening(vit_d, dgenes, ppi,
+                                 sp_distance,score="proximity",
+                                 properties=["raw_amspl"],
+                                 null_model="log_binning",
+                                 n_iter=10,n_procs=20)
+
+amspl["Random Walks"] = screen_data["raw_amspl"]
+
+#Biased Random Walks
+sp_distance = netmedpy.all_pair_distances(ppi,distance="biased_random_walk")
+screen_data = netmedpy.screening(vit_d, dgenes, ppi,
+                                 sp_distance,score="proximity",
+                                 properties=["raw_amspl"],
+                                 null_model="log_binning",
+                                 n_iter=10,n_procs=20)
+
+amspl["Biased Random Walks"] = screen_data["raw_amspl"]
+
+
+#Communicability
+sp_distance = netmedpy.all_pair_distances(ppi,distance="communicability")
+screen_data = netmedpy.screening(vit_d, dgenes, ppi,
+                                 sp_distance,score="proximity",
+                                 properties=["raw_amspl"],
+                                 null_model="log_binning",
+                                 n_iter=10,n_procs=20)
+
+amspl["Communicability"] = screen_data["raw_amspl"]
 ```
 
     
