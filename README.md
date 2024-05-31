@@ -274,7 +274,10 @@ p = lcc_data['p_val']
 print(f"LCC-size={size} z-score={z:0.2f} p-value={p:0.2f}")
 ```
 
-## Extract and evaluate disease modules
+### Extract and evaluate disease modules
+  From a dictionary of diseases the function lcc_significance will calculate the statistical significance of the size of the Largest Connected Component (LCC) of a subgraph induced by the node set `genes` in the network `ppi`. This function generates a null model distribution for the LCC size by resampling nodes from the network while preserving their degrees. The statistical significance of the observed LCC size is then determined by comparing it against this null model distribution.
+  The null_model parameter can be 'degree_match', 'log_binning', 'uniform', or 'custom' (defined by the user).
+  
 ```python
 lcc_size = pd.DataFrame(columns = ["disease","size","zscore","pval"])
 
