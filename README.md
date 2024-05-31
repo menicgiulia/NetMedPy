@@ -18,10 +18,9 @@ This Python implementation uses precomputed distance matrices to optimize calcul
 ## Getting Started
       
                             
-```
+
 ### Setting up a work environment
-```
-```
+
 ## Without installing the package
 
 - Ensure you have Python installed.
@@ -78,8 +77,7 @@ cd examples
 - Run the Basic_example.py script using Python 3 or higher:
 
 python Basic_example.py
-```
-```
+
 ##
 
 
