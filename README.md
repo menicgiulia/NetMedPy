@@ -129,7 +129,7 @@ To test the pipeline, we refer to the Vitamin D example, which can be found in t
 
 ### Instructions
 
-1. Download the Examples Directory:
+1. Download the `examples` directory:
 If you haven't already, download the examples directory from the repository to your local or remote machine. This directory contains all the necessary files to run the example.
 
 2. Prepare the Data:
@@ -153,7 +153,7 @@ In the subdirectory VitaminD/data there are the files that contain the necessary
     ```bash
       jupyter notebook --browser="browser_of_choise"
      ```           
-      Replace browser_of_choice with your preferred browser (e.g., chrome, firefox). The browser window should pop up automatically. If it doesn't, copy and paste the link provided in the terminal into your browser. The link should look something like this:
+Replace browser_of_choice with your preferred browser (e.g., chrome, firefox). The browser window should pop up automatically. If it doesn't, copy and paste the link provided in the terminal into your browser. The link should look something like this:
     ```bash
       http://localhost:8889/tree?token=5d4ebdddaf6cb1be76fd95c4dde891f24fd941da909129e6
     ```             
@@ -161,7 +161,7 @@ In the subdirectory VitaminD/data there are the files that contain the necessary
     ```bash
       jupyter notebook --no-browser
     ```
-      Then copy and paste the link provided in the terminal in your local browser of choise, it should look something like this:
+Then copy and paste the link provided in the terminal in your local browser of choise, it should look something like this:
     ```bash
       http://localhost:8888/?token=9feac8ff1d5ba3a86cf8c4309f4988e7db95f42d28fd7772
     ```
