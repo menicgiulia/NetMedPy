@@ -9,10 +9,8 @@ This script evaluates the role of Vitamin D in the modulation of
 autoimmune diseases, cardiovascular diseases and cancer from a
 network medicine perspective and reproduces the results presented in the paper "Title of the paper"
 
-To run this script install packages networkx and ray with
-
-pip install networkx
-pip install ray
+To run this script, please follow the detailed explanation provided in the [README](README.md). 
+The README includes step-by-step instructions on setting up the environment, preparing the data, and executing the script.
 """
 
 #With the following lines of commands uncommented, you set the working directory to the VitaminD directory. 
