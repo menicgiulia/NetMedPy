@@ -26,13 +26,13 @@ This Python implementation uses precomputed distance matrices to optimize calcul
 1. Ensure you have Python installed.
   
 2. Copy the project at your local or remote machine:
-
+   ```bash
       git clone https://github.com/menicgiulia/NetMedPy.git
-
-3. Navigate to the project directory:
-
+   ```
+4. Navigate to the project directory:
+   ```bash
       cd NetMedPy-main
-
+   ```
 ##### Option A
 
 4. Working with Conda
