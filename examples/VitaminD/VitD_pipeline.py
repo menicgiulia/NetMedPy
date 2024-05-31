@@ -5,7 +5,9 @@ Exploring Vitamin D’s Impact on Autoimmune, Cardiovascular, and Cancer Disease
 @author: Andres Aldana Gonzalez
 @Date: 04-25-2024
 
-This script evaluates the role of Vitamin D in the modulation of autoimmune diseases, cardiovascular diseases and cancer from a network medicine perspective and reproduces the results presented in the paper "NetMedPy: A Python package for Large-Scale Network Medicine Screening"
+This script evaluates the role of Vitamin D in the modulation of autoimmune diseases, 
+cardiovascular diseases and cancer from a network medicine perspective and reproduces the results presented in the paper 
+"NetMedPy: A Python package for Large-Scale Network Medicine Screening"
 
 To run this script, please follow the detailed explanation provided in the [README](README.md). 
 The README includes step-by-step instructions on setting up the environment, preparing the data, and executing the script.
