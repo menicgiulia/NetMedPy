@@ -71,13 +71,16 @@ It is recommended to work with Conda, but it is not essential. If you choose to 
       $env:PYTHONPATH = "C:\\user_path_to\\NetMedPy-main\\netmedpy;" + $env:PYTHONPATH
 
 6. Navigate to the directory "examples":
+   
       ```bash
       cd examples
       ```
-7. Run the Basic_example.py script using Python 3 or higher:
+8. Run the Basic_example.py script using Python 3 or higher:
+   
       ```bash
       python Basic_example.py
       ```
+      
 #### 2. With installing the package
 
 1. Installing the necessary dependencies
