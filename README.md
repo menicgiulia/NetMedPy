@@ -50,13 +50,8 @@ It is recommended to work with Conda, but it is not essential. If you chose to w
 ##### Without Conda:
 
 - Ensure the following dependencies are installed before proceeding:
-      - networkx
-      - numpy
-      - pickle
-      - multiprocessing
-      - random
-      - scipy
-      - ray
+
+      pip install networkx seaborn matplotlib numpy pandas ray 
 
 - Set up your PYTHONPATH:
 
