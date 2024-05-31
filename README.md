@@ -350,9 +350,12 @@ Root folder organization (__init__.py files removed for simplicity):
       └───NetMedPy.py
 ```
 
-## Further reading
+## Further information
 
-An example on the use of the implemented functions is available in the file 'Example.py'. Consult the full documentation of the appropiate functions in the file 'NetworkMetrics.pdf' or 'NetworkMetrics.md'
+- Details about each function (what is it used for, what are the input parameters, the possible values of the input parameters, what is the output) from the pipeline are available in the `netmedpy/NetMedPy.py` script in the comments before each -function. 
+- An example on the use of the implemented functions is available in the file `examples/Basic_example.py', which can be executed fairly quickly in order to test the proper installation of the package and it's functionalities.
+- A more elaborate example is available in the files `examples/VitaminD/VitD_pipeline.py` and `examples/VitaminD/VitD_pipeline.ipynb`, testing the functions with different parameters for evaluating the role of Vitamin D in the modulation of
+different diseases from a network medicine perspective. The data files (the protein-protein interation network, the disease genes, and the Vitamin D targets) needed for executing this example are available in `examples/VitaminD/data`.
 
 ## References
 
