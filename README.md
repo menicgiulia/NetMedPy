@@ -275,10 +275,15 @@ print(f"LCC-size={size} z-score={z:0.2f} p-value={p:0.2f}")
 ```
 
 ### Extract and evaluate disease modules
-  From a dictionary of diseases the function lcc_significance will calculate the statistical significance of the size of the Largest Connected Component (LCC) of a subgraph induced by the node set `genes` in the network `ppi`. This function generates a null model distribution for the LCC size by resampling nodes from the network while preserving their degrees. The statistical significance of the observed LCC size is then determined by comparing it against this null model distribution.
-  The null_model parameter can be 'degree_match', 'log_binning', 'uniform', or 'custom' (defined by the user).
+  - From a dictionary of diseases `disease_genes` the function lcc_significance will calculate the statistical significance of the size of the Largest Connected Component (LCC) of a subgraph induced by the node set `genes` in the network `ppi`. This function generates a null model distribution for the LCC size by resampling nodes from the network while preserving their degrees. The statistical significance of the observed LCC size is then determined by comparing it against this null model distribution.
+  
+  - The parameter `null_model` can be `degree_match`, `log_binning`, `uniform`, or `custom` (defined by the user).
   
 ```python
+#Load disease genes dictonary from the pickle file in `examples/VitaminD/data/disease_genes.pkl`
+with open("examples/VitaminD/data/disease_genes.pkl","rb") as file:
+  disease_genes = pickle.load(file)
+
 lcc_size = pd.DataFrame(columns = ["disease","size","zscore","pval"])
 
 for d,genes in disease_genes.items():
@@ -286,6 +291,10 @@ for d,genes in disease_genes.items():
                                      null_model="degree_match",n_iter=10000)
     new_line = [d,data["lcc_size"],data["z_score"],data["p_val"]]
     lcc_size.loc[len(lcc_size.index)] = new_line
+
+#Keep only diseases with an LCC larger than 10 and statistically significant
+significant = lcc_size.query("size > 10 and zscore > 2 and pval<0.05")
+disease_names = significant.disease
 ```
 
 ## Package Structure
