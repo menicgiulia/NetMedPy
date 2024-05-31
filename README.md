@@ -33,7 +33,7 @@ This Python implementation uses precomputed distance matrices to optimize calcul
 
       cd NetMedPy-main
 
-4.a. Working with Conda
+      4.a. Working with Conda
 
 It is recommended to work with Conda, but it is not essential. If you chose to work with Conda, these are the steps you need to take:
 
@@ -47,7 +47,7 @@ It is recommended to work with Conda, but it is not essential. If you chose to w
 
       conda activate netmedpy_test
 
-4.b. Working without Conda
+      4.b. Working without Conda
 
 - Ensure the following dependencies are installed before proceeding:
 
