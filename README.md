@@ -20,20 +20,20 @@ This Python implementation uses precomputed distance matrices to optimize calcul
 
 ### Setting up a work environment
 
-#### Without installing the package
+#### 1. Without installing the package
 
-1. Ensure you have Python installed.
+1.1. Ensure you have Python installed.
   
-2. Copy the project at your local or remote machine:
+1.2. Copy the project at your local or remote machine:
    ```bash
       git clone https://github.com/menicgiulia/NetMedPy.git
    ```
-3. Navigate to the project directory:
+1.3. Navigate to the project directory:
    ```bash
       cd NetMedPy-main
    ```
 
-4. Installing the necessary dependencies
+1.4. Installing the necessary dependencies
    
    
 ##### Option A: working with Conda
@@ -56,7 +56,7 @@ It is recommended to work with Conda, but it is not essential. If you choose to 
 
       pip install networkx seaborn matplotlib numpy pandas ray 
             
-5. Set up your PYTHONPATH (Replace "/user_path_to/NetMedPy-main/netmedpy" with the appropriate path of the package in your local/remote machine.):
+1.5. Set up your PYTHONPATH (Replace "/user_path_to/NetMedPy-main/netmedpy" with the appropriate path of the package in your local/remote machine.):
 
     * On Linux/Mac:
       
@@ -70,12 +70,12 @@ It is recommended to work with Conda, but it is not essential. If you choose to 
 
       $env:PYTHONPATH = "C:\\user_path_to\\NetMedPy-main\\netmedpy;" + $env:PYTHONPATH
 
-6. Navigate to the directory "examples":
+1.6. Navigate to the directory "examples":
    
       ```bash
       cd examples
       ```
-8. Run the Basic_example.py script using Python 3 or higher:
+1.7. Run the Basic_example.py script using Python 3 or higher:
    
       ```bash
       python Basic_example.py
@@ -83,7 +83,7 @@ It is recommended to work with Conda, but it is not essential. If you choose to 
       
 #### 2. With installing the package
 
-1. Installing the necessary dependencies
+2.1. Installing the necessary dependencies
    
    
 ##### Option A: working with Conda
@@ -108,17 +108,17 @@ It is recommended to work with Conda, but it is not essential. If you choose to 
 
       pip install networkx seaborn matplotlib numpy pandas ray
 
-2. Install the package:
+2.2. Install the package:
       ```bash
       pip install netmedpy
       ```
-3. Download the directory examples.
+2.3. Download the directory examples.
    
-4. Navigate to the directory "examples":
+2.4. Navigate to the directory "examples":
       ```bash
       cd /user_path_to/examples
       ```
-5. Run the Basic_example.py script using Python 3 or higher:
+2.5. Run the Basic_example.py script using Python 3 or higher:
       ```bash
       python Basic_example.py
       ```
