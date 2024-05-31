@@ -275,6 +275,7 @@ print(f"LCC-size={size} z-score={z:0.2f} p-value={p:0.2f}")
 ```
 
 ### Extract and evaluate disease modules
+
   - From a dictionary of diseases `disease_genes` the function lcc_significance will calculate the statistical significance of the size of the Largest Connected Component (LCC) of a subgraph induced by the node set `genes` in the network `ppi`. This function generates a null model distribution for the LCC size by resampling nodes from the network while preserving their degrees. The statistical significance of the observed LCC size is then determined by comparing it against this null model distribution.
   
   - The parameter `null_model` can be `degree_match`, `log_binning`, `uniform`, or `custom` (defined by the user).
@@ -296,7 +297,43 @@ for d,genes in disease_genes.items():
 significant = lcc_size.query("size > 10 and zscore > 2 and pval<0.05")
 disease_names = significant.disease
 ```
+### Evaluate Average Minimum Shortest Path Length (AMSPL) between Inflamation and Factor IX Deficiency disease
 
+  - The function proximity calculates the proximity between two sets of nodes in a given graph, based on the approach described by Guney et al., 2016.
+   The method computes either the average minimum shortest path length (AMSPL) or its symmetrical version (SASPL) between two sets of nodes.
+
+   The function first verifies if the network is connected. If it contains more than one connected component, a ValueError is raised.
+   It also checks for the existence of all nodes in sets T and S within the network. If any nodes are missing, it issues a warning
+   and proceeds with the existing nodes.
+
+   - In this example the function calculates the proximity between the Vitamin D targets stored in `examples/VitaminD/data/vitd_targets.pkl` and the disease genes from the `examples/VitaminD/data/disease_genes.pkl` file for the two diseases: `Inflamation` and `Factor IX Deficiency`, the null model of choise in this case is `log_binning`.
+
+   - The function returns a dictionary containing various statistics related to proximity, including:
+       - 'd_mu': The average distance in the randomized samples.
+       - 'd_sigma': The standard deviation of distances in the randomized samples.
+       - 'z_score': The z-score of the actual distance in relation to the randomized samples.
+       - 'p_value_single_tail': One-tail P-value associated with the proximity z-score
+       - 'p_value_double_tail': Two-tail P-value associated with the proximity z-score
+       - 'p_val': P-value associated with the z-score.
+       - 'raw_amspl': The raw average minimum shortest path length between sets T and S.
+       - 'dist': A list containing distances from each randomization iteration.
+
+       
+```python
+    inflammation = netmedpy.proximity(ppi, targets,
+                                      dgenes["Inflammation"], sp_distance,
+                                      null_model="log_binning",n_iter=10000,
+                                      symmetric=False)
+
+    factorix = netmedpy.proximity(ppi, targets,
+                                      dgenes["Factor IX Deficiency"], sp_distance,
+                                      null_model="log_binning",n_iter=10000,
+                                      symmetric=False)
+
+    plot_histograms(inflammation, factorix)
+```
+
+    
 ## Package Structure
 Root folder organization (__init__.py files removed for simplicity):
 ```plaintext
