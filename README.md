@@ -142,16 +142,16 @@ In the subdirectory VitaminD/data there are the files that contain the necessary
 4. Run the Example:
 
 ##### Option A: using the Python Script
-       ```bash
+
       python VitD_pipeline.py
-      ```
+      
 ##### Option B: using the Jupyter Notebook
 
 - Start the Jupyter Kernel
 
-      a) If you are workin on a local machine:
-               ```bash
-              jupyter notebook --browser="browser_of_choise"
+###### If you are working on a local machine:
+
+      jupyter notebook --browser="browser_of_choise"
               ```
         Replace browser_of_choice with your preferred browser (e.g., chrome, firefox). The browser window should pop up automatically. If it doesn't, copy and paste the link provided              in the terminal into your browser. The link should look something like this:
                ```bash
