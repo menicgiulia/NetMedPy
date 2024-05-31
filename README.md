@@ -16,7 +16,16 @@ The pipeline workflow is depicted in the figure below.
 This Python implementation uses precomputed distance matrices to optimize calculations. With precalculated distances between every node pair, the code can rapidly compute proximity and separation.
 
 ## Getting Started
-                        
+## Example Section
+
+This is an example sentence with a footnote.[^1]
+
+Another example sentence with another footnote.[^2]
+
+## References
+
+[^1]: This is the content of the first footnote.
+[^2]: This is the content of the second footnote.                     
 
 ### Setting up a work environment
 
