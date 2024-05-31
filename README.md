@@ -60,15 +60,15 @@ It is recommended to work with Conda, but it is not essential. If you choose to 
             
 1.5. Set up your PYTHONPATH (Replace "/user_path_to/NetMedPy-main/netmedpy" with the appropriate path of the package in your local/remote machine.):
 
-    *On Linux/Mac*:
+    _On Linux/Mac_:
       
       export PYTHONPATH="/user_path_to/NetMedPy-main/netmedpy":$PYTHONPATH
   
-    *On Windows shell*:
+    _On Windows shell_:
   
       set PYTHONPATH="C:\\user_path_to\\NetMedPy-main\\netmedpy";%PYTHONPATH%
 
-    *On Powershell*:
+    _On Powershell_:
 
       $env:PYTHONPATH = "C:\\user_path_to\\NetMedPy-main\\netmedpy;" + $env:PYTHONPATH
 
