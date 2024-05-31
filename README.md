@@ -21,19 +21,19 @@ This Python implementation uses precomputed distance matrices to optimize calcul
 
 ### Setting up a work environment
 
-#### 1. Without installing the package
+#### Without installing the package
 
-- Ensure you have Python installed.
+1. Ensure you have Python installed.
   
-- Copy the project at your local or remote machine:
+2. Copy the project at your local or remote machine:
 
       git clone https://github.com/menicgiulia/NetMedPy.git
 
-- Navigate to the project directory:
+3. Navigate to the project directory:
 
       cd NetMedPy-main
 
-##### With Conda
+##### 4.a. Working with Conda
 
 It is recommended to work with Conda, but it is not essential. If you chose to work with Conda, these are the steps you need to take:
 
@@ -47,13 +47,13 @@ It is recommended to work with Conda, but it is not essential. If you chose to w
 
       conda activate netmedpy_test
 
-##### Without Conda:
+##### 4.b. Working without Conda
 
 - Ensure the following dependencies are installed before proceeding:
 
       pip install networkx seaborn matplotlib numpy pandas ray 
             
-- Set up your PYTHONPATH:
+4. Set up your PYTHONPATH:
 
   On Linux/Mac:
       
@@ -67,11 +67,11 @@ It is recommended to work with Conda, but it is not essential. If you chose to w
 
       $env:PYTHONPATH = "C:\\user_path_to\\NetMedPy-main\\netmedpy;" + $env:PYTHONPATH
 
-- Navigate to the directory "examples":
+5. Navigate to the directory "examples":
 
       cd examples
 
-- Run the Basic_example.py script using Python 3 or higher:
+6. Run the Basic_example.py script using Python 3 or higher:
 
       python Basic_example.py
 
