@@ -220,8 +220,6 @@ disease_names = significant.disease
 
   - The function proximity calculates the proximity between two sets of nodes in a given graph, based on the approach described by Guney et al., 2016. The method computes either the average minimum shortest path length (AMSPL) or its symmetrical version (SASPL) between two sets of nodes.
 
-   - The function first verifies if the network is connected. If it contains more than one connected component, a ValueError is raised. It also checks for the existence of all nodes in sets T and S within the network. If any nodes are missing, it issues a warning and proceeds with the existing nodes.
-
    - In this example the function calculates the proximity between the Vitamin D targets stored in `examples/VitaminD/data/vitd_targets.pkl` and the disease genes from the `examples/VitaminD/data/disease_genes.pkl` file for the two diseases: `Inflamation` and `Factor IX Deficiency`, the null model of choise in this case is `log_binning`.
 
    - The function returns a dictionary containing various statistics related to proximity, including:
@@ -231,7 +229,7 @@ disease_names = significant.disease
        - 'p_value_single_tail': One-tail P-value associated with the proximity z-score
        - 'p_value_double_tail': Two-tail P-value associated with the proximity z-score
        - 'p_val': P-value associated with the z-score.
-       - 'raw_amspl': The raw average minimum shortest path length between sets T and S.
+       - 'raw_amspl': The raw average minimum shortest path length between the two sets of interest.
        - 'dist': A list containing distances from each randomization iteration.
 
        
