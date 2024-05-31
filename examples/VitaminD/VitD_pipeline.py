@@ -210,7 +210,7 @@ if __name__=="__main__":
 
     for d,genes in disease_genes.items():
         data = netmedpy.lcc_significance(ppi, genes,
-                                         null_model="degree_match",n_iter=10000)
+                                         null_model="log_binning",n_iter=10000)
 
         new_line = [d,data["lcc_size"],data["z_score"],data["p_val"]]
         lcc_size.loc[len(lcc_size.index)] = new_line
@@ -240,12 +240,12 @@ if __name__=="__main__":
     ## 4) EVALUATE AMSPL BETWEEN INFLAMMATION AND FACTOR IX DEFICIENCY DISEASE
     inflammation = netmedpy.proximity(ppi, targets,
                                       dgenes["Inflammation"], sp_distance,
-                                      null_model="degree_match",n_iter=10000,
+                                      null_model="log_binning",n_iter=10000,
                                       symmetric=False)
 
     factorix = netmedpy.proximity(ppi, targets,
                                       dgenes["Factor IX Deficiency"], sp_distance,
-                                      null_model="degree_match",n_iter=10000,
+                                      null_model="log_binning",n_iter=10000,
                                       symmetric=False)
 
     save( (inflammation,factorix),"inf_fix.pkl" )
@@ -259,7 +259,7 @@ if __name__=="__main__":
     screen_data = netmedpy.screening(vit_d, dgenes, ppi,
                                      sp_distance,score="proximity",
                                      properties=["z_score","raw_amspl"],
-                                     null_model="degree_match",
+                                     null_model="log_binning",
                                      n_iter=10000,n_procs=20)
 
     save(screen_data,"screen.pkl")
@@ -276,7 +276,7 @@ if __name__=="__main__":
     screen_data = netmedpy.screening(vit_d, dgenes, ppi,
                                      sp_distance,score="proximity",
                                      properties=["raw_amspl"],
-                                     null_model="degree_match",
+                                     null_model="log_binning",
                                      n_iter=10,n_procs=20)
 
     amspl["Random Walks"] = screen_data["raw_amspl"]
@@ -286,7 +286,7 @@ if __name__=="__main__":
     screen_data = netmedpy.screening(vit_d, dgenes, ppi,
                                      sp_distance,score="proximity",
                                      properties=["raw_amspl"],
-                                     null_model="degree_match",
+                                     null_model="log_binning",
                                      n_iter=10,n_procs=20)
 
     amspl["Biased Random Walks"] = screen_data["raw_amspl"]
@@ -297,7 +297,7 @@ if __name__=="__main__":
     screen_data = netmedpy.screening(vit_d, dgenes, ppi,
                                      sp_distance,score="proximity",
                                      properties=["raw_amspl"],
-                                     null_model="degree_match",
+                                     null_model="log_binning",
                                      n_iter=10,n_procs=20)
 
     amspl["Communicability"] = screen_data["raw_amspl"]
