@@ -25,10 +25,12 @@ This Python implementation uses precomputed distance matrices to optimize calcul
 1.1. Ensure you have Python installed.
   
 1.2. Copy the project at your local or remote machine:
+
    ```bash
       git clone https://github.com/menicgiulia/NetMedPy.git
    ```
 1.3. Navigate to the project directory:
+
    ```bash
       cd NetMedPy-main
    ```
@@ -144,10 +146,11 @@ If you haven't already, download the examples directory from the repository to y
 In the subdirectory VitaminD/data there are the files that contain the necessary data to execute the example, ensure the data files ther. The output files will be stored in the VitaminD/output subdirectory.
 
 3. Navigate to the VitaminD directory:
+4. 
      ```bash
       cd /user_path_to/examples/VitaminD
       ```
-4. Run the Example:
+5. Run the Example:
 
 ##### Option A: using the Python Script
 
@@ -158,6 +161,7 @@ In the subdirectory VitaminD/data there are the files that contain the necessary
 - Start the Jupyter Kernel
 
     a) If you are working on a local machine:
+  
     ```bash
       jupyter notebook --browser="browser_of_choise"
     ```
