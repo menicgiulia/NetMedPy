@@ -157,15 +157,17 @@ In the subdirectory VitaminD/data there are the files that contain the necessary
       jupyter notebook --browser="browser_of_choise"
     ```
     
-Replace browser_of_choice with your preferred browser (e.g., chrome, firefox). The browser window should pop up automatically. If it doesn't, copy and paste the link provided in the terminal into your browser. The link should look something like this:
+  Replace browser_of_choice with your preferred browser (e.g., chrome, firefox). The browser window should pop up automatically. If it doesn't, copy and paste the link provided in the terminal into your browser. The link should look something like this:
 
     ```bash
       http://localhost:8889/tree?token=5d4ebdddaf6cb1be76fd95c4dde891f24fd941da909129e6
-    ```             
+    ```
+       
     b) If you are working on a remote machine:
     ```bash
       jupyter notebook --no-browser
     ```
+    
 Then copy and paste the link provided in the terminal in your local browser of choise, it should look something like this:
 
     ```bash
