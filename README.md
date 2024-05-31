@@ -36,9 +36,10 @@ This Python implementation uses precomputed distance matrices to optimize calcul
 
 4. Installing the necessary dependencies
    
+   
 ##### Option A: working with Conda
 
-It is recommended to work with Conda, but it is not essential. If you chose to work with Conda, these are the steps you need to take:
+It is recommended to work with Conda, but it is not essential. If you choose to work with Conda, these are the steps you need to take:
 
 - Ensure you have Conda installed.
 
@@ -56,7 +57,7 @@ It is recommended to work with Conda, but it is not essential. If you chose to w
 
       pip install networkx seaborn matplotlib numpy pandas ray 
             
-5. Set up your PYTHONPATH:
+5. Set up your PYTHONPATH (Replace "/user_path_to/NetMedPy-main/netmedpy" with the appropriate path of the package in your local/remote machine.):
 
   On Linux/Mac:
       
@@ -79,6 +80,46 @@ It is recommended to work with Conda, but it is not essential. If you chose to w
       python Basic_example.py
 
 #### 2. With installing the package
+
+1. Installing the necessary dependencies
+   
+   
+##### Option A: working with Conda
+
+It is recommended to work with Conda, but it is not essential. If you choose to work with Conda, these are the steps you need to take:
+
+- Ensure you have Conda installed.
+
+- Download the environment.yml and navigate to the directory of your local/remote machine where the file is located.
+
+- Create a new conda environment with the environment.yml:
+
+      conda env create -f environment.yml
+
+- Activate your conda :
+
+      conda activate netmedpy_test
+  
+##### Option B: working without Conda
+
+- Ensure the following dependencies are installed before proceeding:
+
+      pip install networkx seaborn matplotlib numpy pandas ray
+
+2. Install the package:
+
+      pip install netmedpy
+
+3. Download the directory examples.
+   
+4. Navigate to the directory "examples":
+
+      cd /user_path_to/examples
+
+5. Run the Basic_example.py script using Python 3 or higher:
+
+      python Basic_example.py
+
 
 
 - Install necessary libraries:
