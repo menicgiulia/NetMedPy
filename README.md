@@ -61,24 +61,29 @@ It is recommended to work with Conda, but it is not essential. If you choose to 
 5. Set up your PYTHONPATH (Replace "/user_path_to/NetMedPy-main/netmedpy" with the appropriate path of the package in your local/remote machine.):
 
     _On Linux/Mac_:
-      
+   
+      ```bash
       export PYTHONPATH="/user_path_to/NetMedPy-main/netmedpy":$PYTHONPATH
   
     _On Windows shell_:
-  
-      set PYTHONPATH="C:\\user_path_to\\NetMedPy-main\\netmedpy";%PYTHONPATH%
 
+    ```bash
+      set PYTHONPATH="C:\\user_path_to\\NetMedPy-main\\netmedpy";%PYTHONPATH%
+    ```
+      
     _On Powershell_:
 
+    ```bash
       $env:PYTHONPATH = "C:\\user_path_to\\NetMedPy-main\\netmedpy;" + $env:PYTHONPATH
-
-6. Navigate to the directory "examples":
+    ```
+    
+7. Navigate to the directory "examples":
    
       ```bash
       cd examples
       ```
       
-7. Run the Basic_example.py script using Python 3 or higher:
+8. Run the Basic_example.py script using Python 3 or higher:
    
       ```bash
       python Basic_example.py
