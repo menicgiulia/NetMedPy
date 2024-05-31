@@ -136,35 +136,35 @@ If you haven't already, download the examples directory from the repository to y
 In the subdirectory VitaminD/data there are the files that contain the necessary data to execute the example, ensure the data files ther. The output files will be stored in the VitaminD/output subdirectory.
 
 3. Navigate to the VitaminD directory:
-
+     ```bash
       cd /user_path_to/examples/VitaminD
-
+      ```
 4. Run the Example:
 
 ##### Option A: using the Python Script
-
+       ```bash
       python VitD_pipeline.py
-
+      ```
 ##### Option B: using the Jupyter Notebook
 
 - Start the Jupyter Kernel
 
       a) If you are workin on a local machine:
-
+               ```bash
               jupyter notebook --browser="browser_of_choise"
-
+              ```
         Replace browser_of_choice with your preferred browser (e.g., chrome, firefox). The browser window should pop up automatically. If it doesn't, copy and paste the link provided              in the terminal into your browser. The link should look something like this:
-
+               ```bash
               http://localhost:8889/tree?token=5d4ebdddaf6cb1be76fd95c4dde891f24fd941da909129e6
-
+              ```
       b) If you are working on a remote machine:
-
+               ```bash
               jupyter notebook --no-browser
-
+              ```
         Then copy and paste the link provided in the terminal in your local browser of choise, it should look something like this:
-
+               ```bash
               http://localhost:8888/?token=9feac8ff1d5ba3a86cf8c4309f4988e7db95f42d28fd7772
-
+              ```
 - Navigate to the VItD_pipeline.ipynb in the Jupyter Notebook interface and start executing the cells.
 
 - Install necessary libraries:
