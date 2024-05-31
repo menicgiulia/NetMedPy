@@ -16,8 +16,7 @@ The pipeline workflow is depicted in the figure below.
 This Python implementation uses precomputed distance matrices to optimize calculations. With precalculated distances between every node pair, the code can rapidly compute proximity and separation.
 
 ## Getting Started
-      
-                            
+                        
 
 ### Setting up a work environment
 
@@ -121,6 +120,52 @@ It is recommended to work with Conda, but it is not essential. If you choose to 
       python Basic_example.py
       ```
 
+## Examples
+
+To test the pipeline, we refer to the Vitamin D example, which can be found in the `examples/VitaminD` directory. There are two files that you can use for testing:
+
+- A Python script: `VitD_pipeline.py`
+- A Jupyter notebook: `VitD_pipeline.ipynb`
+
+### Instructions
+
+1. Download the Examples Directory:
+If you haven't already, download the examples directory from the repository to your local or remote machine. This directory contains all the necessary files to run the example.
+
+2. Prepare the Data:
+In the subdirectory VitaminD/data there are the files that contain the necessary data to execute the example, ensure the data files ther. The output files will be stored in the VitaminD/output subdirectory.
+
+3. Navigate to the VitaminD directory:
+
+      cd /user_path_to/examples/VitaminD
+
+4. Run the Example:
+
+##### Option A: using the Python Script
+
+      python VitD_pipeline.py
+
+##### Option B: using the Jupyter Notebook
+
+- Start the Jupyter Kernel
+
+      a) If you are workin on a local machine:
+
+              jupyter notebook --browser="browser_of_choise"
+
+        Replace browser_of_choice with your preferred browser (e.g., chrome, firefox). The browser window should pop up automatically. If it doesn't, copy and paste the link provided              in the terminal into your browser. The link should look something like this:
+
+              http://localhost:8889/tree?token=5d4ebdddaf6cb1be76fd95c4dde891f24fd941da909129e6
+
+      b) If you are working on a remote machine:
+
+              jupyter notebook --no-browser
+
+        Then copy and paste the link provided in the terminal in your local browser of choise, it should look something like this:
+
+              http://localhost:8888/?token=9feac8ff1d5ba3a86cf8c4309f4988e7db95f42d28fd7772
+
+- Navigate to the VItD_pipeline.ipynb in the Jupyter Notebook interface and start executing the cells.
 
 - Install necessary libraries:
 
