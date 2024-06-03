@@ -356,6 +356,11 @@ Root folder organization (__init__.py files removed for simplicity):
 - A more elaborate example is available in the files `examples/VitaminD/VitD_pipeline.py` and `examples/VitaminD/VitD_pipeline.ipynb`, testing the functions with different parameters for evaluating the role of Vitamin D in the modulation of
 different diseases from a network medicine perspective. The data files (the protein-protein interation network, the disease genes, and the Vitamin D targets) needed for executing this example are available in `examples/VitaminD/data`.
 
+## License
+
+This project is licensed under the terms of the MIT license.
+
+
 ## References
 
 [^1]: Barabási, A. L., Gulbahce, N., & Loscalzo, J. (2011). Network medicine: a network-based approach to human disease. Nature reviews genetics, 12(1), 56-68.[DOI 10.1038/nrg2918](https://doi.org/10.1038/nrg2918)
