@@ -57,7 +57,7 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
 
       pip install networkx seaborn matplotlib numpy pandas ray 
             
-5. Set up your PYTHONPATH (Replace "/user_path_to/NetMedPy-main/netmedpy" with the appropriate path of the package in your local/remote machine.):
+5. Set up your PYTHONPATH (Replace `/user_path_to/NetMedPy-main/netmedpy` with the appropriate path of the package in your local/remote machine.):
 
     _On Linux/Mac_:
    
@@ -102,11 +102,11 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
 
 - Download the environment.yml and navigate to the directory of your local/remote machine where the file is located.
 
-- Create a new conda environment with the environment.yml:
+- Create a new conda environment with the `environment.yml` file:
 
       conda env create -f environment.yml
 
-- Activate your conda :
+- Activate your new conda environment:
 
       conda activate netmedpy_test
   
