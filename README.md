@@ -169,7 +169,7 @@ In the subdirectory VitaminD/data there are the files that contain the necessary
     a) If you are working on a local machine:
   
     ```bash
-      jupyter notebook --browser="browser_of_choise"
+      jupyter notebook --browser="browser_of_choice"
     ```
     
   Replace browser_of_choice with your preferred browser (e.g., chrome, firefox). The browser window should pop up automatically. If it doesn't, copy and paste the link provided in the terminal into your browser. The link should look something like this:
