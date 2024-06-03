@@ -164,6 +164,12 @@ In the subdirectory `VitaminD/data` there are the files that contain the necessa
       
 ##### Option B: using the Jupyter Notebook
 
+- Make sure you have the `Jupyter` package installed.
+
+  ```bash
+      pip install jupyter
+      ``` 
+
 - Start the Jupyter Kernel
 
     a) If you are working on a local machine:
