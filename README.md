@@ -213,6 +213,7 @@ for d,genes in disease_genes.items():
     lcc_size.loc[len(lcc_size.index)] = new_line
 
 #Keep only diseases with an LCC larger than 10 and statistically significant
+#Filtering the disease sets to the LCC is optional and not mandatory for the subsequent analyses
 significant = lcc_size.query("size > 10 and zscore > 2 and pval<0.05")
 disease_names = significant.disease
 ```
