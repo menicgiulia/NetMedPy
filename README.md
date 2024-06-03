@@ -156,6 +156,7 @@ In the subdirectory `VitaminD/data` there are the files that contain the necessa
      ```bash
       cd /user_path_to/examples/VitaminD
       ```
+     
 5. Run the Example:
 
 ##### Option A: using the Python Script
@@ -168,8 +169,8 @@ In the subdirectory `VitaminD/data` there are the files that contain the necessa
 
   ```bash
       pip install jupyter
-      ``` 
-
+      ```
+  
 - Start the Jupyter Kernel
 
     a) If you are working on a local machine:
