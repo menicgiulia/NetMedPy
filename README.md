@@ -149,7 +149,7 @@ To test the pipeline, we refer to the Vitamin D example, which can be found in t
 If you haven't already done so, download the examples directory from the repository to your local or remote machine. This directory contains all the necessary files to run the example.
 
 2. Prepare the Data:
-In the subdirectory VitaminD/data there are the files that contain the necessary data to execute the example, ensure the data files there. The output files will be stored in the VitaminD/output subdirectory.
+In the subdirectory `VitaminD/data` there are the files that contain the necessary data to execute the example, ensure the data files there. The output files will be stored in the `VitaminD/output` subdirectory.
 
 3. Navigate to the VitaminD directory:
 4. 
