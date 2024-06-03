@@ -195,7 +195,7 @@ In the subdirectory VitaminD/data there are the files that contain the necessary
 
 ### Extract and evaluate disease modules
 
-  - From a dictionary of diseases `disease_genes` the function lcc_significance will calculate the statistical significance of the size of the Largest Connected Component (LCC) of a subgraph induced by the node set `genes` in the network `ppi`. This function generates a null model distribution for the LCC size by resampling nodes from the network while preserving their degrees. The statistical significance of the observed LCC size is then determined by comparing it against this null model distribution.
+  - From a dictionary of diseases `disease_genes` the function lcc_significance will calculate the statistical significance of the size of the Largest Connected Component (LCC) of a subgraph induced by the node set `genes` in the network `ppi`. This function generates a null model distribution for the LCC size by resampling nodes from the network while preserving their degrees (`null_model="log_binning"`). The statistical significance of the observed LCC size is then determined by comparing it against this null model distribution.
   
   - The parameter `null_model` can be `degree_match`, `log_binning`, `uniform`, or `custom` (defined by the user).
   
