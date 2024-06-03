@@ -23,7 +23,7 @@ This Python implementation uses precomputed distance matrices to optimize calcul
 
 1. Ensure you have Python installed.
   
-2. Copy the project at your local or remote machine:
+2. Copy the project to your local or remote machine:
 
    ```bash
       git clone https://github.com/menicgiulia/NetMedPy.git
@@ -39,7 +39,7 @@ This Python implementation uses precomputed distance matrices to optimize calcul
    
 ##### Option A: working with Conda
 
-It is recommended to work with Conda, but it is not essential. If you choose to work with Conda, these are the steps you need to take:
+Working with Conda is recommended, but it is not essential. If you choose to work with Conda, these are the steps you need to take:
 
 - Ensure you have Conda installed.
 
@@ -96,7 +96,7 @@ It is recommended to work with Conda, but it is not essential. If you choose to 
    
 ##### Option A: working with Conda
 
-It is recommended to work with Conda, but it is not essential. If you choose to work with Conda, these are the steps you need to take:
+Working with Conda is recommended, but it is not essential. If you choose to work with Conda, these are the steps you need to take:
 
 - Ensure you have Conda installed.
 
@@ -146,10 +146,10 @@ To test the pipeline, we refer to the Vitamin D example, which can be found in t
 ### Instructions on testing the Vitamin D example
 
 1. Download the `examples` directory:
-If you haven't already, download the examples directory from the repository to your local or remote machine. This directory contains all the necessary files to run the example.
+If you haven't already done so, download the examples directory from the repository to your local or remote machine. This directory contains all the necessary files to run the example.
 
 2. Prepare the Data:
-In the subdirectory VitaminD/data there are the files that contain the necessary data to execute the example, ensure the data files ther. The output files will be stored in the VitaminD/output subdirectory.
+In the subdirectory VitaminD/data there are the files that contain the necessary data to execute the example, ensure the data files there. The output files will be stored in the VitaminD/output subdirectory.
 
 3. Navigate to the VitaminD directory:
 4. 
@@ -184,7 +184,7 @@ In the subdirectory VitaminD/data there are the files that contain the necessary
       jupyter notebook --no-browser
     ```
     
-  Then copy and paste the link provided in the terminal in your local browser of choise, it should look something like this:
+  Then copy and paste the link provided in the terminal in your local browser of choice; it should look something like this:
 
     
    * http://localhost:8888/?token=9feac8ff1d5ba3a86cf8c4309f4988e7db95f42d28fd7772
@@ -216,11 +216,11 @@ for d,genes in disease_genes.items():
 significant = lcc_size.query("size > 10 and zscore > 2 and pval<0.05")
 disease_names = significant.disease
 ```
-### Evaluate Average Minimum Shortest Path Length (AMSPL) between Inflamation and Factor IX Deficiency disease
+### Evaluate Average Minimum Shortest Path Length (AMSPL) between Vitamin D and Inflammation and between Vitamin D and Factor IX Deficiency disease
 
-  - The function proximity calculates the proximity between two sets of nodes in a given graph, based on the approach described by Guney et al., 2016. The method computes either the average minimum shortest path length (AMSPL) or its symmetrical version (SASPL) between two sets of nodes.
+  - The function proximity calculates the proximity between two sets of nodes in a given graph based on the approach described by Guney et al., 2016. The method computes either the average minimum shortest path length (AMSPL) or its symmetrical version (SASPL) between two sets of nodes.
 
-   - In this example the function calculates the proximity between the Vitamin D targets stored in `examples/VitaminD/data/vitd_targets.pkl` and the disease genes from the `examples/VitaminD/data/disease_genes.pkl` file for the two diseases: `Inflamation` and `Factor IX Deficiency`, the null model of choise in this case is `log_binning`.
+   In this example, the function calculates the proximity between the Vitamin D targets stored in `examples/VitaminD/data/vitd_targets.pkl` and the disease genes from the `examples/VitaminD/data/disease_genes.pkl` file for the two diseases: `Inflammation` and `Factor IX Deficiency`. The null model of choice, in this case, is `log_binning`.
 
    - The function returns a dictionary containing various statistics related to proximity, including:
        - 'd_mu': The average distance in the randomized samples.
