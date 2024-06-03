@@ -5,7 +5,7 @@ setup(
     version='0.1.0',
     author='Andrés Aldana, Michael Sebek, Gordana Ispirova, Rodrigo Dorantes-Gilardi, Giulia Menichetti',
     author_email='giulia.menichetti@channing.harvard.edu',
-    description='NetMedPy evaluates network localization (statistical analysis of the largest connected component/subgraph or LCC), calculates proximity and separation between biological entities, and conducts screenings involving a large number of diseases and drug targets. NetMedPy extends the traditional Network Medicine analyses by providing four default network metrics (shortest paths, random walk, biased random walk, communicability) and four null models (perfect degree match, degree logarithmic binning, strength logarithmic binning, uniform). The user is allowed to introduce custom metrics and null models.',
+    description='NetMedPy evaluates network localization (statistical analysis of the largest connected component/subgraph or LCC), calculates proximity and separation between biological entities, and conducts screenings involving a large number of diseases and drug targets.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/menicgiulia/NetMedPy',
@@ -21,7 +21,7 @@ setup(
     },
     classifiers=[
         'Programming Language :: Python :: 3',
-        'License :: MIT License',
+        'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
     python_requires='>=3.7, <3.12',  # Minimum and maximum Python version
