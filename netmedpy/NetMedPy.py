@@ -3,12 +3,12 @@
 Functionality
 ----------------
 
-This module provides the main NetMedPy functions for Network Medicine and 
+This module provides the main NetMedPy functions for Network Medicine and
 network topology analysis. Functions allow for different notions of distance
 between nodes and null models.
 
 The main functions in this module include:
-    
+
 - `extract_lcc`: Computes the Largest Connected Component (LCC) for a specified subset of nodes within a graph.
 - `lcc_significance`: Calculates the statistical significance of the LCC, as defined by a subset of nodes in a graph, according to a specified null model.
 - `all_pair_distances`: Calculates distances between every pair of nodes in a graph.
@@ -17,19 +17,19 @@ The main functions in this module include:
 - `get_amspl`: Calculates the Average Minimum Shortest Path Length between nodes.
 - `proximity`: Computes the proximity between two sets of nodes in a graph.
 - `separation`: Calculates the separation between two sets of nodes in a network.
-- `separation_z_score`: Determines the z-score of the separation between two node sets based on randomized samples. 
+- `separation_z_score`: Determines the z-score of the separation between two node sets based on randomized samples.
 - `screening`: Screens for proximity/separation between sets of source and target nodes.
 
 
 Distance metrics.
 ------------------
 
-When calculating the distance matrix, four distance metrics are available to the user:
-    
-- `shortest_path`: Distance is based in the length of the path with the least number of edges or lowest total weight that connects two nodes
-- `random_walk`: Distance is based in the probability of reaching one node from another via a random walk.
+When calculating the distance matrix, four information flow metrics are available to the user:
+
+- `shortest_path`: Distance between nodes is based in the length of the path with the least number of edges or lowest total weight that connects two nodes
+- `random_walk`: Distance between nodes is based in the probability of reaching one node from another via a random walk.
 - `biased_random_walk`: Same as random_walk but compensating the bias induced by the degree of the target node.
-- `communicability`: Distance is based on the concept of communicability, defined as the ability of nodes to communicate or send information through all available paths in a network, considering the indirect and direct connections.
+- `communicability`: Distance between nodes is based on the concept of communicability, defined as the ability of nodes to communicate or send information through all available paths in a network, considering the indirect and direct connections.
 
 
 Null models.
@@ -38,7 +38,7 @@ Null models.
 The NetMedPy functions involving statistical analysis allow the user to select among the following null models:
 
 - `degree_match`: selects random samples replicating the original node-set's degree distribution.
-- `log_binning`: categorizes the degrees of all nodes within the network into logarithmically sized bins. Samples are then drawn by matching the degree of the original nodes to those within the corresponding bins. 
+- `log_binning`: categorizes the degrees of all nodes within the network into logarithmically sized bins. Samples are then drawn by matching the degree of the original nodes to those within the corresponding bins.
 - `strength_binning`: analogous to log_binning, using the strength of the nodes instead of their degrees.
 - `uniform`: randomly selects nodes from the entire network, disregarding their degree or strength.
 - `custom`: allows users to specify custom null models.
@@ -58,7 +58,7 @@ Required packages:
     - random
     - scipy
     - ray
-    
+
 
 Authors:
 ---------
@@ -70,6 +70,9 @@ References:
 ------------
     - Menche, Jörg, et al. "Uncovering disease-disease relationships through the incomplete interactome." Science 347.6224 (2015). DOI 10.1126/science.1257601
     - Guney, Emre, et al.  "Network-based in silico drug efficacy screening." Nature Communications 7,1 (2015). DOI 10.1038/ncomms10331
+    - Estrada, Ernesto, and Naomichi Hatano. "Communicability in complex networks." Physical Review E 77.3 (2008): 036111.
+    - Masuda, Naoki, Mason A. Porter, and Renaud Lambiotte. "Random walks and diffusion on networks." Physics reports 716 (2017): 1-58.
+    - Le, Duc-Hau. "Random walk with restart: A powerful network propagation algorithm in Bioinformatics field." 2017 4th NAFOSTED Conference on Information and Computer Science. IEEE, 2017.
 """
 
 import networkx as nx
@@ -327,10 +330,10 @@ def all_pair_distances(graph,distance="shortest_path",custom_distance=None,
     #Parameter verification
     if nx.number_connected_components(graph) > 1:
         raise ValueError("The network is not connected (it contains more than one connected component)")
-    
+
     if not distance in ["shortest_path","random_walk","biased_random_walk","communicability","custom"]:
         raise ValueError("distance must be shortest_path|random_walk|biased_random_walk|communicability|custom")
-    
+
     if distance=="random_walk" or distance=="biased_random_walk":
         if reset < 0 or reset > 1:
             raise ValueError("Reset for random walks must comply 0 <= reset <= 1")
@@ -1011,8 +1014,8 @@ def separation_z_score(net,A,B,D,null_model='degree_match', node_bucket = None, 
         This matrix should be generated using the `all_pair_distances` function or an equivalent method.
 
     null_model : str, optional
-        Method for degree-preserving randomization. Options are 'degree_match', 'log_binning', 'uniform',
-        and 'custom'. Default is 'degree_match'.
+        Method for degree-preserving randomization. Valid options are 'degree_match', 'log_binning', 'uniform',
+        'strength_binning' and 'custom'. Default is 'degree_match'.
 
     node_bucket : dictionary, optional
         A collection of nodes to be used in 'custom' mode, mandatory when the null_model is set to 'custom'.
@@ -1295,7 +1298,7 @@ def lcc_significance(net, A, null_model='degree_match', node_bucket = None, n_it
         distribution.append(len(sub))
 
         if i%100 == 0:
-            print(f"\rIteration {i} of {n_iter}",end="")
+            print(f"\rIter {i} of {n_iter}",end="")
     print("")
 
     l_lcc = len(lcc)
@@ -1349,7 +1352,7 @@ def _calculate_score(source, target, sources, targets, ppi, distance_matrix,
         scores = separation_z_score(ppi, source_nodes, target_nodes, distance_matrix,
                         null_model=null_model,node_bucket=node_bucket,n_iter=n_iter,
                         bin_size=bin_size)
-        
+
         results = _to_dictionary(scores,properties)
     elif score == "separation":
         scores = separation(ppi,source_nodes,target_nodes,distance_matrix)
@@ -1379,44 +1382,44 @@ def _to_dict_tables(results, properties,target_names,source_names):
 
 def to_dictionary(dataframe, group_names, node_names):
     """
-    Converts a DataFrame into a dictionary where the keys are unique group names 
+    Converts a DataFrame into a dictionary where the keys are unique group names
     and the values are sets of node names associated with each group.
 
     Parameters:
     -------------
     dataframe : pandas.DataFrame
         The input DataFrame containing the data to be converted into a dictionary.
-        
+
     group_names : str
         The column name in the DataFrame that contains the group identifiers.
-        
+
     node_names : str
         The column name in the DataFrame that contains the node identifiers.
 
     Returns:
     ----------
     dict
-        A dictionary where each key is a unique group name from the `group_names` 
-        column, and each value is a set of node names from the `node_names` column 
+        A dictionary where each key is a unique group name from the `group_names`
+        column, and each value is a set of node names from the `node_names` column
         associated with that group.
-        
+
     Example:
     ----------
     >>> import pandas as pd
-    >>> data = {'group': ['A', 'A', 'B', 'B', 'C'], 
+    >>> data = {'group': ['A', 'A', 'B', 'B', 'C'],
                 'node': ['x', 'y', 'x', 'z', 'y']}
     >>> df = pd.DataFrame(data)
     >>> to_dictionary(df, 'group', 'node')
     {'A': {'x', 'y'}, 'B': {'x', 'z'}, 'C': {'y'}}
     """
     unique_names = list(dataframe[group_names].unique())
-    
+
     res = {}
-    
+
     for l in unique_names:
         nodes = dataframe[dataframe[group_names] == l]
         nodes = set(nodes[node_names])
-        
+
         res[l] = nodes
     return res
 
@@ -1455,6 +1458,10 @@ def screening(sources,targets, network, distance_matrix, score="proximity", prop
         - For "separation_z_score": 'z_score', 'p_value_single_tail', 'p_value_double_tail', 'raw_separation'
         - For "separation": 'raw_separation'
         Default is ["z_score"].
+
+    null_model : str, optional
+        Method for degree-preserving randomization. Valid options are 'degree_match', 'log_binning', 'uniform',
+        'strength_binning' and 'custom'. Default is 'degree_match'.
 
     node_bucket : dictionary, optional
         A collection of nodes to be used in 'custom' mode, mandatory when the null_model is set to 'custom'.
