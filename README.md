@@ -83,7 +83,7 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
       cd examples
       ```
       
-8. Run the `Basic_example.py` script using Python 3 or higher:
+8. Run the `Basic_example.py` script using Python 3 or higher (up to 3.11.9, due to conflicts with `Ray`):
    
       ```bash
       python Basic_example.py
