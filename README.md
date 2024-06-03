@@ -169,7 +169,7 @@ In the subdirectory `VitaminD/data` there are the files that contain the necessa
 
   ```bash
       pip install jupyter
-      ```
+  ```
   
 - Start the Jupyter Kernel
 
