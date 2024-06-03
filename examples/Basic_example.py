@@ -40,7 +40,7 @@ Setup and Execution Instructions:
 
     2) Navigate to the NetMedPy directory where this example script is located.
 
-    3) Run the script using Python 3 or higher:
+    3) Run the script using Python 3 or higher (up to 3.11.9, due to conflicts with Ray):
             python Basic_example.py
             
     4) Enjoy
