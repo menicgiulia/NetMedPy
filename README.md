@@ -144,9 +144,9 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
       
 6. Run the `Basic_example.py` script using Python 3 or higher:
 
-   ```bash
-   python Basic_example.py
-   ```
+  ```bash
+  python Basic_example.py
+  ```
 
 ## Examples
 
