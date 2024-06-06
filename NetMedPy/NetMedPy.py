@@ -78,9 +78,7 @@ References:
 import networkx as nx
 import numpy as np
 import pickle
-from multiprocessing import cpu_count
-#from .DistanceMatrix import DistanceMatrix 
-#import DistanceMatrix as dMat
+from multiprocessing import cpu_countt
 import random
 import ray
 import warnings
