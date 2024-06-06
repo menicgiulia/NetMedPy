@@ -7,11 +7,11 @@ Network medicine is a post-genomic discipline that harnesses network science pri
 
 The structure of the biological network plays an essential role in the system’s ability to efficiently propagate signals and withstand random failures. Consequently, most analyses in Network Medicine focus on quantifying the efficiency of the communication between different regions of the interactome or protein-protein interaction network.
 
-NetMedPy evaluates network localization (statistical analysis of the largest connected component/subgraph or LCC [^2]), calculates proximity [^3] and separation [^2] between
-biological entities, and conducts screenings involving a large number of diseases and drug targets. NetMedPy extends the traditional Network Medicine analyses by providing four default network metrics (shortest paths, random walk, biased random walk, communicability) and four null models (perfect degree match, degree logarithmic binning, strength logarithmic binning, uniform). The user is allowed to introduce custom metrics and null models.
+NetMedPy evaluates network localization (statistical analysis of the largest connected component/subgraph or LCC) <sup id="a2">[2](#f2)</sup>, calculates proximity <sup id="a3">[3](#f3)</sup> and separation <sup id="a2">[2](#f2)</sup> between biological entities, and conducts screenings involving a large number of diseases and drug targets. NetMedPy extends the traditional Network Medicine analyses by providing four default network metrics (shortest paths, random walk, biased random walk, communicability) and four null models (perfect degree match, degree logarithmic binning, strength logarithmic binning, uniform). The user is allowed to introduce custom metrics and null models.
+
 
 The pipeline workflow is depicted in the figure below.
-![Overview Pipeline](https://github.com/menicgiulia/NetMedPy/blob/main/images/OverviewPipeline.png)
+![Overview Pipeline](https://raw.githubusercontent.com/menicgiulia/NetMedPy/main/images/OverviewPipeline.png)
 
 This Python implementation uses precomputed distance matrices to optimize calculations. With precalculated distances between every node pair, the code can rapidly compute proximity and separation.
 
@@ -57,24 +57,24 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
 
       pip install networkx seaborn matplotlib numpy pandas ray 
             
-5. Set up your PYTHONPATH (Replace `/user_path_to/NetMedPy-main/netmedpy` with the appropriate path of the package in your local/remote machine.):
+5. Set up your PYTHONPATH (Replace `/user_path_to/NetMedPy-main/NetMedPy` with the appropriate path of the package in your local/remote machine.):
 
     _On Linux/Mac_:
    
       ```bash
-      export PYTHONPATH="/user_path_to/NetMedPy-main/netmedpy":$PYTHONPATH
+      export PYTHONPATH="/user_path_to/NetMedPy-main/NetMedPy":$PYTHONPATH
       ```
       
     _On Windows shell_:
 
     ```bash
-      set PYTHONPATH="C:\\user_path_to\\NetMedPy-main\\netmedpy";%PYTHONPATH%
+      set PYTHONPATH="C:\\user_path_to\\NetMedPy-main\\NetMedPy";%PYTHONPATH%
     ```
       
     _On Powershell_:
 
     ```bash
-      $env:PYTHONPATH = "C:\\user_path_to\\NetMedPy-main\\netmedpy;" + $env:PYTHONPATH
+      $env:PYTHONPATH = "C:\\user_path_to\\NetMedPy-main\\NetMedPy;" + $env:PYTHONPATH
     ```
     
 7. Navigate to the directory `examples`:
@@ -119,7 +119,7 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
 2. Install the package:
 
       ```bash
-      pip install netmedpy
+      pip install NetMedPy
       ```
       
 3. Download the directory examples.
@@ -332,16 +332,17 @@ Root folder organization (__init__.py files removed for simplicity):
 │   .gitignore
 │   environment.yml                                 // yml file to create conda enviorement
 │   README.md
+│   setup.py               
 │
 ├───images                                          // directory with figures from paper
 │   └───OverviewPipeline.png                        // pipeline flowchart figure from paper
 │
-└───examples                                        // directory with working examples using the netmedpy pipeline
+└───examples                                        // directory with working examples using the NetMedPy pipeline
 │   │   
-│   ├───VitamindD                                   // directory with Vitamin D example using the netmedpy pipeline
+│   ├───VitamindD                                   // directory with Vitamin D example using the NetMedPy pipeline
 │   │    ├───Figures_v2.py                          // python script to recreate the figures from the paper  
-│   │    ├───VitD_pipeline.py                       // python script with Vitamin D example using the netmedpy pipeline  
-│   │    ├───VitD_pipeline.ipynb                    // Jupyter notebook with Vitamin D example using the netmedpy pipeline  
+│   │    ├───VitD_pipeline.py                       // python script with Vitamin D example using the NetMedPy pipeline  
+│   │    ├───VitD_pipeline.ipynb                    // Jupyter notebook with Vitamin D example using the NetMedPy pipeline  
 │   │    ├───data                                   // directory with pickle and csv files necessary to get the Vitamin D example working             
 │   │    │    ├───Alias.csv                          
 │   │    │    ├───disease_genes.pkl                 
@@ -351,14 +352,14 @@ Root folder organization (__init__.py files removed for simplicity):
 │   │                          
 │   └───Basic_example.py                            // python script with dummy data to test the pipeline
 │
-└───netmedpy                                        // directory containing the python scripts that contain the functions of the netmedpy pipeline
+└───NetMedPy                                        // directory containing the python scripts that contain the functions of the NetMedPy pipeline
       ├───DistanceMatrix.py                       
       └───NetMedPy.py
 ```
 
 ## Further information
 
-- Details about each function (what is it used for, what are the input parameters, the possible values of the input parameters, what is the output) from the pipeline are available in the `netmedpy/NetMedPy.py` script in the comments before each function. 
+- Details about each function (what is it used for, what are the input parameters, the possible values of the input parameters, what is the output) from the pipeline are available in the `NetMedPy/NetMedPy.py` script in the comments before each function. 
 - An example on the use of the implemented functions is available in the file `examples/Basic_example.py', which can be executed fairly quickly in order to test the proper installation of the package and it's functionalities.
 - A more elaborate example is available in the files `examples/VitaminD/VitD_pipeline.py` and `examples/VitaminD/VitD_pipeline.ipynb`, testing the functions with different parameters for evaluating the role of Vitamin D in the modulation of
 different diseases from a network medicine perspective. The data files (the protein-protein interation network, the disease genes, and the Vitamin D targets) needed for executing this example are available in `examples/VitaminD/data`.
@@ -372,9 +373,6 @@ This project is licensed under the terms of the MIT license.
 
 <b id="f1">1</b> Barabási, A. L., Gulbahce, N., & Loscalzo, J. (2011). Network medicine: a network-based approach to human disease. Nature reviews genetics, 12(1), 56-68.[DOI 10.1038/nrg2918](https://doi.org/10.1038/nrg2918) [↩](#a1)
 
-[^2]: Menche, Jörg, et al. "Uncovering disease-disease relationships through the incomplete interactome." Science 347.6224 (2015). [DOI 10.1126/science.1257601](https://doi.org/10.1126/science.1257601)
+<b id="f2">2</b> Menche, Jörg, et al. "Uncovering disease-disease relationships through the incomplete interactome." Science 347.6224 (2015). [DOI 10.1126/science.1257601](https://doi.org/10.1126/science.1257601) [↩](#a2)
 
-[^3]: Guney, Emre, et al. "Network-based in silico drug efficacy screening." Nature Communications 7,1 (2015). [DOI 10.1038/ncomms10331](https://doi.org/10.1038/ncomms10331)
-
-
-
+<b id="f3">3</b> Guney, Emre, et al. "Network-based in silico drug efficacy screening." Nature Communications 7,1 (2015). [DOI 10.1038/ncomms10331](https://doi.org/10.1038/ncomms10331) [↩](#a3)
