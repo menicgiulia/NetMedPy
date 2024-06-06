@@ -11,7 +11,7 @@ NetMedPy evaluates network localization (statistical analysis of the largest con
 biological entities, and conducts screenings involving a large number of diseases and drug targets. NetMedPy extends the traditional Network Medicine analyses by providing four default network metrics (shortest paths, random walk, biased random walk, communicability) and four null models (perfect degree match, degree logarithmic binning, strength logarithmic binning, uniform). The user is allowed to introduce custom metrics and null models.
 
 The pipeline workflow is depicted in the figure below.
-![Pipeline](/images/OverviewPipeline.png)
+![Pipeline](https://github.com/menicgiulia/NetMedPy/blob/main/images/OverviewPipeline.png)
 
 This Python implementation uses precomputed distance matrices to optimize calculations. With precalculated distances between every node pair, the code can rapidly compute proximity and separation.
 
