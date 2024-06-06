@@ -1,9 +1,7 @@
 # __init__.py
 
-# Import everything from DistanceMatrix.py
 from .DistanceMatrix import DistanceMatrix
 
-# Import everything from NetMedPy.py
 from .NetMedPy import (
     extract_lcc,
     lcc_significance,
