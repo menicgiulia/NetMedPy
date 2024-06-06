@@ -89,7 +89,7 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
   cd examples
   ```
       
-7. Run the `Basic_example.py` script using Python 3 or higher (up to 3.11.9, due to conflicts with `Ray`):
+7. Run the `Basic_example.py` script using Python 3.8 or higher (up to 3.11.9, due to conflicts with `Ray`):
    
   ```bash
   python Basic_example.py
@@ -122,7 +122,7 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
   
 ##### Option B: working without Conda
 
-- Ensure the following dependencies are installed before proceeding:
+- Ensure the following dependencies are installed before proceeding (make sure you are using a version of Python that is `>=3.8` and `<3.12`):
 
   ```bash
   pip install networkx seaborn matplotlib numpy pandas ray scipy
