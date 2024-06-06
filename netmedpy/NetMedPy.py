@@ -79,13 +79,19 @@ import networkx as nx
 import numpy as np
 import pickle
 from multiprocessing import cpu_count
-import DistanceMatrix as dMat
+#from .DistanceMatrix import DistanceMatrix 
+#import DistanceMatrix as dMat
 import random
 import ray
 import warnings
 import os
 import pandas as pd
-
+try:
+    # This works when the package is installed via pip
+    from .DistanceMatrix import DistanceMatrix
+except ImportError:
+    # This works when using PYTHONPATH
+    from DistanceMatrix import DistanceMatrix
 
 
 def _split_into_chunks(lst,n):
@@ -350,7 +356,7 @@ def all_pair_distances(graph,distance="shortest_path",custom_distance=None,
         raise ValueError("Number of tasks should be larger or equal the number of processors.")
 
 
-    D = dMat.DistanceMatrix()
+    D = DistanceMatrix()
     D._from_name_list(list(graph.nodes()))
     del D.matrix
     D.matrix = None
@@ -406,7 +412,7 @@ def all_pair_distances(graph,distance="shortest_path",custom_distance=None,
         D.matrix = B
 
     elif distance == "communicability":
-        D = dMat.DistanceMatrix()
+        D = DistanceMatrix()
         D._from_name_list(list(graph.nodes()))
         comm = nx.communicability_exp(graph)
 
