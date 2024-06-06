@@ -25,14 +25,14 @@ This Python implementation uses precomputed distance matrices to optimize calcul
   
 2. Copy the project to your local or remote machine:
 
-   ```bash
-   git clone https://github.com/menicgiulia/NetMedPy.git
-   ```
+  ```bash
+  git clone https://github.com/menicgiulia/NetMedPy.git
+  ```
 3. Navigate to the project directory:
 
-   ```bash
-   cd NetMedPy-main
-   ```
+  ```bash
+  cd NetMedPy-main
+  ```
 
 4. Installing the necessary dependencies:
    
@@ -91,9 +91,9 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
       
 7. Run the `Basic_example.py` script using Python 3 or higher (up to 3.11.9, due to conflicts with `Ray`):
    
-   ```bash
-   python Basic_example.py
-   ```
+  ```bash
+  python Basic_example.py
+  ```
       
 #### II. With installing the package
 
