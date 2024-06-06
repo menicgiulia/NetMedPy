@@ -78,7 +78,7 @@ References:
 import networkx as nx
 import numpy as np
 import pickle
-from multiprocessing import cpu_countt
+from multiprocessing import cpu_count
 import random
 import ray
 import warnings
