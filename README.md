@@ -134,15 +134,15 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
   pip install NetMedPy
   ```
       
-4. Download the directory `examples`.
+3. Download the directory `examples`.
    
-5. Navigate to the directory `examples`:
+4. Navigate to the directory `examples`:
 
   ```bash
   cd /user_path_to/examples
   ```
       
-6. Run the `Basic_example.py` script using Python 3 or higher:
+5. Run the `Basic_example.py` script using Python 3 or higher:
 
   ```bash
   python Basic_example.py
