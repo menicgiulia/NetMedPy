@@ -55,7 +55,7 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
 
 - Ensure the following dependencies are installed before proceeding:
 
-      pip install networkx seaborn matplotlib numpy pandas ray 
+      pip install networkx seaborn matplotlib numpy pandas ray scipy
             
 5. Set up your PYTHONPATH (Replace `/user_path_to/NetMedPy-main/NetMedPy` with the appropriate path of the package in your local/remote machine.):
 
