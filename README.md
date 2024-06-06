@@ -61,33 +61,33 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
 
     _On Linux/Mac_:
    
-      ```bash
-      export PYTHONPATH="/user_path_to/NetMedPy-main/NetMedPy":$PYTHONPATH
-      ```
+   ```bash
+    export PYTHONPATH="/user_path_to/NetMedPy-main/NetMedPy":$PYTHONPATH
+   ```
       
     _On Windows shell_:
 
     ```bash
-      set PYTHONPATH="C:\\user_path_to\\NetMedPy-main\\NetMedPy";%PYTHONPATH%
+    set PYTHONPATH="C:\\user_path_to\\NetMedPy-main\\NetMedPy";%PYTHONPATH%
     ```
       
     _On Powershell_:
 
     ```bash
-      $env:PYTHONPATH = "C:\\user_path_to\\NetMedPy-main\\NetMedPy;" + $env:PYTHONPATH
+    $env:PYTHONPATH = "C:\\user_path_to\\NetMedPy-main\\NetMedPy;" + $env:PYTHONPATH
     ```
     
 7. Navigate to the directory `examples`:
    
-      ```bash
-      cd examples
-      ```
+  ```bash
+  cd examples
+   ```
       
 8. Run the `Basic_example.py` script using Python 3 or higher (up to 3.11.9, due to conflicts with `Ray`):
    
-      ```bash
-      python Basic_example.py
-      ```
+   ```bash
+   python Basic_example.py
+   ```
       
 #### II. With installing the package
 
