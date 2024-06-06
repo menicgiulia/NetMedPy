@@ -26,12 +26,12 @@ This Python implementation uses precomputed distance matrices to optimize calcul
 2. Copy the project to your local or remote machine:
 
    ```bash
-      git clone https://github.com/menicgiulia/NetMedPy.git
+   git clone https://github.com/menicgiulia/NetMedPy.git
    ```
 3. Navigate to the project directory:
 
    ```bash
-      cd NetMedPy-main
+   cd NetMedPy-main
    ```
 
 4. Installing the necessary dependencies:
@@ -44,26 +44,32 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
 - Ensure you have Conda installed.
 
 - Create a new conda environment with the `environment.yml` file:
-
-      conda env create -f environment.yml
+  
+  ```bash
+  conda env create -f environment.yml
+  ```
 
 - Activate your new conda environment:
 
-      conda activate netmedpy_test
+  ```bash
+  conda activate netmedpy_test
+  ```
   
 ##### Option B: working without Conda
 
 - Ensure the following dependencies are installed before proceeding:
 
-      pip install networkx seaborn matplotlib numpy pandas ray scipy
+  ```bash
+  pip install networkx seaborn matplotlib numpy pandas ray scipy
+  ```
             
 5. Set up your PYTHONPATH (Replace `/user_path_to/NetMedPy-main/NetMedPy` with the appropriate path of the package in your local/remote machine.):
 
     _On Linux/Mac_:
-   
-   ```bash
+
+    ```bash
     export PYTHONPATH="/user_path_to/NetMedPy-main/NetMedPy":$PYTHONPATH
-   ```
+    ```
       
     _On Windows shell_:
 
@@ -77,13 +83,13 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
     $env:PYTHONPATH = "C:\\user_path_to\\NetMedPy-main\\NetMedPy;" + $env:PYTHONPATH
     ```
     
-7. Navigate to the directory `examples`:
+6. Navigate to the directory `examples`:
    
   ```bash
   cd examples
-   ```
+  ```
       
-8. Run the `Basic_example.py` script using Python 3 or higher (up to 3.11.9, due to conflicts with `Ray`):
+7. Run the `Basic_example.py` script using Python 3 or higher (up to 3.11.9, due to conflicts with `Ray`):
    
    ```bash
    python Basic_example.py
@@ -104,37 +110,43 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
 
 - Create a new conda environment with the `environment.yml` file:
 
-      conda env create -f environment.yml
+  ```bash
+  conda env create -f environment.yml
+  ```
 
 - Activate your new conda environment:
 
-      conda activate netmedpy_test
+  ```bash
+  conda activate netmedpy_test
+  ```
   
 ##### Option B: working without Conda
 
 - Ensure the following dependencies are installed before proceeding:
 
-      pip install networkx seaborn matplotlib numpy pandas ray
+  ```bash
+  pip install networkx seaborn matplotlib numpy pandas ray
+  ```
 
 2. Install the package:
 
-      ```bash
-      pip install NetMedPy
-      ```
+  ```bash
+  pip install NetMedPy
+  ```
       
-3. Download the directory examples.
+4. Download the directory `examples`.
    
-4. Navigate to the directory "examples":
+5. Navigate to the directory `examples`:
 
-      ```bash
-      cd /user_path_to/examples
-      ```
+  ```bash
+  cd /user_path_to/examples
+  ```
       
-5. Run the Basic_example.py script using Python 3 or higher:
+6. Run the `Basic_example.py` script using Python 3 or higher:
 
-      ```bash
-      python Basic_example.py
-      ```
+   ```bash
+   python Basic_example.py
+   ```
 
 ## Examples
 
@@ -146,29 +158,31 @@ To test the pipeline, we refer to the Vitamin D example, which can be found in t
 ### Instructions on testing the Vitamin D example
 
 1. Download the `examples` directory:
-If you haven't already done so, download the examples directory from the repository to your local or remote machine. This directory contains all the necessary files to run the example.
+If you haven't already done so, download the `examples` directory from the repository to your local or remote machine. This directory contains all the necessary files to run the examples.
 
 2. Prepare the Data:
 In the subdirectory `VitaminD/data` there are the files that contain the necessary data to execute the example, ensure the data files there. The output files will be stored in the `VitaminD/output` subdirectory.
 
-3. Navigate to the VitaminD directory:
-4. 
-     ```bash
-      cd /user_path_to/examples/VitaminD
-      ```
+3. Navigate to the `VitaminD` directory:
+ 
+  ```bash
+  cd /user_path_to/examples/VitaminD
+  ```
      
-5. Run the Example:
+4. Run the Example:
 
 ##### Option A: using the Python Script
 
-      python VitD_pipeline.py
+  ```bash
+  python VitD_pipeline.py
+  ```
       
 ##### Option B: using the Jupyter Notebook
 
-- Make sure you have the `Jupyter` package installed.
+- Make sure you have the `jupyter` package installed.
 
   ```bash
-      pip install jupyter
+  pip install jupyter
   ```
   
 - Start the Jupyter Kernel
@@ -176,10 +190,10 @@ In the subdirectory `VitaminD/data` there are the files that contain the necessa
     a) If you are working on a local machine:
   
     ```bash
-      jupyter notebook --browser="browser_of_choice"
+    jupyter notebook --browser="browser_of_choice"
     ```
     
-  Replace browser_of_choice with your preferred browser (e.g., chrome, firefox). The browser window should pop up automatically. If it doesn't, copy and paste the link provided in the terminal into your browser. The link should look something like this:
+  Replace `browser_of_choice` with your preferred browser (e.g., chrome, firefox). The browser window should pop up automatically. If it doesn't, copy and paste the link provided in the terminal into your browser. The link should look something like this:
 
     
    * http://localhost:8889/tree?token=5d4ebdddaf6cb1be76fd95c4dde891f24fd941da909129e6
@@ -188,16 +202,16 @@ In the subdirectory `VitaminD/data` there are the files that contain the necessa
     b) If you are working on a remote machine:
   
     ```bash
-      jupyter notebook --no-browser
+    jupyter notebook --no-browser
     ```
     
-  Then copy and paste the link provided in the terminal in your local browser of choice; it should look something like this:
+  Then copy and paste the link provided in the terminal in your local browser of choice. It should look something like this:
 
     
    * http://localhost:8888/?token=9feac8ff1d5ba3a86cf8c4309f4988e7db95f42d28fd7772
     
     
-- Navigate to the VitD_pipeline.ipynb in the Jupyter Notebook interface and start executing the cells.
+- Navigate to the `VitD_pipeline.ipynb` in the Jupyter Notebook interface and start executing the cells.
 
 
 ### Extract and evaluate disease modules
