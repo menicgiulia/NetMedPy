@@ -125,7 +125,7 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
 - Ensure the following dependencies are installed before proceeding:
 
   ```bash
-  pip install networkx seaborn matplotlib numpy pandas ray
+  pip install networkx seaborn matplotlib numpy pandas ray scipy
   ```
 
 2. Install the package:
