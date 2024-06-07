@@ -18,8 +18,61 @@ This Python implementation uses precomputed distance matrices to optimize calcul
 ## Getting Started      
 
 ### Setting up a work environment
+      
+#### I. With installing the package
 
-#### I. Without installing the package
+1. Installing the necessary dependencies:
+   
+   
+##### Option A: working with Conda
+
+Working with Conda is recommended, but it is not essential. If you choose to work with Conda, these are the steps you need to take:
+
+- Ensure you have Conda installed.
+
+- Download the environment.yml and navigate to the directory of your local/remote machine where the file is located.
+
+- Create a new conda environment with the `environment.yml` file:
+
+  ```bash
+  conda env create -f environment.yml
+  ```
+
+- Activate your new conda environment:
+
+  ```bash
+  conda activate netmedpy_test
+  ```
+  
+##### Option B: working without Conda
+
+- Ensure the following dependencies are installed before proceeding (make sure you are using a version of Python that is `>=3.8` and `<3.12`):
+
+  ```bash
+  pip install networkx seaborn matplotlib numpy pandas ray scipy
+  ```
+
+2. Install the package:
+
+  ```bash
+  pip install NetMedPy
+  ```
+      
+3. Download the directory `examples`.
+   
+4. Navigate to the directory `examples`:
+
+  ```bash
+  cd /user_path_to/examples
+  ```
+      
+5. Run the `Basic_example.py` script using Python 3 or higher:
+
+  ```bash
+  python Basic_example.py
+  ```
+
+#### II. Without installing the package
 
 1. Ensure you have Python installed.
   
@@ -91,59 +144,6 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
       
 7. Run the `Basic_example.py` script using Python 3.8 or higher (up to 3.11.9, due to conflicts with `Ray`):
    
-  ```bash
-  python Basic_example.py
-  ```
-      
-#### II. With installing the package
-
-1. Installing the necessary dependencies:
-   
-   
-##### Option A: working with Conda
-
-Working with Conda is recommended, but it is not essential. If you choose to work with Conda, these are the steps you need to take:
-
-- Ensure you have Conda installed.
-
-- Download the environment.yml and navigate to the directory of your local/remote machine where the file is located.
-
-- Create a new conda environment with the `environment.yml` file:
-
-  ```bash
-  conda env create -f environment.yml
-  ```
-
-- Activate your new conda environment:
-
-  ```bash
-  conda activate netmedpy_test
-  ```
-  
-##### Option B: working without Conda
-
-- Ensure the following dependencies are installed before proceeding (make sure you are using a version of Python that is `>=3.8` and `<3.12`):
-
-  ```bash
-  pip install networkx seaborn matplotlib numpy pandas ray scipy
-  ```
-
-2. Install the package:
-
-  ```bash
-  pip install NetMedPy
-  ```
-      
-3. Download the directory `examples`.
-   
-4. Navigate to the directory `examples`:
-
-  ```bash
-  cd /user_path_to/examples
-  ```
-      
-5. Run the `Basic_example.py` script using Python 3 or higher:
-
   ```bash
   python Basic_example.py
   ```
