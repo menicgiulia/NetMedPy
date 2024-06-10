@@ -18,61 +18,8 @@ This Python implementation uses precomputed distance matrices to optimize calcul
 ## Getting Started      
 
 ### Setting up a work environment
-      
-#### I. With installing the package
 
-1. Installing the necessary dependencies:
-   
-   
-##### Option A: working with Conda
-
-Working with Conda is recommended, but it is not essential. If you choose to work with Conda, these are the steps you need to take:
-
-- Ensure you have Conda installed.
-
-- Download the environment.yml and navigate to the directory of your local/remote machine where the file is located.
-
-- Create a new conda environment with the `environment.yml` file:
-
-  ```bash
-  conda env create -f environment.yml
-  ```
-
-- Activate your new conda environment:
-
-  ```bash
-  conda activate netmedpy_test
-  ```
-  
-##### Option B: working without Conda
-
-- Ensure the following dependencies are installed before proceeding (make sure you are using a version of Python that is `>=3.8` and `<3.12`):
-
-  ```bash
-  pip install networkx seaborn matplotlib numpy pandas ray scipy
-  ```
-
-2. Install the package:
-
-  ```bash
-  pip install NetMedPy
-  ```
-      
-3. Download the directory `examples`.
-   
-4. Navigate to the directory `examples`:
-
-  ```bash
-  cd /user_path_to/examples
-  ```
-      
-5. Run the `Basic_example.py` script using Python 3 or higher:
-
-  ```bash
-  python Basic_example.py
-  ```
-
-#### II. Without installing the package
+#### I. Without installing the package
 
 1. Ensure you have Python installed.
   
@@ -105,7 +52,7 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
 - Activate your new conda environment:
 
   ```bash
-  conda activate netmedpy_test
+  conda activate netmedpy_environment
   ```
   
 ##### Option B: working without Conda
@@ -116,24 +63,24 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
   pip install networkx seaborn matplotlib numpy pandas ray scipy
   ```
             
-5. Set up your PYTHONPATH (Replace `/user_path_to/NetMedPy-main/NetMedPy` with the appropriate path of the package in your local/remote machine.):
+5. Set up your PYTHONPATH (Replace `/user_path_to/NetMedPy-main/netmedpy` with the appropriate path of the package in your local/remote machine.):
 
     _On Linux/Mac_:
 
     ```bash
-    export PYTHONPATH="/user_path_to/NetMedPy-main/NetMedPy":$PYTHONPATH
+    export PYTHONPATH="/user_path_to/NetMedPy-main/netmedpy":$PYTHONPATH
     ```
       
     _On Windows shell_:
 
     ```bash
-    set PYTHONPATH="C:\\user_path_to\\NetMedPy-main\\NetMedPy";%PYTHONPATH%
+    set PYTHONPATH="C:\\user_path_to\\NetMedPy-main\\netmedpy";%PYTHONPATH%
     ```
       
     _On Powershell_:
 
     ```bash
-    $env:PYTHONPATH = "C:\\user_path_to\\NetMedPy-main\\NetMedPy;" + $env:PYTHONPATH
+    $env:PYTHONPATH = "C:\\user_path_to\\NetMedPy-main\\netmedpy;" + $env:PYTHONPATH
     ```
     
 6. Navigate to the directory `examples`:
@@ -142,8 +89,61 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
   cd examples
   ```
       
-7. Run the `Basic_example.py` script using Python 3.8 or higher (up to 3.11.9, due to conflicts with `Ray`):
+7. Run the `Basic_example.py` script using Python 3 or higher (up to 3.11.9, due to conflicts with `Ray`):
    
+  ```bash
+  python Basic_example.py
+  ```
+      
+#### II. With installing the package
+
+1. Installing the necessary dependencies:
+   
+   
+##### Option A: working with Conda
+
+Working with Conda is recommended, but it is not essential. If you choose to work with Conda, these are the steps you need to take:
+
+- Ensure you have Conda installed.
+
+- Download the environment.yml and navigate to the directory of your local/remote machine where the file is located.
+
+- Create a new conda environment with the `environment.yml` file:
+
+  ```bash
+  conda env create -f environment.yml
+  ```
+
+- Activate your new conda environment:
+
+  ```bash
+  conda activate netmedpy_environment
+  ```
+  
+##### Option B: working without Conda
+
+- Ensure the following dependencies are installed before proceeding:
+
+  ```bash
+  pip install networkx seaborn matplotlib numpy pandas ray scipy
+  ```
+
+2. Install the package:
+
+  ```bash
+  pip install netmedpy
+  ```
+      
+3. Download the directory `examples`.
+   
+4. Navigate to the directory `examples`:
+
+  ```bash
+  cd /user_path_to/examples
+  ```
+      
+5. Run the `Basic_example.py` script using Python 3 or higher:
+
   ```bash
   python Basic_example.py
   ```
@@ -366,14 +366,14 @@ Root folder organization (__init__.py files removed for simplicity):
 │   │                          
 │   └───Basic_example.py                            // python script with dummy data to test the pipeline
 │
-└───NetMedPy                                        // directory containing the python scripts that contain the functions of the NetMedPy pipeline
+└───netmedpy                                        // directory containing the python scripts that contain the functions of the NetMedPy pipeline
       ├───DistanceMatrix.py                       
       └───NetMedPy.py
 ```
 
 ## Further information
 
-- Details about each function (what is it used for, what are the input parameters, the possible values of the input parameters, what is the output) from the pipeline are available in the `NetMedPy/NetMedPy.py` script in the comments before each function. 
+- Details about each function (what is it used for, what are the input parameters, the possible values of the input parameters, what is the output) from the pipeline are available in the `netmedpy/NetMedPy.py` script in the comments before each function. 
 - An example on the use of the implemented functions is available in the file `examples/Basic_example.py', which can be executed fairly quickly in order to test the proper installation of the package and it's functionalities.
 - A more elaborate example is available in the files `examples/VitaminD/VitD_pipeline.py` and `examples/VitaminD/VitD_pipeline.ipynb`, testing the functions with different parameters for evaluating the role of Vitamin D in the modulation of
 different diseases from a network medicine perspective. The data files (the protein-protein interation network, the disease genes, and the Vitamin D targets) needed for executing this example are available in `examples/VitaminD/data`.

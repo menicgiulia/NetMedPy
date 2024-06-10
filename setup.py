@@ -4,8 +4,8 @@ with open('README.md', 'r', encoding='utf-8') as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    version='0.1.0',
-    name='NetMedPy',
+    version='0.1.2',
+    name='netmedpy',
     author='Andrés Aldana, Michael Sebek, Gordana Ispirova, Rodrigo Dorantes-Gilardi, Giulia Menichetti',
     author_email='giulia.menichetti@channing.harvard.edu',
     description='NetMedPy evaluates network localization (statistical analysis of the largest connected component/subgraph or LCC), calculates proximity and separation between biological entities, and conducts screenings involving a large number of diseases and drug targets.',
@@ -27,7 +27,7 @@ setuptools.setup(
         "seaborn",
         "scipy",
         "networkx",
-        "ray"
+        'ray>=2.20.0,<3.0.0'
     ],
     extras_require={
         'interactive': ['jupyter'],
