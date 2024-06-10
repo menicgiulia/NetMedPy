@@ -71,7 +71,7 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
   ```bash
   python Basic_example.py
   ```
-#### I. Without installing the package
+#### II. Without installing the package
 
 1. Ensure you have Python installed.
   
