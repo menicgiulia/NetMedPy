@@ -50,7 +50,7 @@ For any issues or further instructions, refer to the documentation or contact th
 @author: Andres Aldana Gonzalez (a.aldana@northeastern.edu)
 """
 import networkx as nx
-import NetMedPy as netmedpy
+import netmedpy
 import random
 import seaborn as sns
 import matplotlib.pyplot as plt
