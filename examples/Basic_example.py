@@ -2,7 +2,7 @@
 """
 Example of Functionality and Application of NetMedPy
 
-This example demonstrates how to utilize the NetMedPy package. Ensure the following 
+This example demonstrates how to utilize the NetMedPy package. Ensure the following
 dependencies are installed before proceeding:
 
 Required packages:
@@ -17,21 +17,21 @@ Required packages:
 Setup and Execution Instructions:
 
 1) Installation:
-   If NetMedPy was installed via pip, skip to step 2. Otherwise, add the NetMedPy directory 
+   If NetMedPy was installed via pip, skip to step 2. Otherwise, add the NetMedPy directory
    to your PYTHONPATH environment variable to ensure Python can locate the package:
 
    Linux/Mac:
 
-    
+
     1) If you installed NetMedPy using pip, ignore this step. Otherwise
         include the netmedpy directory in the PYTHONPATH variable:
-            
+
         On Linux/Mac:
-            
+
             export PYTHONPATH="/user_path_to/NetMedPy/netmedpy":$PYTHONPATH
-        
+
         On Windows shell:
-        
+
             set PYTHONPATH="C:\\user_path_to\\NetMedPy\\netmedpy";%PYTHONPATH%
 
         On Powershell:
@@ -42,11 +42,11 @@ Setup and Execution Instructions:
 
     3) Run the script using Python 3 or higher (up to 3.11.9, due to conflicts with Ray):
             python Basic_example.py
-            
+
     4) Enjoy
 
 For any issues or further instructions, refer to the documentation or contact the authors.
-    
+
 @author: Andres Aldana Gonzalez (a.aldana@northeastern.edu)
 """
 import networkx as nx
@@ -115,7 +115,7 @@ if __name__ == "__main__":
     # --- CALCULATING DISTANCES ---
     D = netmedpy.all_pair_distances(G, distance="shortest_path", n_processors=10, n_tasks=100)
     mat = D.matrix
-    
+
     netmedpy.save_distances(D, "distances.pkl") # If you want to save the distance matrix
     D = netmedpy.load_distances("distances.pkl") # If you want to load a pre-computed distance matrix
 
@@ -162,24 +162,24 @@ if __name__ == "__main__":
 
     print("Distance: user defined")
     print(D.matrix[:5,:5])
-    
-    
+
+
     # --- SCREEN SOURCE AND TARGET NODES ---
-    
+
     #Define source nodes
     sources = {}
     sources["S1"] = random.sample(list(G1.nodes()), 20)
     sources["S2"] = random.sample(list(G2.nodes()), 20)
-    
+
     #Define target nodes
     targets = {}
     targets["T1"] = random.sample(list(G1.nodes()), 20)
     targets["T2"] = random.sample(list(G2.nodes()), 20)
-    
-    
+
+
     #Calculate distance matrix
     D = netmedpy.all_pair_distances(G, distance="shortest_path",n_processors=10,n_tasks=100)
-    
+
     #Calculate proximity z-score between sources and targets
     screening = netmedpy.screening(sources, targets, G, D,score="proximity",properties=["z_score"],
                        null_model="degree_match",n_iter=2000,symmetric=True,
@@ -193,7 +193,7 @@ if __name__ == "__main__":
                        properties=["z_score","raw_separation","p_value_single_tail"],
                        null_model="uniform",n_iter=2000,symmetric=False,
                        n_procs=2)
-    
+
     print("Screening with separation")
     print("Z-Score")
     print(screening["z_score"])

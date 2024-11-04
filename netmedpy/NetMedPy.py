@@ -81,9 +81,12 @@ import pickle
 from multiprocessing import cpu_count
 import random
 import ray
+from ray._private.utils import get_ray_temp_dir
 import warnings
 import os
+import shutil
 import pandas as pd
+
 try:
     # This works when the package is installed via pip
     from .DistanceMatrix import DistanceMatrix
@@ -91,6 +94,15 @@ except ImportError:
     # This works when using PYTHONPATH
     from DistanceMatrix import DistanceMatrix
 
+def _clean_temp_dir():
+    try:
+        ray_temp_dir = get_ray_temp_dir()
+
+        # Check if the directory exists and delete it
+        if os.path.exists(ray_temp_dir):
+            shutil.rmtree(ray_temp_dir)
+    except Exception as e:
+        print(f"Warning: Ray temp directory '{ray_temp_dir}' could not be deleted.")
 
 def _split_into_chunks(lst,n):
     k, m = divmod(len(lst), n)
@@ -203,6 +215,7 @@ def _single_shortest_path(source_nodes, graph, node_to_idx):
 
 def _spl_distance(graph, node_to_idx,num_cpus,n_tasks):
     ray.shutdown()
+    _clean_temp_dir()
     ray.init(num_cpus=num_cpus)
 
     graph_ref = ray.put(graph)
@@ -216,6 +229,7 @@ def _spl_distance(graph, node_to_idx,num_cpus,n_tasks):
     results = ray.get(results)
 
     ray.shutdown()
+    _clean_temp_dir()
     return results
 
 
@@ -266,6 +280,7 @@ def _custom_source_distance(source_nodes, graph, node_to_idx, distance, kwargs):
 
 def _custom_all_distance(graph, node_to_idx, distance, num_cpus, n_tasks, kwargs):
     ray.shutdown()
+    _clean_temp_dir()
     ray.init(num_cpus=num_cpus)
 
     graph_ref = ray.put(graph)
@@ -280,6 +295,7 @@ def _custom_all_distance(graph, node_to_idx, distance, num_cpus, n_tasks, kwargs
     results = ray.get(res)
 
     ray.shutdown()
+    _clean_temp_dir()
     return results
 
 
@@ -1315,6 +1331,8 @@ def lcc_significance(net, A, null_model='degree_match', node_bucket = None, n_it
     return {'d_mu':mu,'d_sigma':sigma,'z_score':z,'p_val':pval,'lcc':lcc, 'lcc_size':l_lcc,'dist':distribution}
 
 
+
+
 def _check_dictionary_integrity(network,dictionary):
     newDict = {}
     nodes = set(network.nodes())
@@ -1551,6 +1569,7 @@ def screening(sources,targets, network, distance_matrix, score="proximity", prop
         num_cpus = n_procs
 
     ray.shutdown()
+    _clean_temp_dir()
     ray.init(num_cpus = num_cpus)
 
     net_ref = ray.put(network)
@@ -1572,7 +1591,7 @@ def screening(sources,targets, network, distance_matrix, score="proximity", prop
     results = ray.get(futures)
 
     ray.shutdown()
-
+    _clean_temp_dir()
     dict_tables = _to_dict_tables(results, properties, target_names, source_names)
 
     return dict_tables
