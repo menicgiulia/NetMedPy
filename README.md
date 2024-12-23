@@ -18,12 +18,35 @@ This Python implementation uses precomputed distance matrices to optimize calcul
 ## Getting Started      
 
 ### Setting up a work environment
-    
-#### I. With installing the package
 
-1. Installing the necessary dependencies:
-   
-   
+NetMedPy has specific requirements for compatibility and ease of use.
+
+### Python Version
+
+NetMedPy requires Python 3.8 or newer, but it is not compatible with Python 3.12 due to incompatibility with Ray. Ensure your Python version is between 3.8 and 3.11.9 inclusive.
+    
+### Recommended Environment
+While not essential, we recommend creating a dedicated conda environment for NetMedPy to ensure all dependencies are properly isolated.
+
+### Required Packages
+The following Python packages are required to run NetMedPy:
+
+- Python (>= 3.8, <= 3.11.9)
+- numpy
+- pandas
+- ray
+- networkx
+- scipy
+- matplotlib
+- seaborn
+
+### Installation steps
+
+Users can install NetMedPy and its dependencies using PIP (recommended). Alternatively, the source code can be downloaded, allowing for manual installation of the required dependencies if more customization is needed.
+
+
+#### I. Installing package and dependencies with PIP
+
 ##### Option A: working with Conda
 
 Working with Conda is recommended, but it is not essential. If you choose to work with Conda, these are the steps you need to take:
@@ -71,9 +94,9 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
   ```bash
   python Basic_example.py
   ```
-#### II. Without installing the package
+#### II. Manual installation
 
-1. Ensure you have Python installed.
+1. Ensure you have Python >= 3.8, <= 3.11.9 installed.
   
 2. Copy the project to your local or remote machine:
 
