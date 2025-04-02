@@ -17,6 +17,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import scipy.optimize as opt
 
+
 from Cronometer import Cronometer as cronometer
 import guney.network as p_network
 import netmedpy
@@ -55,14 +56,14 @@ def savefig(fname):
 
 ### Load PPI network, Vitamin D targets, and Disease genes:
 # Load PPI network
-ppi = load("data/ppi_network.pkl")
+ppi = load("data/input/ppi/ppi_network.pkl")
 
 # Load drug targets
-targets = load("data/vitd_targets.pkl")
+targets = load("data/input/drug_targets/vitd_targets.pkl")
 targets = targets & set(ppi.nodes)
 
 # Load disease genes
-disease_genes = load("data/disease_genes.pkl")
+disease_genes = load("data/input/disease_genes/disease_genes.pkl")
 for d, g in disease_genes.items():
     disease_genes[d] = set(g) & set(ppi.nodes)
 
@@ -354,7 +355,7 @@ def size_increasing_time(mat, ppi, ini_size, end_size, increment, num_cpus, reps
     return df
 
 
-ppi_file = "data/ppi_network.pkl"
+ppi_file = "data/input/ppi/ppi_network.pkl"
 ppi = load(ppi_file)
 
 print("Calculating proximity size dependent")
