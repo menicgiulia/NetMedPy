@@ -1,0 +1,468 @@
+Disease,Disease_id,Gene,Gene_id,UniProt,Gene_Full_Name,Protein_Class,N_diseases_g,DSI_g,DPI_g,pLI,Score_gda,EL_gda,EI_gda,N_PMIDs,N_SNPs_gda,First_Ref,Last_Ref
+Inflammation,C0021368,TNF,7124,P01375,tumor necrosis factor,Signaling,2724,0.231,0.962,0.8033,0.6,,1,28,0,2001,2016
+Inflammation,C0021368,CRP,1401,P02741,C-reactive protein,,1483,0.299,0.962,0.0036969,0.6,,1,19,0,2001,2011
+Inflammation,C0021368,PTGS2,5743,P35354,prostaglandin-endoperoxide synthase 2,Enzyme,1234,0.314,0.962,0.99597,0.57,,1,13,0,2001,2009
+Inflammation,C0021368,IL1B,3553,P01584,interleukin 1 beta,,1801,0.276,0.962,0.13005,0.57,,1,21,0,1999,2017
+Inflammation,C0021368,IL6,3569,P05231,interleukin 6,,2367,0.248,0.962,0.31536,0.57,,1,19,0,2001,2015
+Inflammation,C0021368,TLR2,7097,O60603,toll like receptor 2,,749,0.361,0.923,1.0152E-06,0.56,,1,8,0,2005,2012
+Inflammation,C0021368,MIF,4282,P14174,macrophage migration inhibitory factor,,455,0.412,0.885,0.012262,0.56,,1,8,0,2003,2010
+Inflammation,C0021368,IL10,3586,P22301,interleukin 10,,1679,0.281,0.923,0.0058874,0.55,,1,7,0,2001,2013
+Inflammation,C0021368,ICAM1,3383,P05362,intercellular adhesion molecule 1,,737,0.364,0.962,0.035295,0.55,,1,8,0,2002,2013
+Inflammation,C0021368,CCL2,6347,P13500,C-C motif chemokine ligand 2,Signaling,1157,0.321,0.962,0.60786,0.54,,1,8,0,2003,2011
+Inflammation,C0021368,BDNF,627,P23560,brain derived neurotrophic factor,Signaling,992,0.345,0.923,0.65626,0.53,,1,5,0,2003,2010
+Inflammation,C0021368,IL1RN,3557,P18510,interleukin 1 receptor antagonist,,701,0.373,0.923,0.030914,0.52,,1,4,0,2003,2015
+Inflammation,C0021368,TRPV1,7442,Q8NER1,transient receptor potential cation channel subfamily V member 1,Ion channel,404,0.446,0.885,1.0103E-16,0.52,,1,5,0,2007,2011
+Inflammation,C0021368,PPARG,5468,P37231,peroxisome proliferator activated receptor gamma,Nuclear receptor,877,0.358,0.885,0.029194,0.52,,1,6,0,2006,2011
+Inflammation,C0021368,PTGES,9536,O14684,prostaglandin E synthase,,150,0.54,0.769,0.71317,0.51,,1,3,0,2003,2015
+Inflammation,C0021368,FGF2,2247,P09038,fibroblast growth factor 2,Signaling,635,0.383,0.923,0.0184,0.51,,1,3,0,2002,2010
+Inflammation,C0021368,TAC1,6863,P20366,tachykinin precursor 1,,478,0.424,0.923,0.74608,0.51,,1,6,0,1996,2018
+Inflammation,C0021368,BDKRB2,624,P30411,bradykinin receptor B2,G-protein coupled receptor,105,0.585,0.808,0.11863,0.51,,1,3,0,1995,2010
+Inflammation,C0021368,NGF,4803,P01138,nerve growth factor,Signaling,616,0.391,0.885,0.82026,0.51,,1,3,0,2000,2009
+Inflammation,C0021368,PTGER4,5734,P35408,prostaglandin E receptor 4,G-protein coupled receptor,120,0.558,0.731,0.9755,0.5,,1,2,0,2008,2008
+Inflammation,C0021368,CALCA,796,P01258;P06881,calcitonin related polypeptide alpha,Signaling,467,0.416,0.923,0.015562,0.5,,1,2,0,2001,2011
+Inflammation,C0021368,CXCL8,3576,P10145,C-X-C motif chemokine ligand 8,Signaling,1254,0.31,0.962,0.00027377,0.4,,1,13,0,2003,2014
+Inflammation,C0021368,TGFB1,7040,P01137,transforming growth factor beta 1,Signaling,1558,0.287,0.962,0.03685,0.38,,1,10,0,2002,2010
+Inflammation,C0021368,LEP,3952,P41159,leptin,,931,0.349,0.846,0.46491,0.37,,1,9,0,2003,2017
+Inflammation,C0021368,ADIPOQ,9370,Q15848,"adiponectin, C1Q and collagen domain containing",,679,0.376,0.885,4.6434E-09,0.36,,1,7,0,2003,2009
+Inflammation,C0021368,IFNG,3458,P01579,interferon gamma,,1519,0.288,0.962,0.47156,0.36,,1,9,0,2003,2013
+Inflammation,C0021368,TLR4,7099,O00206,toll like receptor 4,,1174,0.321,0.962,4.6131E-09,0.35,,1,9,0,2005,2012
+Inflammation,C0021368,IL17A,3605,Q16552,interleukin 17A,,1074,0.324,0.923,0.043049,0.35,,1,6,0,2003,2012
+Inflammation,C0021368,HMOX1,3162,P09601,heme oxygenase 1,,666,0.381,0.923,0.0096817,0.35,,1,8,0,2003,2018
+Inflammation,C0021368,MMP9,4318,P14780,matrix metallopeptidase 9,Enzyme,1337,0.305,0.923,1.8869E-17,0.34,,1,6,0,2003,2014
+Inflammation,C0021368,F2RL1,2150,P55085,F2R like trypsin receptor 1,G-protein coupled receptor,256,0.48,0.769,0.00014843,0.34,,1,6,0,2003,2014
+Inflammation,C0021368,HMGB1,3146,P09429,high mobility group box 1,Nucleic acid binding,724,0.368,0.923,0.82035,0.34,,1,9,0,2002,2013
+Inflammation,C0021368,VEGFA,7422,P15692,vascular endothelial growth factor A,Signaling,1899,0.266,0.923,0.000024085,0.33,,1,4,0,2004,2009
+Inflammation,C0021368,MPO,4353,P05164,myeloperoxidase,Enzyme,653,0.377,0.923,7.105E-15,0.33,,1,8,0,1999,2013
+Inflammation,C0021368,SOD1,6647,P00441,superoxide dismutase 1,Enzyme,689,0.379,0.962,0.1773,0.33,,1,4,0,2005,2013
+Inflammation,C0021368,PARP1,142,P09874,poly(ADP-ribose) polymerase 1,,565,0.389,0.923,0.00033366,0.32,,1,3,0,2004,2008
+Inflammation,C0021368,NOS2,4843,P35228,nitric oxide synthase 2,,783,0.364,0.923,4.0277E-15,0.31,,1,3,0,2001,2014
+Inflammation,C0021368,CSF2,1437,P04141,colony stimulating factor 2,Signaling,1028,0.33,0.962,0.83468,0.31,,1,2,0,2005,2013
+Inflammation,C0021368,UCN,7349,P55089,urocortin,Signaling,134,0.539,0.769,0.44958,0.31,,1,2,0,1999,2003
+Inflammation,C0021368,SCGB1A1,7356,P11684,secretoglobin family 1A member 1,Signaling,133,0.546,0.808,0.00079919,0.31,,1,2,0,2005,2005
+Inflammation,C0021368,TNFRSF11B,4982,O00300,TNF receptor superfamily member 11b,,443,0.422,0.808,0.16171,0.31,,1,2,0,2005,2013
+Inflammation,C0021368,MMP2,4313,P08253,matrix metallopeptidase 2,Enzyme,1021,0.333,0.923,0.83878,0.31,,1,2,0,2006,2014
+Inflammation,C0021368,F2R,2149,P25116,coagulation factor II thrombin receptor,G-protein coupled receptor,347,0.444,0.846,0.0084678,0.31,,1,2,0,2007,2010
+Inflammation,C0021368,CXCR3,2833,P49682,C-X-C motif chemokine receptor 3,G-protein coupled receptor,367,0.436,0.808,0.181,0.31,,1,2,0,2003,2004
+Inflammation,C0021368,TSLP,85480,Q969D9,thymic stromal lymphopoietin,,220,0.486,0.808,0.0040357,0.31,,1,2,0,2007,2017
+Inflammation,C0021368,AHR,196,P35869,aryl hydrocarbon receptor,Transcription factor,532,0.41,0.923,0.99999,0.31,,1,3,0,2005,2015
+Inflammation,C0021368,PPARA,5465,Q07869,peroxisome proliferator activated receptor alpha,Nuclear receptor,408,0.432,0.885,0.030182,0.31,,1,2,0,2004,2011
+Inflammation,C0021368,NLRP3,114548,Q96P20,NLR family pyrin domain containing 3,,805,0.361,0.962,0.00081103,0.31,,1,3,0,2002,2012
+Inflammation,C0021368,APOA1,335,P02647,apolipoprotein A1,,416,0.429,0.885,0.00054909,0.31,,1,2,0,2008,2011
+Inflammation,C0021368,TIMP1,7076,P01033,TIMP metallopeptidase inhibitor 1,Enzyme modulator,603,0.38,0.885,0.4993,0.31,,1,2,0,2003,2007
+Inflammation,C0021368,IL13,3596,P35225,interleukin 13,,587,0.386,0.846,0.014426,0.31,,1,2,0,2007,2013
+Inflammation,C0021368,TLR9,54106,Q9NR96,toll like receptor 9,,457,0.411,0.885,9.8117E-06,0.31,,1,2,0,2007,2009
+Inflammation,C0021368,PLAUR,5329,Q03405,"plasminogen activator, urokinase receptor",,147,0.536,0.731,0.0053378,0.31,,1,2,0,2002,2012
+Inflammation,C0021368,LCN2,3934,P80188,lipocalin 2,Enzyme,497,0.405,0.885,1.1404E-09,0.31,,1,2,0,2005,2010
+Inflammation,C0021368,LTB4R,1241,Q15722,leukotriene B4 receptor,G-protein coupled receptor,107,0.576,0.692,0.11994,0.31,,1,2,0,2000,2005
+Inflammation,C0021368,TNFSF15,9966,O95150,TNF superfamily member 15,Signaling,143,0.531,0.692,0.0028159,0.31,,1,2,0,2004,2011
+Inflammation,C0021368,PROCR,10544,Q9UNN8,protein C receptor,Enzyme modulator,110,0.56,0.692,0.0056256,0.31,,1,2,0,2004,2013
+Inflammation,C0021368,IDO1,3620,P14902,"indoleamine 2,3-dioxygenase 1",,295,0.454,0.846,3.3013E-06,0.31,,1,2,0,2006,2007
+Inflammation,C0021368,BDKRB1,623,P46663,bradykinin receptor B1,G-protein coupled receptor,79,0.619,0.731,0.0046897,0.31,,1,2,0,2005,2010
+Inflammation,C0021368,LTF,4057,P02788,lactotransferrin,Enzyme,133,0.543,0.846,1.2665E-21,0.31,,1,2,0,2002,2005
+Inflammation,C0021368,AGER,177,Q15109,advanced glycosylation end-product specific receptor,Receptor,450,0.42,0.885,6.3528E-16,0.31,,1,2,0,2004,2012
+Inflammation,C0021368,TNFAIP3,7128,P21580,TNF alpha induced protein 3,Enzyme,212,0.481,0.808,0.99972,0.3,,1,1,0,2014,2014
+Inflammation,C0021368,TFRC,7037,P02786,transferrin receptor,Enzyme,359,0.437,0.885,0.000069902,0.3,,1,1,0,2006,2006
+Inflammation,C0021368,IL17RA,23765,Q96F46,interleukin 17 receptor A,,159,0.529,0.808,0.00035636,0.3,,1,1,0,2018,2018
+Inflammation,C0021368,IL1A,3552,P01583,interleukin 1 alpha,,1002,0.333,0.962,0.0001602,0.3,,1,2,0,2011,2011
+Inflammation,C0021368,TGFA,7039,P01135,transforming growth factor alpha,Signaling,376,0.432,0.885,0.71981,0.3,,1,1,0,2002,2002
+Inflammation,C0021368,TF,7018,P02787,transferrin,Enzyme,168,0.527,0.846,4.1001E-08,0.3,,1,1,0,2010,2010
+Inflammation,C0021368,MVK,4598,Q03426,mevalonate kinase,Kinase,139,0.576,0.731,0.16679,0.3,,1,1,0,2013,2013
+Inflammation,C0021368,CASP1,834,P29466,caspase 1,Enzyme,444,0.413,0.885,0.000035183,0.3,,1,1,0,2012,2012
+Inflammation,C0021368,RORC,6097,P51449,RAR related orphan receptor C,Nuclear receptor,88,0.576,0.769,0.99985,0.3,,1,1,0,2012,2012
+Inflammation,C0021368,MYD88,4615,Q99836,MYD88 innate immune signal transduction adaptor,Enzyme modulator,480,0.414,0.923,0.12443,0.3,,1,1,0,2012,2012
+Inflammation,C0021368,IRF7,3665,Q92985,interferon regulatory factor 7,Transcription factor,121,0.547,0.846,4.4508E-15,0.3,,1,1,0,2010,2010
+Inflammation,C0021368,ZFP36,7538,P26651,ZFP36 ring finger protein,Nucleic acid binding,161,0.523,0.692,0.75244,0.3,,1,1,0,2003,2003
+Inflammation,C0021368,STAT3,6774,P40763,signal transducer and activator of transcription 3,Nucleic acid binding,1193,0.32,0.923,1,0.3,,1,3,0,2011,2014
+Inflammation,C0021368,MIR217,406999,,microRNA 217,,116,0.543,0.769,,0.3,,1,1,0,2016,2016
+Inflammation,C0021368,TBX21,30009,Q9UL17,T-box transcription factor 21,Transcription factor,124,0.541,0.808,0.99636,0.3,,1,1,0,2012,2012
+Inflammation,C0021368,CXCL2,2920,P19875,C-X-C motif chemokine ligand 2,Signaling,186,0.513,0.885,3.6079E-07,0.3,,1,1,0,2013,2013
+Inflammation,C0021368,MIR22,407004,,microRNA 22,,195,0.496,0.808,,0.3,,1,1,0,2017,2017
+Inflammation,C0021368,TSC2,7249,P49815,TSC complex subunit 2,Enzyme modulator,410,0.439,0.808,1,0.3,,1,1,0,2015,2015
+Inflammation,C0021368,ASIC2,40,Q16515,acid sensing ion channel subunit 2,Ion channel,50,0.653,0.538,0.99912,0.3,,1,1,0,2001,2001
+Inflammation,C0021368,ANGPT1,284,Q15389,angiopoietin 1,Signaling,340,0.446,0.808,0.95208,0.3,,1,1,0,2008,2008
+Inflammation,C0021368,MIR34A,407040,,microRNA 34a,,428,0.421,0.846,,0.3,,1,1,0,2013,2013
+Inflammation,C0021368,IFNL3,282617,Q8IZI9,interferon lambda 3,,175,0.506,0.808,2.4233E-08,0.3,,1,1,0,2017,2017
+Inflammation,C0021368,ASIC1,41,P78348,acid sensing ion channel subunit 1,Ion channel,52,0.653,0.615,0.93017,0.3,,1,1,0,2001,2001
+Inflammation,C0021368,STS,412,P08842,steroid sulfatase,Enzyme,382,0.431,0.846,0.80886,0.3,,1,1,0,2014,2014
+Inflammation,C0021368,TP73,7161,O15350,tumor protein p73,Transcription factor,300,0.449,0.808,0.99696,0.3,,1,1,0,2017,2017
+Inflammation,C0021368,SULT2B1,6820,O00204,sulfotransferase family 2B member 1,,59,0.641,0.538,0.43553,0.3,,1,1,0,2017,2017
+Inflammation,C0021368,GATA3,2625,P23771,GATA binding protein 3,,429,0.415,0.846,0.89887,0.3,,1,1,0,2012,2012
+Inflammation,C0021368,JAK2,3717,O60674,Janus kinase 2,Kinase,644,0.385,0.885,0.65372,0.3,,1,1,0,2011,2011
+Inflammation,C0021368,GALNS,2588,P34059,galactosamine (N-acetyl)-6-sulfatase,Enzyme,138,0.56,0.808,2.9611E-10,0.3,,1,1,0,1994,1994
+Inflammation,C0021368,MIR21,406991,,microRNA 21,,726,0.363,0.846,,0.3,,1,1,0,2018,2018
+Inflammation,C0021368,SLC22A5,6584,O76082,solute carrier family 22 member 5,Transporter,103,0.608,0.731,5.2651E-16,0.3,,1,1,0,2011,2011
+Inflammation,C0021368,EGR1,1958,P18146,early growth response 1,Nucleic acid binding,378,0.433,0.923,0.3509,0.3,,1,1,0,2012,2012
+Inflammation,C0021368,ATP7B,540,P35670,ATPase copper transporting beta,Transporter,182,0.529,0.654,4.8001E-30,0.3,,1,1,0,2013,2013
+Inflammation,C0021368,PLAA,9373,Q9Y263,phospholipase A2 activating protein,Enzyme modulator,113,0.597,0.692,0.46873,0.3,,1,1,0,2001,2001
+Inflammation,C0021368,CCL4,6351,P13236;Q8NHW4,C-C motif chemokine ligand 4,Signaling,276,0.466,0.923,0.24134,0.3,,1,1,0,2010,2010
+Inflammation,C0021368,COL2A1,1280,P02458,collagen type II alpha 1 chain,,496,0.444,0.846,1,0.3,,1,2,0,2013,2017
+Inflammation,C0021368,EFNB1,1947,P98172,ephrin B1,Signaling,134,0.561,0.769,0.93251,0.3,,1,1,0,2013,2013
+Inflammation,C0021368,EDN1,1906,P05305,endothelin 1,Signaling,679,0.38,0.846,0.45504,0.3,,1,1,0,2013,2013
+Inflammation,C0021368,ASIC3,9311,Q9UHC3,acid sensing ion channel subunit 3,Ion channel,51,0.663,0.538,3.4071E-07,0.3,,1,1,0,2001,2001
+Inflammation,C0021368,AGT,183,P01019,angiotensinogen,Enzyme modulator,765,0.367,0.923,4.9706E-08,0.3,,1,4,0,2005,2018
+Inflammation,C0021368,OXT,5020,P01178,oxytocin/neurophysin I prepropeptide,Signaling,135,0.615,0.423,0.71197,0.3,,1,1,0,2008,2008
+Inflammation,C0021368,CCK,885,P06307,cholecystokinin,,326,0.453,0.846,0.000033034,0.3,,1,1,0,2003,2003
+Inflammation,C0021368,GAL,51083,P22466,galanin and GMAP prepropeptide,,226,0.493,0.846,4.3885E-06,0.3,,1,1,0,2008,2008
+Inflammation,C0021368,KYNU,8942,Q16719,kynureninase,Enzyme,88,0.617,0.692,4.1806E-18,0.3,,1,1,0,2006,2006
+Inflammation,C0021368,TRPA1,8989,O75762,transient receptor potential cation channel subfamily A member 1,Ion channel,160,0.546,0.846,7.2309E-35,0.3,,1,1,0,2010,2010
+Inflammation,C0021368,CRHR2,1395,Q13324,corticotropin releasing hormone receptor 2,G-protein coupled receptor,89,0.584,0.731,8.5473E-17,0.3,,1,1,0,2006,2006
+Inflammation,C0021368,ABCB4,5244,P21439,ATP binding cassette subfamily B member 4,Transporter,157,0.529,0.615,2.2138E-07,0.3,,1,1,0,2011,2011
+Inflammation,C0021368,CCL3,6348,P10147,C-C motif chemokine ligand 3,Signaling,282,0.46,0.885,0.34981,0.3,,1,1,0,2010,2010
+Inflammation,C0021368,EIF4EBP1,1978,Q13541,eukaryotic translation initiation factor 4E binding protein 1,Nucleic acid binding,201,0.494,0.885,0.20762,0.3,,1,1,0,2015,2015
+Inflammation,C0021368,PTPN1,5770,P18031,protein tyrosine phosphatase non-receptor type 1,,169,0.523,0.731,0.81293,0.3,,1,1,0,2017,2017
+Inflammation,C0021368,CCL11,6356,P51671,C-C motif chemokine ligand 11,Signaling,250,0.473,0.885,0.010211,0.3,,1,1,0,2013,2013
+Inflammation,C0021368,SH2B3,10019,Q9UQQ2,SH2B adaptor protein 3,,212,0.527,0.692,0.00010289,0.3,,1,1,0,2011,2011
+Inflammation,C0021368,NPPB,4879,P16860,natriuretic peptide B,,193,0.513,0.808,9.8786E-06,0.3,,1,1,0,2010,2010
+Inflammation,C0021368,NR1H4,9971,Q96RI1,nuclear receptor subfamily 1 group H member 4,Nuclear receptor,187,0.513,0.808,0.00093892,0.3,,1,1,0,2017,2017
+Inflammation,C0021368,AKT1,207,P31749,AKT serine/threonine kinase 1,Kinase,1250,0.311,0.962,0.9759,0.3,,1,2,0,2014,2015
+Inflammation,C0021368,EPO,2056,P01588,erythropoietin,,646,0.381,0.885,0.01125,0.3,,1,1,0,2011,2011
+Inflammation,C0021368,WDR1,9948,O75083,WD repeat domain 1,Cellular structure,59,0.623,0.654,0.99892,0.3,,1,1,0,2007,2007
+Inflammation,C0021368,MASP2,10747,O00187,mannan binding lectin serine peptidase 2,Enzyme,86,0.582,0.692,3.0428E-14,0.3,,1,1,0,2003,2003
+Inflammation,C0021368,DUSP10,11221,Q9Y6W6,dual specificity phosphatase 10,,36,0.686,0.577,0.8335,0.3,,1,1,0,2007,2007
+Inflammation,C0021368,CLN6,54982,Q9NWW5,CLN6 transmembrane ER protein,,59,0.67,0.231,0.00010025,0.3,,1,1,0,2013,2013
+Inflammation,C0021368,UCN3,114131,Q969E3,urocortin 3,,82,0.593,0.731,0.043878,0.3,,1,1,0,2006,2006
+Inflammation,C0021368,CHRNB2,1141,P17787,cholinergic receptor nicotinic beta 2 subunit,Ion channel,96,0.617,0.308,0.00072964,0.3,,1,1,0,2011,2011
+Inflammation,C0021368,CHRNA4,1137,P43681,cholinergic receptor nicotinic alpha 4 subunit,Ion channel,248,0.492,0.808,0.000085474,0.3,,1,1,0,2011,2011
+Inflammation,C0021368,TREX1,11277,Q9NSU2,three prime repair exonuclease 1,,241,0.517,0.808,0.57528,0.3,,1,1,0,2006,2006
+Inflammation,C0021368,SELENOS,55829,Q9BQE4,selenoprotein S,,55,0.628,0.615,1.4301E-09,0.3,,1,1,0,2005,2005
+Inflammation,C0021368,CD3E,916,P07766,CD3e molecule,,73,0.615,0.615,0.00034464,0.3,,1,1,0,2012,2012
+Inflammation,C0021368,TLR6,10333,Q9Y2C9,toll like receptor 6,,106,0.556,0.769,0.000022508,0.22,,1,3,0,2006,2008
+Inflammation,C0021368,CCL5,6352,P13501,C-C motif chemokine ligand 5,Signaling,514,0.403,0.885,0.0017516,0.22,,1,3,0,2003,2007
+Inflammation,C0021368,ANXA1,301,P04083,annexin A1,,336,0.442,0.885,1.2009E-07,0.22,,1,3,0,2000,2007
+Inflammation,C0021368,CXCL1,2919,P09341,C-X-C motif chemokine ligand 1,Signaling,315,0.449,0.923,0.11845,0.22,,1,4,0,1996,2009
+Inflammation,C0021368,IL15,3600,P40933,interleukin 15,,426,0.422,0.846,0.70859,0.22,,1,3,0,2002,2003
+Inflammation,C0021368,F11R,50848,Q9Y624,F11 receptor,,127,0.542,0.731,0.000018487,0.21,,1,2,0,2006,2007
+Inflammation,C0021368,KLK1,3816,P06870,kallikrein 1,Enzyme,132,0.533,0.769,0.00015311,0.21,,1,2,0,2005,2006
+Inflammation,C0021368,APOA4,337,P06727,apolipoprotein A4,,88,0.582,0.577,5.4536E-06,0.21,,1,2,0,2000,2009
+Inflammation,C0021368,ABCB1,5243,P08183,ATP binding cassette subfamily B member 1,Transporter,933,0.344,0.885,0.000012564,0.21,,1,2,0,2007,2015
+Inflammation,C0021368,ACSL6,23305,Q9UKU0,acyl-CoA synthetase long chain family member 6,Enzyme,30,0.686,0.5,0.0032201,0.2,,1,1,0,2003,2003
+Inflammation,C0021368,MUC2,4583,Q02817,"mucin 2, oligomeric mucus/gel-forming",Enzyme modulator,225,0.486,0.808,9.433E-10,0.2,,1,1,0,2005,2005
+Inflammation,C0021368,AIF1,199,P55008,allograft inflammatory factor 1,Calcium-binding protein,166,0.521,0.808,1.8793E-06,0.2,,1,1,0,2008,2008
+Inflammation,C0021368,NPY5R,4889,Q15761,neuropeptide Y receptor Y5,G-protein coupled receptor,32,0.691,0.462,0.0063686,0.2,,1,1,0,2002,2002
+Inflammation,C0021368,CAMK2A,815,Q9UQM7,calcium/calmodulin dependent protein kinase II alpha,Kinase,87,0.612,0.538,0.99845,0.2,,1,1,0,2002,2002
+Inflammation,C0021368,SPINK1,6690,P00995,serine peptidase inhibitor Kazal type 1,,216,0.492,0.808,0.31476,0.2,,1,1,0,1994,1994
+Inflammation,C0021368,FGG,2266,P02679,fibrinogen gamma chain,Signaling,70,0.633,0.615,0.04963,0.2,,1,1,0,2001,2001
+Inflammation,C0021368,SERPINC1,462,P01008,serpin family C member 1,Enzyme modulator,184,0.507,0.769,0.99892,0.2,,1,1,0,2007,2007
+Inflammation,C0021368,NPFF,8620,O15130,neuropeptide FF-amide peptide precursor,,14,0.821,0.154,0.00003646,0.2,,1,1,0,1999,1999
+Inflammation,C0021368,TFAM,7019,Q00059,"transcription factor A, mitochondrial",,147,0.529,0.731,0.17259,0.2,,1,1,0,2012,2012
+Inflammation,C0021368,ACSL3,2181,O95573,acyl-CoA synthetase long chain family member 3,Enzyme,37,0.674,0.538,0.00034758,0.2,,1,1,0,2003,2003
+Inflammation,C0021368,ACSL4,2182,O60488,acyl-CoA synthetase long chain family member 4,Enzyme,136,0.561,0.769,0.98103,0.2,,1,1,0,2003,2003
+Inflammation,C0021368,CDK5,1020,Q00535,cyclin dependent kinase 5,Kinase,204,0.495,0.846,0.13892,0.2,,1,1,0,2006,2006
+Inflammation,C0021368,F3,2152,P13726,"coagulation factor III, tissue factor",Receptor,456,0.415,0.846,0.018872,0.2,,1,1,0,2015,2015
+Inflammation,C0021368,CXCR2,3579,P25025,C-X-C motif chemokine receptor 2,G-protein coupled receptor,335,0.445,0.923,0.013736,0.2,,1,1,0,2005,2005
+Inflammation,C0021368,PDE5A,8654,O76074,phosphodiesterase 5A,,187,0.513,0.731,0.00010643,0.2,,1,1,0,2009,2009
+Inflammation,C0021368,A2M,2,P01023,alpha-2-macroglobulin,Enzyme modulator,147,0.529,0.769,4.5229E-11,0.2,,1,1,0,1984,1984
+Inflammation,C0021368,S100A8,6279,P05109,S100 calcium binding protein A8,Calcium-binding protein,369,0.43,0.962,0.13761,0.2,,1,1,0,2004,2004
+Inflammation,C0021368,PDPN,10630,Q86YL7,podoplanin,,256,0.47,0.769,0.00032048,0.2,,1,1,0,2005,2005
+Inflammation,C0021368,SERPINA3,12,P01011,serpin family A member 3,Enzyme modulator,229,0.486,0.846,8.833E-14,0.2,,1,1,0,2009,2009
+Inflammation,C0021368,EGFR,1956,P00533,epidermal growth factor receptor,Kinase,1394,0.295,0.885,0.36837,0.2,,1,1,0,2012,2012
+Inflammation,C0021368,CCR5,1234,P51681,C-C motif chemokine receptor 5 (gene/pseudogene),G-protein coupled receptor,508,0.398,0.885,4.3094E-10,0.2,,1,1,0,2005,2005
+Inflammation,C0021368,CX3CR1,1524,P49238,C-X3-C motif chemokine receptor 1,G-protein coupled receptor,310,0.457,0.885,0.061371,0.2,,1,1,0,2012,2012
+Inflammation,C0021368,PCSK1,5122,P29120,proprotein convertase subtilisin/kexin type 1,Enzyme,140,0.548,0.615,2.745E-09,0.2,,1,1,0,2004,2004
+Inflammation,C0021368,ADORA1,134,P30542,adenosine A1 receptor,G-protein coupled receptor,121,0.578,0.692,0.015215,0.2,,1,1,0,1990,1990
+Inflammation,C0021368,CYP1A1,1543,P04798,cytochrome P450 family 1 subfamily A member 1,Enzyme,379,0.436,0.846,1.0635E-17,0.2,,1,1,0,2005,2005
+Inflammation,C0021368,PCSK2,5126,P16519,proprotein convertase subtilisin/kexin type 2,Enzyme,39,0.663,0.462,0.99853,0.2,,1,1,0,2004,2004
+Inflammation,C0021368,PLA2G4A,5321,P47712,phospholipase A2 group IVA,Enzyme,202,0.496,0.846,0.000059817,0.2,,1,1,0,2007,2007
+Inflammation,C0021368,PIK3CG,5294,P48736,"phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit gamma",Kinase,1101,0.32,0.885,1.4076E-06,0.2,,1,1,0,2007,2007
+Inflammation,C0021368,SDC1,6382,P18827,syndecan 1,Extracellular structure,323,0.445,0.769,0.0084118,0.2,,1,1,0,2004,2004
+Inflammation,C0021368,OPRM1,4988,P35372,opioid receptor mu 1,G-protein coupled receptor,370,0.457,0.808,7.8882E-11,0.2,,1,1,0,2009,2009
+Inflammation,C0021368,ALOX5,240,P09917,arachidonate 5-lipoxygenase,Enzyme,342,0.447,0.885,1.2059E-06,0.2,,1,1,0,1992,1992
+Inflammation,C0021368,NTRK2,4915,Q16620,neurotrophic receptor tyrosine kinase 2,Kinase,284,0.479,0.808,1,0.2,,1,1,0,2011,2011
+Inflammation,C0021368,ALOX5AP,241,P20292,arachidonate 5-lipoxygenase activating protein,Enzyme,76,0.612,0.731,0.070729,0.2,,1,1,0,2009,2009
+Inflammation,C0021368,TACR3,6870,P29371,tachykinin receptor 3,G-protein coupled receptor,147,0.553,0.769,1.8068E-17,0.2,,1,1,0,2000,2000
+Inflammation,C0021368,HP,3240,P00738,haptoglobin,Enzyme,464,0.412,0.885,0.00001736,0.2,,1,1,0,2003,2003
+Inflammation,C0021368,MTOR,2475,P42345,mechanistic target of rapamycin kinase,Kinase,960,0.343,0.885,1,0.2,,1,1,0,2013,2013
+Inflammation,C0021368,TACR1,6869,P25103,tachykinin receptor 1,G-protein coupled receptor,217,0.502,0.885,0.00038437,0.2,,1,1,0,2007,2007
+Inflammation,C0021368,KCNK2,3776,O95069,potassium two pore domain channel subfamily K member 2,Ion channel,67,0.626,0.654,0.019089,0.2,,1,1,0,2012,2012
+Inflammation,C0021368,CCL20,6364,P78556,C-C motif chemokine ligand 20,Signaling,242,0.474,0.846,0.00024242,0.06,,1,6,0,2002,2008
+Inflammation,C0021368,IL23A,51561,Q9NPF7,interleukin 23 subunit alpha,Signaling,427,0.415,0.846,0.35806,0.04,,1,4,0,2005,2008
+Inflammation,C0021368,IL18,3606,Q14116,interleukin 18,,750,0.365,0.923,0.030717,0.04,,1,4,0,2004,2006
+Inflammation,C0021368,PRTN3,5657,P24158,proteinase 3,Enzyme,215,0.503,0.808,0.000038044,0.04,,1,4,0,2002,2004
+Inflammation,C0021368,PROC,5624,P04070,"protein C, inactivator of coagulation factors Va and VIIIa",Enzyme,200,0.504,0.808,0.000019118,0.04,,1,4,0,2004,2008
+Inflammation,C0021368,CX3CL1,6376,P78423,C-X3-C motif chemokine ligand 1,Signaling,243,0.478,0.808,0.60837,0.04,,1,4,0,2002,2007
+Inflammation,C0021368,THBS1,7057,P07996,thrombospondin 1,,480,0.407,0.885,0.99985,0.04,,1,4,0,2003,2008
+Inflammation,C0021368,NFKB1,4790,P19838,nuclear factor kappa B subunit 1,Transcription factor,551,0.396,0.923,1,0.04,,1,4,0,2002,2006
+Inflammation,C0021368,ELANE,1991,P08246,"elastase, neutrophil expressed",Enzyme,346,0.447,0.846,0.0012274,0.04,,1,4,0,2002,2007
+Inflammation,C0021368,MMP3,4314,P08254,matrix metallopeptidase 3,Enzyme,473,0.408,0.885,5.7362E-15,0.03,,1,3,0,2006,2009
+Inflammation,C0021368,IL33,90865,O95760,interleukin 33,,487,0.409,0.885,8.2925E-10,0.03,,1,3,0,2007,2009
+Inflammation,C0021368,PLAU,5328,P00749,"plasminogen activator, urokinase",Enzyme,439,0.425,0.923,2.3058E-06,0.03,,1,3,0,2003,2008
+Inflammation,C0021368,C5,727,P01031,complement C5,Enzyme modulator,129,0.55,0.731,8.079E-24,0.03,,1,3,0,2002,2008
+Inflammation,C0021368,NOS3,4846,P29474,nitric oxide synthase 3,,706,0.378,0.885,6.7246E-07,0.03,,1,3,0,2002,2008
+Inflammation,C0021368,ADM,133,P35318,adrenomedullin,Signaling,405,0.436,0.808,0.040831,0.03,,1,3,0,2003,2007
+Inflammation,C0021368,SERPINE1,5054,P05121,serpin family E member 1,Enzyme modulator,770,0.359,0.885,0.043609,0.03,,1,3,0,2005,2008
+Inflammation,C0021368,SPP1,6696,P10451,secreted phosphoprotein 1,,824,0.353,0.885,0.000002146,0.03,,1,3,0,2007,2008
+Inflammation,C0021368,CD40,958,P25942,CD40 molecule,,528,0.396,0.846,0.84603,0.03,,1,3,0,2004,2008
+Inflammation,C0021368,CNR2,1269,P34972,cannabinoid receptor 2,G-protein coupled receptor,197,0.509,0.846,6.5369E-06,0.03,,1,3,0,2007,2008
+Inflammation,C0021368,CCR6,1235,P51684,C-C motif chemokine receptor 6,G-protein coupled receptor,231,0.485,0.808,0.0057867,0.03,,1,3,0,2002,2007
+Inflammation,C0021368,RETN,56729,Q9HD89,resistin,,302,0.454,0.808,0.036545,0.03,,1,3,0,2008,2008
+Inflammation,C0021368,RELA,5970,Q04206,"RELA proto-oncogene, NF-kB subunit",Transcription factor,483,0.406,0.885,0.99948,0.03,,1,3,0,2002,2007
+Inflammation,C0021368,HSPA4,3308,P34932,heat shock protein family A (Hsp70) member 4,,550,0.394,0.923,0.99954,0.03,,1,3,0,2007,2009
+Inflammation,C0021368,NOD1,10392,Q9Y239,nucleotide binding oligomerization domain containing 1,Enzyme,136,0.541,0.769,2.4602E-18,0.03,,1,3,0,2003,2008
+Inflammation,C0021368,NOD2,64127,Q9HC29,nucleotide binding oligomerization domain containing 2,Enzyme,434,0.423,0.923,1.9834E-30,0.03,,1,3,0,2006,2008
+Inflammation,C0021368,CXCL10,3627,P02778,C-X-C motif chemokine ligand 10,Signaling,631,0.378,0.885,0.36865,0.03,,1,3,0,2001,2007
+Inflammation,C0021368,FOXP3,50943,Q9BZS1,forkhead box P3,,688,0.368,0.846,0.99424,0.02,,1,2,0,2006,2008
+Inflammation,C0021368,CCL21,6366,O00585,C-C motif chemokine ligand 21,Signaling,186,0.502,0.769,0.036239,0.02,,1,2,0,2007,2007
+Inflammation,C0021368,NFE2L2,4780,Q16236,"nuclear factor, erythroid 2 like 2",Enzyme,823,0.357,0.885,0.0035719,0.02,,1,2,0,2008,2008
+Inflammation,C0021368,PGF,5228,P49763,placental growth factor,Signaling,288,0.46,0.846,0.1288,0.02,,1,2,0,2003,2008
+Inflammation,C0021368,FGF1,2246,P05230,fibroblast growth factor 1,Signaling,184,0.507,0.846,0.44406,0.02,,1,2,0,2002,2005
+Inflammation,C0021368,TNFSF10,8743,P50591,TNF superfamily member 10,Signaling,445,0.413,0.885,0.13495,0.02,,1,2,0,2003,2003
+Inflammation,C0021368,POMC,5443,P01189,proopiomelanocortin,,873,0.356,0.846,0.00011658,0.02,,1,2,0,2003,2004
+Inflammation,C0021368,MT2A,4502,P02795,metallothionein 2A,,117,0.553,0.808,0.000012279,0.02,,1,2,0,2004,2005
+Inflammation,C0021368,CD40LG,959,P29965,CD40 ligand,Signaling,453,0.414,0.846,0.72079,0.02,,1,2,0,2006,2007
+Inflammation,C0021368,SELPLG,6404,Q14242,selectin P ligand,,113,0.564,0.692,0.1768,0.02,,1,2,0,2004,2004
+Inflammation,C0021368,TNFSF14,8740,O43557,TNF superfamily member 14,Signaling,143,0.529,0.769,0.051663,0.02,,1,2,0,2001,2005
+Inflammation,C0021368,DEFB4A,1673,O15263,defensin beta 4A,,177,0.507,0.769,0.0011637,0.02,,1,2,0,2003,2005
+Inflammation,C0021368,TNFSF18,8995,Q9UNG2,TNF superfamily member 18,,15,0.78,0.231,0.00019152,0.02,,1,2,0,2006,2006
+Inflammation,C0021368,BMP4,652,P12644,bone morphogenetic protein 4,Signaling,423,0.422,0.808,0.9564,0.02,,1,2,0,2004,2008
+Inflammation,C0021368,MAPK14,1432,Q16539,mitogen-activated protein kinase 14,Kinase,626,0.379,0.923,0.37466,0.02,,1,2,0,2005,2007
+Inflammation,C0021368,CRYAB,1410,P02511,crystallin alpha B,,200,0.515,0.731,0.02247,0.02,,1,2,0,2007,2008
+Inflammation,C0021368,EOLA1,91966,Q8TE69,endothelium and lymphocyte associated ASCH domain 1,,2,1,0.115,0.59015,0.02,,1,2,0,2004,2005
+Inflammation,C0021368,SELP,6403,P16109,selectin P,,293,0.46,0.769,5.0448E-32,0.02,,1,2,0,2006,2006
+Inflammation,C0021368,CST3,1471,P01034,cystatin C,,370,0.436,0.808,0.0039011,0.02,,1,2,0,2007,2007
+Inflammation,C0021368,SLC15A1,6564,P46059,solute carrier family 15 member 1,Transporter,31,0.7,0.615,4.9948E-13,0.02,,1,2,0,2004,2006
+Inflammation,C0021368,NTF3,4908,P20783,neurotrophin 3,Signaling,170,0.519,0.808,0.93201,0.02,,1,2,0,2003,2006
+Inflammation,C0021368,IL25,64806,Q9H293,interleukin 25,,139,0.529,0.846,0.00092347,0.02,,1,2,0,2006,2008
+Inflammation,C0021368,SAA1,6288,P0DJI8,serum amyloid A1,Transporter,188,0.513,0.808,0.01493,0.02,,1,2,0,2005,2007
+Inflammation,C0021368,APP,351,P05067,amyloid beta precursor protein,Enzyme modulator,485,0.422,0.846,0.046544,0.02,,1,2,0,2005,2008
+Inflammation,C0021368,CD44,960,P16070,CD44 molecule (Indian blood group),,711,0.363,0.962,2.4476E-07,0.02,,1,2,0,2008,2008
+Inflammation,C0021368,CFTR,1080,P13569,CF transmembrane conductance regulator,Ion channel,476,0.424,0.885,2.1735E-58,0.02,,1,2,0,2005,2006
+Inflammation,C0021368,HGF,3082,P14210,hepatocyte growth factor,Enzyme,671,0.374,0.885,0.99947,0.02,,1,2,0,2002,2006
+Inflammation,C0021368,GHRL,51738,Q9UBU3,ghrelin and obestatin prepropeptide,,183,0.517,0.769,1.3921E-11,0.02,,1,2,0,2006,2007
+Inflammation,C0021368,S100A9,6280,P06702,S100 calcium binding protein A9,Calcium-binding protein,363,0.433,0.885,0.4777,0.02,,1,2,0,2003,2006
+Inflammation,C0021368,TNFSF13B,10673,Q9Y275,TNF superfamily member 13b,,282,0.46,0.731,0.98193,0.02,,1,2,0,2006,2007
+Inflammation,C0021368,HAMP,57817,P81172,hepcidin antimicrobial peptide,,377,0.433,0.846,0.0081797,0.02,,1,2,0,2003,2004
+Inflammation,C0021368,KNG1,3827,P01042,kininogen 1,Enzyme modulator,279,0.481,0.885,3.2071E-10,0.02,,1,2,0,2007,2008
+Inflammation,C0021368,TPSAB1,7177,P20231;Q15661,tryptase alpha/beta 1,Enzyme,23,0.722,0.5,1.2733E-13,0.02,,1,2,0,2003,2005
+Inflammation,C0021368,TP53,7157,P04637,tumor protein p53,Transcription factor,2494,0.236,0.962,0.53235,0.02,,1,2,0,2005,2008
+Inflammation,C0021368,TNFRSF1A,7132,P19438,TNF receptor superfamily member 1A,,487,0.409,0.923,0.9949,0.02,,1,2,0,2007,2008
+Inflammation,C0021368,TNFAIP6,7130,P98066,TNF alpha induced protein 6,,91,0.582,0.731,1.0939E-06,0.02,,1,2,0,2003,2005
+Inflammation,C0021368,VEGFC,7424,P49767,vascular endothelial growth factor C,Signaling,291,0.459,0.769,0.49565,0.02,,1,2,0,2004,2007
+Inflammation,C0021368,S100B,6285,P04271,S100 calcium binding protein B,Calcium-binding protein,599,0.383,0.923,0.04387,0.02,,1,2,0,2007,2007
+Inflammation,C0021368,C1QBP,708,Q07021,complement C1q binding protein,,111,0.569,0.692,2.0164E-07,0.02,,1,2,0,2003,2006
+Inflammation,C0021368,CEACAM1,634,P13688,CEA cell adhesion molecule 1,,167,0.525,0.731,0.00078816,0.02,,1,2,0,2006,2007
+Inflammation,C0021368,MBL2,4153,P11226,mannose binding lectin 2,Receptor,563,0.39,0.846,0.0026836,0.02,,1,2,0,2006,2008
+Inflammation,C0021368,NR3C2,4306,P08235,nuclear receptor subfamily 3 group C member 2,Nuclear receptor,287,0.469,0.846,0.83739,0.02,,1,2,0,2005,2005
+Inflammation,C0021368,VWF,7450,P04275,von Willebrand factor,Enzyme modulator,498,0.408,0.885,3.2187E-25,0.02,,1,2,0,2002,2005
+Inflammation,C0021368,CXCL14,9547,O95715,C-X-C motif chemokine ligand 14,,125,0.554,0.731,0.037302,0.01,,1,1,0,2009,2009
+Inflammation,C0021368,NTN1,9423,O95631,netrin 1,Enzyme modulator,209,0.509,0.846,0.99687,0.01,,1,1,0,2009,2009
+Inflammation,C0021368,CCL1,6346,P22362,C-C motif chemokine ligand 1,Signaling,79,0.587,0.692,0.0079669,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,CD68,968,P34810,CD68 molecule,Transporter,452,0.408,0.808,1.4063E-06,0.01,,1,1,0,2009,2009
+Inflammation,C0021368,SERPINB4,6318,P48594,serpin family B member 4,Enzyme modulator,64,0.623,0.423,8.7622E-17,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,CDH1,999,P12830,cadherin 1,,508,0.401,0.808,0.14631,0.01,,1,1,0,2002,2002
+Inflammation,C0021368,CCL19,6363,Q99731,C-C motif chemokine ligand 19,Signaling,126,0.542,0.692,0.31691,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,CXCL6,6372,P80162,C-X-C motif chemokine ligand 6,Signaling,90,0.582,0.692,2.7101E-09,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,CXCL11,6373,O14625,C-X-C motif chemokine ligand 11,Signaling,164,0.519,0.808,0.31408,0.01,,1,1,0,2002,2002
+Inflammation,C0021368,CD163,9332,Q86VB7,CD163 molecule,Enzyme,369,0.427,0.846,0.0008338,0.01,,1,1,0,2009,2009
+Inflammation,C0021368,CCL18,6362,P55774,C-C motif chemokine ligand 18,Signaling,200,0.489,0.846,0.0091743,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,IL32,9235,P24001,interleukin 32,,200,0.495,0.731,3.7471E-09,0.01,,1,1,0,2009,2009
+Inflammation,C0021368,CD83,9308,Q01151,CD83 molecule,,96,0.566,0.731,0.0052136,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,S100A12,6283,P80511,S100 calcium binding protein A12,Calcium-binding protein,221,0.488,0.846,0.48234,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,CD47,961,Q08722,CD47 molecule,,253,0.468,0.769,0.91924,0.01,,1,1,0,2003,2003
+Inflammation,C0021368,CD38,952,P28907,CD38 molecule,Enzyme,473,0.407,0.885,2.3129E-06,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,SERPINB3,6317,P29508,serpin family B member 3,Enzyme modulator,101,0.565,0.615,8.2146E-16,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,CD28,940,P10747,CD28 molecule,,364,0.436,0.885,0.35779,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,CD48,962,P09326,CD48 molecule,,74,0.592,0.692,0.000017302,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,CYP7B1,9420,O75881,cytochrome P450 family 7 subfamily B member 1,Enzyme,141,0.563,0.692,3.2954E-06,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,CCL13,6357,Q99616,C-C motif chemokine ligand 13,Signaling,50,0.628,0.692,0.040987,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,S100A7,6278,P31151,S100 calcium binding protein A7,Calcium-binding protein,119,0.546,0.769,0.45274,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,SLC28A2,9153,O43868,solute carrier family 28 member 2,Transporter,12,0.78,0.385,1.1277E-27,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,THBD,7056,P07204,thrombomodulin,,303,0.457,0.769,0.053769,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,VEGFB,7423,P49765,vascular endothelial growth factor B,Signaling,82,0.592,0.615,1.3114E-09,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,BST1,683,Q10588,bone marrow stromal cell antigen 1,Enzyme,41,0.67,0.423,4.2099E-11,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,VIP,7432,P01282,vasoactive intestinal peptide,Signaling,376,0.437,0.846,0.00041995,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,VTN,7448,P04004,vitronectin,,178,0.509,0.769,1.5014E-10,0.01,,1,1,0,2002,2002
+Inflammation,C0021368,BSG,682,P35613,basigin (Ok blood group),,287,0.458,0.769,0.000025873,0.01,,1,1,0,2003,2003
+Inflammation,C0021368,STC1,6781,P52823,stanniocalcin 1,Signaling,137,0.532,0.731,0.20364,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,YWHAG,7532,P61981,tyrosine 3-monooxygenase/tryptophan 5-monooxygenase activation protein gamma,Chaperone,85,0.621,0.5,0.964,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,BPI,671,P17213,bactericidal permeability increasing protein,,83,0.61,0.769,1.6514E-14,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,CACNA1C,775,Q13936,calcium voltage-gated channel subunit alpha1 C,Ion channel,225,0.51,0.846,1,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,VCAM1,7412,P19320,vascular cell adhesion molecule 1,,406,0.422,0.808,0.79791,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,TYROBP,7305,O43914,transmembrane immune signaling adaptor TYROBP,,135,0.573,0.769,0.20238,0.01,,1,1,0,2002,2002
+Inflammation,C0021368,C5AR1,728,P21730,complement C5a receptor 1,G-protein coupled receptor,179,0.513,0.808,0.40249,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,TLR3,7098,O15455,toll like receptor 3,Receptor,393,0.427,0.885,1.6349E-07,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,TGM2,7052,P21980,transglutaminase 2,Enzyme,315,0.445,0.808,6.8118E-18,0.01,,1,1,0,2003,2003
+Inflammation,C0021368,SERPING1,710,P05155,serpin family G member 1,Enzyme modulator,207,0.507,0.769,0.96351,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,TMSB4X,7114,P62328,thymosin beta 4 X-linked,,130,0.541,0.692,0.41205,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,YWHAH,7533,Q04917,tyrosine 3-monooxygenase/tryptophan 5-monooxygenase activation protein eta,Chaperone,20,0.743,0.269,0.78366,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,C3,718,P01024,complement C3,Enzyme modulator,343,0.445,0.885,0.90421,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,C3AR1,719,Q16581,complement C3a receptor 1,G-protein coupled receptor,73,0.601,0.731,3.3053E-09,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,C4A,720,P0C0L4;P0C0L5,complement C4A (Rodgers blood group),Enzyme modulator,145,0.563,0.769,1.5416E-11,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,C4B,721,P0C0L4;P0C0L5,complement C4B (Chido blood group),Enzyme modulator,66,0.603,0.808,0.83464,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,DAP3,7818,P51398,death associated protein 3,Nucleic acid binding,34,0.686,0.385,1.1143E-09,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,SPRR1B,6699,P22528,small proline rich protein 1B,,13,0.821,0.269,0.00063211,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,ADIPOR2,79602,Q86V24,adiponectin receptor 2,Receptor,103,0.564,0.731,0.36218,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,TIMP4,7079,Q99727,TIMP metallopeptidase inhibitor 4,Enzyme modulator,108,0.559,0.769,0.00038342,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,APLN,8862,Q9ULZ1,apelin,,226,0.497,0.769,0.45897,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,SFTPD,6441,P35247,surfactant protein D,Surfactant,194,0.5,0.846,0.000074927,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,NAT1,9,P18440,N-acetyltransferase 1,Enzyme,133,0.536,0.846,1.9294E-14,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,SLC28A3,64078,Q9HAS3,solute carrier family 28 member 3,Transporter,32,0.674,0.615,2.6549E-23,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,SELE,6401,P16581,selectin E,,327,0.447,0.808,7.9058E-10,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,LACRT,90070,Q9GZZ8,lacritin,,5,0.89,0.154,0.0001187,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,CXCL12,6387,P48061,C-X-C motif chemokine ligand 12,,626,0.379,0.846,0.11851,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,CAMP,820,P49913,cathelicidin antimicrobial peptide,,262,0.466,0.846,0.0043897,0.01,,1,1,0,2003,2003
+Inflammation,C0021368,TNFRSF18,8784,Q9Y5U5,TNF receptor superfamily member 18,,53,0.631,0.538,1.4516E-06,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,TNFSF12,8742,O43508,TNF superfamily member 12,,123,0.556,0.769,0.76997,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,TNFSF13,8741,O75888,TNF superfamily member 13,,189,0.499,0.769,0.81724,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,TFPI2,7980,P48307,tissue factor pathway inhibitor 2,Enzyme modulator,161,0.521,0.769,0.00084274,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,TREML2,79865,Q5T2D2,triggering receptor expressed on myeloid cells like 2,,10,0.861,0.192,1.1362E-09,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,SCUBE1,80274,Q8IWY4,"signal peptide, CUB domain and EGF like domain containing 1",Extracellular structure,23,0.743,0.5,0.96076,0.01,,1,1,0,2002,2002
+Inflammation,C0021368,SETD7,80854,Q8WTS6,"SET domain containing 7, histone lysine methyltransferase",Epigenetic regulator,62,0.628,0.615,0.0042257,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,MADCAM1,8174,Q13477,mucosal vascular addressin cell adhesion molecule 1,,36,0.67,0.5,0.53462,0.01,,1,1,0,2003,2003
+Inflammation,C0021368,RASL11B,65997,Q9BPW5,RAS like family 11 member B,,7,0.839,0.192,0.0074739,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,PLA2G6,8398,O60733,phospholipase A2 group VI,Enzyme modulator,350,0.476,0.846,2.4837E-10,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,CAT,847,P04040,catalase,Enzyme,794,0.359,0.962,1.6263E-10,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,SOCS1,8651,O15524,suppressor of cytokine signaling 1,Enzyme modulator,315,0.445,0.808,0.58544,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,SOCS3,9021,O14543,suppressor of cytokine signaling 3,Enzyme modulator,375,0.434,0.808,0.74613,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,HIF1A,3091,Q16665,hypoxia inducible factor 1 subunit alpha,Transcription factor,1044,0.327,0.923,0.9777,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,IL27,246778,Q8NEV9,interleukin 27,,286,0.457,0.808,0.78232,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,FPR2,2358,P25090,formyl peptide receptor 2,G-protein coupled receptor,124,0.547,0.769,0.40137,0.01,,1,1,0,2003,2003
+Inflammation,C0021368,TNFRSF13B,23495,O14836,TNF receptor superfamily member 13B,,137,0.558,0.769,2.0908E-15,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,SIRT1,23411,Q96EB6,sirtuin 1,Epigenetic regulator,675,0.378,0.885,0.087326,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,FN1,2335,P02751,fibronectin 1,Signaling,724,0.365,0.962,0.0014045,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,FLT3LG,2323,P49771,fms related receptor tyrosine kinase 3 ligand,,100,0.564,0.577,0.9404,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,FLT1,2321,P17948,fms related receptor tyrosine kinase 1,Kinase,424,0.419,0.846,0.99983,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,NCOA6,23054,Q14686,nuclear receptor coactivator 6,Nucleic acid binding,64,0.647,0.731,0.99913,0.01,,1,1,0,2002,2002
+Inflammation,C0021368,FKBP4,2288,Q02790,FKBP prolyl isomerase 4,Enzyme,149,0.532,0.769,0.15539,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,FGF7,2252,P21781,fibroblast growth factor 7,Signaling,167,0.519,0.846,0.77089,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,FCGR3A,2214,P08637,Fc fragment of IgG receptor IIIa,Cell adhesion,352,0.432,0.962,3.6955E-06,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,FCGR2A,2212,P12318,Fc fragment of IgG receptor IIa,Cell adhesion,227,0.48,0.769,2.0054E-06,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,FCGR1A,2209,P12314,Fc fragment of IgG receptor Ia,Cell adhesion,141,0.532,0.731,0.00013116,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,FCAR,2204,P24071,Fc fragment of IgA receptor,Receptor,38,0.666,0.538,6.5959E-08,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,F11,2160,P03951,coagulation factor XI,Enzyme,100,0.59,0.692,3.6146E-26,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,F7,2155,P08709,coagulation factor VII,Enzyme,99,0.623,0.615,0.00001349,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,F2,2147,P00734,"coagulation factor II, thrombin",Enzyme,490,0.415,0.885,0.0011118,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,ALPL,249,P05186,"alkaline phosphatase, biomineralization associated",Enzyme,190,0.546,0.769,0.0003636,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,GAST,2520,P01350,gastrin,,236,0.485,0.808,0.0027394,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,NRG1,3084,Q02297,neuregulin 1,Signaling,304,0.464,0.885,0.99665,0.01,,1,1,0,2003,2003
+Inflammation,C0021368,GZMA,3001,P12544,granzyme A,Enzyme,65,0.597,0.731,2.0457E-06,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,PADI1,29943,Q9ULC6,peptidyl arginine deiminase 1,,54,0.644,0.692,2.0388E-15,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,GTF2A1,2957,P52655,general transcription factor IIA subunit 1,Transcription factor,9,0.805,0.192,0.99038,0.01,,1,1,0,2002,2002
+Inflammation,C0021368,NR3C1,2908,P04150,nuclear receptor subfamily 3 group C member 1,Nuclear receptor,590,0.393,0.885,0.96958,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,GRN,2896,P28799,granulin precursor,,412,0.435,0.846,0.069666,0.01,,1,1,0,2009,2009
+Inflammation,C0021368,ANGPT2,285,O15123,angiopoietin 2,Signaling,457,0.41,0.846,0.83208,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,PLA2G4D,283748,Q86XP0,phospholipase A2 group IVD,Enzyme,6,0.861,0.231,2.6287E-14,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,ANG,283,P03950,angiogenin,,185,0.511,0.769,0.28738,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,BIN1,274,O00499,bridging integrator 1,,163,0.55,0.692,0.77822,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,IL36A,27179,Q9UHA7,interleukin 36 alpha,,18,0.78,0.5,0.029783,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,GH1,2688,P01241,growth hormone 1,Signaling,686,0.373,0.923,0.030057,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,GCH1,2643,P30793,GTP cyclohydrolase 1,Enzyme,254,0.511,0.846,0.90292,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,EHF,26298,Q9NZC4,ETS homologous factor,Transcription factor,46,0.65,0.577,0.70543,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,PYDC1,260434,Q8WXC3,pyrin domain containing 1,,13,0.805,0.192,,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,PRDX5,25824,P30044,peroxiredoxin 5,,153,0.522,0.808,0.00017921,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,ACKR1,2532,Q16570,atypical chemokine receptor 1 (Duffy blood group),G-protein coupled receptor,91,0.608,0.731,0.00021424,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,ELF3,1999,P78545,E74 like ETS transcription factor 3,Transcription factor,112,0.551,0.808,0.98323,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,AHSG,197,P02765,alpha 2-HS glycoprotein,Enzyme modulator,204,0.506,0.846,3.209E-10,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,CNR1,1268,P21554,cannabinoid receptor 1,G-protein coupled receptor,393,0.446,0.808,0.50652,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,ACKR2,1238,O00590,atypical chemokine receptor 2,G-protein coupled receptor,59,0.641,0.615,0.001388,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,CCR8,1237,P51685,C-C motif chemokine receptor 8,G-protein coupled receptor,67,0.597,0.692,0.0077492,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,CCR7,1236,P32248,C-C motif chemokine receptor 7,G-protein coupled receptor,320,0.443,0.769,0.057623,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,CLU,1191,P10909,clusterin,,412,0.426,0.885,0.000078072,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,APOA5,116519,Q6Q788,apolipoprotein A5,,107,0.587,0.615,5.5765E-10,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,ADCYAP1,116,P18509,adenylate cyclase activating polypeptide 1,Signaling,220,0.51,0.846,0.52424,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,TNFRSF13C,115650,Q96RJ3,TNF receptor superfamily member 13C,,127,0.54,0.731,0.26993,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,PTGDR2,11251,Q9Y5Y4,prostaglandin D2 receptor 2,G-protein coupled receptor,60,0.612,0.692,0.0027025,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,CHI3L1,1116,P36222,chitinase 3 like 1,,420,0.419,0.885,0.000011133,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,LIAS,11019,O43766,lipoic acid synthetase,,43,0.695,0.538,0.000023146,0.01,,1,1,0,2009,2009
+Inflammation,C0021368,LILRB1,10859,Q8NHL6,leukocyte immunoglobulin like receptor B1,Receptor,168,0.51,0.769,5.6502E-14,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,TXNIP,10628,Q9H3M7,thioredoxin interacting protein,,208,0.49,0.731,0.15918,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,KLF2,10365,Q9Y5W3,Kruppel like factor 2,Nucleic acid binding,132,0.542,0.692,0.56044,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,CCL26,10344,Q9Y258,C-C motif chemokine ligand 26,Signaling,60,0.617,0.654,0.010114,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,ADAR,103,P55265,adenosine deaminase RNA specific,Enzyme,256,0.501,0.808,0.026282,0.01,,1,1,0,2003,2003
+Inflammation,C0021368,CDKN1A,1026,P38936,cyclin dependent kinase inhibitor 1A,,490,0.403,0.769,0.0018575,0.01,,1,1,0,2002,2002
+Inflammation,C0021368,CNTF,1270,P26441,ciliary neurotrophic factor,,114,0.561,0.615,0.000023384,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,CD200R1,131450,Q8TD46,CD200 receptor 1,,70,0.623,0.769,4.3137E-09,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,EGF,1950,P01133,epidermal growth factor,,774,0.357,0.923,8.5294E-17,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,AGTR1,185,P30556,angiotensin II receptor type 1,G-protein coupled receptor,440,0.423,0.846,0.00053161,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,DSG2,1829,Q14126,desmoglein 2,Cell adhesion,83,0.601,0.692,2.7913E-10,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,DMBT1,1755,Q9UGM3,deleted in malignant brain tumors 1,Enzyme,135,0.533,0.654,4.476E-63,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,DEFA3,1668,P59666,defensin alpha 3,,23,0.716,0.538,0.090546,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,DEFA1,1667,P59665,defensin alpha 1,,57,0.636,0.731,,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,DDT,1652,P30046,D-dopachrome tautomerase,Enzyme,86,0.575,0.731,0.32959,0.01,,1,1,0,2003,2003
+Inflammation,C0021368,CLEC12A,160364,Q5QGZ9,C-type lectin domain family 12 member A,,34,0.686,0.346,2.6022E-07,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,CYP19A1,1588,P11511,cytochrome P450 family 19 subfamily A member 1,Enzyme,519,0.41,0.885,0.000017022,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,CYP2C19,1557,P33261,cytochrome P450 family 2 subfamily C member 19,,274,0.467,0.846,6.4882E-20,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,ADRB3,155,P13945,adrenoceptor beta 3,G-protein coupled receptor,142,0.533,0.731,2.4637E-07,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,CTSG,1511,P08311,cathepsin G,Enzyme,95,0.563,0.731,9.5595E-06,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,CTSB,1508,P07858,cathepsin B,Enzyme,304,0.457,0.846,5.8819E-11,0.01,,1,1,0,2002,2002
+Inflammation,C0021368,CTNNB1,1499,P35222,catenin beta 1,,1368,0.303,0.885,0.99999,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,CSF1,1435,P09603,colony stimulating factor 1,,259,0.473,0.808,0.99634,0.01,,1,1,0,2009,2009
+Inflammation,C0021368,CRH,1392,P06850,corticotropin releasing hormone,Signaling,402,0.439,0.808,0.71614,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,CPB2,1361,Q96IY4,carboxypeptidase B2,Enzyme,148,0.536,0.846,2.7076E-17,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,NAMPT,10135,P43490,nicotinamide phosphoribosyltransferase,Signaling,199,0.502,0.808,0.97914,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,APCS,325,P02743,"amyloid P component, serum",,141,0.531,0.808,0.031714,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,TNFRSF17,608,Q02223,TNF receptor superfamily member 17,Receptor,81,0.588,0.692,1.3715E-06,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,SERPINA1,5265,P01009,serpin family A member 1,Enzyme modulator,482,0.41,0.923,6.8497E-08,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,PHB,5245,P35232,prohibitin,,177,0.511,0.846,0.7588,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,PGR,5241,P06401,progesterone receptor,Nuclear receptor,392,0.426,0.885,0.051042,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,PF4,5196,P02776,platelet factor 4,Signaling,158,0.522,0.846,0.043062,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,ADA2,51816,Q9NZK5,adenosine deaminase 2,Enzyme,165,0.545,0.846,8.1396E-08,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,SERPINF1,5176,P36955,serpin family F member 1,Enzyme modulator,294,0.46,0.846,7.8044E-08,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,PECAM1,5175,P16284,platelet and endothelial cell adhesion molecule 1,Cell adhesion,396,0.426,0.846,,0.01,,1,1,0,2003,2003
+Inflammation,C0021368,PDGFRB,5159,P09619,platelet derived growth factor receptor beta,Kinase,492,0.416,0.846,0.9041,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,PDGFB,5155,P01127,platelet derived growth factor subunit B,Signaling,301,0.488,0.846,0.77006,0.01,,1,1,0,2003,2003
+Inflammation,C0021368,PDGFA,5154,P04085,platelet derived growth factor subunit A,Signaling,135,0.533,0.731,0.80842,0.01,,1,1,0,2003,2003
+Inflammation,C0021368,TNFRSF12A,51330,Q9NP84,TNF receptor superfamily member 12A,,173,0.509,0.692,0.017995,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,KCNK9,51305,Q9NPC2,potassium two pore domain channel subfamily K member 9,Ion channel,99,0.615,0.577,0.95519,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,TLR7,51284,Q9NYK1,toll like receptor 7,,276,0.464,0.885,0.97912,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,ADIPOR1,51094,Q96A54,adiponectin receptor 1,Receptor,148,0.529,0.808,0.6584,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,IL22,50616,Q9GZX6,interleukin 22,,551,0.393,0.885,0.00018843,0.01,,1,1,0,2009,2009
+Inflammation,C0021368,IL20,50604,Q9NYY1,interleukin 20,,111,0.556,0.769,1.3447E-06,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,NTF4,4909,P34130,neurotrophin 4,Signaling,46,0.644,0.692,0.012031,0.01,,1,1,0,2003,2003
+Inflammation,C0021368,PIGF,5281,Q07326,phosphatidylinositol glycan anchor biosynthesis class F,Enzyme,26,0.716,0.385,0.00071995,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,PLAT,5327,P00750,"plasminogen activator, tissue type",Enzyme,392,0.445,0.885,0.000056593,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,RET,5979,P07949,ret proto-oncogene,Kinase,607,0.392,0.885,1,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,CXCL16,58191,Q9H2A7,C-X-C motif chemokine ligand 16,Signaling,178,0.502,0.769,0.000034546,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,PTX3,5806,P26022,pentraxin 3,,296,0.457,0.808,0.000069827,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,SCUBE2,57758,Q9NQ36,"signal peptide, CUB domain and EGF like domain containing 2",Extracellular structure,25,0.743,0.231,3.5629E-21,0.01,,1,1,0,2002,2002
+Inflammation,C0021368,PTN,5764,P21246,pleiotrophin,Signaling,164,0.515,0.808,0.0075073,0.01,,1,1,0,2002,2002
+Inflammation,C0021368,PTEN,5728,P60484,phosphatase and tensin homolog,Enzyme,1349,0.305,0.923,0.25651,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,PRSS3,5646,P35030,serine protease 3,Enzyme,59,0.617,0.615,3.5636E-12,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,APOM,55937,O95445,apolipoprotein M,,82,0.59,0.769,0.00095567,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,PRKCD,5580,Q05655,protein kinase C delta,Kinase,287,0.48,0.846,0.99995,0.01,,1,1,0,2003,2003
+Inflammation,C0021368,PRKAA1,5562,Q13131,protein kinase AMP-activated catalytic subunit alpha 1,Kinase,325,0.453,0.846,0.13725,0.01,,1,1,0,2003,2003
+Inflammation,C0021368,NCAM1,4684,P13591,neural cell adhesion molecule 1,,445,0.415,0.885,0.99999,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,DLL4,54567,Q9NR61,delta like canonical Notch ligand 4,,219,0.494,0.769,0.99982,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,PON1,5444,P27169,paraoxonase 1,,496,0.409,0.885,9.8142E-11,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,TREM1,54210,Q9NP99,triggering receptor expressed on myeloid cells 1,,172,0.515,0.808,0.0062776,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,ACP5,54,P13686,"acid phosphatase 5, tartrate resistant",,130,0.561,0.731,0.078651,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,PLP1,5354,P60201,proteolipid protein 1,Cellular structure,160,0.543,0.769,0.92845,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,PLCB3,5331,Q01970,phospholipase C beta 3,Enzyme,32,0.729,0.385,0.93999,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,NPPC,4880,P23582,natriuretic peptide C,Signaling,106,0.568,0.769,0.060647,0.01,,1,1,0,2005,2005
+Inflammation,C0021368,ADA,100,P00813,adenosine deaminase,Enzyme,379,0.44,0.885,2.8825E-12,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,AQP4,361,P55087,aquaporin 4,Ion channel,311,0.456,0.885,0.0022919,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,TNFRSF9,3604,Q07011,TNF receptor superfamily member 9,,177,0.502,0.769,0.32153,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,AQP3,360,Q92482,aquaporin 3 (Gill blood group),Ion channel,124,0.546,0.769,0.13398,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,IL12B,3593,P29460,interleukin 12B,Signaling,249,0.48,0.885,0.00011439,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,IL12A,3592,P29459,interleukin 12A,,261,0.491,0.808,0.04746,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,IL4R,3566,P24394,interleukin 4 receptor,Receptor,242,0.474,0.846,0.00023013,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,FASLG,356,P48023,Fas ligand,Signaling,398,0.43,0.885,0.18345,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,IL1RAP,3556,Q9NPH3,interleukin 1 receptor accessory protein,Receptor,49,0.647,0.654,0.25846,0.01,,1,1,0,2003,2003
+Inflammation,C0021368,FAS,355,P25445,Fas cell surface death receptor,,754,0.372,0.923,0.8117,0.01,,1,1,0,2009,2009
+Inflammation,C0021368,IGF1,3479,P05019,insulin like growth factor 1,,1206,0.318,0.885,0.2716,0.01,,1,1,0,2003,2003
+Inflammation,C0021368,APOD,347,P05090,apolipoprotein D,,89,0.584,0.577,0.00054449,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,AQP8,343,O94778,aquaporin 8,Ion channel,43,0.638,0.615,0.00036707,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,ENPP7,339221,Q6UWV6,ectonucleotide pyrophosphatase/phosphodiesterase 7,,12,0.821,0.192,1.1797E-14,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,NLRP10,338322,Q86W26,NLR family pyrin domain containing 10,,5,0.861,0.192,1.0095E-08,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,HSPD1,3329,P10809,heat shock protein family D (Hsp60) member 1,,398,0.432,0.808,0.99257,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,HSP90AA1,3320,P07900,heat shock protein 90 alpha family class A member 1,Chaperone,455,0.411,0.923,0.86025,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,BIRC5,332,O15392,baculoviral IAP repeat containing 5,Enzyme modulator,199,0.495,0.731,0.055854,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,AQP7,364,O14520,aquaporin 7,Ion channel,34,0.67,0.462,4.0504E-16,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,IRF1,3659,P10914,interferon regulatory factor 1,Transcription factor,257,0.468,0.769,0.9909,0.01,,1,1,0,2003,2003
+Inflammation,C0021368,MUC1,4582,P15941,"mucin 1, cell surface associated",,594,0.384,0.885,0.018774,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,CARD17,440068,Q5XLA6,caspase recruitment domain family member 17,,4,0.89,0.077,0.000066679,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,CD200,4345,P41217,CD200 molecule,,149,0.529,0.769,0.41359,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,MMP10,4319,P09238,matrix metallopeptidase 10,Enzyme,123,0.553,0.808,5.907E-15,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,MMP1,4312,P03956,matrix metallopeptidase 1,Enzyme,589,0.385,0.885,7.7197E-18,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,MME,4311,P08473,membrane metalloendopeptidase,Enzyme,470,0.407,0.808,1.465E-18,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,CD99,4267,P14209,CD99 molecule (Xg blood group),,197,0.491,0.731,0.0026127,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,MEFV,4210,O15553,"MEFV innate immuity regulator, pyrin",,410,0.44,0.885,1.0177E-14,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,MAZ,4150,P56270,MYC associated zinc finger protein,,60,0.617,0.654,0.94363,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,SMAD7,4092,O15105,SMAD family member 7,Transcription factor,269,0.47,0.769,0.54854,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,SMAD3,4088,P84022,SMAD family member 3,Transcription factor,470,0.415,0.923,0.79796,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,LIMK1,3984,P53667,LIM domain kinase 1,Kinase,271,0.488,0.731,0.99937,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,LIF,3976,P15018,LIF interleukin 6 family cytokine,Signaling,236,0.483,0.769,0.5242,0.01,,1,1,0,2004,2004
+Inflammation,C0021368,KCNK3,3777,O14649,potassium two pore domain channel subfamily K member 3,Ion channel,93,0.584,0.654,0.90018,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,ITIH2,3698,P19823,inter-alpha-trypsin inhibitor heavy chain 2,Enzyme modulator,11,0.839,0.308,3.8025E-23,0.01,,1,1,0,2006,2006
+Inflammation,C0021368,ITGAL,3683,P20701,integrin subunit alpha L,,169,0.511,0.885,0.0043213,0.01,,1,1,0,2008,2008
+Inflammation,C0021368,ITGA1,3672,P56199,integrin subunit alpha 1,,58,0.644,0.654,2.6124E-16,0.01,,1,1,0,2007,2007
+Inflammation,C0021368,HRH1,3269,P35367,histamine receptor H1,G-protein coupled receptor,66,0.647,0.654,0.000001858,0.01,,1,1,0,2006,2006

@@ -1,0 +1,73 @@
+Disease,Disease_id,Gene,Gene_id,UniProt,Gene_Full_Name,Protein_Class,N_diseases_g,DSI_g,DPI_g,pLI,Score_gda,EL_gda,EI_gda,N_PMIDs,N_SNPs_gda,First_Ref,Last_Ref
+Rickets,C0035579,VDR,7421,P11473,vitamin D receptor,Nuclear receptor,852,0.352,0.885,0.000016787,0.7,,0.966,59,6,1989,2019
+Rickets,C0035579,CYP27B1,1594,O15528,cytochrome P450 family 27 subfamily B member 1,Enzyme,229,0.502,0.769,1.9194E-07,0.7,,1,17,0,1998,2018
+Rickets,C0035579,PTH,5741,P01270,parathyroid hormone,,528,0.397,0.846,0.012093,0.4,,1,15,0,1999,2019
+Rickets,C0035579,PTH1R,5745,Q03431,parathyroid hormone 1 receptor,G-protein coupled receptor,187,0.544,0.731,0.57253,0.3,,1,1,0,1999,1999
+Rickets,C0035579,FAM20C,56975,Q8IXL6,FAM20C golgi associated secretory pathway kinase,,116,0.578,0.731,0.31465,0.22,,1,2,0,2013,2016
+Rickets,C0035579,PHEX,5251,P78562,phosphate regulating endopeptidase homolog X-linked,Enzyme,142,0.548,0.808,0.99996,0.2,,0.917,12,0,1989,2019
+Rickets,C0035579,CYP2R1,120227,Q6VVX0,cytochrome P450 family 2 subfamily R member 1,,139,0.563,0.731,3.793E-10,0.15,,1,5,3,2012,2017
+Rickets,C0035579,DMP1,1758,Q13316,dentin matrix acidic phosphoprotein 1,,134,0.556,0.615,1.4881E-07,0.15,,1,5,0,2006,2014
+Rickets,C0035579,SLC34A3,142680,Q8N130,solute carrier family 34 member 3,Transporter,58,0.695,0.308,5.8863E-14,0.13,,1,3,0,2007,2019
+Rickets,C0035579,CLCN5,1184,P51795,chloride voltage-gated channel 5,Ion channel,101,0.593,0.577,0.99242,0.13,,1,3,2,2007,2016
+Rickets,C0035579,MMP13,4322,P45452,matrix metallopeptidase 13,Enzyme,328,0.452,0.923,7.8767E-18,0.12,,1,2,1,2014,2018
+Rickets,C0035579,SLC34A1,6569,Q06495,solute carrier family 34 member 1,Transporter,73,0.619,0.423,8.9128E-27,0.11,,1,1,0,2009,2009
+Rickets,C0035579,ALPL,249,P05186,"alkaline phosphatase, biomineralization associated",Enzyme,190,0.546,0.769,0.0003636,0.11,,1,1,0,2011,2011
+Rickets,C0035579,HLA-DQA1,3117,P01909,"major histocompatibility complex, class II, DQ alpha 1",Immune response,427,0.416,0.846,0.023947,0.1,,,0,0,,
+Rickets,C0035579,PSAT1,29968,Q9Y617,phosphoserine aminotransferase 1,,285,0.478,0.846,1.0621E-08,0.1,,,0,0,,
+Rickets,C0035579,HLA-DQB1,3119,P01920,"major histocompatibility complex, class II, DQ beta 1",Immune response,504,0.407,0.885,0.0089259,0.1,,,0,0,,
+Rickets,C0035579,HNF4A,3172,P41235,hepatocyte nuclear factor 4 alpha,Nuclear receptor,340,0.461,0.808,0.15285,0.1,,,0,0,,
+Rickets,C0035579,SLC4A1,6521,P02730,solute carrier family 4 member 1 (Diego blood group),Transporter,193,0.522,0.731,0.84602,0.1,,,0,0,,
+Rickets,C0035579,BAAT,570,Q14032,bile acid-CoA:amino acid N-acyltransferase,,98,0.578,0.654,7.8651E-08,0.1,,,0,0,,
+Rickets,C0035579,OCRL,4952,Q01968,OCRL inositol polyphosphate-5-phosphatase,Enzyme,184,0.553,0.731,0.99999,0.1,,,0,0,,
+Rickets,C0035579,ADAMTS2,9509,O95450,ADAM metallopeptidase with thrombospondin type 1 motif 2,Enzyme,138,0.579,0.808,0.9661,0.1,,,0,0,,
+Rickets,C0035579,ATP7A,538,Q04656,ATPase copper transporting alpha,Transporter,348,0.494,0.769,0.99983,0.1,,,0,0,,
+Rickets,C0035579,EHHADH,1962,Q08426,enoyl-CoA hydratase and 3-hydroxyacyl CoA dehydrogenase,Enzyme,50,0.67,0.5,5.2377E-10,0.1,,,0,0,,
+Rickets,C0035579,RNU4ATAC,100151683,,"RNA, U4atac small nuclear (U12-dependent splicing)",,199,0.556,0.808,,0.1,,,0,0,,
+Rickets,C0035579,FGF23,8074,Q9GZV9,fibroblast growth factor 23,Signaling,305,0.46,0.731,0.031014,0.1,,1,24,0,2003,2019
+Rickets,C0035579,CTNS,1497,O60931,"cystinosin, lysosomal cystine transporter",,88,0.628,0.538,0.00030924,0.1,,,0,0,,
+Rickets,C0035579,HSD3B7,80270,Q9H2F3,"hydroxy-delta-5-steroid dehydrogenase, 3 beta- and steroid delta-isomerase 7",Enzyme,42,0.7,0.385,2.694E-08,0.1,,,0,0,,
+Rickets,C0035579,EPHX1,2052,P07099,epoxide hydrolase 1,,196,0.5,0.846,3.2154E-09,0.1,,,0,0,,
+Rickets,C0035579,TJP2,9414,Q9UDY2,tight junction protein 2,Cell-cell junction,37,0.663,0.5,3.236E-11,0.1,,,0,0,,
+Rickets,C0035579,FARSB,10056,Q9NSD9,phenylalanyl-tRNA synthetase subunit beta,Enzyme,53,0.682,0.5,0.0032955,0.1,,,0,0,,
+Rickets,C0035579,PHGDH,26227,O43175,phosphoglycerate dehydrogenase,Enzyme,288,0.484,0.885,0.00013308,0.1,,,0,0,,
+Rickets,C0035579,BGLAP,632,P02818,bone gamma-carboxyglutamate protein,,274,0.462,0.846,4.6155E-08,0.02,,1,2,0,1983,2017
+Rickets,C0035579,CLDN16,10686,Q9Y5I7,claudin 16,Cell-cell junction,62,0.647,0.538,0.025466,0.02,,1,2,0,2007,2009
+Rickets,C0035579,CASR,846,P41180,calcium sensing receptor,G-protein coupled receptor,517,0.41,0.846,0.046698,0.02,,1,2,0,2007,2009
+Rickets,C0035579,GC,2638,P02774,GC vitamin D binding protein,Transporter,219,0.489,0.885,2.7301E-11,0.02,,1,2,4,2013,2015
+Rickets,C0035579,HLA-DRB1,3123,P01911,"major histocompatibility complex, class II, DR beta 1",Immune response,1018,0.333,0.923,0.0010997,0.02,,1,2,0,2016,2017
+Rickets,C0035579,SFTPA1,653509,Q8IWL2,surfactant protein A1,,139,0.546,0.808,0.0003678,0.01,,1,1,0,1991,1991
+Rickets,C0035579,TGM2,7052,P21980,transglutaminase 2,Enzyme,315,0.445,0.808,6.8118E-18,0.01,,1,1,0,2017,2017
+Rickets,C0035579,RAPGEF5,9771,Q92565,Rap guanine nucleotide exchange factor 5,Enzyme modulator,151,0.524,0.769,0.98099,0.01,,1,1,0,1981,1981
+Rickets,C0035579,TALDO1,6888,P37837,transaldolase 1,,85,0.608,0.654,2.5234E-06,0.01,,1,1,0,2008,2008
+Rickets,C0035579,BRS3,680,P32247,bombesin receptor subtype 3,G-protein coupled receptor,261,0.474,0.846,0.94849,0.01,,1,1,0,2007,2007
+Rickets,C0035579,VEGFA,7422,P15692,vascular endothelial growth factor A,Signaling,1899,0.266,0.923,0.000024085,0.01,,1,1,0,2018,2018
+Rickets,C0035579,SSTR4,6754,P31391,somatostatin receptor 4,G-protein coupled receptor,273,0.469,0.846,3.6978E-13,0.01,,1,1,0,2007,2007
+Rickets,C0035579,ADIPOQ,9370,Q15848,"adiponectin, C1Q and collagen domain containing",,679,0.376,0.885,4.6434E-09,0.01,,1,1,0,2018,2018
+Rickets,C0035579,KL,9365,Q9UEF7,klotho,Enzyme,332,0.448,0.769,0.00022444,0.01,,1,1,0,2011,2011
+Rickets,C0035579,SHOX,6473,O15266,short stature homeobox,,138,0.561,0.654,0.66566,0.01,,0,1,0,2017,2017
+Rickets,C0035579,LPAR2,9170,Q9HBW0,lysophosphatidic acid receptor 2,G-protein coupled receptor,285,0.463,0.846,0.036658,0.01,,1,1,0,2007,2007
+Rickets,C0035579,SLC20A2,6575,Q08357,solute carrier family 20 member 2,Transporter,104,0.638,0.577,0.96545,0.01,,1,1,0,2014,2014
+Rickets,C0035579,ACKR3,57007,P25106,atypical chemokine receptor 3,G-protein coupled receptor,400,0.428,0.885,0.39134,0.01,,1,1,0,2007,2007
+Rickets,C0035579,PRL,5617,P01236,prolactin,Signaling,506,0.406,0.885,2.9015E-07,0.01,,1,1,0,2017,2017
+Rickets,C0035579,FGFR1,2260,P11362,fibroblast growth factor receptor 1,Kinase,816,0.362,0.885,0.99984,0.01,,1,1,0,2014,2014
+Rickets,C0035579,EDNRA,1909,P25101,endothelin receptor type A,G-protein coupled receptor,427,0.426,0.885,0.99158,0.01,,1,1,0,2007,2007
+Rickets,C0035579,SLC26A3,1811,P40879,solute carrier family 26 member 3,Transporter,128,0.554,0.692,1.3699E-13,0.01,,1,1,0,2018,2018
+Rickets,C0035579,DHCR7,1717,Q9UBM7,7-dehydrocholesterol reductase,Enzyme,266,0.5,0.846,3.949E-13,0.01,,1,1,0,2013,2013
+Rickets,C0035579,CYP24A1,1591,Q07973,cytochrome P450 family 24 subfamily A member 1,Enzyme,171,0.518,0.692,3.1964E-23,0.01,,1,1,0,2017,2017
+Rickets,C0035579,CYP3A4,1576,P08684,cytochrome P450 family 3 subfamily A member 4,Enzyme,291,0.462,0.885,5.7979E-11,0.01,,0,1,0,2018,2018
+Rickets,C0035579,ADRA2B,151,P18089,adrenoceptor alpha 2B,G-protein coupled receptor,296,0.465,0.846,4.4533E-06,0.01,,1,1,0,2007,2007
+Rickets,C0035579,ADRA1A,148,P35348,adrenoceptor alpha 1A,G-protein coupled receptor,294,0.462,0.846,3.3722E-07,0.01,,1,1,0,2007,2007
+Rickets,C0035579,CRP,1401,P02741,C-reactive protein,,1483,0.299,0.962,0.0036969,0.01,,1,1,0,2018,2018
+Rickets,C0035579,GH1,2688,P01241,growth hormone 1,Signaling,686,0.373,0.923,0.030057,0.01,,1,1,0,2018,2018
+Rickets,C0035579,GPR42,2866,O15529,G protein-coupled receptor 42 (gene/pseudogene),G-protein coupled receptor,255,0.475,0.846,0.050905,0.01,,1,1,0,2007,2007
+Rickets,C0035579,GPT,2875,P24298,glutamic--pyruvic transaminase,Enzyme,511,0.403,0.923,3.5945E-19,0.01,,1,1,0,2018,2018
+Rickets,C0035579,CHDH,55349,Q8NE62,choline dehydrogenase,Enzyme,158,0.529,0.769,0.000001685,0.01,,1,1,0,2018,2018
+Rickets,C0035579,NADSYN1,55191,Q6IA69,NAD synthetase 1,,14,0.78,0.231,1.2527E-16,0.01,,1,1,0,2013,2013
+Rickets,C0035579,MMP9,4318,P14780,matrix metallopeptidase 9,Enzyme,1337,0.305,0.923,1.8869E-17,0.01,,1,1,0,2018,2018
+Rickets,C0035579,MCL1,4170,Q07820,"MCL1 apoptosis regulator, BCL2 family member",Signaling,375,0.43,0.808,0.96349,0.01,,0,1,0,2019,2019
+Rickets,C0035579,LRP2,4036,P98164,LDL receptor related protein 2,,254,0.491,0.846,0.99999,0.01,,1,1,0,2003,2003
+Rickets,C0035579,CXCL8,3576,P10145,C-X-C motif chemokine ligand 8,Signaling,1254,0.31,0.962,0.00027377,0.01,,1,1,0,2017,2017
+Rickets,C0035579,IGF2,3481,P01344,insulin like growth factor 2,,604,0.39,0.885,0.044127,0.01,,1,1,0,2019,2019
+Rickets,C0035579,IGF1,3479,P05019,insulin like growth factor 1,,1206,0.318,0.885,0.2716,0.01,,1,1,0,2019,2019
+Rickets,C0035579,SNX10,29887,Q9Y5X0,sorting nexin 10,,83,0.633,0.577,3.3891E-10,0.01,,0,1,0,2015,2015
+Rickets,C0035579,CXCR6,10663,O00574,C-X-C motif chemokine receptor 6,G-protein coupled receptor,325,0.448,0.885,0.000057212,0.01,,1,1,0,2007,2007

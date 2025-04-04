@@ -23,6 +23,7 @@ def ensembl_to_hgnc(df):
     return ensembl_to_hgnc
 
 
+
 def download_file(url, save_path):
     try:
         # Ensure the directory exists
@@ -44,22 +45,6 @@ def download_file(url, save_path):
         print(f"Failed to download the file: {e}")
     except OSError as e:
         print(f"Failed to create directory or write file: {e}")
-
-def unzip_file(zip_path, extract_to):
-    """
-    Unzip a zip file to the specified directory.
-    """
-    try:
-        # Ensure the extraction directory exists
-        os.makedirs(extract_to, exist_ok=True)
-        
-        # Extract the zip file
-        with zipfile.ZipFile(zip_path, 'r') as zip_ref:
-            zip_ref.extractall(extract_to)
-        print(f"Files extracted to: {extract_to}")
-    except zipfile.BadZipFile as e:
-        print(f"Failed to extract the zip file: {e}")
-
 
 def ungz_file(gz_path, extract_to):
     """
@@ -84,32 +69,17 @@ def ungz_file(gz_path, extract_to):
     except OSError as e:
         print(f"Failed to extract the gz file: {e}")
 
-
-def load_mitab_to_dataframe(file_path):
+def unzip_file(zip_path, extract_to):
     """
-    Load a MITAB file (tab-separated) into a pandas DataFrame.
+    Unzip a zip file to the specified directory.
     """
     try:
-        # MITAB files are tab-separated; we assume the first row is the header
-        df = pd.read_csv(file_path, sep="\t", low_memory=False)
-        print(f"MITAB file loaded into DataFrame: {file_path}")
-        return df
-    except Exception as e:
-        print(f"Failed to load MITAB file into DataFrame: {e}")
-        return None
-
-def extract_hgnc_biogrid(alt_ids):
-    for part in alt_ids.split('|'):
-        if 'entrez gene/locuslink:' in part:
-            return part.split(':')[-1].strip()  # Extract gene name after the last colon
-    return None  # Return None if no gene name is found
-
-
-def extract_score_biogrid(value):
-    if value == '-':
-        return 0  
-    elif 'score:' in value:
-        return float(value.split(':')[1])  # Extract the numeric value and convert to float
-    else:
-        print(f"Unexpected format {value}")
-        return 0  # Default to 0 if unexpected format
+        # Ensure the extraction directory exists
+        os.makedirs(extract_to, exist_ok=True)
+        
+        # Extract the zip file
+        with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+            zip_ref.extractall(extract_to)
+        print(f"Files extracted to: {extract_to}")
+    except zipfile.BadZipFile as e:
+        print(f"Failed to extract the zip file: {e}")

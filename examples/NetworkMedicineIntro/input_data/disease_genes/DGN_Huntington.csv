@@ -1,0 +1,979 @@
+Disease,Disease_id,Gene,Gene_id,UniProt,Gene_Full_Name,Protein_Class,N_diseases_g,DSI_g,DPI_g,pLI,Score_gda,EL_gda,EI_gda,N_PMIDs,N_SNPs_gda,First_Ref,Last_Ref
+Huntington Disease,C0020179,HTT,3064,P42858,huntingtin,,188,0.548,0.654,1,1,limited,0.987,1305,21,1993,2020
+Huntington Disease,C0020179,CNR1,1268,P21554,cannabinoid receptor 1,G-protein coupled receptor,393,0.446,0.808,0.50652,0.36,,1,7,0,2009,2019
+Huntington Disease,C0020179,OGG1,4968,O15527,8-oxoguanine DNA glycosylase,,313,0.453,0.808,3.93E-12,0.36,,1,6,1,2007,2013
+Huntington Disease,C0020179,GDNF,2668,P39905,glial cell derived neurotrophic factor,Signaling,409,0.434,0.885,0.2035,0.34,,1,5,0,2005,2016
+Huntington Disease,C0020179,SLC2A3,6515,P11169,solute carrier family 2 member 3,Transporter,144,0.534,0.769,0.010333,0.33,,1,3,0,2014,2018
+Huntington Disease,C0020179,FAAH,2166,O00519,fatty acid amide hydrolase,,177,0.545,0.692,4.44E-11,0.32,,1,3,0,2007,2018
+Huntington Disease,C0020179,MAOA,4128,P21397,monoamine oxidase A,,300,0.465,0.769,0.99928,0.32,,1,3,0,2011,2016
+Huntington Disease,C0020179,AIFM1,9131,O95831,apoptosis inducing factor mitochondria associated 1,Enzyme,205,0.527,0.769,0.99795,0.32,,1,3,0,2003,2012
+Huntington Disease,C0020179,SLC29A1,2030,Q99808,solute carrier family 29 member 1 (Augustine blood group),Transporter,91,0.587,0.731,0.90069,0.32,,1,2,0,2016,2017
+Huntington Disease,C0020179,RCAN1,1827,P53805,regulator of calcineurin 1,Signaling,110,0.572,0.808,0.016675,0.31,,1,1,0,2009,2009
+Huntington Disease,C0020179,GAP43,2596,P17677,growth associated protein 43,,109,0.564,0.731,0.021461,0.3,limited,1,1,0,2012,2012
+Huntington Disease,C0020179,IP6K2,51447,Q9UHH9,inositol hexakisphosphate kinase 2,Kinase,18,0.821,0.231,0.973,0.3,,1,1,0,2011,2011
+Huntington Disease,C0020179,GAL,51083,P22466,galanin and GMAP prepropeptide,,226,0.493,0.846,4.39E-06,0.3,limited,1,1,0,2012,2012
+Huntington Disease,C0020179,NRSN1,140767,Q8IZ57,neurensin 1,,76,0.604,0.731,0.00030819,0.3,limited,1,1,0,2012,2012
+Huntington Disease,C0020179,MAOB,4129,P27338,monoamine oxidase B,,152,0.533,0.808,0.99903,0.3,,1,1,0,2011,2011
+Huntington Disease,C0020179,RELN,5649,P78509,reelin,,178,0.515,0.731,1,0.3,limited,1,1,0,2016,2016
+Huntington Disease,C0020179,CNTF,1270,P26441,ciliary neurotrophic factor,,114,0.561,0.615,2.34E-05,0.3,,0.846,13,0,1997,2008
+Huntington Disease,C0020179,DIABLO,56616,Q9NR28,diablo IAP-binding mitochondrial protein,,108,0.555,0.692,2.57E-06,0.3,,1,1,0,2003,2003
+Huntington Disease,C0020179,PPARGC1A,10891,Q9UBK2,PPARG coactivator 1 alpha,Transcription factor,350,0.453,0.885,0.9973,0.3,,0.966,29,1,2006,2019
+Huntington Disease,C0020179,NFE2L2,4780,Q16236,"nuclear factor, erythroid 2 like 2",Enzyme,823,0.357,0.885,0.0035719,0.3,,1,13,0,2010,2019
+Huntington Disease,C0020179,PPP1R1B,84152,Q9UD71,protein phosphatase 1 regulatory inhibitor subunit 1B,Enzyme modulator,82,0.617,0.5,0.24098,0.3,,1,14,0,2004,2019
+Huntington Disease,C0020179,CREB1,1385,P16220,cAMP responsive element binding protein 1,,294,0.463,0.885,0.99673,0.27,,1,8,0,2006,2018
+Huntington Disease,C0020179,ZDHHC17,23390,Q8IUH5,zinc finger DHHC-type palmitoyltransferase 17,,5,0.89,0.269,0.99989,0.27,,0.875,8,0,2002,2017
+Huntington Disease,C0020179,LEP,3952,P41159,leptin,,931,0.349,0.846,0.46491,0.25,,1,6,0,2004,2019
+Huntington Disease,C0020179,NPY,4852,P01303,neuropeptide Y,Signaling,381,0.447,0.846,0.14294,0.25,,1,6,0,1991,2018
+Huntington Disease,C0020179,ITPR1,3708,Q14643,"inositol 1,4,5-trisphosphate receptor type 1",Ion channel,185,0.534,0.846,1,0.24,,1,5,0,1998,2014
+Huntington Disease,C0020179,MMP9,4318,P14780,matrix metallopeptidase 9,Enzyme,1337,0.305,0.923,1.89E-17,0.23,,1,4,0,1998,2017
+Huntington Disease,C0020179,PPARD,5467,Q03181,peroxisome proliferator activated receptor delta,Nuclear receptor,197,0.513,0.846,0.99497,0.23,,1,3,0,2016,2020
+Huntington Disease,C0020179,BCL2,596,P10415,BCL2 apoptosis regulator,Signaling,1456,0.291,0.885,0.55903,0.22,,1,3,0,1999,2015
+Huntington Disease,C0020179,ZDHHC13,54503,Q8IUH4,zinc finger DHHC-type palmitoyltransferase 13,,18,0.729,0.346,1.20E-19,0.22,,1,3,0,2012,2015
+Huntington Disease,C0020179,CNR2,1269,P34972,cannabinoid receptor 2,G-protein coupled receptor,197,0.509,0.846,6.54E-06,0.22,,1,3,0,2009,2011
+Huntington Disease,C0020179,DRD1,1812,P21728,dopamine receptor D1,G-protein coupled receptor,181,0.529,0.808,0.9555,0.21,,1,2,0,1994,2008
+Huntington Disease,C0020179,HAAO,23498,P46952,"3-hydroxyanthranilate 3,4-dioxygenase",,47,0.644,0.538,1.06E-08,0.2,,1,1,0,1989,1989
+Huntington Disease,C0020179,BAX,581,Q07812,"BCL2 associated X, apoptosis regulator",Signaling,420,0.417,0.885,0.31746,0.2,,1,2,0,2001,2008
+Huntington Disease,C0020179,GSR,2936,P00390,glutathione-disulfide reductase,Enzyme,206,0.494,0.846,1.29E-06,0.2,,1,1,0,2000,2000
+Huntington Disease,C0020179,QPRT,23475,Q15274,quinolinate phosphoribosyltransferase,,15,0.736,0.346,0.0046997,0.2,,1,1,0,1989,1989
+Huntington Disease,C0020179,ND3,4537,P03897,"NADH dehydrogenase, subunit 3 (complex I)",,113,0.604,0.654,,0.2,,1,1,0,2010,2010
+Huntington Disease,C0020179,DUSP1,1843,P28562,dual specificity phosphatase 1,,214,0.491,0.808,0.010151,0.2,,1,1,0,2013,2013
+Huntington Disease,C0020179,MBP,4155,P02686,myelin basic protein,,184,0.51,0.885,0.28446,0.2,,1,1,0,2012,2012
+Huntington Disease,C0020179,CAT,847,P04040,catalase,Enzyme,794,0.359,0.962,1.63E-10,0.2,,1,1,0,2009,2009
+Huntington Disease,C0020179,ABAT,18,P80404,4-aminobutyrate aminotransferase,Enzyme,127,0.628,0.538,0.0063216,0.2,,1,1,0,1977,1977
+Huntington Disease,C0020179,NOS3,4846,P29474,nitric oxide synthase 3,,706,0.378,0.885,6.72E-07,0.2,,1,1,0,2007,2007
+Huntington Disease,C0020179,E2F1,1869,Q01094,E2F transcription factor 1,Nucleic acid binding,324,0.441,0.846,0.9877,0.2,,1,1,0,2008,2008
+Huntington Disease,C0020179,PTGS2,5743,P35354,prostaglandin-endoperoxide synthase 2,Enzyme,1234,0.314,0.962,0.99597,0.2,,1,1,0,2011,2011
+Huntington Disease,C0020179,ADD1,118,P35611,adducin 1,Cellular structure,67,0.612,0.615,0.9883,0.13,,1,4,1,1992,2012
+Huntington Disease,C0020179,FAN1,22909,Q9Y2M0,FANCD2 and FANCI associated nuclease 1,,93,0.61,0.577,1.65E-25,0.12,,1,3,2,2016,2020
+Huntington Disease,C0020179,RNF4,6047,P78317,ring finger protein 4,,27,0.705,0.462,0.79973,0.11,,1,2,2,2012,2018
+Huntington Disease,C0020179,SH3BP2,6452,P78314,SH3 domain binding protein 2,,65,0.623,0.654,1.16E-11,0.1,,1,1,1,2012,2012
+Huntington Disease,C0020179,TBP,6908,P20226,TATA-box binding protein,Transcription factor,158,0.552,0.846,0.015031,0.1,,1,14,0,2002,2020
+Huntington Disease,C0020179,RGS12,6002,O14924,regulator of G protein signaling 12,,22,0.769,0.462,4.09E-09,0.1,,1,1,9,2012,2012
+Huntington Disease,C0020179,GABPA,2551,Q06546,GA binding protein transcription factor subunit alpha,Transcription factor,632,0.379,0.885,0.99812,0.1,,1,10,0,2012,2019
+Huntington Disease,C0020179,BDNF,627,P23560,brain derived neurotrophic factor,Signaling,992,0.345,0.923,0.65626,0.1,,1,67,2,2001,2020
+Huntington Disease,C0020179,ATXN1,6310,P54253,ataxin 1,,218,0.534,0.769,0.97498,0.1,,1,15,0,1995,2020
+Huntington Disease,C0020179,SNCA,6622,P37840,synuclein alpha,Transporter,449,0.427,0.885,0.8829,0.1,,1,15,2,2004,2018
+Huntington Disease,C0020179,TP53,7157,P04637,tumor protein p53,Transcription factor,2494,0.236,0.962,0.53235,0.1,,1,17,3,2001,2019
+Huntington Disease,C0020179,TGM2,7052,P21980,transglutaminase 2,Enzyme,315,0.445,0.808,6.81E-18,0.1,,0.929,14,0,1999,2012
+Huntington Disease,C0020179,IGF1,3479,P05019,insulin like growth factor 1,,1206,0.318,0.885,0.2716,0.1,,1,10,0,2002,2020
+Huntington Disease,C0020179,HTT-AS,100750326,,HTT antisense RNA,,1,1,0.115,,0.1,,1,1,4,2012,2012
+Huntington Disease,C0020179,AR,367,P10275,androgen receptor,Nuclear receptor,854,0.351,0.846,0.98837,0.1,,1,11,0,1994,2017
+Huntington Disease,C0020179,MSANTD1,345222,Q6ZTZ1,Myb/SANT DNA binding domain containing 1,,4,0.931,0.115,0.80456,0.1,,1,1,4,2012,2012
+Huntington Disease,C0020179,APOE,348,P02649,apolipoprotein E,,1049,0.338,0.962,0.0018685,0.1,,1,11,0,1994,2019
+Huntington Disease,C0020179,SIGMAR1,10280,Q99720,sigma non-opioid intracellular receptor 1,,190,0.544,0.808,0.1678,0.1,,1,10,0,2015,2019
+Huntington Disease,C0020179,REST,5978,Q13127,RE1 silencing transcription factor,Transcription factor,178,0.535,0.808,0.99186,0.1,,1,21,0,2003,2019
+Huntington Disease,C0020179,EPO,2056,P01588,erythropoietin,,646,0.381,0.885,0.01125,0.1,,1,10,0,2001,2020
+Huntington Disease,C0020179,ADGB,79747,Q8N7X0,androglobin,,5,0.861,0.231,3.72E-22,0.1,,1,1,1,2017,2017
+Huntington Disease,C0020179,GRIN2B,2904,Q13224,glutamate ionotropic receptor NMDA type subunit 2B,Ion channel,249,0.51,0.692,1,0.1,,1,14,1,1997,2018
+Huntington Disease,C0020179,GRK4,2868,P32298,G protein-coupled receptor kinase 4,Kinase,21,0.716,0.5,1.63E-15,0.1,,1,1,4,2012,2012
+Huntington Disease,C0020179,ATXN3,4287,P54252,ataxin 3,Enzyme,207,0.521,0.808,0.10575,0.1,,0.947,19,0,1995,2020
+Huntington Disease,C0020179,PDE10A,10846,Q9Y233,phosphodiesterase 10A,,97,0.619,0.615,0.99986,0.1,,1,13,0,2004,2019
+Huntington Disease,C0020179,SOD1,6647,P00441,superoxide dismutase 1,Enzyme,689,0.379,0.962,0.1773,0.1,,1,11,0,1991,2018
+Huntington Disease,C0020179,ALB,213,P02768,albumin,Transporter,1198,0.317,0.962,0.64329,0.1,,1,13,0,2014,2020
+Huntington Disease,C0020179,CASP6,839,P55212,caspase 6,Enzyme,73,0.61,0.615,0.00012665,0.1,,1,13,0,2006,2019
+Huntington Disease,C0020179,JPH3,57338,Q8WXH2,junctophilin 3,,90,0.608,0.538,0.99855,0.1,,0.909,11,0,2002,2019
+Huntington Disease,C0020179,HAP1,9001,P54257,huntingtin associated protein 1,Transporter,65,0.604,0.769,3.35E-26,0.1,,1,18,1,1995,2019
+Huntington Disease,C0020179,SIRT1,23411,Q96EB6,sirtuin 1,Epigenetic regulator,675,0.378,0.885,0.087326,0.1,,1,13,2,2008,2019
+Huntington Disease,C0020179,IL6,3569,P05231,interleukin 6,,2367,0.248,0.962,0.31536,0.1,,1,10,0,2006,2019
+Huntington Disease,C0020179,DRD2,1813,P14416,dopamine receptor D2,G-protein coupled receptor,437,0.436,0.846,0.74709,0.09,,1,9,0,1996,2019
+Huntington Disease,C0020179,CRP,1401,P02741,C-reactive protein,,1483,0.299,0.962,0.0036969,0.09,,1,9,0,2006,2018
+Huntington Disease,C0020179,DNM1L,10059,O00429,dynamin 1 like,Enzyme modulator,273,0.475,0.808,0.00056753,0.08,,1,8,0,2011,2019
+Huntington Disease,C0020179,CREBBP,1387,Q92793,CREB binding protein,,438,0.428,0.808,1,0.08,,1,8,0,2000,2013
+Huntington Disease,C0020179,GFAP,2670,P14136,glial fibrillary acidic protein,,447,0.421,0.885,1.46E-06,0.08,,1,8,0,1997,2019
+Huntington Disease,C0020179,FXN,2395,Q16595,frataxin,Enzyme,220,0.51,0.654,0.34491,0.08,,1,8,0,1996,2018
+Huntington Disease,C0020179,GRIK2,2898,Q13002,glutamate ionotropic receptor kainate type subunit 2,Ion channel,130,0.561,0.769,0.99841,0.08,,0.75,8,0,1997,2015
+Huntington Disease,C0020179,SLC6A4,6532,P31645,solute carrier family 6 member 4,Transporter,440,0.429,0.808,0.24602,0.08,,1,8,0,2015,2020
+Huntington Disease,C0020179,HSF1,3297,Q00613,heat shock transcription factor 1,Transcription factor,185,0.507,0.769,0.74762,0.07,,1,7,0,2013,2019
+Huntington Disease,C0020179,ACE,1636,P12821,angiotensin I converting enzyme,Enzyme,1082,0.328,0.923,1.03E-37,0.07,,1,7,0,1999,2017
+Huntington Disease,C0020179,GAPDH,2597,P04406,glyceraldehyde-3-phosphate dehydrogenase,Enzyme,305,0.447,0.808,0.11388,0.07,,0.857,7,0,1998,2018
+Huntington Disease,C0020179,TNF,7124,P01375,tumor necrosis factor,Signaling,2724,0.231,0.962,0.8033,0.07,,1,7,0,2005,2019
+Huntington Disease,C0020179,CTNNB1,1499,P35222,catenin beta 1,,1368,0.303,0.885,0.99999,0.07,,1,7,0,2010,2018
+Huntington Disease,C0020179,SIRT2,22933,Q8IXJ6,sirtuin 2,Epigenetic regulator,172,0.51,0.769,2.33E-08,0.07,,1,7,0,2008,2019
+Huntington Disease,C0020179,IGFALS,3483,P35858,insulin like growth factor binding protein acid labile subunit,Receptor,203,0.511,0.846,5.44E-11,0.06,,1,6,0,1991,2018
+Huntington Disease,C0020179,HSPA4,3308,P34932,heat shock protein family A (Hsp70) member 4,,550,0.394,0.923,0.99954,0.06,,1,6,0,2003,2020
+Huntington Disease,C0020179,SLC1A2,6506,P43004,solute carrier family 1 member 2,Transporter,208,0.511,0.731,0.71036,0.06,,1,6,0,1997,2019
+Huntington Disease,C0020179,CSF2,1437,P04141,colony stimulating factor 2,Signaling,1028,0.33,0.962,0.83468,0.06,,1,6,0,2014,2019
+Huntington Disease,C0020179,DNAJB6,10049,O75190,DnaJ heat shock protein family (Hsp40) member B6,,65,0.659,0.462,0.85436,0.06,,1,6,0,2008,2019
+Huntington Disease,C0020179,ZNF141,7700,Q15928,zinc finger protein 141,,8,0.792,0.154,0.10393,0.06,,1,6,0,1989,1995
+Huntington Disease,C0020179,MAPT,4137,P10636,microtubule associated protein tau,,469,0.446,0.923,0.0060258,0.06,,1,6,0,2000,2019
+Huntington Disease,C0020179,C9orf72,203228,Q96LT7,C9orf72-SMCR8 complex subunit,,258,0.496,0.769,1.06E-06,0.06,,0.833,6,0,2014,2018
+Huntington Disease,C0020179,CDK5,1020,Q00535,cyclin dependent kinase 5,Kinase,204,0.495,0.846,0.13892,0.06,,1,6,0,2005,2019
+Huntington Disease,C0020179,MAPK1,5594,P28482,mitogen-activated protein kinase 1,Kinase,1059,0.33,0.923,0.99698,0.06,,1,6,0,2008,2019
+Huntington Disease,C0020179,NEFL,4747,P07196,neurofilament light,,247,0.488,0.769,,0.06,,1,6,0,1991,2018
+Huntington Disease,C0020179,PAG1,55824,Q9NWQ8,phosphoprotein membrane anchor with glycosphingolipid microdomains 1,,174,0.505,0.808,0.017764,0.06,,1,6,0,2001,2013
+Huntington Disease,C0020179,PENK,5179,P01210,proenkephalin,Signaling,124,0.56,0.808,0.0002077,0.06,,1,6,0,1991,2008
+Huntington Disease,C0020179,OPN1LW,5956,P04000,"opsin 1, long wave sensitive",G-protein coupled receptor,197,0.497,0.808,0.97535,0.06,,1,6,0,2001,2013
+Huntington Disease,C0020179,PTH,5741,P01270,parathyroid hormone,,528,0.397,0.846,0.012093,0.06,,1,6,0,2002,2020
+Huntington Disease,C0020179,ATM,472,Q13315,ATM serine/threonine kinase,Kinase,684,0.374,0.885,5.59E-47,0.06,,1,6,0,2014,2019
+Huntington Disease,C0020179,EIF4E,1977,P06730,eukaryotic translation initiation factor 4E,Nucleic acid binding,317,0.448,0.846,0.94133,0.06,,1,6,0,2001,2013
+Huntington Disease,C0020179,SMUG1,23583,Q53HV7,single-strand-selective monofunctional uracil-DNA glycosylase 1,,1034,0.322,0.923,0.00045154,0.06,,1,6,0,2017,2019
+Huntington Disease,C0020179,PCBP4,57060,P57723,poly(rC) binding protein 4,Enzyme,147,0.523,0.808,0.0023713,0.06,,1,6,0,2001,2013
+Huntington Disease,C0020179,HCRT,3060,O43612,hypocretin neuropeptide precursor,,237,0.5,0.808,0.028774,0.05,,1,5,0,2005,2014
+Huntington Disease,C0020179,GRM5,2915,P41594,glutamate metabotropic receptor 5,G-protein coupled receptor,189,0.525,0.846,0.99872,0.05,,1,5,0,2015,2018
+Huntington Disease,C0020179,KMO,8564,O15229,kynurenine 3-monooxygenase,,44,0.674,0.615,4.78E-05,0.05,,1,5,0,2005,2018
+Huntington Disease,C0020179,CASP3,836,P42574,caspase 3,Enzyme,819,0.351,0.923,0.10017,0.05,,1,5,0,1999,2010
+Huntington Disease,C0020179,TAC1,6863,P20366,tachykinin precursor 1,,478,0.424,0.923,0.74608,0.05,,1,5,0,1995,2018
+Huntington Disease,C0020179,NEAT1,283131,,nuclear paraspeckle assembly transcript 1,,179,0.502,0.769,,0.05,,1,5,0,2012,2019
+Huntington Disease,C0020179,HIP1,3092,O00291,huntingtin interacting protein 1,Cellular structure,56,0.653,0.577,0.76173,0.05,,1,5,0,1998,2012
+Huntington Disease,C0020179,PPARG,5468,P37231,peroxisome proliferator activated receptor gamma,Nuclear receptor,877,0.358,0.885,0.029194,0.05,,1,5,2,2010,2013
+Huntington Disease,C0020179,NTRK2,4915,Q16620,neurotrophic receptor tyrosine kinase 2,Kinase,284,0.479,0.808,1,0.05,,1,5,0,2006,2018
+Huntington Disease,C0020179,FGF23,8074,Q9GZV9,fibroblast growth factor 23,Signaling,305,0.46,0.731,0.031014,0.05,,1,5,0,2017,2019
+Huntington Disease,C0020179,HDAC4,9759,P56524,histone deacetylase 4,Epigenetic regulator,256,0.484,0.885,1,0.05,,1,5,0,2013,2019
+Huntington Disease,C0020179,IL10,3586,P22301,interleukin 10,,1679,0.281,0.923,0.0058874,0.05,,0.8,5,0,2005,2018
+Huntington Disease,C0020179,IFNL3,282617,Q8IZI9,interferon lambda 3,,175,0.506,0.808,2.42E-08,0.05,,1,5,0,2015,2018
+Huntington Disease,C0020179,CALB1,793,P05937,calbindin 1,Calcium-binding protein,68,0.606,0.615,0.24308,0.05,,1,5,0,1990,2017
+Huntington Disease,C0020179,SETDB1,9869,Q15047,SET domain bifurcated histone lysine methyltransferase 1,,56,0.631,0.654,1,0.05,,1,5,0,2006,2018
+Huntington Disease,C0020179,IL1B,3553,P01584,interleukin 1 beta,,1801,0.276,0.962,0.13005,0.05,,1,5,0,1995,2018
+Huntington Disease,C0020179,SOST,50964,Q9BQB4,sclerostin,,270,0.474,0.808,0.86731,0.05,,1,5,0,2017,2019
+Huntington Disease,C0020179,LAMC2,3918,Q13753,laminin subunit gamma 2,Enzyme modulator,602,0.389,0.923,2.88E-12,0.05,,1,5,0,2017,2019
+Huntington Disease,C0020179,UTRN,7402,P46939,utrophin,,152,0.525,0.692,1.00E-19,0.04,,1,4,0,2013,2019
+Huntington Disease,C0020179,TLR4,7099,O00206,toll like receptor 4,,1174,0.321,0.962,4.61E-09,0.04,,1,4,0,2018,2020
+Huntington Disease,C0020179,UBB,7314,P0CG47,ubiquitin B,Nucleic acid binding,70,0.599,0.615,0.016904,0.04,,1,4,0,2004,2009
+Huntington Disease,C0020179,AKT1,207,P31749,AKT serine/threonine kinase 1,Kinase,1250,0.311,0.962,0.9759,0.04,,1,4,0,2005,2020
+Huntington Disease,C0020179,F8A1,8263,P23610,coagulation factor VIII associated 1,,3,0.89,0.269,,0.04,,1,4,0,2001,2019
+Huntington Disease,C0020179,SIRT3,23410,Q9NTG7,sirtuin 3,Epigenetic regulator,227,0.488,0.731,0.00016261,0.04,,1,4,0,2017,2019
+Huntington Disease,C0020179,ATF6,22926,P18850,activating transcription factor 6,,179,0.516,0.846,3.23E-07,0.04,,1,4,0,2011,2018
+Huntington Disease,C0020179,DAPK2,23604,Q9UIK4,death associated protein kinase 2,Kinase,130,0.536,0.692,5.01E-10,0.04,,1,4,0,2013,2019
+Huntington Disease,C0020179,PPP1R2C,80316,O14990,PPP1R2C family member C,Enzyme modulator,231,0.478,0.846,,0.04,,0.75,4,0,2001,2010
+Huntington Disease,C0020179,VEGFA,7422,P15692,vascular endothelial growth factor A,Signaling,1899,0.266,0.923,2.41E-05,0.04,,1,4,0,2013,2019
+Huntington Disease,C0020179,HSP90AA1,3320,P07900,heat shock protein 90 alpha family class A member 1,Chaperone,455,0.411,0.923,0.86025,0.04,,1,4,0,2014,2019
+Huntington Disease,C0020179,LINC01672,100505887,,long intergenic non-protein coding RNA 1672,,268,0.462,0.846,,0.04,,1,4,0,1998,2018
+Huntington Disease,C0020179,F8A3,474384,P23610,coagulation factor VIII associated 3,,2,0.931,0.154,,0.04,,1,4,0,2001,2019
+Huntington Disease,C0020179,CRMP1,1400,Q14194,collapsin response mediator protein 1,Enzyme,148,0.525,0.808,0.99173,0.04,,1,4,0,2013,2019
+Huntington Disease,C0020179,SQSTM1,8878,Q13501,sequestosome 1,,470,0.428,0.885,0.00086035,0.04,,0.75,4,0,2012,2018
+Huntington Disease,C0020179,ADORA2A,135,P29274,adenosine A2a receptor,G-protein coupled receptor,213,0.526,0.769,0.5971,0.04,,1,4,0,2005,2013
+Huntington Disease,C0020179,HDAC9,9734,Q9UKV0,histone deacetylase 9,Epigenetic regulator,340,0.439,0.846,0.99973,0.04,,1,4,0,2012,2018
+Huntington Disease,C0020179,PTX3,5806,P26022,pentraxin 3,,296,0.457,0.808,6.98E-05,0.04,,1,4,0,2011,2019
+Huntington Disease,C0020179,MSH2,4436,P43246,mutS homolog 2,Nucleic acid binding,490,0.406,0.808,0.89539,0.04,,0.75,4,0,1999,2011
+Huntington Disease,C0020179,IL12B,3593,P29460,interleukin 12B,Signaling,249,0.48,0.885,0.00011439,0.04,,1,4,1,2012,2015
+Huntington Disease,C0020179,DENR,8562,O43583,density regulated re-initiation and release factor,Enzyme,121,0.543,0.692,0.87514,0.04,,1,4,0,2013,2019
+Huntington Disease,C0020179,ATXN2,6311,Q99700,ataxin 2,Nucleic acid binding,341,0.482,0.808,0.85289,0.04,,1,4,0,1997,2019
+Huntington Disease,C0020179,F8A2,474383,P23610,coagulation factor VIII associated 2,,2,0.931,0.154,,0.04,,1,4,0,2001,2019
+Huntington Disease,C0020179,PON1,5444,P27169,paraoxonase 1,,496,0.409,0.885,9.81E-11,0.04,,0.75,4,0,2002,2018
+Huntington Disease,C0020179,MSH3,4437,P20585,mutS homolog 3,Nucleic acid binding,245,0.474,0.769,7.44E-31,0.04,,1,4,1,2011,2019
+Huntington Disease,C0020179,GRIN2A,2903,Q12879,glutamate ionotropic receptor NMDA type subunit 2A,Ion channel,212,0.522,0.808,0.99998,0.04,,1,4,0,2005,2017
+Huntington Disease,C0020179,HAMP,57817,P81172,hepcidin antimicrobial peptide,,377,0.433,0.846,0.0081797,0.04,,1,4,0,2018,2020
+Huntington Disease,C0020179,H2AX,3014,P16104,H2A.X variant histone,Nucleic acid binding,212,0.484,0.808,0.17652,0.04,,1,4,0,2003,2019
+Huntington Disease,C0020179,ACTB,60,P60709,actin beta,Cellular structure,1110,0.325,0.923,0.98564,0.04,,1,4,0,1993,2018
+Huntington Disease,C0020179,SRSF6,6431,Q13247,serine and arginine rich splicing factor 6,Nucleic acid binding,37,0.67,0.462,0.91099,0.03,,1,3,0,2014,2017
+Huntington Disease,C0020179,KCNH4,23415,Q9UQ05,potassium voltage-gated channel subfamily H member 4,Ion channel,61,0.603,0.615,0.99984,0.03,,1,3,0,2010,2019
+Huntington Disease,C0020179,PROS1,5627,P07225,protein S,,283,0.467,0.846,0.00047089,0.03,,1,3,0,2007,2019
+Huntington Disease,C0020179,PRL,5617,P01236,prolactin,Signaling,506,0.406,0.885,2.90E-07,0.03,,1,3,0,1977,2017
+Huntington Disease,C0020179,GCG,2641,P01275,glucagon,,441,0.431,0.885,0.034814,0.03,,1,3,0,2013,2018
+Huntington Disease,C0020179,PSMC6,5706,P62333,"proteasome 26S subunit, ATPase 6",Enzyme,22,0.705,0.577,0.99662,0.03,,0.667,3,0,2013,2018
+Huntington Disease,C0020179,TARDBP,23435,Q13148,TAR DNA binding protein,,245,0.493,0.808,0.98542,0.03,,1,3,0,2007,2018
+Huntington Disease,C0020179,NRF1,4899,Q16656,nuclear respiratory factor 1,,74,0.603,0.808,0.99922,0.03,,0.667,3,0,2009,2018
+Huntington Disease,C0020179,VCP,7415,P55072,valosin containing protein,,376,0.469,0.923,0.99999,0.03,,1,3,0,2010,2017
+Huntington Disease,C0020179,PIK3CG,5294,P48736,"phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit gamma",Kinase,1101,0.32,0.885,1.41E-06,0.03,,1,3,0,2010,2020
+Huntington Disease,C0020179,PIK3CD,5293,O00329,"phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit delta",Kinase,1119,0.319,0.885,0.99999,0.03,,1,3,0,2010,2020
+Huntington Disease,C0020179,PIK3CB,5291,P42338,"phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit beta",Kinase,1083,0.322,0.885,0.99964,0.03,,1,3,0,2010,2020
+Huntington Disease,C0020179,NT5C2,22978,P49902,"5'-nucleotidase, cytosolic II",Enzyme,149,0.537,0.846,2.14E-06,0.03,,1,3,0,1981,2018
+Huntington Disease,C0020179,FOXO1,2308,Q12778,forkhead box O1,,380,0.433,0.846,0.99725,0.03,,1,3,0,2011,2017
+Huntington Disease,C0020179,FOXO3,2309,O43524,forkhead box O3,,381,0.431,0.808,0.98806,0.03,,1,3,0,2014,2017
+Huntington Disease,C0020179,PIK3CA,5290,P42336,"phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit alpha",Kinase,1511,0.292,0.923,1,0.03,,1,3,0,2010,2020
+Huntington Disease,C0020179,RCOR1,23186,Q9UKL0,REST corepressor 1,,36,0.678,0.577,0.99992,0.03,,1,3,0,2008,2013
+Huntington Disease,C0020179,UBE3A,7337,Q05086,ubiquitin protein ligase E3A,,155,0.561,0.692,0.9998,0.03,,1,3,0,2012,2019
+Huntington Disease,C0020179,ABCB1,5243,P08183,ATP binding cassette subfamily B member 1,Transporter,933,0.344,0.885,1.26E-05,0.03,,1,3,0,2000,2016
+Huntington Disease,C0020179,SCLY,51540,Q96I15,selenocysteine lyase,Enzyme,161,0.53,0.731,2.33E-09,0.03,,1,3,0,2007,2014
+Huntington Disease,C0020179,PDE4A,5141,P27815,phosphodiesterase 4A,,168,0.523,0.846,0.98167,0.03,,1,3,0,2004,2018
+Huntington Disease,C0020179,VRK2,7444,Q86Y07,VRK serine/threonine kinase 2,Kinase,29,0.722,0.269,1.57E-11,0.03,,1,3,0,2014,2019
+Huntington Disease,C0020179,BDNF-AS,497258,,BDNF antisense RNA,,77,0.638,0.538,,0.03,,1,3,2,2006,2016
+Huntington Disease,C0020179,NUP43,348995,Q8NFH3,nucleoporin 43,,25,0.7,0.423,2.41E-05,0.03,,0.667,3,0,2013,2018
+Huntington Disease,C0020179,STAT3,6774,P40763,signal transducer and activator of transcription 3,Nucleic acid binding,1193,0.32,0.923,1,0.03,,1,3,0,2015,2020
+Huntington Disease,C0020179,TGM1,7051,P22735,transglutaminase 1,Enzyme,117,0.565,0.769,2.25E-13,0.03,,1,3,0,2002,2006
+Huntington Disease,C0020179,PPP1R11,6992,O60927,protein phosphatase 1 regulatory inhibitor subunit 11,Enzyme modulator,66,0.604,0.731,0.35781,0.03,,1,3,0,1996,2017
+Huntington Disease,C0020179,SLC18A2,6571,Q05940,solute carrier family 18 member A2,Transporter,150,0.554,0.769,0.075523,0.03,,1,3,0,2000,2018
+Huntington Disease,C0020179,TAL1,6886,P17542,"TAL bHLH transcription factor 1, erythroid differentiation factor",Transcription factor,202,0.505,0.731,0.5659,0.03,,1,3,0,2007,2014
+Huntington Disease,C0020179,UCHL1,7345,P09936,ubiquitin C-terminal hydrolase L1,Enzyme,260,0.482,0.885,0.99095,0.03,,1,3,2,2002,2009
+Huntington Disease,C0020179,HDAC1,3065,Q13547,histone deacetylase 1,Epigenetic regulator,277,0.46,0.846,0.61427,0.03,,1,3,0,2008,2012
+Huntington Disease,C0020179,ANGPT1,284,Q15389,angiopoietin 1,Signaling,340,0.446,0.808,0.95208,0.03,,1,3,0,2017,2019
+Huntington Disease,C0020179,CCL5,6352,P13501,C-C motif chemokine ligand 5,Signaling,514,0.403,0.885,0.0017516,0.03,,1,3,0,2008,2017
+Huntington Disease,C0020179,BRCA1,672,P38398,BRCA1 DNA repair associated,Enzyme,747,0.367,0.923,9.22E-29,0.03,,1,3,0,2006,2012
+Huntington Disease,C0020179,GPT,2875,P24298,glutamic--pyruvic transaminase,Enzyme,511,0.403,0.923,3.59E-19,0.03,,0.667,3,0,1999,2015
+Huntington Disease,C0020179,APP,351,P05067,amyloid beta precursor protein,Enzyme modulator,485,0.422,0.846,0.046544,0.03,,1,3,0,1993,2014
+Huntington Disease,C0020179,BCL11B,64919,Q9C0K0,BAF chromatin remodeling complex subunit BCL11B,Transcription factor,123,0.568,0.731,0.98881,0.03,,1,3,0,2008,2019
+Huntington Disease,C0020179,MLH1,4292,P40692,mutL homolog 1,Nucleic acid binding,526,0.399,0.808,3.41E-05,0.03,,1,3,0,2013,2017
+Huntington Disease,C0020179,FUS,2521,P35637,FUS RNA binding protein,Nucleic acid binding,301,0.47,0.846,0.9993,0.03,,1,3,0,2010,2019
+Huntington Disease,C0020179,LY6E,4061,Q16553,lymphocyte antigen 6 family member E,,115,0.563,0.808,0.3211,0.03,,1,3,0,1997,2012
+Huntington Disease,C0020179,ATXN7,6314,O15265,ataxin 7,,162,0.581,0.654,0.9595,0.03,,1,3,0,2002,2018
+Huntington Disease,C0020179,HYPK,25764,Q9NX55,huntingtin interacting protein K,,2,1,0.115,0.036644,0.03,,1,3,0,2008,2017
+Huntington Disease,C0020179,CCL2,6347,P13500,C-C motif chemokine ligand 2,Signaling,1157,0.321,0.962,0.60786,0.03,,0.667,3,0,1995,2020
+Huntington Disease,C0020179,KRT7,3855,P08729,keratin 7,,287,0.463,0.808,3.09E-12,0.03,,1,3,0,2007,2014
+Huntington Disease,C0020179,TM7SF2,7108,O76062,transmembrane 7 superfamily member 2,Enzyme,217,0.486,0.808,1.37E-07,0.03,,1,3,0,2017,2019
+Huntington Disease,C0020179,IDO1,3620,P14902,"indoleamine 2,3-dioxygenase 1",,295,0.454,0.846,3.30E-06,0.03,,0.667,3,1,2018,2019
+Huntington Disease,C0020179,IL12A,3592,P29459,interleukin 12A,,261,0.491,0.808,0.04746,0.03,,1,3,1,2012,2017
+Huntington Disease,C0020179,CXCL8,3576,P10145,C-X-C motif chemokine ligand 8,Signaling,1254,0.31,0.962,0.00027377,0.03,,1,3,0,2009,2016
+Huntington Disease,C0020179,ACBD3,64746,Q9H3P7,acyl-CoA binding domain containing 3,,10,0.805,0.385,0.010653,0.03,,1,3,0,2013,2019
+Huntington Disease,C0020179,SST,6750,P61278,somatostatin,Signaling,535,0.399,0.885,0.34128,0.03,,1,3,0,1996,2018
+Huntington Disease,C0020179,CDKL1,8814,Q00532,cyclin dependent kinase like 1,Kinase,33,0.682,0.385,2.50E-07,0.03,,0.667,3,0,2013,2018
+Huntington Disease,C0020179,CKB,1152,P12277,creatine kinase B,Kinase,73,0.608,0.615,0.2189,0.03,,1,3,0,2011,2013
+Huntington Disease,C0020179,OPTN,10133,Q96CV9,optineurin,,136,0.548,0.808,5.91E-18,0.03,,1,3,0,2011,2019
+Huntington Disease,C0020179,HDAC3,8841,O15379,histone deacetylase 3,Epigenetic regulator,179,0.511,0.731,0.56737,0.03,,1,3,0,2008,2017
+Huntington Disease,C0020179,TSHZ1,10194,Q6ZSZ6,teashirt zinc finger homeobox 1,Transcription factor,99,0.569,0.731,0.9973,0.03,,1,3,0,1997,2019
+Huntington Disease,C0020179,TCERG1,10915,O14776,transcription elongation regulator 1,Transcription factor,8,0.821,0.192,0.99996,0.03,,1,3,0,2003,2017
+Huntington Disease,C0020179,DLG4,1742,P78352,discs large MAGUK scaffold protein 4,Receptor,91,0.595,0.654,0.99954,0.03,,1,3,0,2009,2017
+Huntington Disease,C0020179,H3P30,115482700,,H3 histone pseudogene 30,,17,0.736,0.346,,0.03,,0.667,3,0,2013,2018
+Huntington Disease,C0020179,EPHB2,2048,P29323,EPH receptor B2,Kinase,649,0.374,0.846,0.99997,0.03,,1,3,0,2012,2019
+Huntington Disease,C0020179,NPEPPS,9520,P55786,aminopeptidase puromycin sensitive,Enzyme,172,0.519,0.808,1,0.03,,1,3,0,2007,2014
+Huntington Disease,C0020179,CASP1,834,P29466,caspase 1,Enzyme,444,0.413,0.885,3.52E-05,0.03,,1,3,0,2000,2005
+Huntington Disease,C0020179,ELK1,2002,P19419,ETS transcription factor ELK1,Transcription factor,114,0.537,0.692,0.93711,0.03,,1,3,0,2010,2019
+Huntington Disease,C0020179,KCNH8,131096,Q96L42,potassium voltage-gated channel subfamily H member 8,Ion channel,62,0.603,0.654,2.29E-10,0.03,,1,3,0,2010,2019
+Huntington Disease,C0020179,MTDH,92140,Q86UE4,metadherin,,200,0.491,0.769,0.32924,0.03,,1,3,0,2011,2019
+Huntington Disease,C0020179,FAP,2191,Q12884,fibroblast activation protein alpha,Enzyme,216,0.496,0.808,1.90E-28,0.03,,1,3,0,1997,2019
+Huntington Disease,C0020179,CHI3L1,1116,P36222,chitinase 3 like 1,,420,0.419,0.885,1.11E-05,0.03,,1,3,0,2018,2018
+Huntington Disease,C0020179,PTPN5,84867,P54829,protein tyrosine phosphatase non-receptor type 5,,50,0.666,0.538,0.0014228,0.03,,1,3,0,2011,2018
+Huntington Disease,C0020179,CACNA1A,773,O00555,calcium voltage-gated channel subunit alpha1 A,Ion channel,320,0.489,0.769,1,0.03,,1,3,0,2001,2008
+Huntington Disease,C0020179,HIPK3,10114,Q9H422,homeodomain interacting protein kinase 3,Kinase,33,0.678,0.462,0.27733,0.03,,1,3,0,2017,2018
+Huntington Disease,C0020179,AGER,177,Q15109,advanced glycosylation end-product specific receptor,Receptor,450,0.42,0.885,6.35E-16,0.03,,1,3,1,2007,2018
+Huntington Disease,C0020179,CDK20,23552,Q8IZL9,cyclin dependent kinase 20,Kinase,34,0.682,0.462,5.95E-14,0.03,,0.667,3,0,2013,2018
+Huntington Disease,C0020179,RGS2,5997,P41220,regulator of G protein signaling 2,Enzyme modulator,109,0.561,0.769,5.70E-06,0.02,,1,2,0,2011,2013
+Huntington Disease,C0020179,UBXN11,91544,Q5T124,UBX domain protein 11,,41,0.659,0.538,1.40E-13,0.02,,1,2,0,2017,2018
+Huntington Disease,C0020179,LPAR2,9170,Q9HBW0,lysophosphatidic acid receptor 2,G-protein coupled receptor,285,0.463,0.846,0.036658,0.02,,1,2,0,1996,2010
+Huntington Disease,C0020179,GSTK1,373156,Q9Y2Q3,glutathione S-transferase kappa 1,,445,0.412,0.885,1.94E-06,0.02,,0.5,2,0,1999,2018
+Huntington Disease,C0020179,TUSC2,11334,O75896,"tumor suppressor 2, mitochondrial calcium regulator",,111,0.556,0.846,0.7671,0.02,,1,2,0,2015,2019
+Huntington Disease,C0020179,ITPR3,3710,Q14573,"inositol 1,4,5-trisphosphate receptor type 3",Ion channel,112,0.555,0.808,2.55E-22,0.02,,1,2,0,2009,2011
+Huntington Disease,C0020179,TPPP,11076,O94811,tubulin polymerization promoting protein,Cellular structure,110,0.57,0.692,0.20334,0.02,,1,2,0,2008,2017
+Huntington Disease,C0020179,PDAP1,11333,Q13442,PDGFA associated protein 1,,95,0.576,0.769,0.049626,0.02,,1,2,0,2015,2019
+Huntington Disease,C0020179,ASAP2,8853,O43150,"ArfGAP with SH3 domain, ankyrin repeat and PH domain 2",,85,0.585,0.731,0.99996,0.02,,1,2,0,2015,2019
+Huntington Disease,C0020179,MIR10B,406903,,microRNA 10b,,167,0.509,0.808,,0.02,,0.5,2,0,2015,2015
+Huntington Disease,C0020179,ENHO,375704,Q6UWT2,energy homeostasis associated,,71,0.599,0.769,0.10526,0.02,,1,2,1,2016,2019
+Huntington Disease,C0020179,MIR132,406921,,microRNA 132,,222,0.485,0.846,,0.02,,0.5,2,0,2017,2018
+Huntington Disease,C0020179,RXRA,6256,P19793,retinoid X receptor alpha,Nuclear receptor,132,0.543,0.769,0.99852,0.02,,1,2,1,2016,2019
+Huntington Disease,C0020179,LRP2,4036,P98164,LDL receptor related protein 2,,254,0.491,0.846,0.99999,0.02,,0.5,2,0,2018,2019
+Huntington Disease,C0020179,S100A12,6283,P80511,S100 calcium binding protein A12,Calcium-binding protein,221,0.488,0.846,0.48234,0.02,,1,2,0,2006,2017
+Huntington Disease,C0020179,MIR155,406947,,microRNA 155,,584,0.384,0.885,,0.02,,1,2,0,2014,2017
+Huntington Disease,C0020179,LGALS3,3958,P17931,galectin 3,Signaling,557,0.392,0.846,2.32E-05,0.02,,1,2,0,2019,2019
+Huntington Disease,C0020179,SELENBP1,8991,Q13228,selenium binding protein 1,Immune response,214,0.493,0.846,3.23E-16,0.02,,1,2,0,2018,2019
+Huntington Disease,C0020179,KALRN,8997,O60229,kalirin RhoGEF kinase,Kinase,59,0.644,0.654,1,0.02,,1,2,1,2012,2012
+Huntington Disease,C0020179,ADCYAP1,116,P18509,adenylate cyclase activating polypeptide 1,Signaling,220,0.51,0.846,0.52424,0.02,,1,2,0,2018,2018
+Huntington Disease,C0020179,GRIN3A,116443,Q8TCU5,glutamate ionotropic receptor NMDA type subunit 3A,Ion channel,24,0.743,0.423,0.45327,0.02,,1,2,0,2015,2018
+Huntington Disease,C0020179,RAB11A,8766,P62491,"RAB11A, member RAS oncogene family",,82,0.601,0.692,0.99151,0.02,,1,2,0,2010,2014
+Huntington Disease,C0020179,HSPD1,3329,P10809,heat shock protein family D (Hsp60) member 1,,398,0.432,0.808,0.99257,0.02,,1,2,0,2000,2019
+Huntington Disease,C0020179,MFN2,9927,O95140,mitofusin 2,Enzyme,334,0.471,0.846,0.99415,0.02,,1,2,1,2011,2015
+Huntington Disease,C0020179,APEX1,328,P27695,apurinic/apyrimidinic endodeoxyribonuclease 1,,305,0.458,0.846,1.92E-07,0.02,,1,2,0,1995,1998
+Huntington Disease,C0020179,HP,3240,P00738,haptoglobin,Enzyme,464,0.412,0.885,1.74E-05,0.02,,1,2,0,2004,2010
+Huntington Disease,C0020179,APAF1,317,O14727,apoptotic peptidase activating factor 1,,145,0.525,0.769,9.62E-06,0.02,,1,2,0,2005,2019
+Huntington Disease,C0020179,HMOX1,3162,P09601,heme oxygenase 1,,666,0.381,0.923,0.0096817,0.02,,1,2,0,2013,2018
+Huntington Disease,C0020179,KCNIP3,30818,Q9Y2W7,potassium voltage-gated channel interacting protein 3,Ion channel,60,0.626,0.654,0.037604,0.02,,1,2,0,2018,2019
+Huntington Disease,C0020179,ADRA1A,148,P35348,adrenoceptor alpha 1A,G-protein coupled receptor,294,0.462,0.846,3.37E-07,0.02,,1,2,0,1996,2010
+Huntington Disease,C0020179,UBQLN1,29979,Q9UMX0,ubiquilin 1,,49,0.65,0.423,0.99884,0.02,,1,2,0,2014,2015
+Huntington Disease,C0020179,SOD2,6648,P04179,superoxide dismutase 2,Enzyme,668,0.379,0.923,0.15499,0.02,,1,2,0,2018,2019
+Huntington Disease,C0020179,PSAT1,29968,Q9Y617,phosphoserine aminotransferase 1,,285,0.478,0.846,1.06E-08,0.02,,1,2,0,2007,2007
+Huntington Disease,C0020179,GTF2H1,2965,P32780,general transcription factor IIH subunit 1,Transcription factor,258,0.469,0.846,0.98982,0.02,,1,2,0,2012,2015
+Huntington Disease,C0020179,FAM193A,8603,P78312,family with sequence similarity 193 member A,,13,0.792,0.192,0.99993,0.02,,1,2,0,1998,2001
+Huntington Disease,C0020179,HTR1A,3350,P08908,5-hydroxytryptamine receptor 1A,G-protein coupled receptor,229,0.522,0.846,0.19956,0.02,,1,2,0,2002,2007
+Huntington Disease,C0020179,SHBG,6462,P04278,sex hormone binding globulin,,368,0.438,0.808,1.25E-06,0.02,,1,2,0,2018,2019
+Huntington Disease,C0020179,CBS,875,P0DN79;P35520,cystathionine beta-synthase,Enzyme,295,0.465,0.885,3.08E-05,0.02,,1,2,0,1998,2004
+Huntington Disease,C0020179,BECN1,8678,Q14457,beclin 1,Enzyme modulator,373,0.432,0.846,0.93717,0.02,,1,2,1,2006,2014
+Huntington Disease,C0020179,KLK3,354,P07288,kallikrein related peptidase 3,Enzyme,358,0.443,0.885,4.43E-06,0.02,,1,2,0,2007,2007
+Huntington Disease,C0020179,APRT,353,P07741,adenine phosphoribosyltransferase,,384,0.423,0.846,5.45E-13,0.02,,1,2,0,2010,2012
+Huntington Disease,C0020179,SLCO6A1,133482,Q86UG4,solute carrier organic anion transporter family member 6A1,Transporter,449,0.412,0.885,2.88E-11,0.02,,0.5,2,0,1999,2018
+Huntington Disease,C0020179,IFNG,3458,P01579,interferon gamma,,1519,0.288,0.962,0.47156,0.02,,1,2,0,2013,2018
+Huntington Disease,C0020179,CP,1356,P00450,ceruloplasmin,Enzyme,283,0.466,0.846,4.20E-10,0.02,,1,2,0,2003,2008
+Huntington Disease,C0020179,IFNA2,3440,P01563,interferon alpha 2,,355,0.442,0.885,,0.02,,1,2,0,1995,2008
+Huntington Disease,C0020179,SLC1A1,6505,P43005,solute carrier family 1 member 1,Transporter,122,0.561,0.654,8.69E-06,0.02,,1,2,0,2002,2010
+Huntington Disease,C0020179,IAPP,3375,P10997,islet amyloid polypeptide,Signaling,183,0.507,0.808,0.0031814,0.02,,1,2,0,2005,2011
+Huntington Disease,C0020179,SLC2A1,6513,P11166,solute carrier family 2 member 1,Transporter,687,0.388,0.808,0.9941,0.02,,1,2,0,2014,2018
+Huntington Disease,C0020179,CCN2,1490,P29279,cellular communication network factor 2,Signaling,518,0.399,0.846,0.00050202,0.02,,1,2,0,2010,2019
+Huntington Disease,C0020179,ADA,100,P00813,adenosine deaminase,Enzyme,379,0.44,0.885,2.88E-12,0.02,,1,2,0,1997,2018
+Huntington Disease,C0020179,FIS1,51024,Q9Y3D6,"fission, mitochondrial 1",,40,0.663,0.769,1.30E-05,0.02,,1,2,0,2018,2019
+Huntington Disease,C0020179,ASAP1,50807,Q9ULH1,"ArfGAP with SH3 domain, ankyrin repeat and PH domain 1",,112,0.556,0.808,1,0.02,,1,2,0,2015,2019
+Huntington Disease,C0020179,REG3A,5068,Q06141,regenerating family member 3 alpha,,148,0.522,0.769,0.00062895,0.02,,1,2,0,2015,2019
+Huntington Disease,C0020179,SERPINE1,5054,P05121,serpin family E member 1,Enzyme modulator,770,0.359,0.885,0.043609,0.02,,1,2,0,2007,2008
+Huntington Disease,C0020179,P4HB,5034,P07237,prolyl 4-hydroxylase subunit beta,,222,0.488,0.808,0.99662,0.02,,1,2,0,2017,2018
+Huntington Disease,C0020179,MAPK11,5600,Q15759,mitogen-activated protein kinase 11,Kinase,25,0.695,0.462,0.00033565,0.02,,1,2,0,2017,2017
+Huntington Disease,C0020179,TNFRSF11B,4982,O00300,TNF receptor superfamily member 11b,,443,0.422,0.808,0.16171,0.02,,1,2,0,2017,2019
+Huntington Disease,C0020179,NTF4,4909,P34130,neurotrophin 4,Signaling,46,0.644,0.692,0.012031,0.02,,1,2,0,1998,2019
+Huntington Disease,C0020179,EIF2AK2,5610,P19525,eukaryotic translation initiation factor 2 alpha kinase 2,Kinase,142,0.538,0.769,0.017643,0.02,,1,2,0,2001,2004
+Huntington Disease,C0020179,NPY2R,4887,P49146,neuropeptide Y receptor Y2,G-protein coupled receptor,68,0.612,0.577,0.035526,0.02,,1,2,1,2014,2018
+Huntington Disease,C0020179,PRNP,5621,F7VJQ1;P04156,prion protein,,426,0.445,0.923,0.00063182,0.02,,1,2,1,2001,2008
+Huntington Disease,C0020179,MIR34A,407040,,microRNA 34a,,428,0.421,0.846,,0.02,,1,2,0,2017,2018
+Huntington Disease,C0020179,PRKCA,5578,P17252,protein kinase C alpha,Kinase,368,0.44,0.846,0.3677,0.02,,1,2,0,2003,2014
+Huntington Disease,C0020179,ATF7IP,55729,Q6VMQ6,activating transcription factor 7 interacting protein,,145,0.543,0.769,0.99993,0.02,,1,2,0,1995,2018
+Huntington Disease,C0020179,DCTN4,51164,Q9UJW0,dynactin subunit 4,,253,0.472,0.846,0.73221,0.02,,1,2,0,2012,2015
+Huntington Disease,C0020179,CCHCR1,54535,Q8TD31,coiled-coil alpha-helical rod protein 1,,193,0.505,0.808,1.01E-16,0.02,,1,2,0,2018,2019
+Huntington Disease,C0020179,TREM2,54209,Q9NZC2,triggering receptor expressed on myeloid cells 2,,239,0.519,0.769,3.29E-09,0.02,,1,2,1,2018,2020
+Huntington Disease,C0020179,ACP3,55,P15309,acid phosphatase 3,Enzyme,151,0.525,0.731,2.55E-16,0.02,,1,2,0,2015,2019
+Huntington Disease,C0020179,PLAG1,5324,Q6DJT9,PLAG1 zinc finger,Transcription factor,219,0.493,0.808,0.99532,0.02,,1,2,0,2007,2007
+Huntington Disease,C0020179,IFT57,55081,Q9NWB7,intraflagellar transport 57,Enzyme modulator,31,0.716,0.308,3.33E-10,0.02,,1,2,0,2008,2011
+Huntington Disease,C0020179,PIN1,5300,Q13526,"peptidylprolyl cis/trans isomerase, NIMA-interacting 1",,212,0.488,0.769,0.74031,0.02,,1,2,0,2017,2018
+Huntington Disease,C0020179,MTPAP,55149,Q9NVV4,mitochondrial poly(A) polymerase,Enzyme,104,0.581,0.769,0.99904,0.02,,1,2,0,2015,2019
+Huntington Disease,C0020179,MEG3,55384,,maternally expressed 3,,239,0.471,0.846,,0.02,,1,2,0,2012,2018
+Huntington Disease,C0020179,PRKAA1,5562,Q13131,protein kinase AMP-activated catalytic subunit alpha 1,Kinase,325,0.453,0.846,0.13725,0.02,,1,2,0,2017,2018
+Huntington Disease,C0020179,IFNL4,101180976,K9M1U5,interferon lambda 4 (gene/pseudogene),,39,0.67,0.577,,0.02,,1,2,0,2018,2018
+Huntington Disease,C0020179,PRKAA2,5563,P54646,protein kinase AMP-activated catalytic subunit alpha 2,Kinase,317,0.456,0.846,3.53E-08,0.02,,1,2,0,2017,2018
+Huntington Disease,C0020179,PRKAB1,5564,Q9Y478,protein kinase AMP-activated non-catalytic subunit beta 1,Kinase,296,0.46,0.846,0.0052573,0.02,,1,2,0,2017,2018
+Huntington Disease,C0020179,NGFR,4804,P08138,nerve growth factor receptor,Receptor,256,0.477,0.846,0.097889,0.02,,1,2,0,2017,2018
+Huntington Disease,C0020179,NGF,4803,P01138,nerve growth factor,Signaling,616,0.391,0.885,0.82026,0.02,,1,2,0,2004,2017
+Huntington Disease,C0020179,NF2,4771,P35240,neurofibromin 2,,312,0.468,0.885,1,0.02,,1,2,0,1994,1996
+Huntington Disease,C0020179,MRC1,4360,P22897,mannose receptor C-type 1,,431,0.413,0.846,0.94335,0.02,,1,2,0,2014,2019
+Huntington Disease,C0020179,MOK,5891,Q9UQ07,MOK protein kinase,Kinase,251,0.476,0.769,8.84E-22,0.02,,1,2,1,2010,2018
+Huntington Disease,C0020179,GPR52,9293,Q9Y2T5,G protein-coupled receptor 52,G-protein coupled receptor,8,0.89,0.115,0.0095377,0.02,,1,2,0,2015,2018
+Huntington Disease,C0020179,MMP2,4313,P08253,matrix metallopeptidase 2,Enzyme,1021,0.333,0.923,0.83878,0.02,,1,2,0,2003,2017
+Huntington Disease,C0020179,MGP,4256,P08493,matrix Gla protein,,160,0.539,0.846,3.61E-05,0.02,,1,2,0,2006,2020
+Huntington Disease,C0020179,ACE2,59272,Q9BYF1,angiotensin I converting enzyme 2,Enzyme,253,0.477,0.769,0.99769,0.02,,1,2,0,2017,2019
+Huntington Disease,C0020179,MFAP1,4236,P55081,microfibril associated protein 1,Extracellular structure,357,0.431,0.846,0.79602,0.02,,1,2,0,2010,2012
+Huntington Disease,C0020179,MAP3K5,4217,Q99683,mitogen-activated protein kinase kinase kinase 5,Kinase,170,0.513,0.808,0.51964,0.02,,1,2,0,2008,2009
+Huntington Disease,C0020179,CYP46A1,10858,Q9Y6A2,cytochrome P450 family 46 subfamily A member 1,Enzyme,39,0.659,0.5,0.98552,0.02,,1,2,0,2018,2019
+Huntington Disease,C0020179,REN,5972,P00797,renin,Enzyme,721,0.37,0.923,2.43E-07,0.02,,1,2,0,2017,2019
+Huntington Disease,C0020179,MRPS30,10884,Q9NP92,mitochondrial ribosomal protein S30,,83,0.59,0.731,1.59E-08,0.02,,1,2,0,2015,2019
+Huntington Disease,C0020179,PAPOLA,10914,P51003,poly(A) polymerase alpha,Nucleic acid binding,79,0.593,0.731,0.99998,0.02,,1,2,0,2015,2019
+Huntington Disease,C0020179,PVALB,5816,P20472,parvalbumin,Calcium-binding protein,148,0.547,0.692,0.086602,0.02,,1,2,0,2013,2017
+Huntington Disease,C0020179,CXCR6,10663,O00574,C-X-C motif chemokine receptor 6,G-protein coupled receptor,325,0.448,0.885,5.72E-05,0.02,,1,2,0,1996,2010
+Huntington Disease,C0020179,KHDRBS1,10657,Q07666,"KH RNA binding domain containing, signal transduction associated 1",Nucleic acid binding,289,0.457,0.846,0.99423,0.02,,1,2,0,2012,2015
+Huntington Disease,C0020179,ACKR3,57007,P25106,atypical chemokine receptor 3,G-protein coupled receptor,400,0.428,0.885,0.39134,0.02,,1,2,0,1996,2010
+Huntington Disease,C0020179,CD28,940,P10747,CD28 molecule,,364,0.436,0.885,0.35779,0.02,,1,2,0,2005,2013
+Huntington Disease,C0020179,TOMM40,10452,O96008,translocase of outer mitochondrial membrane 40,Transporter,113,0.59,0.538,0.99218,0.02,,1,2,0,2011,2017
+Huntington Disease,C0020179,ADIPOQ,9370,Q15848,"adiponectin, C1Q and collagen domain containing",,679,0.376,0.885,4.64E-09,0.02,,1,2,0,2010,2018
+Huntington Disease,C0020179,NCAM1,4684,P13591,neural cell adhesion molecule 1,,445,0.415,0.885,0.99999,0.02,,1,2,0,2007,2007
+Huntington Disease,C0020179,ATG7,10533,O95352,autophagy related 7,Enzyme,179,0.505,0.769,7.38E-12,0.02,,1,2,1,2010,2013
+Huntington Disease,C0020179,KL,9365,Q9UEF7,klotho,Enzyme,332,0.448,0.769,0.00022444,0.02,,1,2,0,2009,2019
+Huntington Disease,C0020179,KIDINS220,57498,Q9ULH0,kinase D interacting substrate 220,,145,0.534,0.769,0.073562,0.02,,0.5,2,0,2018,2020
+Huntington Disease,C0020179,MTHFR,4524,P42898,methylenetetrahydrofolate reductase,,985,0.337,0.885,3.21E-10,0.02,,1,2,2,2004,2006
+Huntington Disease,C0020179,HACE1,57531,Q8IYU2,HECT domain and ankyrin repeat containing E3 ubiquitin protein ligase 1,Enzyme,95,0.601,0.692,6.08E-06,0.02,,1,2,0,2014,2018
+Huntington Disease,C0020179,STIM2,57620,Q9P246,stromal interaction molecule 2,,47,0.65,0.654,0.9906,0.02,,1,2,0,2018,2018
+Huntington Disease,C0020179,NGB,58157,Q9NPG2,neuroglobin,Transporter,56,0.631,0.462,0.0045474,0.02,,1,2,0,2017,2018
+Huntington Disease,C0020179,MAP2,4133,P11137,microtubule associated protein 2,,126,0.537,0.692,1,0.02,,1,2,0,2016,2017
+Huntington Disease,C0020179,EGR1,1958,P18146,early growth response 1,Nucleic acid binding,378,0.433,0.923,0.3509,0.02,,1,2,0,1997,2017
+Huntington Disease,C0020179,DECR1,1666,Q16698,"2,4-dienoyl-CoA reductase 1",Enzyme,399,0.426,0.885,4.47E-14,0.02,,1,2,0,2013,2017
+Huntington Disease,C0020179,MSTN,2660,O14793,myostatin,Signaling,159,0.528,0.731,0.5052,0.02,,1,2,0,2017,2019
+Huntington Disease,C0020179,MCF2L,23263,O15068,MCF.2 cell line derived transforming sequence like,Signaling,124,0.559,0.769,2.72E-07,0.02,,0.5,2,0,2018,2019
+Huntington Disease,C0020179,METRN,79006,Q9UJH8,"meteorin, glial cell differentiation regulator",,14,0.78,0.346,0.094738,0.02,,1,2,0,2011,2012
+Huntington Disease,C0020179,EDNRA,1909,P25101,endothelin receptor type A,G-protein coupled receptor,427,0.426,0.885,0.99158,0.02,,1,2,0,1996,2010
+Huntington Disease,C0020179,GPR42,2866,O15529,G protein-coupled receptor 42 (gene/pseudogene),G-protein coupled receptor,255,0.475,0.846,0.050905,0.02,,1,2,0,1996,2010
+Huntington Disease,C0020179,ALOX5,240,P09917,arachidonate 5-lipoxygenase,Enzyme,342,0.447,0.885,1.21E-06,0.02,,1,2,0,1998,2001
+Huntington Disease,C0020179,CASP2,835,P42575,caspase 2,Enzyme,105,0.565,0.731,0.0015026,0.02,,1,2,0,2004,2019
+Huntington Disease,C0020179,TSPO,706,P30536,translocator protein,,341,0.444,0.885,0.00027398,0.02,,1,2,0,2018,2018
+Huntington Disease,C0020179,BRS3,680,P32247,bombesin receptor subtype 3,G-protein coupled receptor,261,0.474,0.846,0.94849,0.02,,1,2,0,1996,2010
+Huntington Disease,C0020179,TIMP1,7076,P01033,TIMP metallopeptidase inhibitor 1,Enzyme modulator,603,0.38,0.885,0.4993,0.02,,1,2,0,2017,2020
+Huntington Disease,C0020179,TTR,7276,P02766,transthyretin,Transporter,461,0.423,0.885,0.51566,0.02,,1,2,1,2018,2018
+Huntington Disease,C0020179,PHGDH,26227,O43175,phosphoglycerate dehydrogenase,Enzyme,288,0.484,0.885,0.00013308,0.02,,1,2,0,2010,2012
+Huntington Disease,C0020179,SSTR4,6754,P31391,somatostatin receptor 4,G-protein coupled receptor,273,0.469,0.846,3.70E-13,0.02,,1,2,0,1996,2010
+Huntington Disease,C0020179,ZBTB16,7704,Q05516,zinc finger and BTB domain containing 16,Transcription factor,154,0.545,0.808,0.99907,0.02,,1,2,0,2018,2019
+Huntington Disease,C0020179,NUP62,23636,P37198,nucleoporin 62,Transporter,273,0.47,0.885,0.95006,0.02,,1,2,0,2012,2015
+Huntington Disease,C0020179,RLS1,192142,,"Restless legs syndrome, susceptibility to",,37,0.705,0.423,,0.02,,1,2,0,2018,2018
+Huntington Disease,C0020179,CALB2,794,P22676,calbindin 2,Calcium-binding protein,124,0.545,0.692,4.54E-07,0.02,,1,2,0,2012,2018
+Huntington Disease,C0020179,AGO2,27161,Q9UKV8,argonaute RISC catalytic component 2,,186,0.501,0.885,1,0.02,,1,2,1,2018,2018
+Huntington Disease,C0020179,FOXP1,27086,Q9H334,forkhead box P1,,317,0.46,0.808,0.99998,0.02,,1,2,0,2012,2017
+Huntington Disease,C0020179,RASD2,23551,Q96D21,RASD family member 2,,11,0.76,0.308,0.53733,0.02,,1,2,0,2011,2019
+Huntington Disease,C0020179,TYMS,7298,P04818,thymidylate synthetase,Enzyme,406,0.425,0.846,0.72247,0.02,,1,2,0,2017,2018
+Huntington Disease,C0020179,AHSG,197,P02765,alpha 2-HS glycoprotein,Enzyme modulator,204,0.506,0.846,3.21E-10,0.02,,1,2,1,2007,2017
+Huntington Disease,C0020179,USP12,219333,O75317,ubiquitin specific peptidase 12,Enzyme,8,0.821,0.231,0.97053,0.02,,1,2,0,2018,2018
+Huntington Disease,C0020179,EPHA3,2042,P29320,EPH receptor A3,Kinase,193,0.497,0.692,1.20E-05,0.02,,1,2,0,2018,2018
+Huntington Disease,C0020179,TFRC,7037,P02786,transferrin receptor,Enzyme,359,0.437,0.885,6.99E-05,0.02,,1,2,0,2010,2018
+Huntington Disease,C0020179,TGFB1,7040,P01137,transforming growth factor beta 1,Signaling,1558,0.287,0.962,0.03685,0.02,,1,2,0,2004,2011
+Huntington Disease,C0020179,SGSM3,27352,Q96HU1,small G protein signaling modulator 3,Enzyme,259,0.469,0.808,3.41E-15,0.02,,1,2,0,2016,2017
+Huntington Disease,C0020179,GLO1,2739,Q04760,glyoxalase I,,137,0.537,0.769,9.67E-07,0.02,,1,2,1,2008,2010
+Huntington Disease,C0020179,SPHK1,8877,Q9NYA1,sphingosine kinase 1,Kinase,236,0.48,0.808,3.03E-07,0.02,,1,2,0,2018,2019
+Huntington Disease,C0020179,TWIST1,7291,Q15672,twist family bHLH transcription factor 1,Transcription factor,559,0.397,0.846,0.34491,0.02,,1,2,0,2018,2020
+Huntington Disease,C0020179,EGF,1950,P01133,epidermal growth factor,,774,0.357,0.923,8.53E-17,0.02,,1,2,0,1997,2019
+Huntington Disease,C0020179,UBC,7316,P0CG48,ubiquitin C,Nucleic acid binding,78,0.597,0.692,0.14161,0.02,,1,2,0,2010,2014
+Huntington Disease,C0020179,CX3CR1,1524,P49238,C-X3-C motif chemokine receptor 1,G-protein coupled receptor,310,0.457,0.885,0.061371,0.02,,1,2,0,2013,2018
+Huntington Disease,C0020179,TIMP2,7077,P16035,TIMP metallopeptidase inhibitor 2,Enzyme modulator,404,0.425,0.846,0.78893,0.02,,1,2,0,2003,2017
+Huntington Disease,C0020179,ATN1,1822,P54259,atrophin 1,,499,0.409,0.885,0.99992,0.02,,1,2,1,2000,2008
+Huntington Disease,C0020179,CASP8,841,Q14790,caspase 8,Enzyme,480,0.404,0.923,3.72E-06,0.02,,1,2,0,2002,2011
+Huntington Disease,C0020179,ADRA2B,151,P18089,adrenoceptor alpha 2B,G-protein coupled receptor,296,0.465,0.846,4.45E-06,0.02,,1,2,0,1996,2010
+Huntington Disease,C0020179,VWF,7450,P04275,von Willebrand factor,Enzyme modulator,498,0.408,0.885,3.22E-25,0.02,,1,2,0,2015,2017
+Huntington Disease,C0020179,GSK3B,2932,P49841,glycogen synthase kinase 3 beta,Kinase,393,0.43,0.846,0.95571,0.02,,1,2,0,2012,2016
+Huntington Disease,C0020179,AGT,183,P01019,angiotensinogen,Enzyme modulator,765,0.367,0.923,4.97E-08,0.02,,0.5,2,0,2017,2018
+Huntington Disease,C0020179,NR5A1,2516,Q13285,nuclear receptor subfamily 5 group A member 1,Nuclear receptor,255,0.479,0.731,0.9896,0.02,,1,2,0,2013,2014
+Huntington Disease,C0020179,FCGR3B,2215,O75015,Fc fragment of IgG receptor IIIb,Cell adhesion,291,0.452,0.962,3.03E-07,0.02,,1,2,0,2011,2018
+Huntington Disease,C0020179,PYCARD,29108,Q9ULZ3,PYD and CARD domain containing,Enzyme,294,0.457,0.808,0.00019768,0.02,,1,2,0,2017,2018
+Huntington Disease,C0020179,FGFR3,2261,P22607,fibroblast growth factor receptor 3,Kinase,654,0.391,0.846,1.64E-05,0.02,,1,2,0,1994,2001
+Huntington Disease,C0020179,TNNI3,7137,P19429,"troponin I3, cardiac type",Cellular structure,159,0.52,0.769,0.096284,0.02,,1,2,0,2018,2019
+Huntington Disease,C0020179,ALPP,250,P05187,"alkaline phosphatase, placental",Enzyme,209,0.487,0.808,1.81E-13,0.02,,1,2,0,2005,2019
+Huntington Disease,C0020179,FRAXE,2481,,"fragile site, folic acid type, rare, fra(X)(q28) E",,50,0.636,0.462,,0.02,,1,2,0,1994,2004
+Huntington Disease,C0020179,FGF9,2254,P31371,fibroblast growth factor 9,Signaling,153,0.528,0.846,0.94704,0.02,,1,2,0,2018,2019
+Huntington Disease,C0020179,FEN1,2237,P39748,flap structure-specific endonuclease 1,Enzyme,113,0.55,0.731,4.77E-05,0.02,,1,2,0,2001,2003
+Huntington Disease,C0020179,CUX1,1523,P39880;Q13948,cut like homeobox 1,Transcription factor,283,0.465,0.846,1,0.02,,1,2,0,2010,2013
+Huntington Disease,C0020179,TRPC5,7224,Q9UL62,transient receptor potential cation channel subfamily C member 5,Ion channel,58,0.653,0.615,0.99973,0.02,,1,2,0,2015,2020
+Huntington Disease,C0020179,VDR,7421,P11473,vitamin D receptor,Nuclear receptor,852,0.352,0.885,1.68E-05,0.02,,1,2,2,2001,2002
+Huntington Disease,C0020179,FCGR3A,2214,P08637,Fc fragment of IgG receptor IIIa,Cell adhesion,352,0.432,0.962,3.70E-06,0.02,,1,2,0,2011,2018
+Huntington Disease,C0020179,SLC12A9,56996,Q9BXP2,solute carrier family 12 member 9,Transporter,280,0.454,0.769,1.18E-15,0.01,,1,1,0,2000,2000
+Huntington Disease,C0020179,HAND1,9421,O96004,heart and neural crest derivatives expressed 1,,43,0.686,0.308,0.10914,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,UBQLN4,56893,Q9NRR5,ubiquilin 4,,11,0.805,0.308,0.98252,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,TRPC4,7223,Q9UBN4,transient receptor potential cation channel subfamily C member 4,Ion channel,32,0.695,0.5,0.48205,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,EHMT1,79813,Q9H9B1,euchromatic histone lysine methyltransferase 1,Epigenetic regulator,371,0.46,0.808,1,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,TRP-AGG2-6,7218,,tRNA-Pro (anticodon AGG) 2-6,,34,0.666,0.462,,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,B2M,567,P61769,beta-2-microglobulin,Immune response,352,0.447,0.846,0.56167,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,PSG5,5673,Q15238,pregnancy specific beta-1-glycoprotein 5,,61,0.631,0.615,8.82E-22,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,TXNRD1,7296,Q16881,thioredoxin reductase 1,Enzyme,136,0.529,0.692,1.61E-06,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,CTDSP1,58190,Q9GZU7,CTD small phosphatase 1,,25,0.711,0.577,0.99254,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,SPHK2,56848,Q9NRA0,sphingosine kinase 2,Kinase,140,0.546,0.731,1.28E-07,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,RAC1,5879,P63000,Rac family small GTPase 1,Enzyme modulator,415,0.429,0.962,0.76228,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,TRPC1,7220,P48995,transient receptor potential cation channel subfamily C member 1,Ion channel,97,0.566,0.769,0.012904,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,ACVR2B,93,Q13705,activin A receptor type 2B,Kinase,70,0.601,0.615,0.83412,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,KLF4,9314,O43474,Kruppel like factor 4,Nucleic acid binding,307,0.449,0.769,0.99714,0.01,,1,1,0,2010,2010
+Huntington Disease,C0020179,CASC8,727677,,cancer susceptibility 8,,35,0.67,0.462,,0.01,,1,1,0,2009,2009
+Huntington Disease,C0020179,S100A14,57402,Q9HCY8,S100 calcium binding protein A14,Calcium-binding protein,41,0.663,0.385,0.0018638,0.01,,1,1,0,1988,1988
+Huntington Disease,C0020179,C5,727,P01031,complement C5,Enzyme modulator,129,0.55,0.731,8.08E-24,0.01,,1,1,0,1999,1999
+Huntington Disease,C0020179,PTMAP4,5761,,prothymosin alpha pseudogene 4,,49,0.638,0.731,,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,CD163,9332,Q86VB7,CD163 molecule,Enzyme,369,0.427,0.846,0.0008338,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,CFAP97,57587,Q9P2B7,cilia and flagella associated protein 97,,43,0.638,0.769,0.00010469,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,SLC12A5,57468,Q9H2X9,solute carrier family 12 member 5,Transporter,135,0.57,0.654,1,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,PTMA,5757,P06454,prothymosin alpha,,71,0.604,0.731,0.034451,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,SORCS2,57537,Q96PQ0,sortilin related VPS10 domain containing receptor 2,Transporter,19,0.743,0.346,0.0031696,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,BAG1,573,Q99933,BAG cochaperone 1,,128,0.538,0.769,6.53E-06,0.01,,1,1,0,2009,2009
+Huntington Disease,C0020179,PTBP1,5725,P26599,polypyrimidine tract binding protein 1,,172,0.517,0.769,0.99961,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,PTPN13,5783,Q12923,protein tyrosine phosphatase non-receptor type 13,,77,0.592,0.654,1.42E-25,0.01,,1,1,0,2006,2006
+Huntington Disease,C0020179,GRAP2,9402,O75791,GRB2 related adaptor protein 2,,538,0.394,0.923,0.00015256,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,ACVRL1,94,P37023,activin A receptor like type 1,Kinase,224,0.493,0.769,0.00096719,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,NREP,9315,Q16612,neuronal regeneration related protein,,40,0.682,0.577,0.0056013,0.01,,1,1,0,1988,1988
+Huntington Disease,C0020179,HES4,57801,Q9HCC6,hes family bHLH transcription factor 4,Transcription factor,15,0.743,0.231,1.37E-05,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,FOXP2,93986,O15409,forkhead box P2,,165,0.545,0.808,0.99994,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,GBA2,57704,Q9HCG7,glucosylceramidase beta 2,,79,0.636,0.654,1.99E-20,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,C5AR1,728,P21730,complement C5a receptor 1,G-protein coupled receptor,179,0.513,0.808,0.40249,0.01,,1,1,0,1999,1999
+Huntington Disease,C0020179,MIR146B,574447,,microRNA 146b,,187,0.496,0.769,,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,TRIP10,9322,Q15642,thyroid hormone receptor interactor 10,,46,0.65,0.654,1.67E-05,0.01,,1,1,0,2003,2003
+Huntington Disease,C0020179,TMEM106B,54664,Q9NUM4,transmembrane protein 106B,,126,0.59,0.462,0.32576,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,MAP1S,55201,Q66K74,microtubule associated protein 1S,Cellular structure,28,0.686,0.5,0.4197,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,SBNO1,55206,A3KN83,strawberry notch homolog 1,Enzyme,39,0.686,0.5,1,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,ATAD3A,55210,Q9NVI7,ATPase family AAA domain containing 3A,Enzyme,81,0.628,0.692,4.09E-09,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,CD40,958,P25942,CD40 molecule,,528,0.396,0.846,0.84603,0.01,,1,1,0,1999,1999
+Huntington Disease,C0020179,NAT10,55226,Q9H0A0,N-acetyltransferase 10,,133,0.536,0.769,4.12E-22,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,FBXW7,55294,Q969H0,F-box and WD repeat domain containing 7,Enzyme modulator,257,0.465,0.808,0.99949,0.01,,1,1,0,2004,2004
+Huntington Disease,C0020179,PPT1,5538,P50897,palmitoyl-protein thioesterase 1,Enzyme,112,0.593,0.808,4.86E-05,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,GPRC5D,55507,Q9NZD1,G protein-coupled receptor class C group 5 member D,G-protein coupled receptor,37,0.67,0.538,0.0012463,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,CSH2,1443,P0DML2;P0DML3,chorionic somatomammotropin hormone 2,Signaling,104,0.566,0.808,0.013182,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,CLOCK,9575,O15516,clock circadian regulator,,309,0.463,0.885,0.99957,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,GDF15,9518,Q99988,growth differentiation factor 15,Signaling,389,0.429,0.808,3.01E-07,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,VCL,7414,P18206,vinculin,,105,0.575,0.654,0.046788,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,PRPF40A,55660,O75400,pre-mRNA processing factor 40 homolog A,,22,0.716,0.692,0.0391,0.01,,1,1,0,2006,2006
+Huntington Disease,C0020179,CD47,961,Q08722,CD47 molecule,,253,0.468,0.769,0.91924,0.01,,1,1,0,2005,2005
+Huntington Disease,C0020179,LZTS3,9762,O60299,leucine zipper tumor suppressor family member 3,,8,0.89,0.231,0.99616,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,XBP1,7494,P17861,X-box binding protein 1,,234,0.477,0.846,0.032014,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,SLC39A8,64116,Q9C0K1,solute carrier family 39 member 8,Transporter,138,0.584,0.769,0.66924,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,SV2A,9900,Q7L0J3,synaptic vesicle glycoprotein 2A,Transporter,33,0.722,0.269,0.22782,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,TMED9,54732,Q9BVK6,transmembrane p24 trafficking protein 9,Transporter,42,0.666,0.538,0.0059542,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,AHI1,54806,Q8N157,Abelson helper integration site 1,,221,0.513,0.846,1.08E-25,0.01,,1,1,0,2002,2002
+Huntington Disease,C0020179,TUG1,55000,,taurine up-regulated 1,,134,0.522,0.769,,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,ATG16L1,55054,Q676U5,autophagy related 16 like 1,,120,0.543,0.769,0.96452,0.01,,1,1,1,2010,2010
+Huntington Disease,C0020179,XPC,7508,Q01831,"XPC complex subunit, DNA damage recognition and repair factor",Nucleic acid binding,211,0.504,0.808,3.69E-11,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,VIPR2,7434,P41587,vasoactive intestinal peptide receptor 2,G-protein coupled receptor,58,0.619,0.692,4.72E-11,0.01,,1,1,0,2007,2007
+Huntington Disease,C0020179,VIP,7432,P01282,vasoactive intestinal peptide,Signaling,376,0.437,0.846,0.00041995,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,SV2B,9899,Q7L1I2,synaptic vesicle glycoprotein 2B,,11,0.792,0.231,5.70E-05,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,WASHC5,9897,Q12768,WASH complex subunit 5,Transporter,129,0.572,0.615,8.27E-18,0.01,,1,1,0,2010,2010
+Huntington Disease,C0020179,KEAP1,9817,Q14145,kelch like ECH associated protein 1,,251,0.475,0.808,0.00038766,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,PKIB,5570,Q9C010,cAMP-dependent protein kinase inhibitor beta,Enzyme modulator,9,0.792,0.308,0.046118,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,PSS,780904,,Potocki-Shaffer syndrome,,66,0.608,0.654,,0.01,,0,1,0,2006,2006
+Huntington Disease,C0020179,MAPK10,5602,P53779,mitogen-activated protein kinase 10,Kinase,75,0.606,0.692,0.27553,0.01,,1,1,0,2009,2009
+Huntington Disease,C0020179,CCL4L2,9560,P13236;Q8NHW4,C-C motif chemokine ligand 4 like 2,,133,0.535,0.885,0.088586,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,MACROH2A1,9555,O75367,macroH2A.1 histone,Nucleic acid binding,43,0.656,0.5,0.73705,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,BAG3,9531,O95817,BAG cochaperone 3,,223,0.498,0.846,0.61738,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,AIMP2,7965,Q13155,aminoacyl tRNA synthetase complex interacting multifunctional protein 2,,555,0.393,0.923,0.008024,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,MAP2K1,5604,Q02750,mitogen-activated protein kinase kinase 1,Kinase,389,0.439,0.846,0.89669,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,MAP2K2,5605,P36507,mitogen-activated protein kinase kinase 2,Kinase,177,0.534,0.731,0.96673,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,MAP2K6,5608,P52564,mitogen-activated protein kinase kinase 6,Kinase,59,0.631,0.615,0.91334,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,RTL10,79680,Q7L3V2,retrotransposon Gag like 10,,37,0.67,0.577,,0.01,,1,1,0,2020,2020
+Huntington Disease,C0020179,CD34,947,P28906,CD34 molecule,,674,0.368,0.808,4.99E-06,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,HOMER1,9456,Q86YM7,homer scaffold protein 1,,85,0.636,0.538,0.9992,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,GSTO1,9446,P78417,glutathione S-transferase omega 1,,136,0.541,0.769,5.09E-09,0.01,,1,1,0,2004,2004
+Huntington Disease,C0020179,PSEN1,5663,P49768,presenilin 1,Enzyme,369,0.469,0.846,0.97322,0.01,,1,1,0,1999,1999
+Huntington Disease,C0020179,MAPK8,5599,P45983,mitogen-activated protein kinase 8,Kinase,520,0.397,0.885,0.99823,0.01,,1,1,0,2009,2009
+Huntington Disease,C0020179,BCAR1,9564,P56945,"BCAR1 scaffold protein, Cas family member",,176,0.518,0.846,0.99808,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,KDM6A,7403,O15550,lysine demethylase 6A,Epigenetic regulator,238,0.498,0.769,1,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,RAB7A,7879,P51149,"RAB7A, member RAS oncogene family",,95,0.597,0.692,0.96933,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,CAD,790,P27708,"carbamoyl-phosphate synthetase 2, aspartate transcarbamylase, and dihydroorotase",Enzyme,249,0.482,0.846,0.99993,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,CMTR2,55783,Q8IYT2,cap methyltransferase 2,,16,0.722,0.462,5.35E-10,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,UCP2,7351,P55851,uncoupling protein 2,Transporter,235,0.493,0.808,1.55E-10,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,UCP1,7350,P25874,uncoupling protein 1,Transporter,124,0.545,0.769,1.69E-11,0.01,,1,1,0,2010,2010
+Huntington Disease,C0020179,GABBR2,9568,O75899,gamma-aminobutyric acid type B receptor subunit 2,G-protein coupled receptor,81,0.65,0.538,0.99999,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,PKN2,5586,Q16513,protein kinase N2,Kinase,29,0.711,0.423,1,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,HDAC8,55869,Q9BY41,histone deacetylase 8,Epigenetic regulator,236,0.511,0.885,0.97707,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,GPRC5C,55890,Q9NQ84,G protein-coupled receptor class C group 5 member C,G-protein coupled receptor,37,0.674,0.538,0.00047422,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,SUMO1,7341,P63165,small ubiquitin like modifier 1,,133,0.533,0.731,0.86128,0.01,,1,1,0,2007,2007
+Huntington Disease,C0020179,ZNF395,55893,Q9H8N7,zinc finger protein 395,Transcription factor,42,0.666,0.577,0.30888,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,ST8SIA4,7903,Q92187,"ST8 alpha-N-acetyl-neuraminide alpha-2,8-sialyltransferase 4",,117,0.546,0.846,0.00040145,0.01,,1,1,0,1986,1986
+Huntington Disease,C0020179,OPN4,94233,Q9UHM6,opsin 4,G-protein coupled receptor,87,0.579,0.769,9.01E-13,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,MT1IP,644314,,"metallothionein 1I, pseudogene",,41,0.653,0.654,,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,STATH,6779,P02808,statherin,,57,0.608,0.769,7.98E-05,0.01,,1,1,0,2009,2009
+Huntington Disease,C0020179,AOC3,8639,Q16853,amine oxidase copper containing 3,,106,0.561,0.769,6.27E-11,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,HSD17B6,8630,O14756,hydroxysteroid 17-beta dehydrogenase 6,Enzyme,82,0.592,0.692,0.34807,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,SKIL,6498,P12757,SKI like proto-oncogene,,58,0.621,0.538,0.98512,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,SKP1,6500,P63208,S-phase kinase associated protein 1,Enzyme,38,0.666,0.615,0.37294,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,LOH19CR1,8378,,"loss of heterozygosity, 19, chromosomal region 1",,96,0.569,0.808,,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,STAT5B,6777,P51692,signal transducer and activator of transcription 5B,Nucleic acid binding,357,0.442,0.808,0.99988,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,PSMG1,8624,O95456,proteasome assembly chaperone 1,,97,0.579,0.731,0.00034234,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,SLC1A3,6507,P43003,solute carrier family 1 member 3,Transporter,109,0.573,0.577,0.98914,0.01,,1,1,0,2002,2002
+Huntington Disease,C0020179,SLC1A6,6511,P48664,solute carrier family 1 member 6,Transporter,11,0.78,0.154,0.76237,0.01,,1,1,0,2002,2002
+Huntington Disease,C0020179,STAT5A,6776,P42229,signal transducer and activator of transcription 5A,Nucleic acid binding,318,0.445,0.808,0.99994,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,MAGT1,84061,Q9H0U3,magnesium transporter 1,Transporter,120,0.548,0.769,0.96138,0.01,,1,1,0,2005,2005
+Huntington Disease,C0020179,ULK1,8408,O75385,unc-51 like autophagy activating kinase 1,Kinase,99,0.564,0.769,0.99318,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,PDE5A,8654,O76074,phosphodiesterase 5A,,187,0.513,0.731,0.00010643,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,IRS2,8660,Q9Y4H2,insulin receptor substrate 2,,152,0.535,0.654,0.99032,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,SUPT4H1,6827,P63272,"SPT4 homolog, DSIF elongation factor subunit",Nucleic acid binding,7,0.839,0.231,0.0008774,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,SGK1,6446,O00141,serum/glucocorticoid regulated kinase 1,Kinase,188,0.506,0.769,0.0023046,0.01,,1,1,0,2004,2004
+Huntington Disease,C0020179,TARBP2,6895,Q15633,TARBP2 subunit of RISC loading complex,,49,0.65,0.5,0.46644,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,LIN7A,8825,O14910,"lin-7 homolog A, crumbs cell polarity complex component",Cell-cell junction,24,0.736,0.385,1.13E-07,0.01,,1,1,0,2010,2010
+Huntington Disease,C0020179,CAST,831,P20810,calpastatin,,141,0.541,0.846,4.12E-12,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,TNFRSF6B,8771,O95407,TNF receptor superfamily member 6b,,145,0.528,0.731,3.87E-06,0.01,,0,1,0,2019,2019
+Huntington Disease,C0020179,RIPK2,8767,O43353,receptor interacting serine/threonine kinase 2,Kinase,83,0.587,0.769,0.39282,0.01,,1,1,0,2005,2005
+Huntington Disease,C0020179,POU5F1P4,645682,,POU class 5 homeobox 1 pseudogene 4,,284,0.452,0.808,,0.01,,1,1,0,2010,2010
+Huntington Disease,C0020179,TAF4,6874,O00268,TATA-box binding protein associated factor 4,,10,0.839,0.231,1,0.01,,1,1,0,2002,2002
+Huntington Disease,C0020179,SH3GL3,6457,Q99963,"SH3 domain containing GRB2 like 3, endophilin A3",,20,0.76,0.308,0.00010242,0.01,,1,1,0,1998,1998
+Huntington Disease,C0020179,BAP1,8314,Q92560,BRCA1 associated protein 1,Enzyme,299,0.454,0.731,0.99443,0.01,,1,1,0,2002,2002
+Huntington Disease,C0020179,FZD4,8322,Q9ULV1,frizzled class receptor 4,G-protein coupled receptor,239,0.49,0.923,0.96962,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,MTHFSD,64779,Q2M296,methenyltetrahydrofolate synthetase domain containing,Enzyme,4,0.931,0.154,6.60E-12,0.01,,1,1,1,2019,2019
+Huntington Disease,C0020179,SYN1,6853,P17600,synapsin I,Cellular structure,80,0.597,0.462,0.99216,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,KHSRP,8570,Q92945,KH-type splicing regulatory protein,Enzyme,148,0.526,0.846,1,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,SLC2A4,6517,P14672,solute carrier family 2 member 4,Transporter,158,0.528,0.769,4.71E-05,0.01,,1,1,0,2009,2009
+Huntington Disease,C0020179,SNAP25,6616,P60880,synaptosome associated protein 25,Transporter,283,0.489,0.808,0.98653,0.01,,1,1,0,2007,2007
+Huntington Disease,C0020179,DGKE,8526,P52429,diacylglycerol kinase epsilon,Enzyme,41,0.674,0.538,5.49E-06,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,SPP1,6696,P10451,secreted phosphoprotein 1,,824,0.353,0.885,2.15E-06,0.01,,0,1,0,2019,2019
+Huntington Disease,C0020179,SPN,6693,P16150,sialophorin,,101,0.563,0.692,0.014408,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,SNCB,6620,Q16143,synuclein beta,Transporter,60,0.619,0.577,0.068062,0.01,,1,1,0,2006,2006
+Huntington Disease,C0020179,CUL1,8454,Q13616,cullin 1,Enzyme,58,0.617,0.615,1,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,SNCG,6623,O76070,synuclein gamma,Transporter,122,0.55,0.615,0.0008475,0.01,,1,1,0,2006,2006
+Huntington Disease,C0020179,BNIP3,664,Q12983,BCL2 interacting protein 3,,158,0.52,0.731,1.97E-05,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,CYSTM1,84418,Q9H1C7,cysteine rich transmembrane module containing 1,,4,0.931,0.192,0.42254,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,SP1,6667,P08047,Sp1 transcription factor,Nucleic acid binding,209,0.493,0.769,0.99997,0.01,,1,1,0,2006,2006
+Huntington Disease,C0020179,SOX4,6659,Q06945,SRY-box transcription factor 4,Transcription factor,246,0.489,0.808,0.92656,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,SORL1,6653,Q92673,sortilin related receptor 1,Transporter,103,0.582,0.692,7.66E-11,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,EVA1A,84141,Q9H8M9,"eva-1 homolog A, regulator of programmed cell death",,19,0.736,0.346,0.065594,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,SPTBN2,6712,O15020,"spectrin beta, non-erythrocytic 2",,79,0.619,0.731,9.93E-05,0.01,,1,1,0,1999,1999
+Huntington Disease,C0020179,SUMO2,6613,P61956,small ubiquitin like modifier 2,,42,0.666,0.615,0.86943,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,DNAJC14,85406,Q6Y2X3,DnaJ heat shock protein family (Hsp40) member C14,,11,0.805,0.423,0.99999,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,SLC6A3,6531,Q01959,solute carrier family 6 member 3,Transporter,373,0.453,0.885,0.99758,0.01,,1,1,0,2004,2004
+Huntington Disease,C0020179,CAV1,857,Q03135,caveolin 1,Enzyme modulator,633,0.388,0.885,0.008274,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,PIAS1,8554,O75925,protein inhibitor of activated STAT 1,,54,0.633,0.731,0.99999,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,SLC9A1,6548,P19634,solute carrier family 9 member A1,Transporter,144,0.55,0.731,0.79049,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,BLZF1,8548,Q9H2G9,basic leucine zipper nuclear factor 1,,12,0.78,0.269,5.09E-07,0.01,,1,1,0,1996,1996
+Huntington Disease,C0020179,SLC9A5,6553,Q14940,solute carrier family 9 member A5,Transporter,11,0.78,0.346,1.80E-08,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,SRI,6717,P30626,sorcin,,80,0.587,0.769,3.48E-10,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,SLC12A1,6557,Q13621,solute carrier family 12 member 1,Transporter,87,0.631,0.538,6.68E-17,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,SLC12A2,6558,P55011,solute carrier family 12 member 2,Transporter,128,0.552,0.808,0.96153,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,DCLK3,85443,Q9C098,doublecortin like kinase 3,Kinase,47,0.647,0.615,0.13686,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,SLCO2A1,6578,Q92959,solute carrier organic anion transporter family member 2A1,Transporter,112,0.578,0.654,2.28E-13,0.01,,0,1,0,2019,2019
+Huntington Disease,C0020179,SLPI,6590,P03973,secretory leukocyte peptidase inhibitor,Enzyme modulator,310,0.449,0.846,0.00089665,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,SUMO3,6612,P55854,small ubiquitin like modifier 3,,30,0.686,0.538,0.32841,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,SOX2,6657,P48431,SRY-box transcription factor 2,Transcription factor,503,0.405,0.808,0.70662,0.01,,1,1,0,2010,2010
+Huntington Disease,C0020179,CDK5R1,8851,Q15078,cyclin dependent kinase 5 regulatory subunit 1,Enzyme modulator,153,0.529,0.808,0.9149,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,RAF1,5894,P04049,"Raf-1 proto-oncogene, serine/threonine kinase",Kinase,470,0.418,0.885,0.85295,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,UBXN6,80700,Q9BZV1,UBX domain protein 6,,3,0.931,0.154,5.48E-06,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,CAMK2A,815,Q9UQM7,calcium/calmodulin dependent protein kinase II alpha,Kinase,87,0.612,0.538,0.99845,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,NKX2-1,7080,P43699,NK2 homeobox 1,Transcription factor,319,0.457,0.808,0.35874,0.01,,1,1,0,2005,2005
+Huntington Disease,C0020179,RET,5979,P07949,ret proto-oncogene,Kinase,607,0.392,0.885,1,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,BCL2L1,598,Q07817,BCL2 like 1,Signaling,212,0.493,0.885,0.93667,0.01,,1,1,0,2001,2001
+Huntington Disease,C0020179,SGCA,6442,Q16586,sarcoglycan alpha,Calcium-binding protein,111,0.592,0.654,0.0027124,0.01,,1,1,0,2009,2009
+Huntington Disease,C0020179,SOCS3,9021,O14543,suppressor of cytokine signaling 3,Enzyme modulator,375,0.434,0.808,0.74613,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,RLN2,6019,P04090,relaxin 2,Signaling,54,0.626,0.615,0.00090025,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,RNASE4,6038,P34096,ribonuclease A family member 4,,22,0.736,0.385,0.00017566,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,PAPPA2,60676,Q9BXP8,pappalysin 2,,28,0.751,0.423,7.79E-08,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,TNFRSF17,608,Q02223,TNF receptor superfamily member 17,Receptor,81,0.588,0.692,1.37E-06,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,ROCK1,6093,Q13464,Rho associated coiled-coil containing protein kinase 1,Kinase,157,0.513,0.731,1,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,ROS1,6098,P08922,"ROS proto-oncogene 1, receptor tyrosine kinase",Kinase,356,0.439,0.885,1.62E-72,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,TET1,80312,Q8NFU7,tet methylcytosine dioxygenase 1,,156,0.523,0.808,1,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,RENBP,5973,P51606,renin binding protein,Enzyme,156,0.528,0.769,0.44916,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,CLDN5,7122,O00501,claudin 5,Cell-cell junction,104,0.559,0.769,0.89512,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,BCHE,590,P06276,butyrylcholinesterase,,392,0.447,0.923,1.06E-13,0.01,,1,1,0,1977,1977
+Huntington Disease,C0020179,CALD1,800,Q05682,caldesmon 1,,94,0.578,0.692,0.99879,0.01,,1,1,1,2005,2005
+Huntington Disease,C0020179,TRAF6,7189,Q9Y4K3,TNF receptor associated factor 6,Signaling,254,0.472,0.808,0.99739,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,RAN,5901,P62826,"RAN, member RAS oncogene family",Enzyme modulator,87,0.576,0.808,0.97576,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,RANBP2,5903,P49792,RAN binding protein 2,Enzyme modulator,110,0.578,0.615,1,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,CD14,929,P08571,CD14 molecule,,551,0.392,0.885,4.88E-05,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,RARB,5915,P10826,retinoic acid receptor beta,Nuclear receptor,254,0.478,0.846,0.99983,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,C3,718,P01024,complement C3,Enzyme modulator,343,0.445,0.885,0.90421,0.01,,1,1,0,1999,1999
+Huntington Disease,C0020179,PANK2,80025,Q9BZ23,pantothenate kinase 2,Kinase,171,0.559,0.808,7.40E-07,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,ASRGL1,80150,Q7L266,asparaginase and isoaspartyl peptidase 1,Enzyme,205,0.494,0.808,2.76E-05,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,TNFRSF1B,7133,P20333,TNF receptor superfamily member 1B,,417,0.425,0.885,0.50201,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,LGR6,59352,Q9HBX8,leucine rich repeat containing G protein-coupled receptor 6,G-protein coupled receptor,209,0.502,0.923,2.94E-06,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,HACD1,9200,B0YJ81,3-hydroxyacyl-CoA dehydratase 1,,160,0.539,0.846,1.29E-09,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,TH,7054,P07101,tyrosine hydroxylase,,321,0.462,0.885,1.69E-06,0.01,,1,1,0,2003,2003
+Huntington Disease,C0020179,RPS6KA1,6195,Q15418,ribosomal protein S6 kinase A1,Kinase,68,0.619,0.654,0.0019056,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,CCL4,6351,P13236;Q8NHW4,C-C motif chemokine ligand 4,Signaling,276,0.466,0.923,0.24134,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,IER3,8870,P46695,immediate early response 3,,78,0.593,0.769,0.63122,0.01,,1,1,0,2007,2007
+Huntington Disease,C0020179,CXCL12,6387,P48061,C-X-C motif chemokine ligand 12,,626,0.379,0.846,0.11851,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,MIR615,693200,,microRNA 615,,41,0.647,0.615,,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,MIR549A,693132,,microRNA 549a,,2,1,0.115,,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,LIN7B,64130,Q9HAP6,"lin-7 homolog B, crumbs cell polarity complex component",Cell-cell junction,4,0.89,0.115,0.85352,0.01,,1,1,0,2010,2010
+Huntington Disease,C0020179,SELENOP,6414,P49908,selenoprotein P,Extracellular structure,138,0.545,0.769,8.29E-07,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,MAP2K4,6416,P45985,mitogen-activated protein kinase kinase 4,Kinase,100,0.559,0.692,0.99709,0.01,,1,1,0,1999,1999
+Huntington Disease,C0020179,MIR421,693122,,microRNA 421,,73,0.592,0.692,,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,POU5F1P3,642559,,POU class 5 homeobox 1 pseudogene 3,,285,0.452,0.808,,0.01,,1,1,0,2010,2010
+Huntington Disease,C0020179,TCF3,6929,P15923,transcription factor 3,Transcription factor,244,0.476,0.846,0.025824,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,KDM5D,8284,Q9BY66,lysine demethylase 5D,Transcription factor,26,0.7,0.423,0.92793,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,APLN,8862,Q9ULZ1,apelin,,226,0.497,0.769,0.45897,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,KDM5C,8242,P41229,lysine demethylase 5C,,119,0.581,0.538,1,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,SCN4A,6329,P35499,sodium voltage-gated channel alpha subunit 4,Ion channel,202,0.554,0.731,0.01294,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,BGLAP,632,P02818,bone gamma-carboxyglutamate protein,,274,0.462,0.846,4.62E-08,0.01,,0,1,0,2019,2019
+Huntington Disease,C0020179,MIR486-1,619554,,microRNA 486-1,,142,0.521,0.808,,0.01,,0,1,0,2015,2015
+Huntington Disease,C0020179,RPS6KB1,6198,P23443,ribosomal protein S6 kinase B1,Kinase,169,0.511,0.731,0.97285,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,RPS19,6223,P39019,ribosomal protein S19,Nucleic acid binding,256,0.48,0.846,0.92111,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,COIL,8161,P38432,coilin,Nucleic acid binding,51,0.617,0.654,0.009434,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,RRAS,6237,P10301,RAS related,Enzyme modulator,149,0.543,0.808,0.004663,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,SLC25A28,81894,Q96A46,solute carrier family 25 member 28,Transporter,2,0.931,0.115,0.92954,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,TGM3,7053,Q08188,transglutaminase 3,Enzyme,49,0.653,0.385,2.97E-06,0.01,,1,1,0,2005,2005
+Huntington Disease,C0020179,BTRC,8945,Q9Y297,beta-transducin repeat containing E3 ubiquitin protein ligase,,75,0.601,0.731,0.011942,0.01,,1,1,0,2010,2010
+Huntington Disease,C0020179,SORT1,6272,Q99523,sortilin 1,Transporter,111,0.573,0.615,0.99987,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,MIA,8190,Q16674,MIA SH3 domain containing,,130,0.537,0.769,1.73E-05,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,BCL10,8915,O95999,BCL10 immune signaling adaptor,,205,0.491,0.769,0.33709,0.01,,1,1,0,2001,2001
+Huntington Disease,C0020179,TFAM,7019,Q00059,"transcription factor A, mitochondrial",,147,0.529,0.731,0.17259,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,SGPL1,8879,O95470,sphingosine-1-phosphate lyase 1,,85,0.597,0.731,0.0036264,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,ZMAT3,64393,Q9HA38,zinc finger matrin-type 3,,19,0.751,0.269,0.00019034,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,UGT1A1,54658,P22309,UDP glucuronosyltransferase family 1 member A1,,302,0.464,0.769,3.26E-06,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,RRS1,23212,Q15050,ribosome biogenesis regulator 1 homolog,Nucleic acid binding,42,0.656,0.5,0.17712,0.01,,1,1,0,2002,2002
+Huntington Disease,C0020179,FGF2,2247,P09038,fibroblast growth factor 2,Signaling,635,0.383,0.923,0.0184,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,GPRC6A,222545,Q5T6X5,G protein-coupled receptor class C group 6 member A,G-protein coupled receptor,173,0.526,0.923,5.59E-17,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,MARCHF8,220972,Q5T0T0,membrane associated ring-CH-type finger 8,,87,0.59,0.692,5.87E-07,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,FBN1,2200,P35555,fibrillin 1,Calcium-binding protein,552,0.417,0.846,1,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,PTK2B,2185,Q14289,protein tyrosine kinase 2 beta,Kinase,319,0.448,0.808,0.93536,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,FABP4,2167,P15090,fatty acid binding protein 4,,194,0.5,0.808,5.18E-05,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,F13B,2165,P05160,coagulation factor XIII B chain,,47,0.686,0.5,8.91E-10,0.01,,1,1,0,2002,2002
+Huntington Disease,C0020179,F13A1,2162,P00488,coagulation factor XIII A chain,Enzyme,117,0.575,0.731,5.29E-08,0.01,,1,1,0,2002,2002
+Huntington Disease,C0020179,F11,2160,P03951,coagulation factor XI,Enzyme,100,0.59,0.692,3.61E-26,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,FGF13,2258,Q92913,fibroblast growth factor 13,Signaling,167,0.514,0.808,0.89489,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,FGFR2,2263,P21802,fibroblast growth factor receptor 2,Kinase,731,0.38,0.808,0.99731,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,ACSBG1,23205,Q96GR2,acyl-CoA synthetase bubblegum family member 1,Enzyme,73,0.603,0.654,3.96E-05,0.01,,1,1,0,1988,1988
+Huntington Disease,C0020179,FLNA,2316,P21333,filamin A,,571,0.419,0.846,1,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,TBC1D9,23158,Q6ZT07,TBC1 domain family member 9,Enzyme,491,0.399,0.846,2.80E-05,0.01,,1,1,0,2000,2000
+Huntington Disease,C0020179,SV2C,22987,Q496J9,synaptic vesicle glycoprotein 2C,,15,0.821,0.192,2.44E-05,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,SBNO2,22904,Q9Y2G9,strawberry notch homolog 2,Enzyme,41,0.663,0.538,0.0070655,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,RPH3A,22895,Q9Y2J0,rabphilin 3A,,25,0.76,0.385,0.0016609,0.01,,1,1,0,2007,2007
+Huntington Disease,C0020179,MLXIP,22877,Q9HAP2,MLX interacting protein,,70,0.597,0.692,0.98932,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,NLRP1,22861,Q9C000,NLR family pyrin domain containing 1,,200,0.502,0.769,4.97E-19,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,ATF5,22809,Q9Y2D1,activating transcription factor 5,,41,0.674,0.385,0.29163,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,ABCD1,215,P33897,ATP binding cassette subfamily D member 1,Transporter,154,0.563,0.731,0.99896,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,EZH1,2145,Q92800,enhancer of zeste 1 polycomb repressive complex 2 subunit,Epigenetic regulator,38,0.663,0.577,0.042501,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,ERN1,2081,O75460,endoplasmic reticulum to nucleus signaling 1,Kinase,163,0.513,0.808,0.99027,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,DNASE1,1773,P24855,deoxyribonuclease 1,,180,0.505,0.846,6.98E-21,0.01,,1,1,0,2020,2020
+Huntington Disease,C0020179,DNAH6,1768,Q9C0G6,dynein axonemal heavy chain 6,Enzyme,11,0.769,0.462,1.12E-36,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,DMD,1756,P11532,dystrophin,,484,0.423,0.923,1,0.01,,1,1,0,1996,1996
+Huntington Disease,C0020179,DLG3,1741,Q92796,discs large MAGUK scaffold protein 3,,144,0.544,0.615,0.99999,0.01,,1,1,0,2009,2009
+Huntington Disease,C0020179,DLG1,1739,Q12959,discs large MAGUK scaffold protein 1,Receptor,54,0.647,0.654,0.99393,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,DHFR,1719,P00374,dihydrofolate reductase,Enzyme,191,0.513,0.808,0.0343,0.01,,1,1,1,2019,2019
+Huntington Disease,C0020179,DHCR24,1718,Q15392,24-dehydrocholesterol reductase,Enzyme,216,0.498,0.769,0.031029,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,PTCRA,171558,Q6ISU1,pre T cell antigen receptor alpha,,51,0.656,0.692,0.14449,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,OXER1,165140,Q8TDS5,oxoeicosanoid receptor 1,G-protein coupled receptor,169,0.529,0.923,7.32E-08,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,DPP6,1804,P42658,dipeptidyl peptidase like 6,Enzyme,71,0.603,0.692,0.33997,0.01,,1,1,0,2000,2000
+Huntington Disease,C0020179,DPYSL2,1808,Q16555,dihydropyrimidinase like 2,Enzyme,93,0.585,0.692,0.99375,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,ERCC6,2074,P0DP91;Q03468,"ERCC excision repair 6, chromatin remodeling factor",,257,0.507,0.808,5.16E-22,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,EMP1,2012,P54849,epithelial membrane protein 1,Cellular structure,114,0.56,0.769,0.49706,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,SCAMP5,192683,Q8TAC9,secretory carrier membrane protein 5,Enzyme,15,0.839,0.192,0.65099,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,ABCA1,19,O95477,ATP binding cassette subfamily A member 1,Transporter,291,0.467,0.846,1.45E-13,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,E2F2,1870,Q14209,E2F transcription factor 2,Nucleic acid binding,75,0.599,0.692,0.25505,0.01,,1,1,1,2015,2015
+Huntington Disease,C0020179,DUSP2,1844,Q05923,dual specificity phosphatase 2,,118,0.558,0.769,4.47E-05,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,DTX1,1840,Q86Y01,deltex E3 ubiquitin ligase 1,Enzyme,38,0.656,0.5,0.00098982,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,DRD5,1816,P21918,dopamine receptor D5,G-protein coupled receptor,73,0.603,0.423,1.35E-16,0.01,,1,1,0,1992,1992
+Huntington Disease,C0020179,DRD3,1814,P35462,dopamine receptor D3,G-protein coupled receptor,199,0.529,0.692,0.0023694,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,DDIT3,1649,P35638,DNA damage inducible transcript 3,,264,0.467,0.846,0.59066,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,PHLPP1,23239,O60346,PH domain and leucine rich repeat protein phosphatase 1,Epigenetic regulator,73,0.597,0.654,0.99927,0.01,,1,1,0,2010,2010
+Huntington Disease,C0020179,GPR3,2827,P46089,G protein-coupled receptor 3,G-protein coupled receptor,18,0.743,0.5,0.00026263,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,AKAP8L,26993,Q9ULX6,A-kinase anchoring protein 8 like,,2,0.931,0.115,0.028839,0.01,,1,1,0,2005,2005
+Huntington Disease,C0020179,GJA1,2697,P17302,gap junction protein alpha 1,Cell-cell junction,662,0.393,0.885,0.15523,0.01,,1,1,0,1998,1998
+Huntington Disease,C0020179,GIP,2695,P09681,gastric inhibitory polypeptide,,110,0.57,0.654,0.27108,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,GH1,2688,P01241,growth hormone 1,Signaling,686,0.373,0.923,0.030057,0.01,,1,1,0,2010,2010
+Huntington Disease,C0020179,GC,2638,P02774,GC vitamin D binding protein,Transporter,219,0.489,0.885,2.73E-11,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,FGF21,26291,Q9NSA1,fibroblast growth factor 21,Signaling,236,0.485,0.769,0.029439,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,GATA4,2626,P43694,GATA binding protein 4,,336,0.458,0.846,0.49308,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,POLDIP2,26073,Q9Y2S7,DNA polymerase delta interacting protein 2,,530,0.396,0.923,0.41407,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,ATRNL1,26033,Q5VV63,attractin like 1,Enzyme modulator,117,0.546,0.769,0.99915,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,MLH3,27030,Q9UHC1,mutL homolog 3,Nucleic acid binding,108,0.582,0.538,4.90E-08,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,SIGLEC7,27036,Q9Y286,sialic acid binding Ig like lectin 7,Receptor,137,0.535,0.846,2.39E-07,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,SLCO1B3,28234,Q9NPD5,solute carrier organic anion transporter family member 1B3,Transporter,87,0.592,0.769,5.32E-24,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,HTRA2,27429,O43464,HtrA serine peptidase 2,,151,0.542,0.692,0.0035755,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,GLP1R,2740,P43220,glucagon like peptide 1 receptor,G-protein coupled receptor,288,0.471,0.846,0.29347,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,HPGDS,27306,O60760,hematopoietic prostaglandin D synthase,,570,0.388,0.923,1.81E-06,0.01,,1,1,0,1999,1999
+Huntington Disease,C0020179,PDLIM3,27295,Q53GG5,PDZ and LIM domain 3,Cellular structure,118,0.547,0.769,3.03E-07,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,DISC1,27185,Q9NRI5,DISC1 scaffold protein,,136,0.548,0.769,1.68E-06,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,IL37,27178,Q9NZH6,interleukin 37,,280,0.459,0.846,0.00012343,0.01,,1,1,0,2010,2010
+Huntington Disease,C0020179,NAAA,27163,Q02083,N-acylethanolamine acid amidase,Enzyme,90,0.579,0.692,2.07E-10,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,NSG1,27065,P42857,neuronal vesicle trafficking associated 1,,27,0.691,0.538,0.0088286,0.01,,1,1,0,1996,1996
+Huntington Disease,C0020179,NGDN,25983,Q8NEJ9,neuroguidin,,20,0.736,0.385,2.04E-08,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,SOSTDC1,25928,Q6X4U4,sclerostin domain containing 1,,83,0.588,0.808,0.16334,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,MRGPRX1,259249,Q96LB2,MAS related GPR family member X1,G-protein coupled receptor,166,0.531,0.923,,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,STH,246744,Q8IWL8,saitohin,,27,0.705,0.385,,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,IL17RA,23765,Q96F46,interleukin 17 receptor A,,159,0.529,0.808,0.00035636,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,ARFIP2,23647,P53365,ADP ribosylation factor interacting protein 2,Enzyme modulator,5,0.861,0.231,0.77422,0.01,,1,1,0,2002,2002
+Huntington Disease,C0020179,LPAR3,23566,Q9UBY5,lysophosphatidic acid receptor 3,G-protein coupled receptor,194,0.509,0.923,0.67935,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,NAT2,10,P11245,N-acetyltransferase 2,Enzyme,311,0.451,0.885,3.27E-06,0.01,,1,1,0,1997,1997
+Huntington Disease,C0020179,BRD4,23476,O60885,bromodomain containing 4,Epigenetic regulator,335,0.446,0.885,1,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,ABCB10,23456,Q9NRK6,ATP binding cassette subfamily B member 10,Transporter,22,0.716,0.423,2.91E-08,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,DICER1,23405,Q9UPY3,"dicer 1, ribonuclease III",Enzyme,302,0.446,0.846,1,0.01,,1,1,2,2016,2016
+Huntington Disease,C0020179,CRTC1,23373,Q6UUV9,CREB regulated transcription coactivator 1,Transcription factor,115,0.565,0.692,0.531,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,MTOR,2475,P42345,mechanistic target of rapamycin kinase,Kinase,960,0.343,0.885,1,0.01,,1,1,0,2020,2020
+Huntington Disease,C0020179,ALPI,248,P09923,"alkaline phosphatase, intestinal",Enzyme,98,0.563,0.769,2.45E-18,0.01,,1,1,0,2005,2005
+Huntington Disease,C0020179,RNF19A,25897,Q9NV58,"ring finger protein 19A, RBR E3 ubiquitin protein ligase",Enzyme,523,0.397,0.923,0.025305,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,CHRDL2,25884,Q6WN34,chordin like 2,,21,0.729,0.308,1.60E-06,0.01,,1,1,0,2007,2007
+Huntington Disease,C0020179,QPCT,25797,Q16769,glutaminyl-peptide cyclotransferase,Enzyme,94,0.568,0.731,1.20E-15,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,GPX6,257202,P59796,glutathione peroxidase 6,Enzyme,13,0.769,0.385,2.58E-06,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,GAD2,2572,Q05329,glutamate decarboxylase 2,Enzyme,173,0.529,0.731,0.75083,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,GABRA2,2555,P47869,gamma-aminobutyric acid type A receptor subunit alpha2,Ion channel,60,0.641,0.346,0.99598,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,XRCC6,2547,P12956,X-ray repair cross complementing 6,Enzyme,119,0.552,0.769,0.99904,0.01,,1,1,0,2010,2010
+Huntington Disease,C0020179,IPMK,253430,Q8NFU5,inositol polyphosphate multikinase,Kinase,19,0.751,0.423,0.96258,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,FSHMD1A,2489,,facioscapulohumeral muscular dystrophy 1A,,60,0.638,0.808,,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,FMR1,2332,Q06787,FMRP translational regulator 1,Nucleic acid binding,346,0.473,0.769,0.64718,0.01,,1,1,0,1995,1995
+Huntington Disease,C0020179,DCT,1638,P40126,dopachrome tautomerase,Enzyme,59,0.619,0.654,7.39E-14,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,CHEK2,11200,O96017,checkpoint kinase 2,Kinase,297,0.46,0.808,1.21E-24,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,CCT2,10576,P78371,chaperonin containing TCP1 subunit 2,Chaperone,38,0.656,0.577,0.99853,0.01,,1,1,0,1995,1995
+Huntington Disease,C0020179,ARFGEF2,10564,Q9Y6D5,ADP ribosylation factor guanine nucleotide exchange factor 2,,52,0.659,0.462,0.99993,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,SPTLC1,10558,O15269,serine palmitoyltransferase long chain base subunit 1,Enzyme,63,0.65,0.538,4.19E-11,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,UBD,10537,O15205,ubiquitin D,,71,0.597,0.692,0.0070467,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,CIB1,10519,Q99828,calcium and integrin binding 1,,275,0.458,0.769,0.00032612,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,CAP1,10487,Q01518,cyclase associated actin cytoskeleton regulatory protein 1,Cellular structure,149,0.529,0.808,0.019817,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,CDX2,1045,Q99626,caudal type homeobox 2,Transcription factor,278,0.458,0.769,0.52887,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,PRMT5,10419,O14744,protein arginine methyltransferase 5,Epigenetic regulator,131,0.539,0.769,0.99999,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,SPON2,10417,Q9BUD6,spondin 2,Extracellular structure,34,0.705,0.577,2.66E-15,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,SORBS1,10580,Q9BX66,sorbin and SH3 domain containing 1,,124,0.554,0.769,1.53E-12,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,AHSA1,10598,O95433,activator of HSP90 ATPase activity 1,,526,0.396,0.923,0.99896,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,PSIP1,11168,O75475,PC4 and SFRS1 interacting protein 1,Signaling,210,0.49,0.846,0.99668,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,WDR5,11091,P61964,WD repeat domain 5,,61,0.619,0.692,0.99978,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,WWP1,11059,Q9H0M0,WW domain containing E3 ubiquitin protein ligase 1,Enzyme,40,0.659,0.577,0.99966,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,CHAT,1103,P28329,choline O-acetyltransferase,Enzyme,230,0.52,0.808,5.63E-11,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,IMMT,10989,Q16891,inner membrane mitochondrial protein,,93,0.576,0.846,0.0133,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,CCL27,10850,Q9Y4X3,C-C motif chemokine ligand 27,Signaling,185,0.502,0.846,0.013511,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,CPLX2,10814,Q6PUV4,complexin 2,,22,0.736,0.231,0.52601,0.01,,1,1,0,2010,2010
+Huntington Disease,C0020179,CERS1,10715,P27544,ceramide synthase 1,,49,0.638,0.385,0.096618,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,CETP,1071,P11597,cholesteryl ester transfer protein,,188,0.512,0.731,1.19E-23,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,CPQ,10404,Q9Y646,carboxypeptidase Q,Enzyme,87,0.579,0.769,1.32E-14,0.01,,1,1,0,2010,2010
+Huntington Disease,C0020179,TUBB4B,10383,P68371,tubulin beta 4B class IVb,Cellular structure,46,0.65,0.654,0.80877,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,SEMA3A,10371,Q14563,semaphorin 3A,Signaling,202,0.5,0.808,0.9779,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,NR1H3,10062,Q13133,nuclear receptor subfamily 1 group H member 3,Nuclear receptor,102,0.566,0.692,0.90374,0.01,,1,1,2,2019,2019
+Huntington Disease,C0020179,MIR4488,100616470,,microRNA 4488,,2,1,0.115,,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,TMX2-CTNND1,100528016,,TMX2-CTNND1 readthrough (NMD candidate),,138,0.538,0.769,,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,TUNAR,100507043,,TCL1 upstream neural differentiation-associated RNA,,7,0.839,0.231,,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,ECT,100379198,,centralopathic epilepsy,,62,0.626,0.423,,0.01,,1,1,0,1996,1996
+Huntington Disease,C0020179,MIR1247,100302145,,microRNA 1247,,60,0.604,0.5,,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,TIMM23,100287932,O14925,translocase of inner mitochondrial membrane 23,,13,0.78,0.462,0.0049452,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,HDAC6,10013,Q9UBN7,histone deacetylase 6,Epigenetic regulator,288,0.465,0.846,1,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,MIR942,100126331,,microRNA 942,,26,0.695,0.5,,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,GDNF-AS1,100861519,,GDNF antisense RNA 1,,8,0.861,0.115,,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,PDIA6,10130,Q15084,protein disulfide isomerase family A member 6,,25,0.7,0.462,0.24911,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,APC2,10297,O95996,APC regulator of WNT signaling pathway 2,,108,0.582,0.654,0.99994,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,DNAJA2,10294,O60884,DnaJ heat shock protein family (Hsp40) member A2,,10,0.839,0.308,0.99796,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,CDKN2A,1029,P42771;Q8N726,cyclin dependent kinase inhibitor 2A,,1314,0.3,0.885,0.39474,0.01,,1,1,0,1986,1986
+Huntington Disease,C0020179,CBSL,102724560,P0DN79;P35520,cystathionine beta-synthase like,,129,0.54,0.808,,0.01,,1,1,0,2004,2004
+Huntington Disease,C0020179,CDKN1B,1027,P46527,cyclin dependent kinase inhibitor 1B,,454,0.409,0.769,0.62376,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,CDKN1A,1026,P38936,cyclin dependent kinase inhibitor 1A,,490,0.403,0.769,0.0018575,0.01,,1,1,0,2000,2000
+Huntington Disease,C0020179,CDK9,1025,P50750,cyclin dependent kinase 9,Kinase,204,0.498,0.769,8.89E-05,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,ADAM10,102,O14672,ADAM metallopeptidase domain 10,,224,0.489,0.846,1,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,PSME3,10197,P61289,proteasome activator subunit 3,,78,0.587,0.654,0.99714,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,ZGLP1,100125288,P0C6A0,zinc finger GATA like protein 1,,186,0.512,0.808,0.3868,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,CHRM1,1128,P11229,cholinergic receptor muscarinic 1,G-protein coupled receptor,68,0.653,0.577,0.99059,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,DBH,1621,P09172,dopamine beta-hydroxylase,,202,0.511,0.846,3.34E-10,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,CFAP54,144535,Q96N23,cilia and flagella associated protein 54,,2,0.931,0.192,3.74E-41,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,CSH1,1442,P0DML2;P0DML3,chorionic somatomammotropin hormone 1,Signaling,105,0.566,0.808,2.13E-05,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,CSF1R,1436,P07333,colony stimulating factor 1 receptor,Kinase,356,0.448,0.808,0.13278,0.01,,1,1,0,2020,2020
+Huntington Disease,C0020179,CSE1L,1434,P55060,chromosome segregation 1 like,Enzyme modulator,163,0.521,0.808,1,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,MAPK14,1432,Q16539,mitogen-activated protein kinase 14,Kinase,626,0.379,0.923,0.37466,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,CS,1431,O75390,citrate synthase,Enzyme,87,0.59,0.654,0.98402,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,PARP1,142,P09874,poly(ADP-ribose) polymerase 1,,565,0.389,0.923,0.00033366,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,CRYAB,1410,P02511,crystallin alpha B,,200,0.515,0.731,0.02247,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,CRK,1398,P46108,"CRK proto-oncogene, adaptor protein",,544,0.394,0.923,0.95936,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,IL34,146433,Q6ZMJ4,interleukin 34,,103,0.56,0.769,0.55444,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,CTAA1,1483,,"cataract, anterior polar 1",,106,0.568,0.731,,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,DAXX,1616,Q9UER7,death domain associated protein,,137,0.544,0.692,0.098633,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,DAB2,1601,P98082,DAB adaptor protein 2,Signaling,107,0.565,0.731,0.40701,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,ZDHHC15,158866,Q96MV8,zinc finger DHHC-type palmitoyltransferase 15,,9,0.792,0.269,0.83968,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,CYP3A4,1576,P08684,cytochrome P450 family 3 subfamily A member 4,Enzyme,291,0.462,0.885,5.80E-11,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,CYBB,1536,P04839,cytochrome b-245 beta chain,Ion channel,343,0.452,0.885,0.99904,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,ERFE,151176,Q4G0M1,erythroferrone,Extracellular structure,44,0.647,0.538,0.0025225,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,CTNND1,1500,O60716,catenin delta 1,Cellular structure,196,0.5,0.808,0.99999,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,PDIK1L,149420,Q8N165,PDLIM1 interacting kinase 1 like,Kinase,138,0.534,0.769,0.26436,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,HJV,148738,Q6ZVN8,hemojuvelin BMP co-receptor,,71,0.621,0.654,0.0042363,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,CRH,1392,P06850,corticotropin releasing hormone,Signaling,402,0.439,0.808,0.71614,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,ATF2,1386,P15336,activating transcription factor 2,Transcription factor,122,0.551,0.808,0.99131,0.01,,1,1,0,2005,2005
+Huntington Disease,C0020179,ADORA2B,136,P29275,adenosine A2b receptor,G-protein coupled receptor,66,0.617,0.692,1.77E-05,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,CLCN1,1180,P35523,chloride voltage-gated channel 1,Ion channel,67,0.641,0.423,3.25E-20,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,MRGPRX4,117196,Q96LA9,MAS related GPR family member X4,G-protein coupled receptor,166,0.531,0.923,,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,MRGPRX3,117195,Q96LB0,MAS related GPR family member X3,G-protein coupled receptor,167,0.529,0.923,,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,ADCYAP1R1,117,P41586,ADCYAP receptor type I,G-protein coupled receptor,118,0.561,0.769,7.23E-10,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,H3P10,115482713,,H3 histone pseudogene 10,,769,0.35,0.846,,0.01,,1,1,0,1986,1986
+Huntington Disease,C0020179,CARD16,114769,Q5EG05,caspase recruitment domain family member 16,,30,0.695,0.615,0.38275,0.01,,1,1,0,2005,2005
+Huntington Disease,C0020179,NLRP3,114548,Q96P20,NLR family pyrin domain containing 3,,805,0.361,0.962,0.00081103,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,MGLL,11343,Q99685,monoglyceride lipase,Enzyme,125,0.564,0.731,0.020016,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,LINC02605,112935892,,long intergenic non-protein coding RNA 2605,,203,0.49,0.769,,0.01,,1,1,0,2020,2020
+Huntington Disease,C0020179,GSTO2,119391,Q9H4Y5,glutathione S-transferase omega 2,,53,0.631,0.692,2.61E-09,0.01,,1,1,1,2004,2004
+Huntington Disease,C0020179,CNTN1,1272,Q12860,contactin 1,,81,0.599,0.577,0.15131,0.01,,1,1,0,2010,2010
+Huntington Disease,C0020179,GPR151,134391,Q8TDV0,G protein-coupled receptor 151,G-protein coupled receptor,169,0.53,0.923,3.23E-08,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,PPARGC1B,133522,Q86YN6,PPARG coactivator 1 beta,Transcription factor,102,0.569,0.731,0.50321,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,ADM,133,P35318,adrenomedullin,Signaling,405,0.436,0.808,0.040831,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,KLF6,1316,Q99612,Kruppel like factor 6,Nucleic acid binding,204,0.501,0.846,0.97946,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,CD200R1,131450,Q8TD46,CD200 receptor 1,,70,0.623,0.769,4.31E-09,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,COMT,1312,P21964,catechol-O-methyltransferase,Enzyme,622,0.4,0.923,1.14E-06,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,OSR1,130497,Q8TAX0,odd-skipped related transcription factor 1,Transcription factor,77,0.603,0.615,0.86296,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,COL11A2,1302,P13942,collagen type XI alpha 2 chain,,399,0.435,0.846,0.70197,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,COL4A2,1284,P08572,collagen type IV alpha 2 chain,,131,0.563,0.654,3.58E-15,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,PNKP,11284,Q96T60,polynucleotide kinase 3'-phosphatase,,163,0.553,0.692,3.66E-14,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,NOS1,4842,P29475,nitric oxide synthase 1,,521,0.408,0.885,1,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,MUTYH,4595,Q9UIF7,mutY DNA glycosylase,Enzyme,156,0.521,0.769,1.26E-18,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,MTRR,4552,Q9UBK8,5-methyltetrahydrofolate-homocysteine methyltransferase reductase,,207,0.502,0.808,2.18E-14,0.01,,1,1,0,2004,2004
+Huntington Disease,C0020179,MTR,4548,Q99707,5-methyltetrahydrofolate-homocysteine methyltransferase,,245,0.482,0.808,2.43E-12,0.01,,1,1,0,2004,2004
+Huntington Disease,C0020179,MTNR1A,4543,P48039,melatonin receptor 1A,G-protein coupled receptor,79,0.59,0.808,7.23E-07,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,CYTB,4519,P00156,cytochrome b,,166,0.529,0.808,,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,MT1X,4501,P80297,metallothionein 1X,,55,0.619,0.692,0.00093353,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,MT1L,4500,Q93083,"metallothionein 1L, pseudogene",,49,0.633,0.692,,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,MT1M,4499,Q8N339,metallothionein 1M,,58,0.617,0.692,0.0043473,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,MT1JP,4498,,"metallothionein 1J, pseudogene",,76,0.588,0.731,,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,PPP1R12A,4659,O14974,protein phosphatase 1 regulatory subunit 12A,,59,0.626,0.615,1,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,NAIP,4671,Q13075,NLR family apoptosis inhibitory protein,,53,0.636,0.654,0.00016166,0.01,,1,1,0,2009,2009
+Huntington Disease,C0020179,NNAT,4826,Q16517,neuronatin,,50,0.633,0.538,0.40136,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,ACO1,48,P21399,aconitase 1,Enzyme,53,0.628,0.577,3.83E-18,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,NFATC4,4776,Q14934,nuclear factor of activated T cells 4,Transcription factor,33,0.691,0.538,0.8679,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,NEUROD1,4760,Q13562,neuronal differentiation 1,Enzyme,135,0.543,0.808,0.77109,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,NEK1,4750,Q96PY6,NIMA related kinase 1,Kinase,131,0.575,0.769,1.91E-25,0.01,,1,1,1,2019,2019
+Huntington Disease,C0020179,NEFH,4744,P12036,neurofilament heavy,,120,0.588,0.769,2.67E-12,0.01,,1,1,0,2007,2007
+Huntington Disease,C0020179,ATHS,470,,atherosclerosis susceptibility (lipoprotein associated),,112,0.551,0.769,,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,NDUFA1,4694,O15239,NADH:ubiquinone oxidoreductase subunit A1,,74,0.636,0.423,0.55315,0.01,,1,1,0,2002,2002
+Huntington Disease,C0020179,ATF4,468,P18848,activating transcription factor 4,,178,0.507,0.769,0.015659,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,MT1H,4496,P80294,metallothionein 1H,,49,0.638,0.654,0.0063432,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,MT1G,4495,P13640,metallothionein 1G,,64,0.604,0.731,0.032173,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,MT1F,4494,P04733,metallothionein 1F,,52,0.628,0.654,0.046878,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,FOXO4,4303,P98177,forkhead box O4,,84,0.588,0.769,0.81332,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,ACHE,43,P22303,acetylcholinesterase (Cartwright blood group),Enzyme,418,0.445,0.885,0.99827,0.01,,1,1,0,1994,1994
+Huntington Disease,C0020179,MLF1,4291,P58340,myeloid leukemia factor 1,Signaling,37,0.666,0.385,4.40E-09,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,KITLG,4254,P21583,KIT ligand,,249,0.473,0.885,0.85024,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,MAP3K1,4214,Q13233,mitogen-activated protein kinase kinase kinase 1,Kinase,136,0.538,0.731,0.99998,0.01,,1,1,0,2009,2009
+Huntington Disease,C0020179,MECP2,4204,P51608,methyl-CpG binding protein 2,Epigenetic regulator,664,0.414,0.846,0.89382,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,MCL1,4170,Q07820,"MCL1 apoptosis regulator, BCL2 family member",Signaling,375,0.43,0.808,0.96349,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,MC1R,4157,Q01726,melanocortin 1 receptor,G-protein coupled receptor,183,0.524,0.808,8.11E-11,0.01,,1,1,1,2017,2017
+Huntington Disease,C0020179,MBL2,4153,P11226,mannose binding lectin 2,Receptor,563,0.39,0.846,0.0026836,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,MMP14,4323,P50281,matrix metallopeptidase 14,Enzyme,340,0.447,0.769,0.99522,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,MNAT1,4331,P51948,MNAT1 component of CDK activating kinase,Enzyme modulator,131,0.539,0.846,1.31E-12,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,MT1E,4493,P04732,metallothionein 1E,,104,0.569,0.769,0.031344,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,MT1B,4490,P07438,metallothionein 1B,,89,0.585,0.731,0.0053775,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,MT1A,4489,P04731,metallothionein 1A,,128,0.537,0.808,0.0044674,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,MSX1,4487,P28360,msh homeobox 1,Transcription factor,180,0.525,0.731,0.16517,0.01,,1,1,0,2004,2004
+Huntington Disease,C0020179,MSN,4478,P26038,moesin,Cellular structure,140,0.534,0.769,0.99967,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,MIR196B,442920,,microRNA 196b,,100,0.561,0.731,,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,GPR166P,442206,,G protein-coupled receptor 166 pseudogene,,165,0.531,0.923,,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,VN1R17P,441931,Q8TDU5,vomeronasal 1 receptor 17 pseudogene,,167,0.529,0.923,,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,CD200,4345,P41217,CD200 molecule,,149,0.529,0.769,0.41359,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,STS,412,P08842,steroid sulfatase,Enzyme,382,0.431,0.846,0.80886,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,NOS2,4843,P35228,nitric oxide synthase 2,,783,0.364,0.923,4.03E-15,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,POU5F1,5460,Q01860,POU class 5 homeobox 1,,328,0.441,0.846,0.95371,0.01,,1,1,0,2010,2010
+Huntington Disease,C0020179,PEX7,5191,O00628,peroxisomal biogenesis factor 7,,100,0.603,0.615,8.18E-13,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,GHRL,51738,Q9UBU3,ghrelin and obestatin prepropeptide,,183,0.517,0.769,1.39E-11,0.01,,1,1,0,2004,2004
+Huntington Disease,C0020179,NUB1,51667,Q9Y5A7,negative regulator of ubiquitin like proteins 1,,11,0.792,0.308,0.00039037,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,PDK3,5165,Q15120,pyruvate dehydrogenase kinase 3,Kinase,51,0.678,0.5,0.44547,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,SIRT6,51548,Q8N6T7,sirtuin 6,Epigenetic regulator,195,0.496,0.846,0.039119,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,PDE1B,5153,Q01064,phosphodiesterase 1B,,18,0.769,0.423,0.33646,0.01,,1,1,0,2004,2004
+Huntington Disease,C0020179,NCKIPSD,51517,Q9NZQ3,NCK interacting protein with SH3 domain,,62,0.612,0.577,0.00022309,0.01,,1,1,0,2002,2002
+Huntington Disease,C0020179,UBR5,51366,O95071,ubiquitin protein ligase E3 component n-recognin 5,,73,0.597,0.654,1,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,PCP4,5121,P48539,Purkinje cell protein 4,,36,0.682,0.423,0.0021696,0.01,,1,1,0,1998,1998
+Huntington Disease,C0020179,PF4,5196,P02776,platelet factor 4,Signaling,158,0.522,0.846,0.043062,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,PGD,5226,P52209,phosphogluconate dehydrogenase,Enzyme,86,0.576,0.769,0.98788,0.01,,1,1,0,2007,2007
+Huntington Disease,C0020179,ATRX,546,P46100,ATRX chromatin remodeler,,412,0.452,0.808,1,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,DDIT4,54541,Q9NX09,DNA damage inducible transcript 4,,92,0.576,0.769,0.00068309,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,IMMTP1,54045,,inner membrane mitochondrial protein pseudogene 1,,8,0.805,0.423,,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,PMS2,5395,P54278,"PMS1 homolog 2, mismatch repair system component",Nucleic acid binding,244,0.484,0.808,4.52E-27,0.01,,1,1,1,2016,2016
+Huntington Disease,C0020179,S1PR5,53637,Q9H228,sphingosine-1-phosphate receptor 5,G-protein coupled receptor,20,0.716,0.462,0.15713,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,HDL3,53369,,Huntington-like neurodegenerative disorder 2,,35,0.663,0.423,,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,PLCG1,5335,P19174,phospholipase C gamma 1,Enzyme,116,0.564,0.692,7.93E-05,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,PITX3,5309,O75364,paired like homeodomain 3,,93,0.585,0.692,0.81276,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,SERPINB6,5269,P35237,serpin family B member 6,Enzyme modulator,128,0.547,0.769,0.00011009,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,HSPA14,51182,Q0VDF9,heat shock protein family A (Hsp70) member 14,,178,0.502,0.769,0.67359,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,AADAT,51166,Q8N5Z0,aminoadipate aminotransferase,Enzyme,19,0.76,0.269,0.14641,0.01,,1,1,0,1999,1999
+Huntington Disease,C0020179,CHCHD2,51142,Q9Y6H1,coiled-coil-helix-coiled-coil-helix domain containing 2,,57,0.638,0.538,1.73E-07,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,NTF3,4908,P20783,neurotrophin 3,Signaling,170,0.519,0.808,0.93201,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,NT5E,4907,P21589,5'-nucleotidase ecto,Enzyme,376,0.436,0.885,2.29E-11,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,NRGN,4900,Q92686,neurogranin,,69,0.608,0.615,0.4819,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,SLC11A2,4891,P49281,solute carrier family 11 member 2,Transporter,99,0.566,0.769,0.0066528,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,NPY5R,4889,Q15761,neuropeptide Y receptor Y5,G-protein coupled receptor,32,0.691,0.462,0.0063686,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,ATP2A2,488,P16615,ATPase sarcoplasmic/endoplasmic reticulum Ca2+ transporting 2,Transporter,159,0.529,0.808,0.99945,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,NPPA,4878,P01160,natriuretic peptide A,,217,0.505,0.769,0.00054522,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,NPM1,4869,P06748,nucleophosmin 1,Chaperone,283,0.464,0.846,0.99816,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,NPC1,4864,O15118,NPC intracellular cholesterol transporter 1,Transporter,220,0.518,0.692,6.54E-06,0.01,,1,1,0,2000,2000
+Huntington Disease,C0020179,OPA1,4976,O60313,OPA1 mitochondrial dynamin like GTPase,Enzyme modulator,236,0.51,0.846,0.98636,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,ACO2,50,Q99798,aconitase 2,Enzyme,74,0.619,0.654,0.20791,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,PCNA,5111,P12004,proliferating cell nuclear antigen,Nucleic acid binding,581,0.382,0.846,0.97606,0.01,,1,1,0,2003,2003
+Huntington Disease,C0020179,PCM1,5108,Q15154,pericentriolar material 1,,44,0.644,0.615,3.71E-16,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,PCBP1,5093,Q15365,poly(rC) binding protein 1,Enzyme,49,0.65,0.538,0.90945,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,PC,5091,P11498,pyruvate carboxylase,Enzyme,183,0.515,0.808,0.013834,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,PRKN,5071,O60260,parkin RBR E3 ubiquitin protein ligase,Enzyme,409,0.431,0.846,6.93E-07,0.01,,1,1,0,2009,2009
+Huntington Disease,C0020179,PAM,5066,P19021,peptidylglycine alpha-amidating monooxygenase,Enzyme,155,0.542,0.692,6.93E-06,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,PAEP,5047,P09466,progestagen associated endometrial protein,Enzyme,397,0.43,0.846,3.11E-08,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,P2RX7,5027,Q99572,purinergic receptor P2X 7,Ion channel,337,0.45,0.808,3.33E-11,0.01,,1,1,0,2009,2009
+Huntington Disease,C0020179,ALDH7A1,501,P49419,aldehyde dehydrogenase 7 family member A1,Enzyme,141,0.551,0.769,1.39E-22,0.01,,1,1,0,1991,1991
+Huntington Disease,C0020179,PNP,4860,P00491,purine nucleoside phosphorylase,Enzyme,161,0.527,0.885,7.00E-06,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,ASIC1,41,P78348,acid sensing ion channel subunit 1,Ion channel,52,0.653,0.615,0.93017,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,MCIDAS,345643,D6RGH6,multiciliate differentiation and DNA synthesis associated cell cycle protein,,119,0.566,0.769,0.013264,0.01,,1,1,0,2020,2020
+Huntington Disease,C0020179,HRES1,3272,P13985,HTLV-1 related endogenous sequence,,54,0.636,0.615,,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,HPCA,3208,P84074,hippocalcin,,24,0.76,0.385,0.6783,0.01,,1,1,0,2009,2009
+Huntington Disease,C0020179,HNF4A,3172,P41235,hepatocyte nuclear factor 4 alpha,Nuclear receptor,340,0.461,0.808,0.15285,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,HMGB1,3146,P09429,high mobility group box 1,Nucleic acid binding,724,0.368,0.923,0.82035,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,HLA-DPB1,3115,P04440,"major histocompatibility complex, class II, DP beta 1",Immune response,324,0.453,0.923,5.33E-10,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,HLA-C,3107,P10321,"major histocompatibility complex, class I, C",,435,0.415,0.846,1.57E-06,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,UBE2K,3093,P61086,ubiquitin conjugating enzyme E2 K,,58,0.631,0.654,0.98621,0.01,,1,1,0,2007,2007
+Huntington Disease,C0020179,HIF1A,3091,Q16665,hypoxia inducible factor 1 subunit alpha,Transcription factor,1044,0.327,0.923,0.9777,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,HDAC2,3066,Q92769,histone deacetylase 2,Epigenetic regulator,257,0.476,0.846,0.99997,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,DNAJB2,3300,P25686,DnaJ heat shock protein family (Hsp40) member B2,,25,0.743,0.192,5.44E-05,0.01,,1,1,0,2006,2006
+Huntington Disease,C0020179,DNAJA1,3301,P31689,DnaJ heat shock protein family (Hsp40) member A1,,15,0.805,0.308,0.090813,0.01,,1,1,0,2000,2000
+Huntington Disease,C0020179,IFNA13,3447,P01562,interferon alpha 13,,646,0.374,0.923,,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,IFNA1,3439,P01562,interferon alpha 1,,662,0.371,0.923,,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,IDUA,3425,P35475,alpha-L-iduronidase,Enzyme,258,0.499,0.846,3.76E-13,0.01,,1,1,0,1992,1992
+Huntington Disease,C0020179,IDH1,3417,O75874,isocitrate dehydrogenase (NADP(+)) 1,,399,0.424,0.808,2.62E-12,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,RAB7B,338382,Q96AH8,"RAB7B, member RAS oncogene family",,65,0.615,0.731,,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,TNC,3371,P24821,tenascin C,,369,0.433,0.846,1.26E-07,0.01,,1,1,0,2001,2001
+Huntington Disease,C0020179,DNAJB1,3337,P25685,DnaJ heat shock protein family (Hsp40) member B1,,82,0.597,0.692,0.039437,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,HSPA8,3312,P11142,heat shock protein family A (Hsp70) member 8,,124,0.553,0.808,0.99863,0.01,,1,1,0,2010,2010
+Huntington Disease,C0020179,XIAP,331,P98170,X-linked inhibitor of apoptosis,Enzyme modulator,321,0.447,0.808,0.91837,0.01,,1,1,0,2001,2001
+Huntington Disease,C0020179,ANXA3,306,P12429,annexin A3,,66,0.61,0.615,6.52E-12,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,HCLS1,3059,P14317,hematopoietic cell-specific Lyn substrate 1,Cellular structure,132,0.539,0.846,1.32E-06,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,SLC40A1,30061,Q9NP59,solute carrier family 40 member 1,Transporter,101,0.57,0.731,0.98835,0.01,,1,1,0,2004,2004
+Huntington Disease,C0020179,GRIK5,2901,Q16478,glutamate ionotropic receptor kainate type subunit 5,Ion channel,9,0.792,0.231,0.99425,0.01,,0,1,0,2007,2007
+Huntington Disease,C0020179,FLVCR1,28982,Q9Y5Y0,FLVCR heme transporter 1,Transporter,188,0.529,0.885,0.0013127,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,GIT1,28964,Q9Y2X7,GIT ArfGAP 1,,56,0.647,0.538,0.99978,0.01,,1,1,0,2004,2004
+Huntington Disease,C0020179,GRN,2896,P28799,granulin precursor,,412,0.435,0.846,0.069666,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,GPX7,2882,Q96SL4,glutathione peroxidase 7,Enzyme,15,0.769,0.269,5.85E-06,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,GPX4,2879,P36969,glutathione peroxidase 4,Enzyme,201,0.516,0.808,4.79E-05,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,ANK1,286,P16157,ankyrin 1,,166,0.54,0.885,1,0.01,,0,1,0,2019,2019
+Huntington Disease,C0020179,ANGPT2,285,O15123,angiopoietin 2,Signaling,457,0.41,0.846,0.83208,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,GOLGA8G,283768,Q08AF8,golgin A8 family member G,,1,1,0.115,0.19562,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,GRIN1,2902,Q05586,glutamate ionotropic receptor NMDA type subunit 1,Ion channel,150,0.561,0.692,0.97629,0.01,,1,1,0,1993,1993
+Huntington Disease,C0020179,GRINA,2907,Q7Z429,glutamate ionotropic receptor NMDA type subunit associated protein 1,,15,0.76,0.346,0.44203,0.01,,1,1,0,1993,1993
+Huntington Disease,C0020179,GZMB,3002,P10144,granzyme B,Enzyme,290,0.453,0.808,3.67E-14,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,PACSIN1,29993,Q9BY11,protein kinase C and casein kinase substrate in neurons 1,Cellular structure,2,0.931,0.154,0.99887,0.01,,1,1,0,2002,2002
+Huntington Disease,C0020179,UBQLN2,29978,Q9UHD9,ubiquilin 2,,59,0.656,0.462,0.84968,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,GYS1,2997,P13807,glycogen synthase 1,,26,0.722,0.385,0.0002914,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,CXCL3,2921,P19876,C-X-C motif chemokine ligand 3,Signaling,47,0.65,0.692,0.00030234,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,GRM2,2912,Q14416,glutamate metabotropic receptor 2,G-protein coupled receptor,104,0.582,0.577,0.12019,0.01,,0,1,0,2011,2011
+Huntington Disease,C0020179,MYLIP,29116,Q8WY64,myosin regulatory light chain interacting protein,,79,0.582,0.692,0.18431,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,DROSHA,29102,Q9NRR4,drosha ribonuclease III,Enzyme,77,0.599,0.692,0.093176,0.01,,1,1,2,2016,2016
+Huntington Disease,C0020179,SETD2,29072,Q9BYW2,"SET domain containing 2, histone lysine methyltransferase",Epigenetic regulator,447,0.424,0.846,1,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,OR10A4,283297,Q9H209,olfactory receptor family 10 subfamily A member 4,G-protein coupled receptor,128,0.54,0.808,1.68E-05,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,IKBKB,3551,O14920,inhibitor of nuclear factor kappa B kinase subunit beta,Kinase,191,0.506,0.846,0.99192,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,SMAD3,4088,P84022,SMAD family member 3,Transcription factor,470,0.415,0.923,0.79796,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,MIR146A,406938,,microRNA 146a,,505,0.398,0.885,,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,MIR128-1,406915,,microRNA 128-1,,28,0.695,0.346,,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,MIR122,406906,,microRNA 122,,250,0.468,0.808,,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,MIR106A,406899,,microRNA 106a,,140,0.524,0.846,,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,LTB,4050,Q06643,lymphotoxin beta,Signaling,110,0.555,0.769,9.61E-11,0.01,,1,1,0,2001,2001
+Huntington Disease,C0020179,CIMT,404677,,Carotid intimal medial thickness,,29,0.695,0.462,,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,LPL,4023,P06858,lipoprotein lipase,Enzyme,290,0.474,0.808,1.27E-09,0.01,,1,1,0,1991,1991
+Huntington Disease,C0020179,LPA,4018,P08519,lipoprotein(a),Enzyme,340,0.444,0.769,6.59E-89,0.01,,1,1,0,2002,2002
+Huntington Disease,C0020179,LNPEP,4012,Q9UIQ6,leucyl and cystinyl aminopeptidase,Enzyme,174,0.514,0.731,0.99957,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,MIR150,406942,,microRNA 150,,282,0.455,0.808,,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,MIR200A,406983,,microRNA 200a,,156,0.519,0.808,,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,MIR34B,407041,,microRNA 34b,,165,0.509,0.808,,0.01,,1,1,0,2011,2011
+Huntington Disease,C0020179,MIR302A,407028,,microRNA 302a,,65,0.601,0.5,,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,MIR27A,407018,,microRNA 27a,,248,0.466,0.846,,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,MIR26B,407017,,microRNA 26b,,128,0.529,0.808,,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,MIR222,407007,,microRNA 222,,210,0.486,0.808,,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,MIR22,407004,,microRNA 22,,195,0.496,0.808,,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,MIR214,406996,,microRNA 214,,221,0.48,0.808,,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,MIR21,406991,,microRNA 21,,726,0.363,0.846,,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,MIR200C,406985,,microRNA 200c,,202,0.486,0.846,,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,LMNA,4000,P02545,lamin A/C,,824,0.384,0.885,0.9994,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,LIMK1,3984,P53667,LIM domain kinase 1,Kinase,271,0.488,0.731,0.99937,0.01,,1,1,0,2016,2016
+Huntington Disease,C0020179,LCN2,3934,P80188,lipocalin 2,Enzyme,497,0.405,0.885,1.14E-09,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,AQP9,366,O43315,aquaporin 9,Ion channel,100,0.565,0.808,0.24027,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,IL18,3606,Q14116,interleukin 18,,750,0.365,0.923,0.030717,0.01,,1,1,1,2012,2012
+Huntington Disease,C0020179,IL17A,3605,Q16552,interleukin 17A,,1074,0.324,0.923,0.043049,0.01,,1,1,0,2020,2020
+Huntington Disease,C0020179,IL13,3596,P35225,interleukin 13,,587,0.386,0.846,0.014426,0.01,,1,1,1,2013,2013
+Huntington Disease,C0020179,IL9,3578,P15248,interleukin 9,,291,0.461,0.846,8.11E-07,0.01,,0,1,0,1992,1992
+Huntington Disease,C0020179,IL7,3574,P13232,interleukin 7,,275,0.464,0.808,0.92574,0.01,,1,1,0,2020,2020
+Huntington Disease,C0020179,IL4R,3566,P24394,interleukin 4 receptor,Receptor,242,0.474,0.846,0.00023013,0.01,,1,1,1,2013,2013
+Huntington Disease,C0020179,IL4,3565,P05112,interleukin 4,,996,0.332,0.962,0.0047372,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,IL2RB,3560,P14784,interleukin 2 receptor subunit beta,Receptor,226,0.491,0.846,0.29095,0.01,,1,1,0,2013,2013
+Huntington Disease,C0020179,ITGA2B,3674,P08514,integrin subunit alpha 2b,,215,0.493,0.692,1.52E-16,0.01,,1,1,0,2012,2012
+Huntington Disease,C0020179,JAG2,3714,Q9Y219,jagged canonical Notch ligand 2,,81,0.576,0.846,1,0.01,,1,1,0,2015,2015
+Huntington Disease,C0020179,LBR,3930,Q14739,lamin B receptor,Enzyme,307,0.473,0.808,0.18143,0.01,,1,1,0,2018,2018
+Huntington Disease,C0020179,LBP,3929,P18428,lipopolysaccharide binding protein,,156,0.525,0.808,4.19E-15,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,CCL4L1,388372,P13236;Q8NHW4,C-C motif chemokine ligand 4 like 1,,135,0.534,0.885,0.33576,0.01,,1,1,0,2014,2014
+Huntington Disease,C0020179,NPSR1,387129,Q6W5P4,neuropeptide S receptor 1,,69,0.608,0.615,2.05E-09,0.01,,1,1,0,2019,2019
+Huntington Disease,C0020179,KPNA1,3836,P52294,karyopherin subunit alpha 1,Transporter,22,0.736,0.577,0.99818,0.01,,1,1,0,2008,2008
+Huntington Disease,C0020179,KDR,3791,P35968,kinase insert domain receptor,Kinase,623,0.378,0.885,0.99982,0.01,,1,1,0,2017,2017
+Huntington Disease,C0020179,KCNA6,3742,P17658,potassium voltage-gated channel subfamily A member 6,Ion channel,14,0.792,0.154,0.49728,0.01,,1,1,0,2001,2001
+Huntington Disease,C0020179,KCNA5,3741,P22460,potassium voltage-gated channel subfamily A member 5,Ion channel,73,0.606,0.5,0.0010938,0.01,,1,1,0,2001,2001
+Huntington Disease,C0020179,KCNA1,3736,Q09470,potassium voltage-gated channel subfamily A member 1,Ion channel,148,0.573,0.577,0.076028,0.01,,1,1,0,2001,2001
+Huntington Disease,C0020179,IL1A,3552,P01583,interleukin 1 alpha,,1002,0.333,0.962,0.0001602,0.01,,1,1,0,2005,2005
