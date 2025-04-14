@@ -1597,3 +1597,95 @@ def screening(sources,targets, network, distance_matrix, score="proximity", prop
     return dict_tables
 
 
+def BRWR(G, seed, restart_prob=0.15):
+    """
+    Perform a Biased Random Walk with Restart (BRWR) using the PageRank algorithm
+    with a personalization vector to bias the walk toward selected seed nodes.
+
+    This method is commonly used in network biology, recommendation systems, and
+    influence ranking, where it helps prioritize nodes based on their relevance
+    to a given set of seed nodes (e.g., disease genes, source nodes).
+
+    Parameters
+    ----------
+    G : networkx.Graph
+        The input graph (can be directed or undirected).
+
+    seed : list, set, or dict
+        The set of seed nodes used to bias the walk.
+        - If a list or set: all seeds are assigned equal weight.
+        - If a dict: keys are node names and values are their weights (importance).
+
+    restart_prob : float, optional (default=0.15)
+        Probability of restarting the walk at a seed node at each step.
+        The complement (1 - restart_prob) is used to walk to neighbors.
+
+    Returns
+    -------
+    pandas.DataFrame
+        A DataFrame sorted by descending BScore, with the following columns:
+        - 'Node': Node identifier
+        - 'Degree': Degree of the node
+        - 'Score': PageRank score (influenced by proximity to seed nodes)
+        - 'BScore': Score normalized by degree, penalizing high-degree hubs
+
+    Raises
+    ------
+    ValueError
+        If none of the provided seed nodes exist in the graph.
+    TypeError
+        If seed is not a list, set, or dict.
+
+    Notes
+    -----
+    The normalized score 'BScore' is useful when you want to reduce the
+    influence of high-degree nodes that naturally accumulate higher PageRank scores.
+
+    Example
+    -------
+    >>> import networkx as nx
+    >>> from netmedpy import BRWR
+
+    >>> G = nx.karate_club_graph()
+    >>> seed_weights = {
+    ...     0: 0.7,   # Assign higher influence to node 0
+    ...     33: 0.3   # Assign lower influence to node 33
+    ... }
+    >>> result = BRWR(G, seed=seed_weights, restart_prob=0.2)
+    >>> print(result.head())
+    """
+
+    # Convert restart probability to damping factor
+    alpha = 1 - restart_prob
+
+    # Create personalization vector
+    if isinstance(seed, (list, set)):
+        filtered_seed = [s for s in seed if s in G]
+        if not filtered_seed:
+            raise ValueError("No valid seed nodes found in the graph.")
+        weight = 1.0 / len(filtered_seed)
+        personalization = {n: weight for n in filtered_seed}
+
+    elif isinstance(seed, dict):
+        filtered_seed = {k: v for k, v in seed.items() if k in G}
+        if not filtered_seed:
+            raise ValueError("No valid seed nodes found in the graph.")
+        total = sum(filtered_seed.values())
+        personalization = {k: v / total for k, v in filtered_seed.items()}
+
+    else:
+        raise TypeError("Seed must be a list, set, or dict.")
+    
+    # Perform a random walk
+    pr = nx.pagerank(G, alpha=alpha, personalization=personalization)
+
+    # Format results
+    df = pd.DataFrame({
+        'Node': list(pr.keys()),
+        'Degree': [G.degree(n) for n in pr.keys()],
+        'Score': list(pr.values()), 
+    })
+
+    df['BScore'] = df['Score'] / df['Degree']
+    df = df.sort_values(by='BScore', ascending=False).reset_index(drop=True)
+    return df
