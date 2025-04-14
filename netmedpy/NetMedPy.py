@@ -1597,7 +1597,7 @@ def screening(sources,targets, network, distance_matrix, score="proximity", prop
     return dict_tables
 
 
-def BRWR(G, seed, restart_prob=0.15):
+def random_walk(G, seed, restart_prob=0.15):
     """
     Perform a Biased Random Walk with Restart (BRWR) using the PageRank algorithm
     with a personalization vector to bias the walk toward selected seed nodes.
