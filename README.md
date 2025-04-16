@@ -170,7 +170,7 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
   python Basic_example.py
   ```
 
-## Examples
+## Example for understanding the pipeline - Vitamin D 
 
 After you have successfully run the Basic_example.py script to further test the pipeline, we refer to the Vitamin D example, which can be found in the `examples/VitaminD` directory. There are two files that you can use for testing:
 
@@ -193,7 +193,7 @@ In the subdirectory `VitaminD/data` there are the files that contain the necessa
      
 4. Run the Example:
 
-###### Option A: using the Python Script
+##### Option A: using the Python Script
 
   ```bash
   python VitD_pipeline.py
@@ -360,7 +360,7 @@ screen_data = netmedpy.screening(vit_d, dgenes, ppi,
 
 amspl["Communicability"] = screen_data["raw_amspl"]
 ```
-### Introduction to Network Medicine example (for entry level users)
+## Example for entry-level users: Introduction to Network Medicine
 
 If you’re new to network medicine or find the Vitamin D example too advanced, start here. This notebook introduces the core steps of a typical network medicine workflow—building and filtering a PPI network, extracting compound targets, loading disease gene sets, computing proximity metrics, and visualizing results—using a single Jupyter notebook and helper scripts.
 
@@ -409,7 +409,7 @@ jupyter notebook Intro_Network_Medicine.ipynb
 
 Execute cells in order—each cell saves outputs under examples/NetworkMedicineIntro/output/.
 
-#### Steps in `Intro_Network_Medicine.ipynb`:
+### Steps in `Intro_Network_Medicine.ipynb`:
 
 **1. Build and filter the PPI network**
    
@@ -474,7 +474,7 @@ for name in disease_genes:
     plot_network(ppi, targets, disease_genes[name], filename=f"output/plots/network_{name}.png")
 ```
 
-#### Data sources
+### Data sources
 
 - STRING v12: Human PPI interactions, filtered in step 1
 
@@ -483,7 +483,7 @@ for name in disease_genes:
 - DisGeNet: Pre‑downloaded disease–gene associations (CSV files in input_data/disease_genes)
 
 
-#### Expected outputs
+### Expected outputs
 
 ```bash
 examples/NetworkMedicineIntro/output/
