@@ -172,7 +172,7 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
 
 ## Examples
 
-To test the pipeline, we refer to the Vitamin D example, which can be found in the `examples/VitaminD` directory. There are two files that you can use for testing:
+After you have successfully run the Basic_example.py script to further test the pipeline, we refer to the Vitamin D example, which can be found in the `examples/VitaminD` directory. There are two files that you can use for testing:
 
 - A Python script: `VitD_pipeline.py`
 - A Jupyter notebook: `VitD_pipeline.ipynb`
@@ -360,45 +360,222 @@ screen_data = netmedpy.screening(vit_d, dgenes, ppi,
 
 amspl["Communicability"] = screen_data["raw_amspl"]
 ```
+### Introduction to Network Medicine example -- for entry users
 
-    
+If you’re new to network medicine or find the Vitamin D example too advanced, start here. This notebook introduces the core steps of a typical network medicine workflow—building and filtering a PPI network, extracting compound targets, loading disease gene sets, computing proximity metrics, and visualizing results—using a single Jupyter notebook and helper scripts.
+
+1. **Clone or update the repository**  
+   ```bash
+   git clone https://github.com/menicgiulia/NetMedPy.git    # if you haven’t already
+   cd NetMedPy
+   git pull                                                # if you already cloned
+
+2. **Inspect the input data
+All pre‑downloaded disease gene lists live under:
+
+```plaintext
+examples/NetworkMedicineIntro/input_data/disease_genes/
+├── DGN_Huntington.csv      # Huntington’s disease gene list
+├── DGN_Rickets.csv         # Rickets gene list
+├── DGN_VDdeff.csv          # Vitamin D deficiency gene list
+└── DGN_inflammation.csv    # Inflammation gene list
+```
+
+(You do not need to manually download STRING data—this is handled by the notebook.)
+
+3. **Install prerequisites
+Activate your NetMedPy conda environment or install via pip:
+
+```bash
+# If using conda:
+conda activate netmedpy_environment
+
+# Ensure NetMedPy and Jupyter are installed:
+pip install netmedpy jupyter
+```
+
+4. **Navigate to the example folder
+   
+```bash
+cd examples/NetworkMedicineIntro
+```
+
+5. **Launch and run the notebook
+   
+```bash
+jupyter notebook Intro_Network_Medicine.ipynb
+```
+
+Execute cells in order—each cell saves outputs under examples/NetworkMedicineIntro/output/.
+
+#### Steps in Intro_Network_Medicine.ipynb
+
+1. **Build and filter the PPI network
+The notebook uses tools.py to download STRING v12 interactions, filter for physical edges (score > 300), map Ensembl IDs to HGNC symbols, extract the largest connected component (LCC), and save:
+
+```python
+from tools import download_and_filter_string
+ppi = download_and_filter_string(version="12", score_threshold=300)
+ppi.to_csv("output/string_ppi_filtered.csv", index=False)
+```
+2. **Extract Vitamin D protein targets
+Next, it demonstrates CPIExtract integration to retrieve high‑confidence Vitamin D targets from multiple databases:
+
+```python
+from tools import extract_vitd_targets
+targets = extract_vitd_targets(compound="Vitamin D", databases=["DrugBank", "BindingDB"])
+import pandas as pd
+pd.Series(targets, name="gene").to_csv("output/vitd_targets.csv", index=False)
+```
+
+3. **Load disease gene sets
+```python
+from tools import load_disgenet_genes
+disease_genes = load_disgenet_genes("input_data/disease_genes")
+# disease_genes is a dict: { "Huntington": [...], "Rickets": [...], ... }
+```
+
+4. **Compute network proximity
+Using netmedpy.proximity, it calculates average minimum shortest-path length (AMSPL) z‑scores between Vitamin D targets and each disease module under the degree‑log‑binning null model:
+
+```python
+import netmedpy
+import pandas as pd
+
+for name, genes in disease_genes.items():
+    result = netmedpy.proximity(
+        ppi, targets, genes,
+        null_model="log_binning",
+        n_iter=1000,
+        symmetric=False
+    )
+    pd.DataFrame([result]).to_csv(f"output/proximity_{name}.csv", index=False)
+```
+
+5. **Visualize results
+Finally, the notebook plots:
+
+Histograms of randomized vs. observed distances for each disease
+
+Network diagrams overlaying Vitamin D targets and disease modules
+All figures are saved under output/plots/ (e.g. histogram_Huntington.png, network_inflammation.png):
+
+```python
+from tools import plot_histograms, plot_network
+
+for name in disease_genes:
+    plot_histograms(name, f"output/proximity_{name}.csv", out_dir="output/plots")
+    plot_network(ppi, targets, disease_genes[name], filename=f"output/plots/network_{name}.png")
+```
+
+#### Data sources
+
+STRING v12: Human PPI interactions, filtered in step 1
+
+CPIExtract: Compound–target data for Vitamin D in step 2
+
+DisGeNet: Pre‑downloaded disease–gene associations (CSV files in input_data/disease_genes)
+
+```bash
+examples/NetworkMedicineIntro/output/
+├── string_ppi_filtered.csv
+├── vitd_targets.csv
+├── proximity_Huntington.csv
+├── proximity_Rickets.csv
+├── proximity_VDdeff.csv
+├── proximity_inflammation.csv
+└── plots/
+    ├── histogram_Huntington.png
+    ├── histogram_Rickets.png
+    ├── histogram_VDdeff.png
+    ├── histogram_inflammation.png
+    └── network_<disease>.png
+```
+
 ## Package Structure
 Root folder organization (__init__.py files removed for simplicity):
 ```plaintext
-│   .gitignore
-│   environment.yml                                 // yml file to create conda enviorement
-│   README.md
-│   setup.py               
+│   .gitattributes                                 
+│   .gitignore                                    
+│   LICENSE.txt                                     // License information for the package
+│   README.md                                       // Package documentation
+│   environment.yml                                 // yml file to create conda environment
+│   setup.py                                        // Package installation script
+│
+├───doc                                             // Documentation directory
+│   └───source                                      // Source files for documentation
+│       │   DistanceMatrix.rst                      // Documentation for DistanceMatrix module
+│       │   NetMedPy.rst                            // Documentation for NetMedPy module
+│       │   conf.py                                 // Sphinx configuration file for documentation
+│       │   index.rst                               // Main index file for documentation
+│       │   Makefile                                // Make file for building documentation
+│       │   make.bat                                // Batch script for building documentation on Windows
+│
+├───examples                                        // directory with working examples using the NetMedPy pipeline
+│   │   Basic_example.py                            // python script for running a basic example to test the pipeline
+│   │   Cronometer.py                               // Performance timing utility
+│   │   VitD_pipeline.ipynb                         // Jupyter notebook with Vitamin D example using the NetMedPy pipeline
+│   │   VitD_pipeline.py                            // python script with Vitamin D example using the NetMedPy pipeline
+│   │   1_4_netsize_edges.png                       // Figure showing network size and edges relationships
+│   │   1_7_prox_vd.png                             // Figure related to proximity and Vitamin D
+│   │   1_8_correlation.png                         // Correlation analysis figure
+│   │   2_2_deviation.png                           // Deviation analysis figure
+│   │   2_3_rank_correlation_distr...               // Rank correlation distribution figure
+│   │
+│   ├───NetworkMedicineIntro                        // Introduction to Network Medicine examples
+│   │   │   Intro_Network_Medicine.ipynb            // Jupyter notebook with intro to network medicine
+│   │   │   tools.py                                // Helper tools for the analysis
+│   │   │
+│   │   └───input_data/disease_genes                // Disease gene data for examples
+│   │           DGN_Huntington.csv                  // Huntington disease gene data
+│   │           DGN_Rickets.csv                     // Rickets disease gene data
+│   │           DGN_VDdeff.csv                      // Vitamin D deficiency gene data
+│   │           DGN_inflammation.csv                // Inflammation gene data
+│   │
+│   └───VitaminD                                    // directory with Vitamin D example using the NetMedPy pipeline
+│       ├───data                                    // directory with data files necessary for the Vitamin D example
+│       │   └───input                               // Input data directory
+│       │       ├───disease_genes                   // Disease gene data directory
+│       │       │       disease_genes_merge.pkl     // Merged disease genes data
+│       │       │
+│       │       ├───drug_targets                    // Drug target data directory
+│       │       │       vitd_targets_cpie.pkl       // Vitamin D targets data
+│       │       │
+│       │       └───ppi                             // Protein-protein interaction data
+│       │               ppi_network.pkl             // PPI network data
+│       │               Alias.csv                   // Alias mapping file
+│       │
+│       ├───guney                                   // Implementation of Guney's network algorithms
+│       │       distances.py                        // Distance calculation functions
+│       │       network.py                          // Network manipulation functions
+│       │
+│       ├───output                                  // directory where the output files from the Vitamin D example are saved
+│       │       amspl.pkl                           // Analysis output file
+│       │       d1_d2.pkl                           // Disease pairs data
+│       │       inf_fix.pkl                         // Inflammation-related output
+│       │       inf_hun.pkl                         // Huntington-related output
+│       │       lcc_size.pkl                        // Largest connected component size data
+│       │       performance_size.csv                // Performance metrics
+│       │       screen.pkl                          // Screening results
+│       │
+│       └───supplementary                           // Supplementary materials
+│           └───sup_code                            // Supplementary code
+│               └───data_integration                // Data integration scripts
 │
 ├───images                                          // directory with figures from paper
-│   └───OverviewPipeline.png                        // pipeline flowchart figure from paper
-│
-└───examples                                        // directory with working examples using the NetMedPy pipeline
-│   │   
-│   ├───VitamindD                                   // directory with Vitamin D example using the NetMedPy pipeline
-│   │    ├───Figures_v2.py                          // python script to recreate the figures from the paper  
-│   │    ├───VitD_pipeline.py                       // python script with Vitamin D example using the NetMedPy pipeline  
-│   │    ├───VitD_pipeline.ipynb                    // Jupyter notebook with Vitamin D example using the NetMedPy pipeline  
-│   │    ├───data                                   // directory with pickle and csv files necessary to get the Vitamin D example working             
-│   │    │    ├───Alias.csv                          
-│   │    │    ├───disease_genes.pkl                 
-│   │    │    ├───ppi_network.pkl                    
-│   │    │    └───vitd_targets.pkl
-│   │    └───output                                 // directory where the output files from the Vitamin D example are saved
-│   │                          
-│   └───Basic_example.py                            // python script with dummy data to test the pipeline
+│       OverviewPipeline.png                        // pipeline flowchart figure from paper
 │
 └───netmedpy                                        // directory containing the python scripts that contain the functions of the NetMedPy pipeline
-      ├───DistanceMatrix.py                       
-      └───NetMedPy.py
+        DistanceMatrix.py                           // Module for distance matrix calculations
+        NetMedPy.py                                 // Core NetMedPy functionality
 ```
 
 ## Further information
 
 - Details about each function (what is it used for, what are the input parameters, the possible values of the input parameters, what is the output) from the pipeline are available in the `netmedpy/NetMedPy.py` script in the comments before each function. 
-- An example on the use of the implemented functions is available in the file `examples/Basic_example.py', which can be executed fairly quickly in order to test the proper installation of the package and it's functionalities.
+- An example on the use of the implemented functions is available in the file `examples/Basic_example.py', which can be executed fairly quickly in order to test the proper installation of the package and its functionalities.
 - A more elaborate example is available in the files `examples/VitaminD/VitD_pipeline.py` and `examples/VitaminD/VitD_pipeline.ipynb`, testing the functions with different parameters for evaluating the role of Vitamin D in the modulation of
-different diseases from a network medicine perspective. The data files (the protein-protein interation network, the disease genes, and the Vitamin D targets) needed for executing this example are available in `examples/VitaminD/data`.
+different diseases from a network medicine perspective. The data files (the protein-protein interaction network, the disease genes, and the Vitamin D targets) needed for executing this example are available in `examples/VitaminD/data`.
 
 ## License
 
@@ -407,7 +584,7 @@ This project is licensed under the terms of the MIT license.
 
 ## References
 
-<b id="f1">1</b> Barabási, A. L., Gulbahce, N., & Loscalzo, J. (2011). Network medicine: a network-based approach to human disease. Nature reviews genetics, 12(1), 56-68.[DOI 10.1038/nrg2918](https://doi.org/10.1038/nrg2918) [↩](#a1)
+<b id="f1">1</b> Barabási, A. L., Gulbahce, N., & Loscalzo, J. (2011). Network medicine: a network-based approach to human disease. Nature Reviews Genetics, 12(1), 56-68.[DOI 10.1038/nrg2918](https://doi.org/10.1038/nrg2918) [↩](#a1)
 
 <b id="f2">2</b> Menche, Jörg, et al. "Uncovering disease-disease relationships through the incomplete interactome." Science 347.6224 (2015). [DOI 10.1126/science.1257601](https://doi.org/10.1126/science.1257601) [↩](#a2)
 
