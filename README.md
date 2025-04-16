@@ -360,7 +360,7 @@ screen_data = netmedpy.screening(vit_d, dgenes, ppi,
 
 amspl["Communicability"] = screen_data["raw_amspl"]
 ```
-## Example for entry-level users: Introduction to Network Medicine
+## Example for entry-level users - Introduction to Network Medicine
 
 If you’re new to network medicine or find the Vitamin D example too advanced, start here. This notebook introduces the core steps of a typical network medicine workflow—building and filtering a PPI network, extracting compound targets, loading disease gene sets, computing proximity metrics, and visualizing results—using a single Jupyter notebook and helper scripts.
 
