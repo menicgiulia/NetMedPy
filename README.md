@@ -364,13 +364,13 @@ amspl["Communicability"] = screen_data["raw_amspl"]
 
 If you’re new to network medicine or find the Vitamin D example too advanced, start here. This notebook introduces the core steps of a typical network medicine workflow—building and filtering a PPI network, extracting compound targets, loading disease gene sets, computing proximity metrics, and visualizing results—using a single Jupyter notebook and helper scripts.
 
-**1. Clone or update the repository**  
+1. Clone or update the repository
    ```bash
    git clone https://github.com/menicgiulia/NetMedPy.git    # if you haven’t already
    cd NetMedPy
    git pull                                                # if you already cloned
 
-**2. Inspect the input data** 
+2. Inspect the input data
 All pre‑downloaded disease gene lists live under:
 
 ```plaintext
@@ -383,7 +383,7 @@ examples/NetworkMedicineIntro/input_data/disease_genes/
 
 (You do not need to manually download STRING data—this is handled by the notebook.)
 
-**3. Install prerequisites**
+3. Install prerequisites
    
 Activate your NetMedPy conda environment or install via pip:
 
@@ -395,13 +395,13 @@ conda activate netmedpy_environment
 pip install netmedpy jupyter
 ```
 
-**4. Navigate to the example folder** 
+4. Navigate to the example folder
    
 ```bash
 cd examples/NetworkMedicineIntro
 ```
 
-**5. Launch and run the notebook** 
+5. Launch and run the notebook
    
 ```bash
 jupyter notebook Intro_Network_Medicine.ipynb
@@ -409,7 +409,7 @@ jupyter notebook Intro_Network_Medicine.ipynb
 
 Execute cells in order—each cell saves outputs under examples/NetworkMedicineIntro/output/.
 
-#### Steps in Intro_Network_Medicine.ipynb
+#### Steps in `Intro_Network_Medicine.ipynb`:
 
 **1. Build and filter the PPI network**
    
