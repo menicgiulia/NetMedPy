@@ -364,13 +364,13 @@ amspl["Communicability"] = screen_data["raw_amspl"]
 
 If you’re new to network medicine or find the Vitamin D example too advanced, start here. This notebook introduces the core steps of a typical network medicine workflow—building and filtering a PPI network, extracting compound targets, loading disease gene sets, computing proximity metrics, and visualizing results—using a single Jupyter notebook and helper scripts.
 
-1. **Clone or update the repository**  
+**1. Clone or update the repository**  
    ```bash
    git clone https://github.com/menicgiulia/NetMedPy.git    # if you haven’t already
    cd NetMedPy
    git pull                                                # if you already cloned
 
-2. **Inspect the input data** 
+**2. Inspect the input data** 
 All pre‑downloaded disease gene lists live under:
 
 ```plaintext
@@ -383,7 +383,8 @@ examples/NetworkMedicineIntro/input_data/disease_genes/
 
 (You do not need to manually download STRING data—this is handled by the notebook.)
 
-3. **Install prerequisites** 
+**3. Install prerequisites**
+   
 Activate your NetMedPy conda environment or install via pip:
 
 ```bash
@@ -394,13 +395,13 @@ conda activate netmedpy_environment
 pip install netmedpy jupyter
 ```
 
-4. **Navigate to the example folder** 
+**4. Navigate to the example folder** 
    
 ```bash
 cd examples/NetworkMedicineIntro
 ```
 
-5. **Launch and run the notebook** 
+**5. Launch and run the notebook** 
    
 ```bash
 jupyter notebook Intro_Network_Medicine.ipynb
@@ -410,7 +411,8 @@ Execute cells in order—each cell saves outputs under examples/NetworkMedicineI
 
 #### Steps in Intro_Network_Medicine.ipynb
 
-1. **Build and filter the PPI network** 
+**1. Build and filter the PPI network**
+   
 The notebook uses tools.py to download STRING v12 interactions, filter for physical edges (score > 300), map Ensembl IDs to HGNC symbols, extract the largest connected component (LCC), and save:
 
 ```python
@@ -418,7 +420,8 @@ from tools import download_and_filter_string
 ppi = download_and_filter_string(version="12", score_threshold=300)
 ppi.to_csv("output/string_ppi_filtered.csv", index=False)
 ```
-2. **Extract Vitamin D protein targets** 
+**2. Extract Vitamin D protein targets**
+   
 Next, it demonstrates CPIExtract integration to retrieve high‑confidence Vitamin D targets from multiple databases:
 
 ```python
@@ -428,14 +431,16 @@ import pandas as pd
 pd.Series(targets, name="gene").to_csv("output/vitd_targets.csv", index=False)
 ```
 
-3. **Load disease gene sets** 
+**3. Load disease gene sets**
+   
 ```python
 from tools import load_disgenet_genes
 disease_genes = load_disgenet_genes("input_data/disease_genes")
 # disease_genes is a dict: { "Huntington": [...], "Rickets": [...], ... }
 ```
 
-4. **Compute network proximity** 
+**4. Compute network proximity**
+   
 Using netmedpy.proximity, it calculates average minimum shortest-path length (AMSPL) z‑scores between Vitamin D targets and each disease module under the degree‑log‑binning null model:
 
 ```python
@@ -452,7 +457,8 @@ for name, genes in disease_genes.items():
     pd.DataFrame([result]).to_csv(f"output/proximity_{name}.csv", index=False)
 ```
 
-5. **Visualize results** 
+**5. Visualize results**
+    
 Finally, the notebook plots:
 
 - Histograms of randomized vs. observed distances for each disease
@@ -475,6 +481,9 @@ for name in disease_genes:
 - CPIExtract: Compound–target data for Vitamin D in step 2
 
 - DisGeNet: Pre‑downloaded disease–gene associations (CSV files in input_data/disease_genes)
+
+
+#### Expected outputs
 
 ```bash
 examples/NetworkMedicineIntro/output/
