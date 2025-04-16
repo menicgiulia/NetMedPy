@@ -193,7 +193,7 @@ In the subdirectory `VitaminD/data` there are the files that contain the necessa
      
 4. Run the Example:
 
-##### Option A: using the Python Script
+###### Option A: using the Python Script
 
   ```bash
   python VitD_pipeline.py
