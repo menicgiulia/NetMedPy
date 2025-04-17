@@ -362,22 +362,23 @@ amspl["Communicability"] = screen_data["raw_amspl"]
 ```
 ## Example for entry-level users - Introduction to Network Medicine
 
-If you’re new to network medicine or find the Vitamin D example too advanced, start here. This notebook introduces the core steps of a typical network medicine workflow—building and filtering a PPI network, extracting compound targets, loading disease gene sets, computing proximity metrics, and visualizing results—using a single Jupyter notebook and helper scripts.
+This example introduces the core concepts of network medicine through a guided analysis of Vitamin D's relationship to several diseases using protein-protein interaction networks. The Jupyter notebook (`Intro_Network_Medicine.ipynb`) provides a step-by-step workflow demonstrating how to build and analyze biological networks to uncover drug-disease relationships.
 
 1. Clone or update the repository
    ```bash
-   git clone https://github.com/menicgiulia/NetMedPy.git    # if you haven’t already
-   cd NetMedPy
-   git pull                                                # if you already cloned
+git clone https://github.com/menicgiulia/NetMedPy.git    # if you haven't already
+cd NetMedPy
+git pull  
+```
 
 2. Inspect the input data
-All pre‑downloaded disease gene lists live under:
+Pre-downloaded disease gene lists are located at:
 
-```plaintext
+ ```plaintext
 examples/NetworkMedicineIntro/input_data/disease_genes/
-├── DGN_Huntington.csv      # Huntington’s disease gene list
+├── DGN_Huntington.csv      # Huntington's disease gene list
 ├── DGN_Rickets.csv         # Rickets gene list
-├── DGN_VDdeff.csv          # Vitamin D deficiency gene list
+├── DGN_VDdeff.csv          # Vitamin D deficiency gene list
 └── DGN_inflammation.csv    # Inflammation gene list
 ```
 
@@ -409,96 +410,241 @@ jupyter notebook Intro_Network_Medicine.ipynb
 
 Execute cells in order—each cell saves outputs under examples/NetworkMedicineIntro/output/.
 
-### Steps in `Intro_Network_Medicine.ipynb`:
+### Notebook workflow - Steps in `Intro_Network_Medicine.ipynb`:
 
-**1. Build and filter the PPI network**
-   
-The notebook uses tools.py to download STRING v12 interactions, filter for physical edges (score > 300), map Ensembl IDs to HGNC symbols, extract the largest connected component (LCC), and save:
+**1. Download and filter STRING PPI data** 
+
+The notebook first defines the URL for STRING v12 and downloads the protein-protein interaction data:
 
 ```python
-from tools import download_and_filter_string
-ppi = download_and_filter_string(version="12", score_threshold=300)
-ppi.to_csv("output/string_ppi_filtered.csv", index=False)
+# Define the URL for the STRING PPI dataset
+string_url = "https://stringdb-downloads.org/download/protein.physical.links.v12.0/9606.protein.physical.links.v12.0.txt.gz"
+
+# Define paths for temporary files
+string_gz_path = './tmp_string/string.gz'
+
+# Download and extract STRING data
+print("Downloading STRING dataset...")
+tools.download_file(string_url, string_gz_path)
+tools.ungz_file(string_gz_path, "./tmp_string/string_data")
 ```
-**2. Extract Vitamin D protein targets**
-   
-Next, it demonstrates CPIExtract integration to retrieve high‑confidence Vitamin D targets from multiple databases:
+
+It then processes the data by removing prefixes and converting Ensembl IDs to HGNC symbols:
 
 ```python
-from tools import extract_vitd_targets
-targets = extract_vitd_targets(compound="Vitamin D", databases=["DrugBank", "BindingDB"])
-import pandas as pd
-pd.Series(targets, name="gene").to_csv("output/vitd_targets.csv", index=False)
+print("Processing protein names...")
+string_df["protein1"] = string_df["protein1"].str.replace("9606.", "", regex=False)
+string_df["protein2"] = string_df["protein2"].str.replace("9606.", "", regex=False)
+
+# Convert Ensembl IDs to HGNC symbols
+ens_to_hgnc = tools.ensembl_to_hgnc(string_df)
+string_df["HGNC1"] = string_df["protein1"].map(ens_to_hgnc)
+string_df["HGNC2"] = string_df["protein2"].map(ens_to_hgnc)
+```
+
+Finally, it filters the network, extracts the largest connected component, and saves it:
+
+```python
+filtered_df = string_df.query("weight > 300")
+G_string = nx.from_pandas_edgelist(filtered_df, 'HGNC1', 'HGNC2', create_using=nx.Graph())
+
+G_string = netmedpy.extract_lcc(G_string.nodes, G_string)
+
+# Save to CSV
+df_edges = nx.to_pandas_edgelist(G_string)
+df_edges.to_csv("output/string_ppi_filtered.csv", index=False)
+```
+
+
+
+**2. Extract Vitamin D targets**
+   
+The notebook extracts compound-protein databases from a pre-packaged zip file:
+
+```python
+# Define database directory path
+data_path = "./output/cpie_Databases"
+
+if os.path.exists(data_path):
+    shutil.rmtree(data_path)
+
+tools.unzip_file("../VitaminD/supplementary/sup_data/cpie_databases/Databases.zip", data_path)
+```
+
+It then loads multiple databases into memory and searches for Vitamin D (Cholecalciferol) targets:
+
+```python
+# Store all databases in a dictionary
+dbs = {
+    'chembl': chembl_data,
+    'bdb': BDB_data,
+    'stitch': sttch_data,
+    'ctd': CTD_data,
+    'dtc': DTC_data,
+    'db': DB_data,
+    'dc': DC_data
+}
+
+# Cholecalciferol (PubChem CID: 5280795)
+comp_id = 5280795
+
+# Initialize Comp2Prot
+C2P = Comp2Prot('local', dbs=dbs)
+
+# Search for interactions
+comp_dat, status = C2P.comp_interactions(input_id=comp_id)
+
+# Extract HGNC symbols
+vd_targets = {"Vitamin D": list(comp_dat.hgnc_symbol)} 
+
+# Save extracted targets
+with open('./output/vd_targets.json', 'w') as f:
+    json.dump(vd_targets, f)
 ```
 
 **3. Load disease gene sets**
-   
+
+Disease-gene associations are loaded from DisGeNet files and filtered by confidence score:
+
 ```python
-from tools import load_disgenet_genes
-disease_genes = load_disgenet_genes("input_data/disease_genes")
-# disease_genes is a dict: { "Huntington": [...], "Rickets": [...], ... }
+# Directory containing the disease genes
+dis_gene_path = "input_data/disease_genes"
+
+disease_file_names = {
+    "Huntington":"DGN_Huntington.csv",
+    "Inflammation": "DGN_inflammation.csv",
+    "Rickets": "DGN_Rickets.csv",
+    "Vit. D defficiency": "DGN_VDdeff.csv"
+}
+
+disease_genes = {}
+
+# Load files and filter for strong associations
+for name,file_name in disease_file_names.items():
+    path = dis_gene_path + "/" + file_name
+
+    df = pd.read_csv(path)
+    df = df.query("Score_gda > 0.1")
+
+    disease_genes[name] =  list(df.Gene)
+
+# Save file
+with open('./output/disease_genes.json', 'w') as f:
+    json.dump(disease_genes, f)
 ```
 
-**4. Compute network proximity**
+**4.  Verify network coverage**
    
-Using netmedpy.proximity, it calculates average minimum shortest-path length (AMSPL) z‑scores between Vitamin D targets and each disease module under the degree‑log‑binning null model:
+The notebook checks which disease genes and drug targets are found in the PPI network:
 
 ```python
-import netmedpy
-import pandas as pd
+# Load PPI network
+ppi = pd.read_csv("output/string_ppi_filtered.csv")
+ppi = nx.from_pandas_edgelist(ppi, 'source', 'target', create_using=nx.Graph())
 
+# Keep only associations existing in the PPI
+nodes = set(ppi.nodes)
 for name, genes in disease_genes.items():
-    result = netmedpy.proximity(
-        ppi, targets, genes,
-        null_model="log_binning",
-        n_iter=1000,
-        symmetric=False
-    )
-    pd.DataFrame([result]).to_csv(f"output/proximity_{name}.csv", index=False)
+    disease_genes[name] = set(genes) & nodes
+    print(f"{name}: {len(disease_genes[name])} associations in PPI")
+
+for name, targets in dtargets.items():
+    dtargets[name] = set(targets) & nodes
+    print(f"{name}: {len(dtargets[name])} targets in PPI")
 ```
 
-**5. Visualize results**
+**5. Compute random walk distances**
     
-Finally, the notebook plots:
+The notebook calculates biased random walk distances between all nodes:
 
-- Histograms of randomized vs. observed distances for each disease
-
-- Network diagrams overlaying Vitamin D targets and disease modules
-  All figures are saved under output/plots/ (e.g. histogram_Huntington.png, network_inflammation.png):
 
 ```python
-from tools import plot_histograms, plot_network
+# Calculate Random Walk based distance between all pair of genes
+dmat = netmedpy.all_pair_distances(
+    ppi,
+    distance='biased_random_walk',
+    reset = 0.3
+)
 
-for name in disease_genes:
-    plot_histograms(name, f"output/proximity_{name}.csv", out_dir="output/plots")
-    plot_network(ppi, targets, disease_genes[name], filename=f"output/plots/network_{name}.png")
+# Save distances for further use
+netmedpy.save_distances(dmat,"output/ppi_distances_BRW.pkl")
 ```
+
+**6. Calculate proximity with log-binning null model**
+
+The notebook computes proximity z-scores using the log-binning null model:
+
+```python
+# Calculate proximity between Vitamin D targets and Diseases
+proximity_lb = netmedpy.screening(
+    dtargets, 
+    disease_genes, 
+    ppi,
+    dmat,
+    score="proximity",
+    properties=["z_score"],
+    null_model="log_binning",
+    n_iter=10000,n_procs=10
+)
+
+zscore_lb = proximity_lb['z_score'].T
+zscore_lb = zscore_lb.sort_values(by='Vitamin D')
+zscore_lb
+```
+
+**7. Repeat analysis with degree-matched null model**
+
+The same analysis is performed using the degree-match null model for comparison:
+
+```python
+pythonproximity_dm = netmedpy.screening(
+    dtargets, 
+    disease_genes, 
+    ppi,
+    dmat,
+    score="proximity",
+    properties=["z_score"],
+    null_model="degree_match",
+    n_iter=10000,n_procs=10
+)
+
+zscore_dm = proximity_dm['z_score'].T
+zscore_dm = zscore_dm.sort_values(by='Vitamin D')
+zscore_dm
+```
+
+
+**8. Compare results from both null models**
+
+Finally, the notebook combines results from both methods for comparison:
+pythonzscore_lb.columns = ["Log Binning"]
+zscore_dm.columns = ["Degree Match"]
+
+zscore = pd.merge(zscore_lb,zscore_dm, left_index=True, right_index=True)
+
+zscore
+This produces a table showing z-scores from both null models, with Vitamin D deficiency having the strongest connection to Vitamin D targets.
+
+
 
 ### Data sources
 
-- STRING v12: Human PPI interactions, filtered in step 1
-
-- CPIExtract: Compound–target data for Vitamin D in step 2
-
-- DisGeNet: Pre‑downloaded disease–gene associations (CSV files in input_data/disease_genes)
-
+- STRING v12: Human protein-protein interactions downloaded directly from stringdb-downloads.org
+- Compound-target databases: Collection of databases accessed from the VitaminD supplementary data folder
+- DisGeNet: Disease-gene associations provided as CSV files in the input_data folder
 
 ### Expected outputs
 
+After running the notebook, the following files will be created:
+
+
 ```bash
-examples/NetworkMedicineIntro/output/
-├── string_ppi_filtered.csv
-├── vitd_targets.csv
-├── proximity_Huntington.csv
-├── proximity_Rickets.csv
-├── proximity_VDdeff.csv
-├── proximity_inflammation.csv
-└── plots/
-    ├── histogram_Huntington.png
-    ├── histogram_Rickets.png
-    ├── histogram_VDdeff.png
-    ├── histogram_inflammation.png
-    └── network_<disease>.png
+output/
+├── string_ppi_filtered.csv    # Filtered STRING PPI network
+├── vd_targets.json           # Vitamin D protein targets
+├── disease_genes.json        # Disease gene sets
+├── ppi_distances_BRW.pkl     # Biased random walk distance matrix
+└── cpie_Databases/           # Extracted compound-protein interaction databases
 ```
 
 ## Package Structure
