@@ -365,7 +365,8 @@ amspl["Communicability"] = screen_data["raw_amspl"]
 This example introduces the core concepts of network medicine through a guided analysis of Vitamin D's relationship to several diseases using protein-protein interaction networks. The Jupyter notebook (`Intro_Network_Medicine.ipynb`) provides a step-by-step workflow demonstrating how to build and analyze biological networks to uncover drug-disease relationships.
 
 1. Clone or update the repository
-   ```bash
+2. 
+```bash
 git clone https://github.com/menicgiulia/NetMedPy.git    # if you haven't already
 cd NetMedPy
 git pull  
