@@ -360,6 +360,39 @@ screen_data = netmedpy.screening(vit_d, dgenes, ppi,
 
 amspl["Communicability"] = screen_data["raw_amspl"]
 ```
+
+### Robustness analysis
+
+#### Data Preparation
+
+Before running the PPI robustness analysis, you need to download and preprocess both the PPI networks and the Vitamin D target list. This is done in three steps:
+
+1. **Download and preprocess PPI networks**
+2. 
+   The `BioNetTools.py` module provides helper functions to fetch raw PPI files (MITAB, gz, or zip), extract them, convert to a pandas DataFrame, and dump out ready‑to‑use network CSVs.
+    
+   ```python
+   import BioNetTools as tools
+
+   # 1a. Download raw PPI archive (e.g. BioGRID MITAB or other source)
+   tools.download_file(
+       "https://downloads.thebiogrid.org/Download/BioGRID/Release-Archive/BIOGRID-4.4.221/BIOGRID-ALL-4.4.221.tab3.zip",
+       "sup_data/alternative_ppi/biogrid.zip"
+   )
+
+   # 1b. Unzip and/or gunzip into your alternative_ppi folder
+   tools.unzip_file("sup_data/alternative_ppi/biogrid.zip", "sup_data/alternative_ppi/")
+   # if you pulled down a .gz:
+   # tools.ungz_file("sup_data/alternative_ppi/filename.mitab.gz", "sup_data/alternative_ppi/")
+
+   # 1c. Load the MITAB into a DataFrame and save as CSV
+   df = tools.load_mitab_to_dataframe("sup_data/alternative_ppi/BIOGRID-ALL-4.4.221.tab3.mitab")
+   df.to_csv("sup_data/alternative_ppi/ppi_biogrid.csv", index=False)
+  ```
+
+All processed networks will end up in sup_data/alternative_ppi/.
+
+
 ## Example for entry-level users - Introduction to Network Medicine
 
 This example introduces the core concepts of network medicine through a guided analysis of Vitamin D's relationship to several diseases using protein-protein interaction networks. The Jupyter notebook (`Intro_Network_Medicine.ipynb`) provides a step-by-step workflow demonstrating how to build and analyze biological networks to uncover drug-disease relationships.
