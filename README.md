@@ -367,8 +367,8 @@ amspl["Communicability"] = screen_data["raw_amspl"]
 
 Before running the PPI robustness analysis, you need to download and preprocess both the PPI networks and the Vitamin D target list. This is done in three steps:
 
-1. **Download and preprocess PPI networks**
-2. 
+**1. Download and preprocess PPI networks**
+
    The `BioNetTools.py` module provides helper functions to fetch raw PPI files (MITAB, gz, or zip), extract them, convert to a pandas DataFrame, and dump out ready‑to‑use network CSVs.
     
    ```python
@@ -390,7 +390,29 @@ Before running the PPI robustness analysis, you need to download and preprocess 
    df.to_csv("sup_data/alternative_ppi/ppi_biogrid.csv", index=False)
   ```
 
-All processed networks will end up in sup_data/alternative_ppi/.
+All processed networks will end up in `sup_data/alternative_ppi/`.
+
+**2. Generate Vitamin D targets**
+
+Run the Jupyter notebook Vit_D_Targets.ipynb (or convert it to a script) to:
+
+- Unzip the CPiE database bundle (Databases.zip).
+
+- Query interactions for Cholecalciferol (PubChem CID 5280795) via cpiextract.Comp2Prot.
+
+- Extract the HGNC symbols and save them as a pickle at `data/input/drug_targets/vitd_targets_cpie.pkl`.
+
+**3. Run robustness analysis**
+
+Finally, open and run all cells in PPI_Robustness.ipynb. It will:
+
+- Load your main PPI from `data/input/ppi/ppi_network.pkl`.
+
+- Load each alternative PPI from `sup_data/alternative_ppi/` (e.g. ppi_biogrid.csv).
+
+- Load the Vitamin D target list from `data/input/drug_targets/vitd_targets_cpie.pkl`.
+
+- Compute and plot the network‐robustness metrics for each scenario.
 
 
 ## Example for entry-level users - Introduction to Network Medicine
