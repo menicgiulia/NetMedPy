@@ -619,15 +619,17 @@ zscore_dm
 **8. Compare results from both null models**
 
 Finally, the notebook combines results from both methods for comparison:
-pythonzscore_lb.columns = ["Log Binning"]
+
+```python
+zscore_lb.columns = ["Log Binning"]
 zscore_dm.columns = ["Degree Match"]
 
 zscore = pd.merge(zscore_lb,zscore_dm, left_index=True, right_index=True)
 
 zscore
+```
+
 This produces a table showing z-scores from both null models, with Vitamin D deficiency having the strongest connection to Vitamin D targets.
-
-
 
 ### Data sources
 
