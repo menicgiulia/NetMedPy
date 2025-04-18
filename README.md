@@ -24,9 +24,6 @@ NetMedPy has specific requirements for compatibility and ease of use.
 ### Python Version
 
 NetMedPy requires Python 3.8 or newer, but it is not compatible with Python 3.12 due to incompatibility with Ray. Ensure your Python version is between 3.8 and 3.11.9 inclusive.
-    
-### Recommended Environment
-While not essential, we recommend creating a dedicated conda environment for NetMedPy to ensure all dependencies are properly isolated.
 
 ### Required Packages
 The following Python packages are required to run NetMedPy:
@@ -39,15 +36,14 @@ The following Python packages are required to run NetMedPy:
 - scipy
 - matplotlib
 - seaborn
-
+  
 ### Installation steps
 
 Users can install NetMedPy and its dependencies using PIP (recommended). Alternatively, the source code can be downloaded, allowing for manual installation of the required dependencies if more customization is needed.
+    
+### Recommended Installation 
 
-
-#### I. Installing package and dependencies with PIP
-
-##### Option A: working with Conda
+While not essential, we recommend creating a dedicated conda environment for NetMedPy to ensure all dependencies are properly isolated.
 
 Working with Conda is recommended, but it is not essential. If you choose to work with Conda, these are the steps you need to take:
 
@@ -67,7 +63,9 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
   conda activate netmedpy_environment
   ```
   
-##### Option B: working without Conda
+### Installing the package and dependencies with PIP (working without Conda)
+
+Alternatively, you can install the package with PIP (in an existing conda environment, or no conda environment).
 
 - Ensure the following dependencies are installed before proceeding:
 
@@ -75,26 +73,14 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
   pip install networkx seaborn matplotlib numpy pandas ray scipy
   ```
 
-2. Install the package:
+- Install the package:
 
   ```bash
   pip install netmedpy
   ```
-      
-3. Download the directory `examples`.
-   
-4. Navigate to the directory `examples`:
 
-  ```bash
-  cd /user_path_to/examples
-  ```
-      
-5. Run the `Basic_example.py` script using Python 3 or higher:
 
-  ```bash
-  python Basic_example.py
-  ```
-#### II. Manual installation
+### Manual installation
 
 1. Ensure you have Python >= 3.8, <= 3.11.9 installed.
   
@@ -158,14 +144,19 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
     $env:PYTHONPATH = "C:\\user_path_to\\NetMedPy-main\\netmedpy;" + $env:PYTHONPATH
     ```
     
-6. Navigate to the directory `examples`:
+
+### Verifying the installation
+  
+1. Download the directory `examples`.
    
+2. Navigate to the directory `examples`:
+
   ```bash
-  cd examples
+  cd /user_path_to/examples
   ```
       
-7. Run the `Basic_example.py` script using Python 3 or higher (up to 3.11.9, due to conflicts with `Ray`):
-   
+3. Run the `Basic_example.py` script using Python 3 or higher:
+
   ```bash
   python Basic_example.py
   ```
