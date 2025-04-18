@@ -41,7 +41,7 @@ The following Python packages are required to run NetMedPy:
 
 Users can install NetMedPy and its dependencies using PIP (recommended). Alternatively, the source code can be downloaded, allowing for manual installation of the required dependencies if more customization is needed.
     
-#### Recommended Installation 
+#### Recommended
 
 While not essential, we recommend creating a dedicated conda environment for NetMedPy to ensure all dependencies are properly isolated.
 
@@ -63,7 +63,7 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
   conda activate netmedpy_environment
   ```
   
-#### Installing the package and dependencies with PIP (working without Conda)
+#### Installing with PIP 
 
 Alternatively, you can install the package with PIP (in an existing conda environment, or no conda environment).
 
@@ -80,7 +80,7 @@ Alternatively, you can install the package with PIP (in an existing conda enviro
   ```
 
 
-#### Manual installation
+#### From source code
 
 1. Ensure you have Python >= 3.8, <= 3.11.9 installed.
   
