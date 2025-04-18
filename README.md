@@ -369,28 +369,9 @@ Before running the PPI robustness analysis, you need to download and preprocess 
 
 **1. Download and preprocess PPI networks**
 
-   The `BioNetTools.py` module provides helper functions to fetch raw PPI files (MITAB, gz, or zip), extract them, convert to a pandas DataFrame, and dump out ready‑to‑use network CSVs.
+For this step, we use the `examples/VitaminD/supplementary/sup_code/data_integration/BioNets.ipynb` notebook and the `BioNetTools.py` module, which provides helper functions to fetch raw PPI files from BioGrid and STRING databases (MITAB, gz, or zip), extract them, convert to a pandas DataFrame, and dump out ready‑to‑use network CSVs.
     
-   ```python
-   import BioNetTools as tools
-
-   # 1a. Download raw PPI archive (e.g. BioGRID MITAB or other source)
-   tools.download_file(
-       "https://downloads.thebiogrid.org/Download/BioGRID/Release-Archive/BIOGRID-4.4.221/BIOGRID-ALL-4.4.221.tab3.zip",
-       "sup_data/alternative_ppi/biogrid.zip"
-   )
-
-   # 1b. Unzip and/or gunzip into your alternative_ppi folder
-   tools.unzip_file("sup_data/alternative_ppi/biogrid.zip", "sup_data/alternative_ppi/")
-   # if you pulled down a .gz:
-   # tools.ungz_file("sup_data/alternative_ppi/filename.mitab.gz", "sup_data/alternative_ppi/")
-
-   # 1c. Load the MITAB into a DataFrame and save as CSV
-   df = tools.load_mitab_to_dataframe("sup_data/alternative_ppi/BIOGRID-ALL-4.4.221.tab3.mitab")
-   df.to_csv("sup_data/alternative_ppi/ppi_biogrid.csv", index=False)
-  ```
-
-All processed networks will end up in `sup_data/alternative_ppi/`.
+All processed networks will end up in `xamples/VitaminD/supplementary/sup_data/alternative_ppi/`.
 
 **2. Vitamin D targets**
 
@@ -414,7 +395,7 @@ Finally, open and run all cells in `examples/VitaminD/supplementary/sup_code/rob
 
 ## Example for entry-level users - Introduction to Network Medicine and Data Generation
 
-This example introduces the core concepts of network medicine through a guided analysis of Vitamin D's relationship to several diseases using protein-protein interaction networks. The Jupyter notebook (`Intro_Network_Medicine.ipynb`) provides a step-by-step workflow demonstrating how to build and analyze biological networks to uncover drug-disease relationships.
+This example introduces the core concepts of network medicine through a guided analysis of Vitamin D's relationship to several diseases using protein-protein interaction networks. The Jupyter notebook (`examples/NetworkMedicineIntro/Intro_Network_Medicine.ipynb`) provides a step-by-step workflow demonstrating how to build and analyze biological networks to uncover drug-disease relationships.
 
 ### Notebook workflow - Steps in `examples/NetworkMedicineIntro/Intro_Network_Medicine.ipynb`:
 
@@ -506,7 +487,7 @@ with open('./output/vd_targets.json', 'w') as f:
     json.dump(vd_targets, f)
 ```
 
-**3. Load disease gene sets**
+**3. Extract and filter disease gene associations**
 
 Disease-gene associations are loaded from DisGeNet files and filtered by confidence score:
 
@@ -518,7 +499,7 @@ disease_file_names = {
     "Huntington":"DGN_Huntington.csv",
     "Inflammation": "DGN_inflammation.csv",
     "Rickets": "DGN_Rickets.csv",
-    "Vit. D defficiency": "DGN_VDdeff.csv"
+    "Vit. D deficiency": "DGN_VDdeff.csv"
 }
 
 disease_genes = {}
@@ -635,9 +616,9 @@ This produces a table showing z-scores from both null models, with Vitamin D def
 
 ### Data sources
 
-- STRING v12: Human protein-protein interactions downloaded directly from stringdb-downloads.org
+- STRING v12: Human protein-protein interactions downloaded directly from `stringdb-downloads.org`
 - Compound-target databases: Collection of databases accessed from the VitaminD supplementary data folder
-- DisGeNet: Disease-gene associations provided as CSV files in the input_data folder
+- DisGeNet: Disease-gene associations provided as CSV files in the `input_data` folder
 
 ### Expected outputs
 
