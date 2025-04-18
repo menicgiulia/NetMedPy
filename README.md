@@ -165,9 +165,13 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
 
 Details about each function (what it is used for, what the input parameters are, the possible values of the input parameters, what the output is) from the pipeline are available in `doc/build/html/NetMedPy.html` and in the `netmedpy/NetMedPy.py` script in the comments before each function. 
 
-## Example for understanding the pipeline - Vitamin D 
+## Case Study - Exploring Vitamin D’s Impact on Autoimmune, Cardiovascular, and Cancer Diseases
 
-After you have successfully run the Basic_example.py script to further test the pipeline, we refer to the Vitamin D example, which can be found in the `examples/VitaminD` directory. There are two files that you can use for testing:
+This example evaluates the role of Vitamin D in the modulation of autoimmune diseases, 
+cardiovascular diseases and cancer from a network medicine perspective and reproduces the results presented in the paper 
+"NetMedPy: A Python package for Large-Scale Network Medicine Screening"
+
+The scripts for this example are located in the `examples/VitaminD` directory. There are two files that you can use for testing:
 
 - A Python script: `VitD_pipeline.py`
 - A Jupyter notebook: `VitD_pipeline.ipynb`
@@ -356,7 +360,12 @@ screen_data = netmedpy.screening(vit_d, dgenes, ppi,
 amspl["Communicability"] = screen_data["raw_amspl"]
 ```
 
-### Robustness analysis
+### Case Study - Robustness analysis
+
+This notebook evaluates the robustness of network-based proximity calculations between Vitamin D targets and disease-associated genes.
+
+The objective is to assess how perturbations in the input data—such as different **Protein-Protein Interaction (PPI) networks**, disease-associated genes, and Vitamin D targets—impact the results obtained in the previous case study.
+
 
 #### Data Preparation
 
@@ -388,11 +397,11 @@ Finally, open and run all cells in `examples/VitaminD/supplementary/sup_code/rob
 - Compute and plot the network‐robustness metrics for each scenario.
 
 
-## Example for entry-level users - Introduction to Network Medicine and Data Generation
+## Case Study for entry-level users - Introduction to Network Medicine and Data Generation
 
-This example introduces the core concepts of network medicine through a guided analysis of Vitamin D's relationship to several diseases using protein-protein interaction networks. The Jupyter notebook (`examples/NetworkMedicineIntro/Intro_Network_Medicine.ipynb`) provides a step-by-step workflow demonstrating how to build and analyze biological networks to uncover drug-disease relationships.
+This example introduces the core concepts of network medicine through a guided analysis of Vitamin D's relationship to several diseases using protein-protein interaction networks. The Jupyter notebook (`examples/NetworkMedicineIntro/Intro_Network_Medicine.ipynb`) provides a step-by-step workflow demonstrating how to extract, integrate and analyze biological data to uncover drug-disease relationships.
 
-### Notebook workflow - Steps in `examples/NetworkMedicineIntro/Intro_Network_Medicine.ipynb`:
+### Notebook workflow - Steps in `Intro_Network_Medicine.ipynb`:
 
 **1. Download and filter STRING PPI data** 
 
