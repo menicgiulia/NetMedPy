@@ -163,6 +163,8 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
   python Basic_example.py
   ```
 
+Details about each function (what it is used for, what the input parameters are, the possible values of the input parameters, what the output is) from the pipeline are available in the `netmedpy/NetMedPy.py` script in the comments before each function. 
+
 ## Example for understanding the pipeline - Vitamin D 
 
 After you have successfully run the Basic_example.py script to further test the pipeline, we refer to the Vitamin D example, which can be found in the `examples/VitaminD` directory. There are two files that you can use for testing:
@@ -707,7 +709,7 @@ Root folder organization (__init__.py files removed for simplicity):
 
 ## Further information
 
-- Details about each function (what is it used for, what are the input parameters, the possible values of the input parameters, what is the output) from the pipeline are available in the `netmedpy/NetMedPy.py` script in the comments before each function. 
+- Details about each function (what it is used for, what the input parameters are, the possible values of the input parameters, what the output is) from the pipeline are available in the `netmedpy/NetMedPy.py` script in the comments before each function. 
 - An example on the use of the implemented functions is available in the file `examples/Basic_example.py', which can be executed fairly quickly in order to test the proper installation of the package and its functionalities.
 - A more elaborate example is available in the files `examples/VitaminD/VitD_pipeline.py` and `examples/VitaminD/VitD_pipeline.ipynb`, testing the functions with different parameters for evaluating the role of Vitamin D in the modulation of
 different diseases from a network medicine perspective. The data files (the protein-protein interaction network, the disease genes, and the Vitamin D targets) needed for executing this example are available in `examples/VitaminD/data`.
