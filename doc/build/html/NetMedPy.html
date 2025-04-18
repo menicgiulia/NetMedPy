@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>NetMedPy &#8212; NetMedPy 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Distance Matrix" href="DistanceMatrix.html" />
+    <link rel="prev" title="Welcome to NetMedPy’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-NetMedPy">
+<span id="netmedpy"></span><h1>NetMedPy<a class="headerlink" href="#module-NetMedPy" title="Link to this heading">¶</a></h1>
+<section id="functionality">
+<h2>Functionality<a class="headerlink" href="#functionality" title="Link to this heading">¶</a></h2>
+<p>This module provides the main NetMedPy functions for Network Medicine and
+network topology analysis. Functions allow for different notions of distance
+between nodes and null models.</p>
+<p>The main functions in this module include:</p>
+<ul class="simple">
+<li><p><cite>extract_lcc</cite>: Computes the Largest Connected Component (LCC) for a specified subset of nodes within a graph.</p></li>
+<li><p><cite>lcc_significance</cite>: Calculates the statistical significance of the LCC, as defined by a subset of nodes in a graph, according to a specified null model.</p></li>
+<li><p><cite>all_pair_distances</cite>: Calculates distances between every pair of nodes in a graph.</p></li>
+<li><p><cite>save_distances</cite>: Saves the precomputed distance matrix to a <cite>pickle</cite> file.</p></li>
+<li><p><cite>load_distances</cite>: Loads a precomputed distance matrix from a <cite>pickle</cite> file.</p></li>
+<li><p><cite>get_amspl</cite>: Calculates the Average Minimum Shortest Path Length between nodes.</p></li>
+<li><p><cite>proximity</cite>: Computes the proximity between two sets of nodes in a graph.</p></li>
+<li><p><cite>separation</cite>: Calculates the separation between two sets of nodes in a network.</p></li>
+<li><p><cite>separation_z_score</cite>: Determines the z-score of the separation between two node sets based on randomized samples.</p></li>
+<li><p><cite>screening</cite>: Screens for proximity/separation between sets of source and target nodes.</p></li>
+</ul>
+</section>
+<section id="distance-metrics">
+<h2>Distance metrics.<a class="headerlink" href="#distance-metrics" title="Link to this heading">¶</a></h2>
+<p>When calculating the distance matrix, four information flow metrics are available to the user:</p>
+<ul class="simple">
+<li><p><cite>shortest_path</cite>: Distance between nodes is based in the length of the path with the least number of edges or lowest total weight that connects two nodes</p></li>
+<li><p><cite>random_walk</cite>: Distance between nodes is based in the probability of reaching one node from another via a random walk.</p></li>
+<li><p><cite>biased_random_walk</cite>: Same as random_walk but compensating the bias induced by the degree of the target node.</p></li>
+<li><p><cite>communicability</cite>: Distance between nodes is based on the concept of communicability, defined as the ability of nodes to communicate or send information through all available paths in a network, considering the indirect and direct connections.</p></li>
+</ul>
+</section>
+<section id="null-models">
+<h2>Null models.<a class="headerlink" href="#null-models" title="Link to this heading">¶</a></h2>
+<p>The NetMedPy functions involving statistical analysis allow the user to select among the following null models:</p>
+<ul class="simple">
+<li><p><cite>degree_match</cite>: selects random samples replicating the original node-set’s degree distribution.</p></li>
+<li><p><cite>log_binning</cite>: categorizes the degrees of all nodes within the network into logarithmically sized bins. Samples are then drawn by matching the degree of the original nodes to those within the corresponding bins.</p></li>
+<li><p><cite>strength_binning</cite>: analogous to log_binning, using the strength of the nodes instead of their degrees.</p></li>
+<li><p><cite>uniform</cite>: randomly selects nodes from the entire network, disregarding their degree or strength.</p></li>
+<li><p><cite>custom</cite>: allows users to specify custom null models.</p></li>
+</ul>
+<p>These functions use both exact and approximate methods for degree-preserving and non-degree preserving randomization of node sets. Additionally,
+precomputed distance matrices are leveraged for efficient computation.</p>
+</section>
+<section id="required-packages">
+<h2>Required packages:<a class="headerlink" href="#required-packages" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>networkx</p></li>
+<li><p>numpy</p></li>
+<li><p>pickle</p></li>
+<li><p>multiprocessing</p></li>
+<li><p>random</p></li>
+<li><p>scipy</p></li>
+<li><p>ray</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="authors">
+<h2>Authors:<a class="headerlink" href="#authors" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Andres Aldana Gonzalez (<a class="reference external" href="mailto:a&#46;aldana&#37;&#52;&#48;northeastern&#46;edu">a<span>&#46;</span>aldana<span>&#64;</span>northeastern<span>&#46;</span>edu</a>)</p></li>
+<li><p>Rodrigo Dorantes Gilardi (<a class="reference external" href="mailto:r&#46;dorantesgilardi&#37;&#52;&#48;northeastern&#46;edu">r<span>&#46;</span>dorantesgilardi<span>&#64;</span>northeastern<span>&#46;</span>edu</a>)</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="references">
+<h2>References:<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Menche, Jörg, et al. “Uncovering disease-disease relationships through the incomplete interactome.” Science 347.6224 (2015). DOI 10.1126/science.1257601</p></li>
+<li><p>Guney, Emre, et al.  “Network-based in silico drug efficacy screening.” Nature Communications 7,1 (2015). DOI 10.1038/ncomms10331</p></li>
+<li><p>Estrada, Ernesto, and Naomichi Hatano. “Communicability in complex networks.” Physical Review E 77.3 (2008): 036111.</p></li>
+<li><p>Masuda, Naoki, Mason A. Porter, and Renaud Lambiotte. “Random walks and diffusion on networks.” Physics reports 716 (2017): 1-58.</p></li>
+<li><p>Le, Duc-Hau. “Random walk with restart: A powerful network propagation algorithm in Bioinformatics field.” 2017 4th NAFOSTED Conference on Information and Computer Science. IEEE, 2017.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<dl class="py function">
+<dt class="sig sig-object py" id="NetMedPy.all_pair_distances">
+<span class="sig-prename descclassname"><span class="pre">NetMedPy.</span></span><span class="sig-name descname"><span class="pre">all_pair_distances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'shortest_path'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_processors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_tasks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NetMedPy.all_pair_distances" title="Link to this definition">¶</a></dt>
+<dd><p>Calculates distances between every pair of nodes in a graph according to the specified method and returns
+a DistanceMatrix object. This function supports multiple distance calculation methods, including shortest
+path, various types of random walks, and user-defined methods.</p>
+<section id="parameters">
+<h2>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>graph<span class="classifier">networkx.Graph</span></dt><dd><p>The input graph for which pairwise distances will be computed. Nodes should be unique and hashable.</p>
+</dd>
+<dt>distance<span class="classifier">str, optional</span></dt><dd><p>The method used to calculate distances. Options include ‘shortest_path’, ‘random_walk’, ‘biased_random_walk’,
+‘communicability’, and ‘custom’. Default is ‘shortest_path’.</p>
+</dd>
+<dt>custom_distance<span class="classifier">function, optional</span></dt><dd><p>A custom function for distance calculation, used when ‘distance’ is set to ‘custom’. This function should
+have the signature <cite>function_name(a, networkx.Graph, **kwargs)</cite>, where ‘a’ is the source node, ‘networkx.Graph’
+is the graph, and ‘<a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs’ are additional arguments. It should return a dictionary where each key ‘k’ is a
+target node and the value is the distance from the source node ‘a’ to ‘k’. The dictionary must include distances
+from ‘a’ to all other nodes in the graph.</p>
+</dd>
+<dt>reset<span class="classifier">float, optional</span></dt><dd><p>The reset probability for random walk-based distance calculations. Must be between 0 and 1. Default is 0.2.</p>
+</dd>
+<dt>kwargs<span class="classifier">dict</span></dt><dd><p>Additional keyword arguments passed to the user-defined distance function.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h2>Returns:<a class="headerlink" href="#returns" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>DistanceMatrix</dt><dd><p>A DistanceMatrix object where the value at <cite>matrix[node1][node2]</cite> gives the calculated distance
+from <cite>node1</cite> to <cite>node2</cite> according to the specified method.</p>
+</dd>
+</dl>
+</section>
+<section id="raises">
+<h2>Raises:<a class="headerlink" href="#raises" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>ValueError</dt><dd><ul class="simple">
+<li><p>If the network is not connected (contains more than one connected component).</p></li>
+<li><p>If the ‘distance’ parameter is not one of the valid options.</p></li>
+<li><p>If ‘reset’ is not within the range [0, 1] for random walk-based distances.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="notes">
+<h2>Notes:<a class="headerlink" href="#notes" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>The function utilizes multiple processes and should be invoked from the main execution environment only.</p></li>
+<li><p>For user-defined distances, ensure the custom function is correctly structured and returns the expected format.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="NetMedPy.extract_lcc">
+<span class="sig-prename descclassname"><span class="pre">NetMedPy.</span></span><span class="sig-name descname"><span class="pre">extract_lcc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">net</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NetMedPy.extract_lcc" title="Link to this definition">¶</a></dt>
+<dd><p>Extracts the Largest Connected Component (LCC) from a subgraph of <cite>net</cite> induced by the set of nodes <cite>A</cite>.</p>
+<p>This function first verifies that all nodes in <cite>A</cite> exist in <cite>net</cite>. If any nodes in <cite>A</cite> do not exist in <cite>net</cite>,
+it issues a warning and proceeds with the existing nodes. It then creates a subgraph of <cite>net</cite> that includes
+only the nodes in <cite>A</cite>. The largest connected component (LCC) within this subgraph is identified and returned
+as a subgraph of <cite>net</cite>.</p>
+<section id="id3">
+<h2>Parameters:<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>A<span class="classifier">iterable</span></dt><dd><p>An iterable (e.g., list, set) of nodes. The subgraph is induced by these nodes.</p>
+</dd>
+<dt>net<span class="classifier">networkx.Graph</span></dt><dd><p>The original graph from which the subgraph and LCC are derived.</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h2>Returns:<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>networkx.Graph</dt><dd><p>A subgraph of <cite>net</cite> containing only the nodes in the largest connected component of the subgraph
+induced by <cite>A</cite>.</p>
+</dd>
+</dl>
+</section>
+<section id="id5">
+<h2>Notes:<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>If <cite>A</cite> is empty or consists of nodes not in <cite>net</cite>, the function will issue a warning and return an empty graph.</p></li>
+<li><p>The function utilizes NetworkX’s methods for subgraph creation and connected component identification.</p></li>
+</ul>
+</section>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G_sub</span> <span class="o">=</span> <span class="n">extract_lcc</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">G</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">G_sub</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+<span class="go">[1, 2, 3]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="NetMedPy.get_amspl">
+<span class="sig-prename descclassname"><span class="pre">NetMedPy.</span></span><span class="sig-name descname"><span class="pre">get_amspl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">net</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NetMedPy.get_amspl" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the average minimum distance between each node in A and all nodes in B, using the
+distance matrix D to access precomputed distances between nodes.</p>
+<section id="id6">
+<h2>Parameters:<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>net<span class="classifier">networkx.Graph</span></dt><dd><p>The input network/graph for which distances need to be computed.</p>
+</dd>
+<dt>A<span class="classifier">Iterable (list, set, etc.)</span></dt><dd><p>A collection of nodes from which the shortest paths to nodes in B will be computed.</p>
+</dd>
+<dt>B<span class="classifier">Iterable (list, set, etc.)</span></dt><dd><p>A collection of nodes to which the shortest paths from nodes in A will be computed.</p>
+</dd>
+<dt>D<span class="classifier">dict of dicts</span></dt><dd><p>A distance matrix where D[i][j] gives the precomputed shortest distance between nodes i and j.
+If there’s no path between i and j, D[i][j] should be None.</p>
+</dd>
+</dl>
+</section>
+<section id="id7">
+<h2>Returns:<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>avg<span class="classifier">float</span></dt><dd><p>The average of the minimum distances between each node in A and all nodes in B.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="NetMedPy.lcc_significance">
+<span class="sig-prename descclassname"><span class="pre">NetMedPy.</span></span><span class="sig-name descname"><span class="pre">lcc_significance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">net</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'degree_match'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_bucket</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NetMedPy.lcc_significance" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate the statistical significance of the size of the Largest Connected Component (LCC)
+of a subgraph induced by the node set <cite>A</cite> in the network <cite>net</cite>.</p>
+<p>This function generates a null model distribution for the LCC size by resampling nodes from the
+network while preserving their degrees. The statistical significance of the observed LCC size is
+then determined by comparing it against this null model distribution.</p>
+<section id="id8">
+<h2>Parameters:<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>net<span class="classifier">networkx.Graph</span></dt><dd><p>The input network.</p>
+</dd>
+<dt>A<span class="classifier">list or set</span></dt><dd><p>The set of nodes for which the LCC is to be determined.</p>
+</dd>
+<dt>null_model<span class="classifier">str, optional (default=’degree_match’)</span></dt><dd><p>The method used for generating the null model. Can be ‘degree_match’, ‘log_binning’,
+‘uniform’, or ‘custom’.</p>
+</dd>
+<dt>node_bucket<span class="classifier">dictionary, optional</span></dt><dd><p>A collection of nodes to be used in ‘custom’ mode, mandatory when the null_model is set to ‘custom’.
+This parameter should be a dictionary where each key represents a node (‘node_k’) from the network,
+and the corresponding value is a list of alternative nodes (‘proxy_i’).
+These alternatives are used by the null model for resampling:
+node_bucket[node_k] = [proxy_1, proxy_2, …, proxy_m].
+Here, each ‘proxy_i’ serves as a potential substitute to be sampled in place of ‘node_k’.</p>
+</dd>
+<dt>n_iter<span class="classifier">int, optional (default=1000)</span></dt><dd><p>Number of iterations for generating the null model distribution.</p>
+</dd>
+<dt>bin_size<span class="classifier">int, optional (default=100)</span></dt><dd><p>Size of bins if ‘log_binning’ method is used.</p>
+</dd>
+</dl>
+</section>
+<section id="id9">
+<h2>Returns:<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>dict :</dt><dd><dl class="simple">
+<dt>A dictionary containing:</dt><dd><ul class="simple">
+<li><p>‘d_mu’: Mean of the null model LCC size distribution.</p></li>
+<li><p>‘d_sigma’: Standard deviation of the null model LCC size distribution.</p></li>
+<li><p>‘z_score’: The z-score of the observed LCC size.</p></li>
+<li><p>‘p_val’: The p-value corresponding to the z-score.</p></li>
+<li><p>‘lcc’: Nodes in the largest connected component of <cite>A</cite>.</p></li>
+<li><p>‘lcc_size’: Size of the largest connected component of <cite>A</cite>.</p></li>
+<li><p>‘dist’: The null model LCC size distribution.</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="id10">
+<h2>Raises:<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>ValueError:</dt><dd><ul class="simple">
+<li><p>If ‘n_iter’ is less than or equal to 0.</p></li>
+<li><p>If ‘bin_size’ is less than 1 when ‘log_binning’ or ‘strength_binning’ is used.</p></li>
+<li><p>If ‘null_model’ is not one of [‘degree_match’, ‘log_binning’, ‘strength_binning’, ‘uniform’, ‘custom’].</p></li>
+<li><p>If ‘node_bucket’ is not provided when ‘null_model’ is ‘custom’.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="warnings">
+<h2>Warnings:<a class="headerlink" href="#warnings" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>UserWarning:</dt><dd><ul class="simple">
+<li><p>If any elements in <cite>A</cite> do not exist in the network.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="id11">
+<h2>Notes:<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Ensure the network does not contain any isolated nodes.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="NetMedPy.load_distances">
+<span class="sig-prename descclassname"><span class="pre">NetMedPy.</span></span><span class="sig-name descname"><span class="pre">load_distances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NetMedPy.load_distances" title="Link to this definition">¶</a></dt>
+<dd><p>Loads a precomputed distance matrix from a file using the <cite>pickle</cite> module.</p>
+<p>This function deserializes and retrieves a distance matrix (of the DistanceMatrix class)
+that was previously saved to a file. This operation is the inverse of saving the matrix using
+the <cite>pickle</cite> module.</p>
+<section id="id12">
+<h2>Parameters:<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>filename<span class="classifier">str</span></dt><dd><p>The path and name of the file from which the distance matrix is to be loaded. The file
+should have been previously saved using the <cite>pickle</cite> module, typically via the <cite>save_distances</cite> function.</p>
+</dd>
+</dl>
+</section>
+<section id="id13">
+<h2>Returns:<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>DistanceMatrix</dt><dd><p>The distance matrix D, where D[a][b] represents the shortest path distance from
+source node a to target node b.</p>
+</dd>
+</dl>
+</section>
+<section id="id14">
+<h2>Notes:<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>The loaded file is in binary format due to the usage of the <cite>pickle</cite> module. Exercise
+caution when loading pickled data from untrusted sources, as it can pose a security risk.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="NetMedPy.proximity">
+<span class="sig-prename descclassname"><span class="pre">NetMedPy.</span></span><span class="sig-name descname"><span class="pre">proximity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">net</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'degree_match'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_bucket</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symmetric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NetMedPy.proximity" title="Link to this definition">¶</a></dt>
+<dd><p>Calculates the proximity between two sets of nodes in a given graph, based on the approach described by Guney et al., 2016.
+The method computes either the average shortest path length (ASPL) or its symmetrical version (SASPL) between two sets of nodes.</p>
+<p>The function first verifies if the network is connected. If it contains more than one connected component, a ValueError is raised.
+It also checks for the existence of all nodes in sets T and S within the network. If any nodes are missing, it issues a warning
+and proceeds with the existing nodes.</p>
+<section id="id15">
+<h2>Parameters:<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>net<span class="classifier">networkx.Graph</span></dt><dd><p>The input graph for which pairwise proximities will be computed.</p>
+</dd>
+<dt>T<span class="classifier">Iterable (list, set, etc.)</span></dt><dd><p>A collection of ‘source’ nodes.</p>
+</dd>
+<dt>S<span class="classifier">Iterable (list, set, etc.)</span></dt><dd><p>A collection of ‘target’ nodes.</p>
+</dd>
+<dt>D<span class="classifier">DistanceMatrix</span></dt><dd><p>A precomputed distance matrix where D[i][j] provides the shortest distance between nodes i and j.
+This matrix should be generated using the <cite>all_pair_distances</cite> function or an equivalent method.</p>
+</dd>
+<dt>null_model<span class="classifier">str, optional</span></dt><dd><p>Method for degree-preserving randomization. Valid options are ‘degree_match’, ‘log_binning’, ‘uniform’,
+‘strength_binning’ and ‘custom’. Default is ‘degree_match’.</p>
+</dd>
+<dt>node_bucket<span class="classifier">dictionary, optional</span></dt><dd><p>A collection of nodes to be used in ‘custom’ mode, mandatory when the null_model is set to ‘custom’.
+This parameter should be a dictionary where each key represents a node (‘node_k’) from the network,
+and the corresponding value is a list of alternative nodes (‘proxy_i’).
+These alternatives are used by the null model for resampling:
+node_bucket[node_k] = [proxy_1, proxy_2, …, proxy_m].
+Here, each ‘proxy_i’ serves as a potential substitute to be sampled in place of ‘node_k’.</p>
+</dd>
+<dt>n_iter<span class="classifier">int, optional</span></dt><dd><p>Number of iterations/samples for assessing significance. Default is 1000.</p>
+</dd>
+<dt>bin_size<span class="classifier">int, optional</span></dt><dd><p>Determines the size of the logarithmic bins when using the ‘log-binning’ method. Default is 100.</p>
+</dd>
+<dt>symmetric<span class="classifier">bool, optional</span></dt><dd><p>If True, computes the symmetrical version of proximity using SASPL; otherwise, uses ASPL. Default is False.</p>
+</dd>
+</dl>
+</section>
+<section id="id16">
+<h2>Returns:<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>dict</dt><dd><p>A dictionary containing various statistics related to proximity, including:
+- ‘d_mu’: The average distance in the randomized samples.
+- ‘d_sigma’: The standard deviation of distances in the randomized samples.
+- ‘z_score’: The z-score of the actual distance in relation to the randomized samples.
+- ‘p_value_single_tail’: One-tail P-value associated with the proximity z-score
+- ‘p_value_double_tail’: Two-tail P-value associated with the proximity z-score
+- ‘p_val’: P-value associated with the z-score.
+- ‘raw_amspl’: The raw average minimum shortest path length between sets T and S.</p>
+<ul class="simple">
+<li><p>‘dist’: A list containing distances from each randomization iteration.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="id17">
+<h2>Raises:<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>ValueError:</dt><dd><ul class="simple">
+<li><p>If the network is not connected (contains more than one connected component).</p></li>
+<li><p>If ‘n_iter’ is less than or equal to 0.</p></li>
+<li><p>If ‘bin_size’ is less than 1 when ‘log_binning’ or ‘strength_binning’ is used.</p></li>
+<li><p>If ‘null_model’ is not one of [‘degree_match’, ‘log_binning’, ‘strength_binning’, ‘uniform’, ‘custom’].</p></li>
+<li><p>If ‘node_bucket’ is not provided when ‘null_model’ is ‘custom’.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="id18">
+<h2>Warnings:<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>UserWarning:</dt><dd><ul class="simple">
+<li><p>If any elements in <cite>T</cite> or <cite>S</cite> do not exist in the network.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="id19">
+<h2>Notes:<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>The network should be connected to obtain meaningful proximity values. Disconnected components may skew results.</p></li>
+<li><p>Proximity is based on the paper by Guney et al. 2016 (doi:10.1038/ncomms10331).</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="NetMedPy.random_walk">
+<span class="sig-prename descclassname"><span class="pre">NetMedPy.</span></span><span class="sig-name descname"><span class="pre">random_walk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restart_prob</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.15</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NetMedPy.random_walk" title="Link to this definition">¶</a></dt>
+<dd><p>Perform a Biased Random Walk with Restart (BRWR) using the PageRank algorithm
+with a personalization vector to bias the walk toward selected seed nodes.</p>
+<p>This method is commonly used in network biology, recommendation systems, and
+influence ranking, where it helps prioritize nodes based on their relevance
+to a given set of seed nodes (e.g., disease genes, source nodes).</p>
+<section id="id20">
+<h2>Parameters<a class="headerlink" href="#id20" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>G<span class="classifier">networkx.Graph</span></dt><dd><p>The input graph (can be directed or undirected).</p>
+</dd>
+<dt>seed<span class="classifier">list, set, or dict</span></dt><dd><p>The set of seed nodes used to bias the walk.
+- If a list or set: all seeds are assigned equal weight.
+- If a dict: keys are node names and values are their weights (importance).</p>
+</dd>
+<dt>restart_prob<span class="classifier">float, optional (default=0.15)</span></dt><dd><p>Probability of restarting the walk at a seed node at each step.
+The complement (1 - restart_prob) is used to walk to neighbors.</p>
+</dd>
+</dl>
+</section>
+<section id="id21">
+<h2>Returns<a class="headerlink" href="#id21" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>pandas.DataFrame</dt><dd><p>A DataFrame sorted by descending BScore, with the following columns:
+- ‘Node’: Node identifier
+- ‘Degree’: Degree of the node
+- ‘Score’: PageRank score (influenced by proximity to seed nodes)
+- ‘BScore’: Score normalized by degree, penalizing high-degree hubs</p>
+</dd>
+</dl>
+</section>
+<section id="id22">
+<h2>Raises<a class="headerlink" href="#id22" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>If none of the provided seed nodes exist in the graph.</p>
+</dd>
+<dt>TypeError</dt><dd><p>If seed is not a list, set, or dict.</p>
+</dd>
+</dl>
+</section>
+<section id="id23">
+<h2>Notes<a class="headerlink" href="#id23" title="Link to this heading">¶</a></h2>
+<p>The normalized score ‘BScore’ is useful when you want to reduce the
+influence of high-degree nodes that naturally accumulate higher PageRank scores.</p>
+</section>
+<section id="id24">
+<h2>Example<a class="headerlink" href="#id24" title="Link to this heading">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">netmedpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">BRWR</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">karate_club_graph</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">seed_weights</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="mi">0</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>   <span class="c1"># Assign higher influence to node 0</span>
+<span class="gp">... </span>    <span class="mi">33</span><span class="p">:</span> <span class="mf">0.3</span>   <span class="c1"># Assign lower influence to node 33</span>
+<span class="gp">... </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">BRWR</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">seed_weights</span><span class="p">,</span> <span class="n">restart_prob</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="NetMedPy.save_distances">
+<span class="sig-prename descclassname"><span class="pre">NetMedPy.</span></span><span class="sig-name descname"><span class="pre">save_distances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distances</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NetMedPy.save_distances" title="Link to this definition">¶</a></dt>
+<dd><p>Saves the precomputed distance matrix to a file using the <cite>pickle</cite> module.</p>
+<p>This function serializes the given distance matrix and writes it to a specified file. The
+saved file can later be loaded to quickly retrieve the distance matrix without needing to
+recompute the distances.</p>
+<section id="id25">
+<h2>Parameters:<a class="headerlink" href="#id25" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>distances<span class="classifier">DistanceMatrix</span></dt><dd><p>The distance matrix D, where D[a][b] represents the shortest path distance from
+source node a to target node b.</p>
+</dd>
+<dt>filename<span class="classifier">str</span></dt><dd><p>The path and name of the file to which the distances should be saved. If the file
+already exists, it will be overwritten.</p>
+</dd>
+</dl>
+</section>
+<section id="id26">
+<h2>Notes:<a class="headerlink" href="#id26" title="Link to this heading">¶</a></h2>
+<p>The saved file is in binary format due to the usage of the <cite>pickle</cite> module. Always be cautious
+when loading pickled data from untrusted sources as it can be a security risk.</p>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="NetMedPy.screening">
+<span class="sig-prename descclassname"><span class="pre">NetMedPy.</span></span><span class="sig-name descname"><span class="pre">screening</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sources</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'proximity'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['z_score']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'degree_match'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_bucket</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symmetric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_procs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NetMedPy.screening" title="Link to this definition">¶</a></dt>
+<dd><p>Screens for relationships between sets of source and target nodes within a given network,
+evaluating proximity or separation. This function facilitates drug repurposing and other network
+medicine applications by allowing the assessment of network-based relationships.</p>
+<section id="id27">
+<h2>Parameters:<a class="headerlink" href="#id27" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>sources<span class="classifier">dict</span></dt><dd><p>A dictionary where keys are identifiers (e.g., drug names) and values are sets of nodes
+(e.g., drug target genes) representing source entities.</p>
+</dd>
+<dt>targets<span class="classifier">dict</span></dt><dd><p>A dictionary where keys are identifiers (e.g., disease names) and values are sets of nodes
+(e.g., disease genes) representing target entities.</p>
+</dd>
+<dt>network<span class="classifier">networkx.Graph</span></dt><dd><p>The graph representing the network within which the analysis is conducted. Can be weighted or unweighted.</p>
+</dd>
+<dt>distance_matrix<span class="classifier">DistanceMatrix</span></dt><dd><p>A precomputed matrix providing the shortest distance between node pairs. Should be generated
+using <cite>all_pair_distances</cite> or a similar method.</p>
+</dd>
+<dt>score<span class="classifier">str, optional</span></dt><dd><p>The metric for comparison. Options: “proximity”, “separation_z_score”, “separation”. Default is “proximity”.</p>
+</dd>
+<dt>properties<span class="classifier">list, optional</span></dt><dd><p>The properties to retrieve from the analysis based on the <cite>score</cite>. Options vary based on the selected <cite>score</cite>:
+- For “proximity”: ‘z_score’, ‘p_value_single_tail’, ‘p_value_double_tail’, ‘raw_amspl’
+- For “separation_z_score”: ‘z_score’, ‘p_value_single_tail’, ‘p_value_double_tail’, ‘raw_separation’
+- For “separation”: ‘raw_separation’
+Default is [“z_score”].</p>
+</dd>
+<dt>null_model<span class="classifier">str, optional</span></dt><dd><p>Method for degree-preserving randomization. Valid options are ‘degree_match’, ‘log_binning’, ‘uniform’,
+‘strength_binning’ and ‘custom’. Default is ‘degree_match’.</p>
+</dd>
+<dt>node_bucket<span class="classifier">dictionary, optional</span></dt><dd><p>A collection of nodes to be used in ‘custom’ mode, mandatory when the null_model is set to ‘custom’.
+This parameter should be a dictionary where each key represents a node (‘node_k’) from the network,
+and the corresponding value is a list of alternative nodes (‘proxy_i’).
+These alternatives are used by the null model for resampling:
+node_bucket[node_k] = [proxy_1, proxy_2, …, proxy_m].
+Here, each ‘proxy_i’ serves as a potential substitute to be sampled in place of ‘node_k’.</p>
+</dd>
+<dt>n_iter<span class="classifier">int, optional</span></dt><dd><p>Number of iterations/samples for assessing significance. Default is 1000.</p>
+</dd>
+<dt>bin_size<span class="classifier">int, optional</span></dt><dd><p>Determines the size of the logarithmic bins when using the ‘log-binning’ method. Default is 100.</p>
+</dd>
+<dt>symmetric<span class="classifier">bool, optional</span></dt><dd><p>If True, computes the symmetrical version of proximity using SASPL; otherwise, uses ASPL. Default is False.</p>
+</dd>
+<dt>n_procs<span class="classifier">int, optional</span></dt><dd><p>Number of processors to use. Defaults to the number of CPUs available if None.</p>
+</dd>
+</dl>
+</section>
+<section id="id28">
+<h2>Returns:<a class="headerlink" href="#id28" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>dict of pd.DataFrame</dt><dd><p>A dictionary where each key corresponds to a property from the <cite>properties</cite> list and the value is a DataFrame.
+Each DataFrame is indexed by source entities with columns representing target entities, populated with
+the values of the specified <cite>score</cite> for the corresponding property.</p>
+</dd>
+</dl>
+</section>
+<section id="id29">
+<h2>Raises:<a class="headerlink" href="#id29" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>If the network is not connected, if n_iter &lt;= 0, if bin_size &lt; 1 for certain null models,
+or if the null model or score specified is invalid.</p>
+</dd>
+</dl>
+</section>
+<section id="id30">
+<h2>Notes:<a class="headerlink" href="#id30" title="Link to this heading">¶</a></h2>
+<p>This function utilizes Ray for parallel processing to efficiently compute the desired metrics across
+multiple source-target pairs.</p>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="NetMedPy.separation">
+<span class="sig-prename descclassname"><span class="pre">NetMedPy.</span></span><span class="sig-name descname"><span class="pre">separation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">net</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NetMedPy.separation" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the separation between two sets of nodes, A and B, in the network <cite>net</cite> as defined by Menche et al., 2015.
+This measure indicates the relative distance or closeness of two sets of nodes (e.g., genes or proteins) in a network,
+which is useful for understanding relationships like disease-disease interactions or connections between different
+groups of nodes in a biological network.</p>
+<p>The function first checks if the network is connected. If it contains more than one connected component, a ValueError
+is raised. It also verifies the existence of all nodes in sets A and B within the network, issuing warnings for any
+nodes not found.</p>
+<section id="id31">
+<h2>Parameters:<a class="headerlink" href="#id31" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>net<span class="classifier">networkx.Graph</span></dt><dd><p>The input network or graph in which the separation between node sets A and B will be calculated.</p>
+</dd>
+<dt>A<span class="classifier">container (list, set, etc.)</span></dt><dd><p>A subset of nodes in <cite>net</cite> representing the first group.</p>
+</dd>
+<dt>B<span class="classifier">container (list, set, etc.)</span></dt><dd><p>A subset of nodes in <cite>net</cite> representing the second group.</p>
+</dd>
+<dt>D<span class="classifier">DistanceMatrix</span></dt><dd><p>A precomputed distance matrix where D[i][j] provides the shortest distance between nodes i and j.
+This matrix should be generated using the <cite>all_pair_distances</cite> function or an equivalent method.</p>
+</dd>
+</dl>
+</section>
+<section id="id32">
+<h2>Returns:<a class="headerlink" href="#id32" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>float</dt><dd><p>The separation value between node sets A and B in the network <cite>net</cite>. A smaller value indicates
+that the two sets are closer in the network, while a larger value indicates that they are more
+distantly located.</p>
+</dd>
+</dl>
+</section>
+<section id="id33">
+<h2>Raises:<a class="headerlink" href="#id33" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>ValueError:</dt><dd><ul class="simple">
+<li><p>If the network is not connected (contains more than one connected component).</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="id34">
+<h2>Warnings:<a class="headerlink" href="#id34" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>UserWarning:</dt><dd><ul class="simple">
+<li><p>If any elements in <cite>A</cite> or <cite>B</cite> do not exist in the network.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="id35">
+<h2>References:<a class="headerlink" href="#id35" title="Link to this heading">¶</a></h2>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id36" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<p>Menche, Jörg, et al.
+“Uncovering disease-disease relationships through the incomplete interactome.”
+Science 347.6224 (2015).</p>
+</aside>
+</aside>
+</section>
+<section id="id37">
+<h2>Notes:<a class="headerlink" href="#id37" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Ensure the network is connected to obtain meaningful separation values. Disconnected components may skew the results.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="NetMedPy.separation_z_score">
+<span class="sig-prename descclassname"><span class="pre">NetMedPy.</span></span><span class="sig-name descname"><span class="pre">separation_z_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">net</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'degree_match'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_bucket</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NetMedPy.separation_z_score" title="Link to this definition">¶</a></dt>
+<dd><p>Calculates the z-score of the separation between two sets of nodes, A and B, in the network <cite>net</cite>,
+based on randomized node sets with degree-preserving properties.</p>
+<p>The function first checks if the network is connected. If it contains more than one connected component,
+it raises a ValueError. It also checks if all nodes in A and B exist in the network. If any nodes are not
+found, it issues a warning and proceeds with the existing nodes. The function calculates the actual
+separation between node sets A and B, then derives a reference distribution of separations through
+degree-preserving randomizations of the node sets. The z-score indicates how many standard deviations
+the actual separation is from the mean of the reference distribution.</p>
+<section id="id38">
+<h2>Parameters:<a class="headerlink" href="#id38" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>net<span class="classifier">networkx.Graph</span></dt><dd><p>The input network or graph in which the separation between node sets A and B will be assessed.</p>
+</dd>
+<dt>A<span class="classifier">container (list, set, etc.)</span></dt><dd><p>A subset of nodes in <cite>net</cite> representing the first group.</p>
+</dd>
+<dt>B<span class="classifier">container (list, set, etc.)</span></dt><dd><p>A subset of nodes in <cite>net</cite> representing the second group.</p>
+</dd>
+<dt>D<span class="classifier">DistanceMatrix</span></dt><dd><p>A precomputed distance matrix where D[i][j] gives the shortest distance between nodes i and j.
+This matrix should be generated using the <cite>all_pair_distances</cite> function or an equivalent method.</p>
+</dd>
+<dt>null_model<span class="classifier">str, optional</span></dt><dd><p>Method for degree-preserving randomization. Valid options are ‘degree_match’, ‘log_binning’, ‘uniform’,
+‘strength_binning’ and ‘custom’. Default is ‘degree_match’.</p>
+</dd>
+<dt>node_bucket<span class="classifier">dictionary, optional</span></dt><dd><p>A collection of nodes to be used in ‘custom’ mode, mandatory when the null_model is set to ‘custom’.
+This parameter should be a dictionary where each key represents a node (‘node_k’) from the network,
+and the corresponding value is a list of alternative nodes (‘proxy_i’).
+These alternatives are used by the null model for resampling:
+node_bucket[node_k] = [proxy_1, proxy_2, …, proxy_m].
+Here, each ‘proxy_i’ serves as a potential substitute to be sampled in place of ‘node_k’.</p>
+</dd>
+<dt>n_iter<span class="classifier">int, optional</span></dt><dd><p>Number of random sampling iterations used to derive the reference distribution of separations.
+Default is 1000.</p>
+</dd>
+<dt>bin_size<span class="classifier">int, optional</span></dt><dd><p>Determines the size of the logarithmic bins when using ‘log_binning’. Relevant only if
+<cite>null_model</cite> is set to ‘log_binning’. Default is 100.</p>
+</dd>
+</dl>
+</section>
+<section id="id39">
+<h2>Returns:<a class="headerlink" href="#id39" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>dict</dt><dd><p>A dictionary containing:
+- ‘d_mu’: Mean separation from the randomized samples.
+- ‘d_sigma’: Standard deviation of separations from the randomized samples.
+- ‘z_score’: Z-score of the actual separation against the randomized samples.
+- ‘p_value_single_tail’: One-tail P-value associated with the proximity z-score
+- ‘p_value_double_tail’: Two-tail P-value associated with the proximity z-score
+- ‘raw_separation’: Actual separation value between node sets A and B.
+- ‘dist’: List of separations from each randomization iteration.</p>
+</dd>
+</dl>
+</section>
+<section id="id40">
+<h2>Raises:<a class="headerlink" href="#id40" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>ValueError:</dt><dd><ul class="simple">
+<li><p>If the network is not connected (contains more than one connected component).</p></li>
+<li><p>If ‘n_iter’ is less than or equal to 0.</p></li>
+<li><p>If ‘bin_size’ is less than 1 when ‘log_binning’ or ‘strength_binning’ is used.</p></li>
+<li><p>If ‘null_model’ is not one of [‘degree_match’, ‘log_binning’, ‘strength_binning’, ‘uniform’, ‘custom’].</p></li>
+<li><p>If ‘node_bucket’ is not provided when ‘null_model’ is ‘custom’.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="id41">
+<h2>Warnings:<a class="headerlink" href="#id41" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>UserWarning:</dt><dd><ul class="simple">
+<li><p>If any elements in <cite>A</cite> or <cite>B</cite> do not exist in the network.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="id42">
+<h2>Notes:<a class="headerlink" href="#id42" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>The degree-preserving randomization ensures that the randomized node samples have a degree distribution similar
+to the original sets, ensuring a fair comparison.</p></li>
+<li><p>The network should be connected to obtain meaningful separation values. Disconnected components may skew the results.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="NetMedPy.to_dictionary">
+<span class="sig-prename descclassname"><span class="pre">NetMedPy.</span></span><span class="sig-name descname"><span class="pre">to_dictionary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataframe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_names</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NetMedPy.to_dictionary" title="Link to this definition">¶</a></dt>
+<dd><p>Converts a DataFrame into a dictionary where the keys are unique group names
+and the values are sets of node names associated with each group.</p>
+<section id="id43">
+<h2>Parameters:<a class="headerlink" href="#id43" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>dataframe<span class="classifier">pandas.DataFrame</span></dt><dd><p>The input DataFrame containing the data to be converted into a dictionary.</p>
+</dd>
+<dt>group_names<span class="classifier">str</span></dt><dd><p>The column name in the DataFrame that contains the group identifiers.</p>
+</dd>
+<dt>node_names<span class="classifier">str</span></dt><dd><p>The column name in the DataFrame that contains the node identifiers.</p>
+</dd>
+</dl>
+</section>
+<section id="id44">
+<h2>Returns:<a class="headerlink" href="#id44" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>dict</dt><dd><p>A dictionary where each key is a unique group name from the <cite>group_names</cite>
+column, and each value is a set of node names from the <cite>node_names</cite> column
+associated with that group.</p>
+</dd>
+</dl>
+</section>
+<section id="id45">
+<h2>Example:<a class="headerlink" href="#id45" title="Link to this heading">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;group&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span>
+<span class="go">            &#39;node&#39;: [&#39;x&#39;, &#39;y&#39;, &#39;x&#39;, &#39;z&#39;, &#39;y&#39;]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">to_dictionary</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;node&#39;</span><span class="p">)</span>
+<span class="go">{&#39;A&#39;: {&#39;x&#39;, &#39;y&#39;}, &#39;B&#39;: {&#39;x&#39;, &#39;z&#39;}, &#39;C&#39;: {&#39;y&#39;}}</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">NetMedPy</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NetMedPy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#functionality">Functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#distance-metrics">Distance metrics.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#null-models">Null models.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#required-packages">Required packages:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authors">Authors:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#NetMedPy.all_pair_distances"><code class="docutils literal notranslate"><span class="pre">all_pair_distances()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#NetMedPy.extract_lcc"><code class="docutils literal notranslate"><span class="pre">extract_lcc()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#NetMedPy.get_amspl"><code class="docutils literal notranslate"><span class="pre">get_amspl()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#NetMedPy.lcc_significance"><code class="docutils literal notranslate"><span class="pre">lcc_significance()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#NetMedPy.load_distances"><code class="docutils literal notranslate"><span class="pre">load_distances()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#NetMedPy.proximity"><code class="docutils literal notranslate"><span class="pre">proximity()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#NetMedPy.random_walk"><code class="docutils literal notranslate"><span class="pre">random_walk()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#NetMedPy.save_distances"><code class="docutils literal notranslate"><span class="pre">save_distances()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#NetMedPy.screening"><code class="docutils literal notranslate"><span class="pre">screening()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#NetMedPy.separation"><code class="docutils literal notranslate"><span class="pre">separation()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#NetMedPy.separation_z_score"><code class="docutils literal notranslate"><span class="pre">separation_z_score()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#NetMedPy.to_dictionary"><code class="docutils literal notranslate"><span class="pre">to_dictionary()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DistanceMatrix.html">Distance Matrix</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to NetMedPy’s documentation!</a></li>
+      <li>Next: <a href="DistanceMatrix.html" title="next chapter">Distance Matrix</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Andres Aldana.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/NetMedPy.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
