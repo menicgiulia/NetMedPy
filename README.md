@@ -82,6 +82,8 @@ Alternatively, you can install the package with PIP (in an existing conda enviro
 
 #### From source code
 
+If none of the previous options worked, the package can be installed directly from the source code.
+
 1. Ensure you have Python >= 3.8, <= 3.11.9 installed.
   
 2. Copy the project to your local or remote machine:
