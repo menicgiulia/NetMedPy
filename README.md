@@ -168,7 +168,7 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
   python Basic_example.py
   ```
 
-Details about each function (what it is used for, what the input parameters are, the possible values of the input parameters, what the output is) from the pipeline are available in the `netmedpy/NetMedPy.py` script in the comments before each function. 
+Details about each function (what it is used for, what the input parameters are, the possible values of the input parameters, what the output is) from the pipeline are available in `doc/build/html/NetMedPy.html` and in the `netmedpy/NetMedPy.py` script in the comments before each function. 
 
 ## Examples
 
@@ -184,9 +184,13 @@ Then open the examples directory:
   cd path_to_git_project/examples
   ```
 
-### Use Case 1: Role of Vitamin D in complex diseases
+### Use Case 1: Exploring Vitamin D’s Impact on Autoimmune, Cardiovascular, and Cancer Diseases
 
-After you have successfully run the Basic_example.py script to further test the pipeline, we refer to the Vitamin D example, which can be found in the `examples/VitaminD` directory. There are two files that you can use for testing:
+This example evaluates the role of Vitamin D in the modulation of autoimmune diseases, 
+cardiovascular diseases and cancer from a network medicine perspective and reproduces the results presented in the paper 
+"NetMedPy: A Python package for Large-Scale Network Medicine Screening"
+
+The scripts for this example are located in the `examples/VitaminD` directory. There are two files that you can use for testing:
 
 - A Python script: `VitD_pipeline.py`
 - A Jupyter notebook: `VitD_pipeline.ipynb`
@@ -381,6 +385,11 @@ amspl["Communicability"] = screen_data["raw_amspl"]
 
 ### Use Case 2: Robustness analysis
 
+This notebook evaluates the robustness of network-based proximity calculations between Vitamin D targets and disease-associated genes.
+
+The objective is to assess how perturbations in the input data—such as different **Protein-Protein Interaction (PPI) networks**, disease-associated genes, and Vitamin D targets—impact the results obtained in the previous case study.
+
+
 #### Data Preparation
 
 Before running the PPI robustness analysis, you need to download and preprocess both the PPI networks and the Vitamin D target list. This is done in three steps:
@@ -415,7 +424,7 @@ Finally, run the Notebook `examples/VitaminD/supplementary/sup_code/robustness/P
 
 This example introduces the core concepts of network medicine through a guided analysis of Vitamin D's relationship to several diseases using protein-protein interaction networks. The Jupyter notebook (`examples/NetworkMedicineIntro/Intro_Network_Medicine.ipynb`) provides a step-by-step workflow demonstrating how to build and analyze biological networks to uncover drug-disease relationships. Consult this notebook for specifications on required packages.
 
-### Notebook workflow - Steps in `examples/NetworkMedicineIntro/Intro_Network_Medicine.ipynb`:
+### Notebook workflow - Steps in `Intro_Network_Medicine.ipynb`:
 
 **1. Download and filter STRING PPI data** 
 
@@ -732,10 +741,8 @@ Root folder organization (__init__.py files removed for simplicity):
 
 ## Further information
 
-- Details about each function (what it is used for, what the input parameters are, the possible values of the input parameters, what the output is) from the pipeline are available in the `netmedpy/NetMedPy.py` script in the comments before each function. 
-- An example on the use of the implemented functions is available in the file `examples/Basic_example.py', which can be executed fairly quickly in order to test the proper installation of the package and its functionalities.
-- A more elaborate example is available in the files `examples/VitaminD/VitD_pipeline.py` and `examples/VitaminD/VitD_pipeline.ipynb`, testing the functions with different parameters for evaluating the role of Vitamin D in the modulation of
-different diseases from a network medicine perspective. The data files (the protein-protein interaction network, the disease genes, and the Vitamin D targets) needed for executing this example are available in `examples/VitaminD/data`.
+Details about each function (what it is used for, what the input parameters are, the possible values of the input parameters, what the output is) from the pipeline are available in `doc/build/html/NetMedPy.html` and in the `netmedpy/NetMedPy.py` script in the comments before each function. 
+
 
 ## License
 
