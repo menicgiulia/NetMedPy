@@ -41,11 +41,9 @@ The following Python packages are required to run NetMedPy:
 
 Users can install NetMedPy and its dependencies using PIP (recommended). Alternatively, the source code can be downloaded, allowing for manual installation of the required dependencies if more customization is needed.
     
-#### Recommended
+#### A) Recommended
 
-While not essential, we recommend creating a dedicated conda environment for NetMedPy to ensure all dependencies are properly isolated.
-
-Working with Conda is recommended, but it is not essential. If you choose to work with Conda, these are the steps you need to take:
+While not essential, we recommend installing NetMedPy in a dedicated conda environment to ensure all dependencies are properly isolated.
 
 - Ensure you have Conda installed.
 
@@ -63,7 +61,9 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
   conda activate netmedpy_environment
   ```
   
-#### Installing with PIP 
+NetMedPy is ready for use.
+
+#### B) Installing with PIP 
 
 Alternatively, you can install the package with PIP (in an existing conda environment, or no conda environment).
 
@@ -80,13 +80,16 @@ Alternatively, you can install the package with PIP (in an existing conda enviro
   ```
 
 
-#### From source code
+#### C) From source code
 
 If none of the previous options worked, the package can be installed directly from the source code.
 
+#### C.1) Download Source Code
+
 1. Ensure you have Python >= 3.8, <= 3.11.9 installed.
   
-2. Copy the project to your local or remote machine:
+2. Clone the git project to your local or remote machine. This project contains large files. **MAKE SURE YOU HAVE `git lfs` INSTALLED AND CONFIGURED BEFORE CLONING THE PROJECT
+.**
 
   ```bash
   git clone https://github.com/menicgiulia/NetMedPy.git
@@ -97,22 +100,22 @@ If none of the previous options worked, the package can be installed directly fr
   cd NetMedPy-main
   ```
 
-4. Installing the necessary dependencies:
    
-   
-##### Option A: working with Conda
+
+#### C.2) Install neccesary dependencies
+#### Option A: Dedicated Conda Environment
 
 Working with Conda is recommended, but it is not essential. If you choose to work with Conda, these are the steps you need to take:
 
-- Ensure you have Conda installed.
+1. Ensure you have Conda installed.
 
-- Create a new conda environment with the `environment.yml` file:
+2. Create a new conda environment with the `environment.yml` file:
   
   ```bash
   conda env create -f environment.yml
   ```
 
-- Activate your new conda environment:
+3. Activate your new conda environment:
 
   ```bash
   conda activate netmedpy_environment
@@ -120,12 +123,14 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
   
 ##### Option B: working without Conda
 
-- Ensure the following dependencies are installed before proceeding:
+1. Ensure the following dependencies are installed before proceeding:
 
   ```bash
   pip install networkx seaborn matplotlib numpy pandas ray scipy
   ```
-            
+
+#### C.3) Configure Python Path 
+
 5. Set up your PYTHONPATH (Replace `/user_path_to/NetMedPy-main/netmedpy` with the appropriate path of the package in your local/remote machine.):
 
     _On Linux/Mac_:
@@ -149,9 +154,9 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
 
 ### Verifying the installation
   
-1. Download the directory `examples`.
+1. Download the directory `examples` in this repository.
    
-2. Navigate to the directory `examples`:
+2. Navigate to the directory `examples` in your local machine:
 
   ```bash
   cd /user_path_to/examples
@@ -165,20 +170,36 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
 
 Details about each function (what it is used for, what the input parameters are, the possible values of the input parameters, what the output is) from the pipeline are available in the `netmedpy/NetMedPy.py` script in the comments before each function. 
 
-## Example for understanding the pipeline - Vitamin D 
+## Examples
+
+To run the examples, make sure to clone the git project to your local machine. This project contains large files. **MAKE SURE YOU HAVE `git lfs` INSTALLED AND CONFIGURED BEFORE CLONING THE PROJECT
+.**
+
+  ```bash
+  git clone https://github.com/menicgiulia/NetMedPy.git
+  ```
+
+Then open the examples directory:
+  ```bash
+  cd path_to_git_project/examples
+  ```
+
+### Use Case 1: Role of Vitamin D in complex diseases
 
 After you have successfully run the Basic_example.py script to further test the pipeline, we refer to the Vitamin D example, which can be found in the `examples/VitaminD` directory. There are two files that you can use for testing:
 
 - A Python script: `VitD_pipeline.py`
 - A Jupyter notebook: `VitD_pipeline.ipynb`
 
+Consult these files for specifications on required packages before running.
+
 ### Instructions on testing the Vitamin D example
 
 1. Download the `examples` directory:
-If you haven't already done so, download the `examples` directory from the repository to your local or remote machine. This directory contains all the necessary files to run the examples.
+If you haven't already done so, download this directory from the repository to your local machine. 
 
 2. Prepare the Data:
-In the subdirectory `VitaminD/data` there are the files that contain the necessary data to execute the example, ensure the data files there. The output files will be stored in the `VitaminD/output` subdirectory.
+The neccesary data to run this example are located in the subdirectory `VitaminD/data`. The output files will be stored in the subdirectory `VitaminD/output`.
 
 3. Navigate to the `VitaminD` directory:
  
@@ -187,6 +208,8 @@ In the subdirectory `VitaminD/data` there are the files that contain the necessa
   ```
      
 4. Run the Example:
+
+You can run this example through a Python script or a Jupyter Notebook.
 
 ##### Option A: using the Python Script
 
@@ -356,7 +379,7 @@ screen_data = netmedpy.screening(vit_d, dgenes, ppi,
 amspl["Communicability"] = screen_data["raw_amspl"]
 ```
 
-### Robustness analysis
+### Use Case 2: Robustness analysis
 
 #### Data Preparation
 
@@ -364,18 +387,18 @@ Before running the PPI robustness analysis, you need to download and preprocess 
 
 **1. Download and preprocess PPI networks**
 
-For this step, we use the `examples/VitaminD/supplementary/sup_code/data_integration/BioNets.ipynb` notebook and the `BioNetTools.py` module, which provides helper functions to fetch raw PPI files from BioGrid and STRING databases (MITAB, gz, or zip), extract them, convert to a pandas DataFrame, and dump out ready‑to‑use network CSVs.
+For this step, we use the `examples/VitaminD/supplementary/sup_code/data_integration/BioNets.ipynb` notebook and the `BioNetTools.py` module, which provides helper functions to fetch raw PPI files from BioGrid and STRING databases (MITAB, gz, or zip), extract them, convert to a pandas DataFrame, and dump out ready‑to‑use network CSVs. Consult the `BioNets.ipyn` notebook for package requirements.
     
 All processed networks will end up in `xamples/VitaminD/supplementary/sup_data/alternative_ppi/`.
 
 **2. Vitamin D targets**
 
 Use the same Vitamin D targets as in the main Vitamin D pipeline, shown in the previous example.
-These targets are generated by `examples/VitaminD/supplementary/sup_code/data_integration/Vit_D_Targets.ipynb` and stored in `examples/VitaminD/data/input/drug_targets/vitd_targets_cpie.pkl`.
+These targets are generated by the `examples/VitaminD/supplementary/sup_code/data_integration/Vit_D_Targets.ipynb` Notebook, and stored in `examples/VitaminD/data/input/drug_targets/vitd_targets_cpie.pkl`.
 
 **3. Run robustness analysis**
 
-Finally, open and run all cells in `examples/VitaminD/supplementary/sup_code/robustness/PPI_Robustness.ipynb`. It will:
+Finally, run the Notebook `examples/VitaminD/supplementary/sup_code/robustness/PPI_Robustness.ipynb`. Consult this notebook for specifications on required packages. It will:
 
 - Load your main PPI from `examples/VitaminD/data/input/ppi/ppi_network.pkl`.
 
@@ -388,9 +411,9 @@ Finally, open and run all cells in `examples/VitaminD/supplementary/sup_code/rob
 - Compute and plot the network‐robustness metrics for each scenario.
 
 
-## Example for entry-level users - Introduction to Network Medicine and Data Generation
+### Use Case 3: Introduction to Network Medicine and Data Generation. 
 
-This example introduces the core concepts of network medicine through a guided analysis of Vitamin D's relationship to several diseases using protein-protein interaction networks. The Jupyter notebook (`examples/NetworkMedicineIntro/Intro_Network_Medicine.ipynb`) provides a step-by-step workflow demonstrating how to build and analyze biological networks to uncover drug-disease relationships.
+This example introduces the core concepts of network medicine through a guided analysis of Vitamin D's relationship to several diseases using protein-protein interaction networks. The Jupyter notebook (`examples/NetworkMedicineIntro/Intro_Network_Medicine.ipynb`) provides a step-by-step workflow demonstrating how to build and analyze biological networks to uncover drug-disease relationships. Consult this notebook for specifications on required packages.
 
 ### Notebook workflow - Steps in `examples/NetworkMedicineIntro/Intro_Network_Medicine.ipynb`:
 
