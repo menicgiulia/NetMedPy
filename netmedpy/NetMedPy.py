@@ -700,8 +700,10 @@ def _proximity_dmatrix(net,T,S,D,null_model,node_bucket, n_iter,bin_size):
     pval_single = len(tail)/len(distribution)
 
     tail = distribution
-    tail = np.abs(tail)
-    tail = tail[tail >= d_c]
+    dm = abs(d_c - mu)
+    tail = np.abs(tail - mu)
+
+    tail = tail[tail >= dm]
     pval_double = len(tail)/len(distribution)
 
     return {'d_mu':mu,'d_sigma':sigma,'z_score':z,'p_value_single_tail':pval_single,
@@ -752,8 +754,10 @@ def _proximity_symmetric(net,T,S,D,null_model, node_bucket,n_iter,bin_size):
     pval_single = len(tail)/len(distribution)
 
     tail = distribution
-    tail = np.abs(tail)
-    tail = tail[tail >= d]
+    dm = abs(d - mu)
+    tail = np.abs(tail - mu)
+
+    tail = tail[tail >= dm]
     pval_double = len(tail)/len(distribution)
     return {'d_mu':mu,'d_sigma':sigma,'z_score':z,'p_value_single_tail':pval_single,
             'p_value_double_tail':pval_double, 'raw_amspl':d,'dist':distribution}
@@ -1148,8 +1152,10 @@ def separation_z_score(net,A,B,D,null_model='degree_match', node_bucket = None, 
     pval_single = len(tail)/len(distribution)
 
     tail = distribution
-    tail = np.abs(tail)
-    tail = tail[tail >= s]
+    dm = abs(s - mu)
+    tail = np.abs(tail - mu)
+
+    tail = tail[tail >= dm]
     pval_double = len(tail)/len(distribution)
 
     return {'d_mu':mu,'d_sigma':sigma,'z_score':z,'p_value_single_tail':pval_single,
