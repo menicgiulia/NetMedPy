@@ -33,7 +33,7 @@ The following Python packages are required to run NetMedPy:
 - Python (>= 3.8, <= 3.11.9)
 - numpy
 - pandas
-- ray
+- ray (2.20.0)
 - networkx
 - scipy
 - matplotlib
@@ -72,7 +72,7 @@ Alternatively, you can install the package with PIP (in an existing conda enviro
 - Ensure the following dependencies are installed before proceeding:
 
   ```bash
-  pip install networkx seaborn matplotlib numpy pandas ray scipy
+  pip install networkx seaborn matplotlib numpy pandas ray==2.20.0 scipy
   ```
 
 - Install the package:
@@ -128,7 +128,7 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
 1. Ensure the following dependencies are installed before proceeding:
 
   ```bash
-  pip install networkx seaborn matplotlib numpy pandas ray scipy
+  pip install networkx seaborn matplotlib numpy pandas ray==2.20.0 scipy
   ```
 
 #### C.3) Configure Python Path 
