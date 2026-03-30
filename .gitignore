@@ -127,3 +127,4 @@ examples/VitaminD/supplementary/sup_code/robustness/robustness.py
 discovery_resources.sh
 examples/NetworkMedicineIntro/output/*
 tests
+netmedpy.egg-info
