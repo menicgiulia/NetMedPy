@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "netmedpy"
+version = "0.2.0.0"
+description = "A Python package for network medicine analysis"
+readme = "README.md"
+license = {file = "LICENSE.txt"}
+requires-python = ">=3.8"
+authors = [
+  { name="Andres Aldana" },
+  { name="Michael Sebek" },
+  { name="Gordana Ispirova" },
+  { name="Rodrigo Dorantes-Gilardi" },
+  { name="Giulia Menichetti" },
+]
+dependencies = [
+  "numpy",
+  "pandas",
+  "matplotlib",
+  "seaborn",
+  "scipy",
+  "networkx"
+]
+
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/menicgiulia/NetMedPy" # Adding homepage from setup.py
+
+[project.optional-dependencies]
+interactive = [
+  "jupyter",
+  "ipython",
+  "notebook",
+  "ipykernel"
+]
+
+[tool.setuptools]
+packages = ["netmedpy"]

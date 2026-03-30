@@ -25,15 +25,14 @@ NetMedPy has specific requirements for compatibility and ease of use.
 
 ### Python Version
 
-NetMedPy requires Python 3.8 or newer, but it is not compatible with Python 3.12 due to incompatibility with Ray. Ensure your Python version is between 3.8 and 3.11.9 inclusive.
+NetMedPy requires Python 3.8 or newer.
 
 ### Required Packages
 The following Python packages are required to run NetMedPy:
 
-- Python (>= 3.8, <= 3.11.9)
+- Python (>= 3.8)
 - numpy
 - pandas
-- ray (2.20.0)
 - networkx
 - scipy
 - matplotlib
@@ -62,6 +61,12 @@ While not essential, we recommend installing NetMedPy in a dedicated conda envir
   ```bash
   conda activate netmedpy_environment
   ```
+
+- Install NetMedPy:
+
+  ```bash
+  pip install netmedpy
+  ```
   
 NetMedPy is ready for use.
 
@@ -72,7 +77,7 @@ Alternatively, you can install the package with PIP (in an existing conda enviro
 - Ensure the following dependencies are installed before proceeding:
 
   ```bash
-  pip install networkx seaborn matplotlib numpy pandas ray==2.20.0 scipy
+  pip install networkx seaborn matplotlib numpy pandas scipy
   ```
 
 - Install the package:
@@ -88,7 +93,7 @@ If none of the previous options worked, the package can be installed directly fr
 
 #### C.1) Download Source Code
 
-1. Ensure you have Python >= 3.8, <= 3.11.9 installed.
+1. Ensure you have Python >= 3.8 installed.
   
 2. Clone the git project to your local or remote machine. This project contains large files. **MAKE SURE YOU HAVE `git lfs` INSTALLED AND CONFIGURED BEFORE CLONING THE PROJECT
 .**
@@ -128,7 +133,7 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
 1. Ensure the following dependencies are installed before proceeding:
 
   ```bash
-  pip install networkx seaborn matplotlib numpy pandas ray==2.20.0 scipy
+  pip install networkx seaborn matplotlib numpy pandas scipy
   ```
 
 #### C.3) Configure Python Path 
@@ -170,7 +175,7 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
   python Basic_example.py
   ```
 
-Details about each function (what it is used for, what the input parameters are, the possible values of the input parameters, what the output is) from the pipeline are available in `doc/build/html/NetMedPy.html` and in the `netmedpy/NetMedPy.py` script in the comments before each function. 
+Details about each function (what it is used for, what the input parameters are, the possible values of the input parameters, what the output is) from the pipeline are available in `doc/build/html/netmedpy.html` and in the `netmedpy/netmedpy.py` script in the comments before each function. 
 
 ## Examples
 

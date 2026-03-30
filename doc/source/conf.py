@@ -8,20 +8,26 @@
 
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../netmedpy/'))
+
+sys.path.insert(0, os.path.abspath('../..'))
+
+extensions = [
+    'sphinx.ext.autodoc',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.viewcode',
+]
+
+html_theme = 'sphinx_rtd_theme'
 
 project = 'NetMedPy'
-copyright = '2024, Andres Aldana'
-author = 'Andres Aldana'
-release = '1.0.0'
+copyright = '2026, Andrés Aldana, Michael Sebek, Gordana Ispirova, Rodrigo Dorantes-Gilardi, Giulia Menichetti'
+author = 'Andrés Aldana, Michael Sebek, Gordana Ispirova, Rodrigo Dorantes-Gilardi, Giulia Menichetti'
+release = '0.2.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx_autodoc_typehints',  # Add this line
-]
+extensions = []
 
 templates_path = ['_templates']
 exclude_patterns = []
@@ -33,4 +39,3 @@ exclude_patterns = []
 
 html_theme = 'alabaster'
 html_static_path = ['_static']
-

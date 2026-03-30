@@ -20,7 +20,7 @@ import scipy.optimize as opt
 
 from Cronometer import Cronometer as cronometer
 import guney.network as p_network
-import netmedpy
+import netmedpy.Netmedpy as netmedpy
 
 ### Plot style
 plt.style.use('seaborn-v0_8-colorblind')

@@ -12,97 +12,221 @@ The main functions in this module include:
 - `extract_lcc`: Computes the Largest Connected Component (LCC) for a specified subset of nodes within a graph.
 - `lcc_significance`: Calculates the statistical significance of the LCC, as defined by a subset of nodes in a graph, according to a specified null model.
 - `all_pair_distances`: Calculates distances between every pair of nodes in a graph.
-- `save_distances`: Saves the precomputed distance matrix to a `pickle` file.
-- `load_distances`: Loads a precomputed distance matrix from a `pickle` file.
+- `save_distances`: Saves a precomputed `DistanceMatrix` to a compressed NumPy `.npz` file.
+- `load_distances`: Loads a precomputed `DistanceMatrix` from a compressed NumPy `.npz` file or from a legacy pickle file.
 - `get_amspl`: Calculates the Average Minimum Shortest Path Length between nodes.
 - `proximity`: Computes the proximity between two sets of nodes in a graph.
 - `separation`: Calculates the separation between two sets of nodes in a network.
 - `separation_z_score`: Determines the z-score of the separation between two node sets based on randomized samples.
 - `screening`: Screens for proximity/separation between sets of source and target nodes.
 
-
 Distance metrics.
 ------------------
 
-When calculating the distance matrix, four information flow metrics are available to the user:
+When calculating the distance matrix, five information flow metrics are available to the user:
 
-- `shortest_path`: Distance between nodes is based in the length of the path with the least number of edges or lowest total weight that connects two nodes
-- `random_walk`: Distance between nodes is based in the probability of reaching one node from another via a random walk.
-- `biased_random_walk`: Same as random_walk but compensating the bias induced by the degree of the target node.
-- `communicability`: Distance between nodes is based on the concept of communicability, defined as the ability of nodes to communicate or send information through all available paths in a network, considering the indirect and direct connections.
-
+- `shortest_path`: Distance between nodes is based on the length of the path with the least number of edges or lowest total weight that connects two nodes.
+- `random_walk`: Distance between nodes is based on the probability of reaching one node from another via a random walk with restart.
+- `biased_random_walk`: Same as `random_walk` but compensating for the bias induced by the degree of the target node.
+- `communicability`: Distance between nodes is based on the concept of communicability, defined as the ability of nodes to communicate through all available paths in a network, considering both indirect and direct connections.
+- `custom`: Distance between nodes is computed with a user-provided function.
 
 Null models.
 -------------
 
 The NetMedPy functions involving statistical analysis allow the user to select among the following null models:
 
-- `degree_match`: selects random samples replicating the original node-set's degree distribution.
-- `log_binning`: categorizes the degrees of all nodes within the network into logarithmically sized bins. Samples are then drawn by matching the degree of the original nodes to those within the corresponding bins.
-- `strength_binning`: analogous to log_binning, using the strength of the nodes instead of their degrees.
-- `uniform`: randomly selects nodes from the entire network, disregarding their degree or strength.
-- `custom`: allows users to specify custom null models.
+- `degree_match`: Selects random samples replicating the original node-set degree distribution.
+- `log_binning`: Categorizes node degrees into logarithmically sized bins and samples from matching bins.
+- `strength_binning`: Analogous to `log_binning`, using node strength instead of degree.
+- `uniform`: Randomly selects nodes from the entire network, disregarding degree or strength.
+- `custom`: Allows users to specify custom node proxies through `node_bucket`.
 
-
-These functions use both exact and approximate methods for degree-preserving and non-degree preserving randomization of node sets. Additionally,
-precomputed distance matrices are leveraged for efficient computation.
-
+These functions use both exact and approximate methods for node-set randomization.
+Precomputed distance matrices are leveraged for efficient computation, and some
+operations use multiprocessing with shared memory for scalability.
 
 Required packages:
 -------------------
-
     - networkx
     - numpy
     - pickle
     - multiprocessing
     - random
     - scipy
-    - ray
-
-
-Authors:
----------
-    - Andres Aldana Gonzalez (a.aldana@northeastern.edu)
-    - Rodrigo Dorantes Gilardi (r.dorantesgilardi@northeastern.edu)
-
-
-References:
-------------
-    - Menche, Jörg, et al. "Uncovering disease-disease relationships through the incomplete interactome." Science 347.6224 (2015). DOI 10.1126/science.1257601
-    - Guney, Emre, et al.  "Network-based in silico drug efficacy screening." Nature Communications 7,1 (2015). DOI 10.1038/ncomms10331
-    - Estrada, Ernesto, and Naomichi Hatano. "Communicability in complex networks." Physical Review E 77.3 (2008): 036111.
-    - Masuda, Naoki, Mason A. Porter, and Renaud Lambiotte. "Random walks and diffusion on networks." Physics reports 716 (2017): 1-58.
-    - Le, Duc-Hau. "Random walk with restart: A powerful network propagation algorithm in Bioinformatics field." 2017 4th NAFOSTED Conference on Information and Computer Science. IEEE, 2017.
+    - pandas
 """
 
 import networkx as nx
 import numpy as np
 import pickle
-from multiprocessing import cpu_count
 import random
-import ray
-from ray._private.utils import get_ray_temp_dir
 import warnings
 import os
-import shutil
 import pandas as pd
 
-try:
-    # This works when the package is installed via pip
-    from .DistanceMatrix import DistanceMatrix
-except ImportError:
-    # This works when using PYTHONPATH
-    from DistanceMatrix import DistanceMatrix
+import multiprocessing as mp
+from multiprocessing import cpu_count, get_context
+from multiprocessing.shared_memory import SharedMemory
+from concurrent.futures import ProcessPoolExecutor
 
-def _clean_temp_dir():
-    try:
-        ray_temp_dir = get_ray_temp_dir()
+class DistanceMatrix:
+    """A class to manage a square matrix representing the distances between nodes.
+    
+    Attributes
+    ----------
+    nodes : list
+        Identifiers for all nodes within the matrix.
+    node_to_idx : dict
+        Maps node identifiers to their respective indices in the matrix.
+    matrix : np.ndarray
+        A 2D numpy array where each element [i][j] is the distance from node i to node j,
+        initially set to infinity.
+    """
+    
+    @classmethod
+    def from_components(cls, nodes, node_to_idx, matrix):
+        obj = cls()
+        
+        # Validation
+        assert len(nodes) == matrix.shape[0] == matrix.shape[1]
+        assert all(node_to_idx[n] == i for i, n in enumerate(nodes))
+        
+        obj.nodes = nodes
+        obj.node_to_idx = node_to_idx
+        obj.matrix = matrix
+        
+        return obj
 
-        # Check if the directory exists and delete it
-        if os.path.exists(ray_temp_dir):
-            shutil.rmtree(ray_temp_dir)
-    except Exception as e:
-        print(f"Warning: Ray temp directory '{ray_temp_dir}' could not be deleted.")
+    def _from_name_list(self, nodes):
+        """Initializes the matrix using a list of node identifiers, setting all distances to infinity.
+        
+        Parameters
+        ----------
+        nodes : list
+            List of identifiers for the nodes.
+        
+        Notes
+        -----
+        This method is typically used when node connections are unknown or not yet defined,
+        allowing for subsequent updates with actual distances.
+        """
+        self.nodes = nodes
+        self.node_to_idx = {node: idx for idx, node in enumerate(self.nodes)}
+        self.matrix = np.full((len(self.nodes), len(self.nodes)), np.inf)
+
+    def _from_dictionary(self, distance_dict):
+        """Initializes the distance matrix from a nested dictionary that specifies the distances
+        between node pairs.
+        
+        Parameters
+        ----------
+        distance_dict : dict
+            A dictionary where the keys are node identifiers and the values are dictionaries
+            that map connected node identifiers to distances.
+        
+        Notes
+        -----
+        This method populates the matrix with known distances, ideal for networks with predefined
+        connectivity.
+        """
+        self.nodes = list(distance_dict.keys())
+        self.node_to_idx = {node: idx for idx, node in enumerate(self.nodes)}
+        self.matrix = np.full((len(self.nodes), len(self.nodes)), np.inf)
+
+        for node_i, neighbors in distance_dict.items():
+            for node_j, distance in neighbors.items():
+                self.matrix[self.node_to_idx[node_i], self.node_to_idx[node_j]] = distance
+
+    def get(self, A, B):
+        """Fetches the distance between two specified nodes.
+        
+        Parameters
+        ----------
+        A : str
+            Identifier for the source node.
+        B : str
+            Identifier for the target node.
+        
+        Returns
+        -------
+        float
+            The distance between the source and target nodes.
+        """
+        idx_A = self.node_to_idx[A]
+        idx_B = self.node_to_idx[B]
+        return self.matrix[idx_A, idx_B]
+
+    def put(self, A, B, d):
+        """Sets the distance between two specified nodes.
+        
+        Parameters
+        ----------
+        A : str
+            Identifier for the source node.
+        B : str
+            Identifier for the target node.
+        d : float
+            Distance to set between the source and target nodes.
+        """
+        idx_A = self.node_to_idx[A]
+        idx_B = self.node_to_idx[B]
+        self.matrix[idx_A, idx_B] = d
+
+    def get_matrix(self):
+        """Returns the full distance matrix.
+        
+        Returns
+        -------
+        np.ndarray
+            The complete matrix, showing distances between all node pairs.
+        """
+        return self.matrix
+
+_SHM_MATRIX = None
+_SHM_ARRAY = None
+_GRAPH = None
+_NODE_TO_IDX = None
+_CUSTOM_DISTANCE = None
+_CUSTOM_KWARGS = None
+
+_SCREEN_NETWORK = None
+_SCREEN_SOURCES = None
+_SCREEN_TARGETS = None
+_SCREEN_NODE_BUCKET = None
+_SCREEN_DISTANCE_MATRIX = None
+
+_SCREEN_SHM = None
+_SCREEN_MATRIX = None
+
+def _init_distance_worker(shm_name, shape, dtype_str, graph, node_to_idx,
+                          custom_distance=None, custom_kwargs=None):
+    global _SHM_MATRIX, _SHM_ARRAY, _GRAPH, _NODE_TO_IDX, _CUSTOM_DISTANCE, _CUSTOM_KWARGS
+
+    _SHM_MATRIX = SharedMemory(name=shm_name)
+    dtype = np.dtype(dtype_str)
+    _SHM_ARRAY = np.ndarray(shape, dtype=dtype, buffer=_SHM_MATRIX.buf)
+
+    _GRAPH = graph
+    _NODE_TO_IDX = node_to_idx
+    _CUSTOM_DISTANCE = custom_distance
+    _CUSTOM_KWARGS = {} if custom_kwargs is None else custom_kwargs
+
+def _split_nodes_with_row_ranges(nodes, n_chunks):
+    nodes = list(nodes)
+    k, m = divmod(len(nodes), n_chunks)
+
+    out = []
+    start = 0
+    for i in range(n_chunks):
+        size = k + (1 if i < m else 0)
+        end = start + size
+        if start < end:
+            out.append((start, end, nodes[start:end]))
+        start = end
+    return out
+
+
 
 def _split_into_chunks(lst,n):
     k, m = divmod(len(lst), n)
@@ -124,7 +248,7 @@ def _get_amspl_all_operations(net,A,B):
         min_dist = float('inf')
         for m in valid_b:
             db = nx.shortest_path_length(net,n,m)
-            if(db != None):
+            if(db is not None):
                 min_dist = min(min_dist,db)
         min_distances[idx]=min_dist
         idx+=1
@@ -139,7 +263,7 @@ def _get_amspl_dmatrix(A,B,D):
         min_dist = float('inf')
         for m in B:
             db = D.get(n,m)
-            if(db != None):
+            if(db is not None):
                 min_dist = min(min_dist,db)
         min_distances[idx]=min_dist
         idx+=1
@@ -147,31 +271,33 @@ def _get_amspl_dmatrix(A,B,D):
     return avg
 
 
-def get_amspl(net,A,B,D):
+def get_amspl(net, A, B, D):
     """
-    Returns the average minimum distance between each node in A and all nodes in B, using the
-    distance matrix D to access precomputed distances between nodes.
+    Compute the average minimum shortest path length (AMSPL) from a set of
+    source nodes `A` to a set of target nodes `B` using a precomputed
+    `DistanceMatrix`.
 
-    Parameters:
-    ------------
+    For each valid node in `A`, the function finds its minimum distance to any
+    valid node in `B`, then averages these minima.
+
+    Parameters
+    ----------
     net : networkx.Graph
-        The input network/graph for which distances need to be computed.
+        Input graph. Only nodes present in the graph are considered.
 
-    A : Iterable (list, set, etc.)
-        A collection of nodes from which the shortest paths to nodes in B will be computed.
+    A : iterable
+        Source node set.
 
-    B : Iterable (list, set, etc.)
-        A collection of nodes to which the shortest paths from nodes in A will be computed.
+    B : iterable
+        Target node set.
 
-    D : dict of dicts
-        A distance matrix where D[i][j] gives the precomputed shortest distance between nodes i and j.
-        If there's no path between i and j, D[i][j] should be None.
+    D : DistanceMatrix
+        Precomputed distance matrix.
 
-    Returns:
-    ---------
-    avg : float
-        The average of the minimum distances between each node in A and all nodes in B.
-
+    Returns
+    -------
+    float
+        Average minimum distance from nodes in `A` to nodes in `B`.
     """
     net_nodes = set(net.nodes)
     sA = set(A)
@@ -184,53 +310,100 @@ def get_amspl(net,A,B,D):
     return _get_amspl_dmatrix(valid_a,valid_b,D)
 
 
+def _single_shortest_path_chunk(task):
+    row_start, row_end, source_nodes = task
 
-@ray.remote
-def _single_shortest_path(source_nodes, graph, node_to_idx):
+    graph = _GRAPH
+    node_to_idx = _NODE_TO_IDX
+    out = _SHM_ARRAY
 
-    mat_array = np.full((len(source_nodes),len(graph) + 1), np.inf)
-    current_row = 0
+    weighted = bool(nx.get_edge_attributes(graph, "weight"))
 
-    for s in source_nodes:
-        if nx.get_edge_attributes(graph,'weight'):
-            d = nx.shortest_path_length(graph,s,weight='weight')
+    for local_i, s in enumerate(source_nodes):
+        row_idx = row_start + local_i
+        row = out[row_idx]
+        row.fill(np.inf)
+
+        if weighted:
+            d = nx.shortest_path_length(graph, s, weight="weight")
         else:
-            d = nx.shortest_path_length(graph,s)
+            d = nx.shortest_path_length(graph, s)
 
-        source_index = node_to_idx[s]
+        for target, distance in d.items():
+            col_idx = node_to_idx[target]
+            row[col_idx] = distance
 
-        mat_array[current_row,0] = source_index
+    return (row_start, row_end)
 
-        for target,distance in d.items():
-            idx = node_to_idx[target]
-            mat_array[current_row,idx+1] = distance
-        del d
-        current_row += 1
+def _custom_distance_chunk(task):
+    row_start, row_end, source_nodes = task
 
-    print(f"Process {os.getpid()} finished")
+    graph = _GRAPH
+    node_to_idx = _NODE_TO_IDX
+    out = _SHM_ARRAY
+    distance_fn = _CUSTOM_DISTANCE
+    kwargs = _CUSTOM_KWARGS
 
-    return mat_array
+    for local_i, s in enumerate(source_nodes):
+        row_idx = row_start + local_i
+        row = out[row_idx]
+        row.fill(np.inf)
+
+        res_dict = distance_fn(s, graph, **kwargs)
+        for target, d in res_dict.items():
+            col_idx = node_to_idx[target]
+            row[col_idx] = d
+
+    return (row_start, row_end)
+
+def _run_shared_matrix_jobs(graph, node_to_idx, worker_fn, num_cpus, n_tasks,
+                            dtype=np.float32, custom_distance=None, custom_kwargs=None):
+    n = len(graph)
+    shape = (n, n)
+    dtype = np.dtype(dtype)
+
+    shm = SharedMemory(create=True, size=int(np.prod(shape)) * dtype.itemsize)
+    result = np.ndarray(shape, dtype=dtype, buffer=shm.buf)
+    result.fill(np.inf)
+
+    tasks = _split_nodes_with_row_ranges(list(graph.nodes), n_tasks)
+
+    ctx = get_context("spawn")
+
+    try:
+        with ProcessPoolExecutor(
+            max_workers=num_cpus,
+            mp_context=ctx,
+            initializer=_init_distance_worker,
+            initargs=(
+                shm.name,
+                shape,
+                dtype.str,
+                graph,
+                node_to_idx,
+                custom_distance,
+                custom_kwargs,
+            ),
+        ) as ex:
+            list(ex.map(worker_fn, tasks, chunksize=1))
+
+        final = result.copy()
+    finally:
+        shm.close()
+        shm.unlink()
+
+    return final
 
 
-
-def _spl_distance(graph, node_to_idx,num_cpus,n_tasks):
-    ray.shutdown()
-    _clean_temp_dir()
-    ray.init(num_cpus=num_cpus)
-
-    graph_ref = ray.put(graph)
-    node_to_idx_ref = ray.put(node_to_idx)
-
-    chunks = _split_into_chunks(list(graph.nodes), n_tasks)
-
-    results = [_single_shortest_path.remote(chunk,graph_ref,node_to_idx_ref)
-            for chunk in chunks]
-
-    results = ray.get(results)
-
-    ray.shutdown()
-    _clean_temp_dir()
-    return results
+def _spl_distance(graph, node_to_idx, num_cpus, n_tasks, dtype=np.float32):
+    return _run_shared_matrix_jobs(
+        graph=graph,
+        node_to_idx=node_to_idx,
+        worker_fn=_single_shortest_path_chunk,
+        num_cpus=num_cpus,
+        n_tasks=n_tasks,
+        dtype=dtype,
+    )
 
 
 
@@ -254,269 +427,265 @@ def _RWR_Matrix(G, c):
 
     return (M,node_to_index,index_to_node)
 
-
-@ray.remote
-def _custom_source_distance(source_nodes, graph, node_to_idx, distance, kwargs):
-     mat_array = np.full((len(source_nodes),len(graph) + 1), np.inf)
-     current_row = 0
-
-     for s in source_nodes:
-         res_dict = distance(s,graph,**kwargs)
-         source_index = node_to_idx[s]
-
-         mat_array[current_row,0] = source_index
-
-         for target,d in res_dict.items():
-             idx = node_to_idx[target]
-             mat_array[current_row,idx+1] = d
-         del res_dict
-         current_row += 1
-
-     print(f"Process {os.getpid()} finished")
-
-     return mat_array
+def _custom_all_distance(graph, node_to_idx, distance, num_cpus, n_tasks,
+                         kwargs, dtype=np.float32):
+    return _run_shared_matrix_jobs(
+        graph=graph,
+        node_to_idx=node_to_idx,
+        worker_fn=_custom_distance_chunk,
+        num_cpus=num_cpus,
+        n_tasks=n_tasks,
+        dtype=dtype,
+        custom_distance=distance,
+        custom_kwargs=kwargs,
+    )
 
 
-
-def _custom_all_distance(graph, node_to_idx, distance, num_cpus, n_tasks, kwargs):
-    ray.shutdown()
-    _clean_temp_dir()
-    ray.init(num_cpus=num_cpus)
-
-    graph_ref = ray.put(graph)
-    distance_ref = ray.put(distance)
-    node_to_idx_ref = ray.put(node_to_idx)
-
-    chunks = _split_into_chunks(list(graph.nodes), n_tasks)
-
-    res = [_custom_source_distance.remote(chunk, graph_ref, node_to_idx_ref, distance_ref, kwargs)
-           for chunk in chunks]
-
-    results = ray.get(res)
-
-    ray.shutdown()
-    _clean_temp_dir()
-    return results
-
-
-def all_pair_distances(graph,distance="shortest_path",custom_distance=None,
-                       reset=0.2, n_processors=None, n_tasks=None, **kwargs):
+def all_pair_distances(graph, distance="shortest_path", custom_distance=None,
+                       reset=0.2, n_processors=None, n_tasks=None,
+                       matrix_dtype=np.float32, **kwargs):
     """
-    Calculates distances between every pair of nodes in a graph according to the specified method and returns
-    a DistanceMatrix object. This function supports multiple distance calculation methods, including shortest
-    path, various types of random walks, and user-defined methods.
+    Compute an all-pairs distance matrix for a connected graph.
 
-    Parameters:
-    ------------
+    Depending on the selected `distance` mode, distances are computed from:
+    shortest paths, random-walk-with-restart scores, biased random-walk scores,
+    communicability, or a user-defined custom distance function.
+
+    Parameters
+    ----------
     graph : networkx.Graph
-        The input graph for which pairwise distances will be computed. Nodes should be unique and hashable.
+        Input graph. The graph must be connected.
 
-    distance : str, optional
-        The method used to calculate distances. Options include 'shortest_path', 'random_walk', 'biased_random_walk',
-        'communicability', and 'custom'. Default is 'shortest_path'.
+    distance : {'shortest_path', 'random_walk', 'biased_random_walk',
+                'communicability', 'custom'}, optional
+        Distance definition to use. Default is `'shortest_path'`.
 
-    custom_distance : function, optional
-        A custom function for distance calculation, used when 'distance' is set to 'custom'. This function should
-        have the signature `function_name(a, networkx.Graph, **kwargs)`, where 'a' is the source node, 'networkx.Graph'
-        is the graph, and '**kwargs' are additional arguments. It should return a dictionary where each key 'k' is a
-        target node and the value is the distance from the source node 'a' to 'k'. The dictionary must include distances
-        from 'a' to all other nodes in the graph.
+    custom_distance : callable, optional
+        Required when `distance='custom'`. The function must accept
+        `(source_node, graph, **kwargs)` and return a dictionary mapping
+        target nodes to distances.
 
     reset : float, optional
-        The reset probability for random walk-based distance calculations. Must be between 0 and 1. Default is 0.2.
+        Restart probability used for random-walk-based distances.
+        Must satisfy `0 <= reset <= 1`. Default is `0.2`.
 
-    kwargs : dict
-        Additional keyword arguments passed to the user-defined distance function.
+    n_processors : int, optional
+        Number of worker processes to use for parallel computations.
+        If `None`, uses all available CPUs.
 
-    Returns:
-    ---------
-    DistanceMatrix
-        A DistanceMatrix object where the value at `matrix[node1][node2]` gives the calculated distance
-        from `node1` to `node2` according to the specified method.
+    n_tasks : int, optional
+        Number of row chunks used to split the computation. Must be greater
+        than or equal to the number of processors. If `None`, defaults to
+        `n_processors`.
 
-    Raises:
-    --------
-    ValueError
-        - If the network is not connected (contains more than one connected component).
-        - If the 'distance' parameter is not one of the valid options.
-        - If 'reset' is not within the range [0, 1] for random walk-based distances.
+    matrix_dtype : numpy dtype, optional
+        Data type used to store the resulting matrix. Default is `np.float32`.
 
-    Notes:
+    **kwargs
+        Additional keyword arguments passed to `custom_distance` when
+        `distance='custom'`.
+
+    Returns
     -------
-    - The function utilizes multiple processes and should be invoked from the main execution environment only.
-    - For user-defined distances, ensure the custom function is correctly structured and returns the expected format.
-    """
+    DistanceMatrix
+        A `DistanceMatrix` object containing node order, node-to-index mapping,
+        and the computed matrix.
 
-    #Parameter verification
+    Raises
+    ------
+    ValueError
+        If the graph is disconnected, if an invalid distance mode is provided,
+        if `reset` is outside `[0, 1]`, if `custom_distance` is missing in
+        custom mode, or if `n_tasks < n_processors`.
+
+    Notes
+    -----
+    For `'shortest_path'` and `'custom'`, the computation uses multiprocessing
+    with shared memory to avoid duplicating the full matrix across workers.
+    """
     if nx.number_connected_components(graph) > 1:
         raise ValueError("The network is not connected (it contains more than one connected component)")
 
-    if not distance in ["shortest_path","random_walk","biased_random_walk","communicability","custom"]:
+    if distance not in ["shortest_path", "random_walk", "biased_random_walk", "communicability", "custom"]:
         raise ValueError("distance must be shortest_path|random_walk|biased_random_walk|communicability|custom")
 
-    if distance=="random_walk" or distance=="biased_random_walk":
+    if distance in ["random_walk", "biased_random_walk"]:
         if reset < 0 or reset > 1:
             raise ValueError("Reset for random walks must comply 0 <= reset <= 1")
 
-    if n_processors == None:
-        num_cpus = cpu_count()
-    else:
-        num_cpus = n_processors
-
-    if n_tasks == None:
-        n_tasks = num_cpus
+    num_cpus = cpu_count() if n_processors is None else n_processors
+    n_tasks = num_cpus if n_tasks is None else n_tasks
 
     if n_tasks < num_cpus:
         raise ValueError("Number of tasks should be larger or equal the number of processors.")
 
-
     D = DistanceMatrix()
     D._from_name_list(list(graph.nodes()))
-    del D.matrix
     D.matrix = None
 
     if distance == "shortest_path":
-        spl_res = _spl_distance(graph, D.node_to_idx,num_cpus,n_tasks)
-        res_mat = np.zeros((len(graph),len(graph)))
-
-        for sub_mat in spl_res:
-            for i in range(len(sub_mat)):
-                idx = int(sub_mat[i,0])
-                content = sub_mat[i,1:]
-                res_mat[idx] = content
-        del spl_res
-        D.matrix = res_mat
+        D.matrix = _spl_distance(
+            graph,
+            D.node_to_idx,
+            num_cpus=num_cpus,
+            n_tasks=n_tasks,
+            dtype=matrix_dtype,
+        )
 
     elif distance == "random_walk":
-        M,node_to_index,index_to_node = _RWR_Matrix(graph, reset)
-
-        #  Normalize values
+        M, node_to_index, index_to_node = _RWR_Matrix(graph, reset)
         M = np.log(M)
         ma = np.max(M)
         mi = np.min(M)
-        M = 1 - ((M - mi)/(ma - mi))
+        M = 1 - ((M - mi) / (ma - mi))
 
-        D.nodes = graph.nodes()
+        D.nodes = list(graph.nodes())
         D.node_to_idx = node_to_index
-        D.matrix = M
+        D.matrix = M.astype(matrix_dtype, copy=False)
 
     elif distance == "biased_random_walk":
-        M,node_to_index,index_to_node = _RWR_Matrix(graph, reset)
+        M, node_to_index, index_to_node = _RWR_Matrix(graph, reset)
 
-        degs = []
-        for i in range(len(graph)):
-            degs.append(graph.degree(index_to_node[i]))
+        degs = np.array([graph.degree(index_to_node[i]) for i in range(len(graph))], dtype=np.float64)
 
-        degs = np.array(degs)
-
-        #  Remove bias dividing by node degree
         B = M / degs
         B = B.T
         B = B / B.sum(axis=0)
         B = B.T
 
-        #  Normalize values
         B = np.log(B)
         ma = np.max(B)
         mi = np.min(B)
-        B = 1 - ((B - mi)/(ma - mi))
+        B = 1 - ((B - mi) / (ma - mi))
 
-        D.nodes = graph.nodes()
+        D.nodes = list(graph.nodes())
         D.node_to_idx = node_to_index
-        D.matrix = B
+        D.matrix = B.astype(matrix_dtype, copy=False)
 
     elif distance == "communicability":
-        D = DistanceMatrix()
-        D._from_name_list(list(graph.nodes()))
         comm = nx.communicability_exp(graph)
 
-        for a,d in comm.items():
-            for b,c in d.items():
-                D.put(a,b,c)
-        del comm
+        mat = np.full((len(D.nodes), len(D.nodes)), np.inf, dtype=np.float64)
+        for a, dd in comm.items():
+            i = D.node_to_idx[a]
+            for b, c in dd.items():
+                j = D.node_to_idx[b]
+                mat[i, j] = c
 
-        B = np.log(D.matrix)
+        B = np.log(mat)
         ma = np.max(B)
         mi = np.min(B)
-        B = 1 - ((B - mi)/(ma - mi))
+        B = 1 - ((B - mi) / (ma - mi))
 
-        D.matrix = B
+        D.matrix = B.astype(matrix_dtype, copy=False)
 
     elif distance == "custom":
-        res = _custom_all_distance(graph, D.node_to_idx, custom_distance ,num_cpus,n_tasks, kwargs)
-        res_mat = np.zeros((len(graph),len(graph)))
+        if custom_distance is None:
+            raise ValueError("custom_distance must be provided when distance='custom'")
 
-        for sub_mat in res:
-            for i in range(len(sub_mat)):
-                idx = int(sub_mat[i,0])
-                content = sub_mat[i,1:]
+        D.matrix = _custom_all_distance(
+            graph,
+            D.node_to_idx,
+            distance=custom_distance,
+            num_cpus=num_cpus,
+            n_tasks=n_tasks,
+            kwargs=kwargs,
+            dtype=matrix_dtype,
+        )
 
-                res_mat[idx] = content
-        del res
-        D.matrix = res_mat
-    else:
-        pass #This is actually not possible due to the initial verification
     return D
 
 
 
 def save_distances(distances, filename):
     """
-    Saves the precomputed distance matrix to a file using the `pickle` module.
+    Save a precomputed distance matrix to a compressed NumPy `.npz` file.
 
-    This function serializes the given distance matrix and writes it to a specified file. The
-    saved file can later be loaded to quickly retrieve the distance matrix without needing to
-    recompute the distances.
+    This function stores the contents of a `DistanceMatrix` object in a compact
+    archive that can later be reloaded with `load_distances`. The saved file
+    contains the distance matrix, the node list, and the node-to-index mapping.
 
-    Parameters:
-    ------------
+    Parameters
+    ----------
     distances : DistanceMatrix
-        The distance matrix D, where D[a][b] represents the shortest path distance from
-        source node a to target node b.
+        Distance matrix object to save.
 
     filename : str
-        The path and name of the file to which the distances should be saved. If the file
-        already exists, it will be overwritten.
+        Output file path. This is typically expected to use the `.npz` extension.
+        If the file already exists, it will be overwritten.
 
-    Notes:
-    ------------
-    The saved file is in binary format due to the usage of the `pickle` module. Always be cautious
-    when loading pickled data from untrusted sources as it can be a security risk.
+    Notes
+    -----
+    The file is saved using `numpy.savez_compressed`, which usually produces
+    much smaller files than pickle for dense numeric matrices.
+
+    See Also
+    --------
+    load_distances
     """
-    with open(filename, 'wb') as file:
-        pickle.dump(distances, file)
+    nodes = distances.nodes
+    node_to_idx = distances.node_to_idx
+    matrix = distances.matrix 
+
+    n = max(node_to_idx.values()) + 1
+    names_idx = [None] * n
+        
+    for name, idx in node_to_idx.items():
+        names_idx[idx] = name
+
+    np.savez_compressed(
+        filename,
+        matrix=matrix,
+        nodes=nodes,
+        node_to_idx = names_idx
+    )
 
 
 def load_distances(filename):
     """
-     Loads a precomputed distance matrix from a file using the `pickle` module.
+    Load a precomputed distance matrix from disk.
 
-     This function deserializes and retrieves a distance matrix (of the DistanceMatrix class)
-     that was previously saved to a file. This operation is the inverse of saving the matrix using
-     the `pickle` module.
+    This function supports two formats:
+    1. Legacy pickle files (`.pkl`, `.pickle`)
+    2. Compressed NumPy archives (`.npz`), which are the current default format
+       produced by `save_distances`
 
-     Parameters:
-     ------------
-     filename : str
-         The path and name of the file from which the distance matrix is to be loaded. The file
-         should have been previously saved using the `pickle` module, typically via the `save_distances` function.
+    Parameters
+    ----------
+    filename : str
+        Path to the saved distance matrix file.
 
-     Returns:
-     ----------
-     DistanceMatrix
-         The distance matrix D, where D[a][b] represents the shortest path distance from
-         source node a to target node b.
+    Returns
+    -------
+    DistanceMatrix
+        A reconstructed `DistanceMatrix` object.
 
-     Notes:
-     -------
-     - The loaded file is in binary format due to the usage of the `pickle` module. Exercise
-       caution when loading pickled data from untrusted sources, as it can pose a security risk.
-     """
-    with open(filename, 'rb') as file:
-        distances = pickle.load(file)
-    return distances
+    Notes
+    -----
+    Pickle loading is retained for backward compatibility. Loading pickled data
+    from untrusted sources is unsafe and should be avoided.
 
+    See Also
+    --------
+    save_distances
+    """
 
+    if filename.endswith((".pkl", ".pickle")):
+        with open(filename, 'rb') as file:
+            distances = pickle.load(file)
+        return distances
+    else:
+        data = np.load(filename, allow_pickle=True)
+
+        matrix = data["matrix"]
+        nodes = data["nodes"].tolist()
+        names_idx = data["node_to_idx"].tolist()
+
+        node_to_idx = {name: idx for idx, name in enumerate(names_idx)}
+
+        distances = DistanceMatrix.from_components(nodes, node_to_idx, matrix)
+
+        return distances
 
 def _degree_match_null_model(graph):
     degree_dict = {}
@@ -764,85 +933,73 @@ def _proximity_symmetric(net,T,S,D,null_model, node_bucket,n_iter,bin_size):
 
 
 
-def proximity(net,T,S,D,null_model = 'degree_match',node_bucket = None, n_iter=1000,bin_size=100,
-              symmetric=False):
+def proximity(net, T, S, D, null_model='degree_match', node_bucket=None,
+              n_iter=1000, bin_size=100, symmetric=False):
     """
-   Calculates the proximity between two sets of nodes in a given graph, based on the approach described by Guney et al., 2016.
-   The method computes either the average shortest path length (ASPL) or its symmetrical version (SASPL) between two sets of nodes.
+    Calculate the proximity between two node sets in a network.
 
-   The function first verifies if the network is connected. If it contains more than one connected component, a ValueError is raised.
-   It also checks for the existence of all nodes in sets T and S within the network. If any nodes are missing, it issues a warning
-   and proceeds with the existing nodes.
+    Proximity is defined from the average minimum shortest path length (AMSPL)
+    between node sets `T` and `S`, and its statistical significance is assessed
+    through repeated random sampling under a chosen null model.
 
-   Parameters:
-   ------------
-   net : networkx.Graph
-       The input graph for which pairwise proximities will be computed.
+    If `symmetric=False`, the function computes the directed AMSPL from `T` to `S`.
+    If `symmetric=True`, it computes the average of AMSPL(T, S) and AMSPL(S, T).
 
-   T : Iterable (list, set, etc.)
-       A collection of 'source' nodes.
+    Parameters
+    ----------
+    net : networkx.Graph
+        Input graph. The graph must be connected.
 
-   S : Iterable (list, set, etc.)
-       A collection of 'target' nodes.
+    T : iterable
+        Source node set.
 
-   D : DistanceMatrix
-       A precomputed distance matrix where D[i][j] provides the shortest distance between nodes i and j.
-       This matrix should be generated using the `all_pair_distances` function or an equivalent method.
+    S : iterable
+        Target node set.
 
-   null_model : str, optional
-       Method for degree-preserving randomization. Valid options are 'degree_match', 'log_binning', 'uniform',
-       'strength_binning' and 'custom'. Default is 'degree_match'.
+    D : DistanceMatrix
+        Precomputed distance matrix.
 
-   node_bucket : dictionary, optional
-       A collection of nodes to be used in 'custom' mode, mandatory when the null_model is set to 'custom'.
-       This parameter should be a dictionary where each key represents a node ('node_k') from the network,
-       and the corresponding value is a list of alternative nodes ('proxy_i').
-       These alternatives are used by the null model for resampling:
-       node_bucket[node_k] = [proxy_1, proxy_2, ..., proxy_m].
-       Here, each 'proxy_i' serves as a potential substitute to be sampled in place of 'node_k'.
+    null_model : {'degree_match', 'log_binning', 'strength_binning',
+                  'uniform', 'custom'}, optional
+        Null model used to generate randomized node sets.
 
-   n_iter : int, optional
-       Number of iterations/samples for assessing significance. Default is 1000.
+    node_bucket : dict, optional
+        Required when `null_model='custom'`. Maps each original node to a list
+        of admissible proxy nodes for resampling.
 
-   bin_size : int, optional
-       Determines the size of the logarithmic bins when using the 'log-binning' method. Default is 100.
+    n_iter : int, optional
+        Number of random iterations. Default is `1000`.
 
-   symmetric : bool, optional
-       If True, computes the symmetrical version of proximity using SASPL; otherwise, uses ASPL. Default is False.
+    bin_size : int, optional
+        Bin size used by `log_binning` and `strength_binning`. Default is `100`.
 
-   Returns:
-   ---------
-   dict
-       A dictionary containing various statistics related to proximity, including:
-       - 'd_mu': The average distance in the randomized samples.
-       - 'd_sigma': The standard deviation of distances in the randomized samples.
-       - 'z_score': The z-score of the actual distance in relation to the randomized samples.
-       - 'p_value_single_tail': One-tail P-value associated with the proximity z-score
-       - 'p_value_double_tail': Two-tail P-value associated with the proximity z-score
-       - 'p_val': P-value associated with the z-score.
-       - 'raw_amspl': The raw average minimum shortest path length between sets T and S.
+    symmetric : bool, optional
+        Whether to compute the symmetric version of proximity. Default is `False`.
 
-       - 'dist': A list containing distances from each randomization iteration.
+    Returns
+    -------
+    dict
+        Dictionary with:
+        - 'd_mu': mean randomized AMSPL
+        - 'd_sigma': standard deviation of randomized AMSPL
+        - 'z_score': z-score of the observed AMSPL
+        - 'p_value_single_tail': lower-tail empirical p-value
+        - 'p_value_double_tail': two-sided empirical p-value
+        - 'raw_amspl': observed AMSPL
+        - 'dist': array of randomized AMSPL values
 
-   Raises:
-   --------
-   ValueError:
-       - If the network is not connected (contains more than one connected component).
-       - If 'n_iter' is less than or equal to 0.
-       - If 'bin_size' is less than 1 when 'log_binning' or 'strength_binning' is used.
-       - If 'null_model' is not one of ['degree_match', 'log_binning', 'strength_binning', 'uniform', 'custom'].
-       - If 'node_bucket' is not provided when 'null_model' is 'custom'.
+    Raises
+    ------
+    ValueError
+        If the network is disconnected, if `n_iter <= 0`, if `bin_size < 1`
+        where applicable, if an invalid null model is provided, or if
+        `node_bucket` is missing in custom mode.
 
-   Warnings:
-   ----------
-   UserWarning:
-       - If any elements in `T` or `S` do not exist in the network.
-
-   Notes:
-   -------
-   - The network should be connected to obtain meaningful proximity values. Disconnected components may skew results.
-   - Proximity is based on the paper by Guney et al. 2016 (doi:10.1038/ncomms10331).
-   """
+    Warns
+    -----
+    UserWarning
+        If some nodes in `T` or `S` are not present in the network.
+    """
 
     net_nodes = set(net.nodes)
     sT = set(T)
@@ -1055,8 +1212,8 @@ def separation_z_score(net,A,B,D,null_model='degree_match', node_bucket = None, 
         Default is 1000.
 
     bin_size : int, optional
-        Determines the size of the logarithmic bins when using 'log_binning'. Relevant only if
-        `null_model` is set to 'log_binning'. Default is 100.
+        Bin size used when `null_model` is `'log_binning'` or
+        `'strength_binning'`. Default is `100`.
 
     Returns:
     ---------
@@ -1218,101 +1375,135 @@ def extract_lcc(A, net):
     return G_sub
 
 
-def lcc_significance(net, A, null_model='degree_match', node_bucket = None, n_iter=1000,bin_size=100):
+def _strength_binning_null_model(net, bin_size=100, weight='weight'):
+    if bin_size < 1:
+        raise ValueError("bin_size must be greater or equal than 1")
+
+    strength = dict(net.degree(weight=weight))
+    ordered_nodes = sorted(strength, key=lambda n: strength[n])
+
+    bucket = {}
+    for start in range(0, len(ordered_nodes), bin_size):
+        group = ordered_nodes[start:start + bin_size]
+        for node in group:
+            bucket[node] = group
+
+    return bucket
+
+
+def lcc_significance(net, A, null_model='degree_match', node_bucket=None,
+                     n_iter=1000, bin_size=100, strength_weight='weight'):
     """
-    Calculate the statistical significance of the size of the Largest Connected Component (LCC)
-    of a subgraph induced by the node set `A` in the network `net`.
+    Calculate the statistical significance of the size of the Largest Connected
+    Component (LCC) induced by a node set `A`.
 
-    This function generates a null model distribution for the LCC size by resampling nodes from the
-    network while preserving their degrees. The statistical significance of the observed LCC size is
-    then determined by comparing it against this null model distribution.
+    The function compares the observed LCC size against a null distribution
+    obtained by repeatedly resampling node sets of the same size under a chosen
+    null model.
 
-    Parameters:
-    -----------
-    net : networkx.Graph
-        The input network.
-
-    A : list or set
-        The set of nodes for which the LCC is to be determined.
-
-    null_model : str, optional (default='degree_match')
-        The method used for generating the null model. Can be 'degree_match', 'log_binning',
-        'uniform', or 'custom'.
-
-    node_bucket : dictionary, optional
-        A collection of nodes to be used in 'custom' mode, mandatory when the null_model is set to 'custom'.
-        This parameter should be a dictionary where each key represents a node ('node_k') from the network,
-        and the corresponding value is a list of alternative nodes ('proxy_i').
-        These alternatives are used by the null model for resampling:
-        node_bucket[node_k] = [proxy_1, proxy_2, ..., proxy_m].
-        Here, each 'proxy_i' serves as a potential substitute to be sampled in place of 'node_k'.
-
-
-    n_iter : int, optional (default=1000)
-        Number of iterations for generating the null model distribution.
-
-    bin_size : int, optional (default=100)
-        Size of bins if 'log_binning' method is used.
-
-    Returns:
+    Parameters
     ----------
-    dict :
-        A dictionary containing:
-            - 'd_mu': Mean of the null model LCC size distribution.
-            - 'd_sigma': Standard deviation of the null model LCC size distribution.
-            - 'z_score': The z-score of the observed LCC size.
-            - 'p_val': The p-value corresponding to the z-score.
-            - 'lcc': Nodes in the largest connected component of `A`.
-            - 'lcc_size': Size of the largest connected component of `A`.
-            - 'dist': The null model LCC size distribution.
+    net : networkx.Graph
+        Input network.
 
-    Raises:
-    ---------
-    ValueError:
-        - If 'n_iter' is less than or equal to 0.
-        - If 'bin_size' is less than 1 when 'log_binning' or 'strength_binning' is used.
-        - If 'null_model' is not one of ['degree_match', 'log_binning', 'strength_binning', 'uniform', 'custom'].
-        - If 'node_bucket' is not provided when 'null_model' is 'custom'.
+    A : iterable
+        Node set whose induced LCC is to be evaluated.
 
-    Warnings:
-    -----------
-    UserWarning:
-        - If any elements in `A` do not exist in the network.
+    null_model : {'degree_match', 'log_binning', 'strength_binning', 'uniform', 'custom'}, optional
+        Null model used for resampling. Default is `'degree_match'`.
 
-    Notes:
-    --------
-    - Ensure the network does not contain any isolated nodes.
+    node_bucket : dict, optional
+        Required when `null_model='custom'`. Maps each original node to a list
+        of admissible proxy nodes.
+
+    n_iter : int, optional
+        Number of random iterations. Default is `1000`.
+
+    bin_size : int, optional
+        Bin size used when `null_model='log_binning'` or
+        `null_model='strength_binning'`. Default is `100`.
+
+    strength_weight : str, optional
+        Edge attribute used as weight when `null_model='strength_binning'`.
+        Default is `'weight'`.
+
+    Returns
+    -------
+    dict
+        Dictionary with:
+        - 'd_mu': mean LCC size under the null model
+        - 'd_sigma': standard deviation of null LCC sizes
+        - 'z_score': z-score of the observed LCC size
+        - 'p_val': empirical upper-tail p-value
+        - 'lcc': largest connected component subgraph
+        - 'lcc_size': size of the observed LCC
+        - 'dist': array of null-model LCC sizes
+
+    Raises
+    ------
+    ValueError
+        If `n_iter <= 0`, if `bin_size < 1` where applicable, if an invalid
+        null model is provided, or if `node_bucket` is missing in custom mode.
+
+    Warns
+    -----
+    UserWarning
+        If some nodes in `A` are not present in the network.
+
+    Notes
+    -----
+    - In `'uniform'` mode, nodes are sampled uniformly from the network,
+      excluding the observed nodes in `A`.
+    - In `'degree_match'`, `'log_binning'`, `'strength_binning'`, and
+      `'custom'` modes, the function delegates sampling to
+      `_sample_preserving_degrees`.
+    - If the null distribution has zero variance, the z-score is returned as
+      `np.nan`.
     """
 
     sA = set(A)
     set_a = sA & set(net.nodes())
 
     if len(sA.difference(set_a)) > 0:
-        warnings.warn("A contains elements that are not present in the network.", UserWarning)
+        warnings.warn(
+            "A contains elements that are not present in the network.",
+            UserWarning
+        )
+
     if n_iter <= 0:
         raise ValueError("n_iter must be greater than 0")
 
-
     if null_model == 'degree_match':
         bucket = _degree_match_null_model(net)
+
     elif null_model == 'log_binning':
         if bin_size < 1:
             raise ValueError("bin_size must be greater or equal than 1")
-        lower, upper, nodes = _get_degree_binning(net,bin_size=bin_size)
+        lower, upper, nodes = _get_degree_binning(net, bin_size=bin_size)
         bucket = _dictionary_from_binning(lower, upper, nodes)
+
     elif null_model == 'strength_binning':
-        if bin_size < 1:
-            raise ValueError("bin_size must be greater or equal than 1")
+        bucket = _strength_binning_null_model(
+            net,
+            bin_size=bin_size,
+            weight=strength_weight
+        )
+
     elif null_model == 'uniform':
         bucket = set(net.nodes).difference(set_a)
-    elif null_model == 'custom':
-        bucket = node_bucket
-        if node_bucket == None:
-            raise ValueError("In custom mode, node_bucket must be provided")
-    else:
-        raise ValueError("Null model should be in ['degree_match'|'log_binning'|'uniform'|'custom']")
 
-    lcc = extract_lcc(set_a,net)
+    elif null_model == 'custom':
+        if node_bucket is None:
+            raise ValueError("In custom mode, node_bucket must be provided")
+        bucket = node_bucket
+
+    else:
+        raise ValueError(
+            "Null model should be in "
+            "['degree_match'|'log_binning'|'strength_binning'|'uniform'|'custom']"
+        )
+
+    lcc = extract_lcc(set_a, net)
 
     distribution = []
     for i in range(n_iter):
@@ -1320,23 +1511,32 @@ def lcc_significance(net, A, null_model='degree_match', node_bucket = None, n_it
             rs = _sample_preserving_degrees(net, set_a, bucket)
         else:
             rs = random.sample(list(bucket), len(set_a))
-        sub = extract_lcc(rs,net)
+
+        sub = extract_lcc(rs, net)
         distribution.append(len(sub))
 
-        if i%100 == 0:
-            print(f"\rIter {i} of {n_iter}",end="")
+        if i % 100 == 0:
+            print(f"\rIter {i} of {n_iter}", end="")
     print("")
 
     l_lcc = len(lcc)
+    distribution = np.array(distribution)
     mu = np.mean(distribution)
     sigma = np.std(distribution)
-    z = (l_lcc - mu) / sigma
-    distribution = np.array(distribution)
+    z = np.nan if sigma == 0 else (l_lcc - mu) / sigma
+
     S = distribution[distribution >= l_lcc]
-    pval = len(S)/len(distribution)
-    return {'d_mu':mu,'d_sigma':sigma,'z_score':z,'p_val':pval,'lcc':lcc, 'lcc_size':l_lcc,'dist':distribution}
+    pval = len(S) / len(distribution)
 
-
+    return {
+        'd_mu': mu,
+        'd_sigma': sigma,
+        'z_score': z,
+        'p_val': pval,
+        'lcc': lcc,
+        'lcc_size': l_lcc,
+        'dist': distribution
+    }
 
 
 def _check_dictionary_integrity(network,dictionary):
@@ -1362,33 +1562,6 @@ def _to_dictionary(results, properties):
         res[p] = results[p]
 
     return res
-
-@ray.remote
-def _calculate_score(source, target, sources, targets, ppi, distance_matrix,
-                    score, properties, null_model, node_bucket,n_iter,bin_size,symmetric):
-
-    source_nodes = sources[source]
-    target_nodes = targets[target]
-
-    if score =="proximity":
-        scores = proximity(ppi, source_nodes, target_nodes, distance_matrix,
-                        null_model=null_model,node_bucket=node_bucket,n_iter=n_iter,
-                        bin_size=bin_size,symmetric=symmetric)
-
-        results = _to_dictionary(scores,properties)
-    elif score =="separation_z_score":
-        scores = separation_z_score(ppi, source_nodes, target_nodes, distance_matrix,
-                        null_model=null_model,node_bucket=node_bucket,n_iter=n_iter,
-                        bin_size=bin_size)
-
-        results = _to_dictionary(scores,properties)
-    elif score == "separation":
-        scores = separation(ppi,source_nodes,target_nodes,distance_matrix)
-        results = {"raw_separation":scores}
-
-    print(f"{source}-{target} finished")
-
-    return (source,target,results)
 
 
 def _to_dict_tables(results, properties,target_names,source_names):
@@ -1451,85 +1624,183 @@ def to_dictionary(dataframe, group_names, node_names):
         res[l] = nodes
     return res
 
+def _init_screening_worker(
+    shm_name,
+    shape,
+    dtype_str,
+    dm_nodes,
+    dm_node_to_idx,
+    network,
+    sources,
+    targets,
+    node_bucket,
+):
+    global _SCREEN_NETWORK, _SCREEN_SOURCES, _SCREEN_TARGETS
+    global _SCREEN_NODE_BUCKET, _SCREEN_DISTANCE_MATRIX
+    global _SCREEN_SHM, _SCREEN_MATRIX
 
-def screening(sources,targets, network, distance_matrix, score="proximity", properties=["z_score"],
-              null_model= 'degree_match', node_bucket = None, n_iter=1000,bin_size=100,symmetric=False,
-              n_procs=None):
+    _SCREEN_SHM = SharedMemory(name=shm_name)
+    dtype = np.dtype(dtype_str)
+    _SCREEN_MATRIX = np.ndarray(shape, dtype=dtype, buffer=_SCREEN_SHM.buf)
+
+    D = DistanceMatrix()
+    D.nodes = dm_nodes
+    D.node_to_idx = dm_node_to_idx
+    D.matrix = _SCREEN_MATRIX
+
+    _SCREEN_DISTANCE_MATRIX = D
+    _SCREEN_NETWORK = network
+    _SCREEN_SOURCES = sources
+    _SCREEN_TARGETS = targets
+    _SCREEN_NODE_BUCKET = node_bucket
+
+def _calculate_score_worker(task):
+    source, target, score, properties, null_model, n_iter, bin_size, symmetric = task
+
+    network = _SCREEN_NETWORK
+    sources = _SCREEN_SOURCES
+    targets = _SCREEN_TARGETS
+    node_bucket = _SCREEN_NODE_BUCKET
+    distance_matrix = _SCREEN_DISTANCE_MATRIX
+
+    source_nodes = sources[source]
+    target_nodes = targets[target]
+
+    if score == "proximity":
+        scores = proximity(
+            network,
+            source_nodes,
+            target_nodes,
+            distance_matrix,
+            null_model=null_model,
+            node_bucket=node_bucket,
+            n_iter=n_iter,
+            bin_size=bin_size,
+            symmetric=symmetric,
+        )
+        results = _to_dictionary(scores, properties)
+
+    elif score == "separation_z_score":
+        scores = separation_z_score(
+            network,
+            source_nodes,
+            target_nodes,
+            distance_matrix,
+            null_model=null_model,
+            node_bucket=node_bucket,
+            n_iter=n_iter,
+            bin_size=bin_size,
+        )
+        results = _to_dictionary(scores, properties)
+
+    elif score == "separation":
+        scores = separation(network, source_nodes, target_nodes, distance_matrix)
+        results = {"raw_separation": scores}
+
+    else:
+        raise ValueError("Invalid score.")
+
+    print(f"{source}-{target} finished")
+    return (source, target, results)
+
+def _distance_matrix_to_shared(distance_matrix):
+    mat = distance_matrix.matrix
+    shape = mat.shape
+    dtype = mat.dtype
+
+    shm = SharedMemory(create=True, size=mat.nbytes)
+    shm_array = np.ndarray(shape, dtype=dtype, buffer=shm.buf)
+    shm_array[:] = mat[:]
+
+    return shm, shape, dtype
+
+def screening(
+    sources,
+    targets,
+    network,
+    distance_matrix,
+    score="proximity",
+    properties=["z_score"],
+    null_model="degree_match",
+    node_bucket=None,
+    n_iter=1000,
+    bin_size=100,
+    symmetric=False,
+    n_procs=None,
+    chunksize=1,
+):
     """
-    Screens for relationships between sets of source and target nodes within a given network,
-    evaluating proximity or separation. This function facilitates drug repurposing and other network
-    medicine applications by allowing the assessment of network-based relationships.
+    Screen all source-target group pairs in a network using proximity,
+    separation z-score, or raw separation.
 
-    Parameters:
-    ------------
+    Each entry in `sources` and `targets` defines a named node set. The function
+    evaluates every pair `(source_group, target_group)` and returns the requested
+    score properties as tables.
+
+    Parameters
+    ----------
     sources : dict
-        A dictionary where keys are identifiers (e.g., drug names) and values are sets of nodes
-        (e.g., drug target genes) representing source entities.
+        Dictionary mapping source group names to node sets.
 
     targets : dict
-        A dictionary where keys are identifiers (e.g., disease names) and values are sets of nodes
-        (e.g., disease genes) representing target entities.
+        Dictionary mapping target group names to node sets.
 
     network : networkx.Graph
-        The graph representing the network within which the analysis is conducted. Can be weighted or unweighted.
+        Input graph. The graph must be connected.
 
     distance_matrix : DistanceMatrix
-        A precomputed matrix providing the shortest distance between node pairs. Should be generated
-        using `all_pair_distances` or a similar method.
+        Precomputed distance matrix used by the scoring functions.
 
-    score : str, optional
-        The metric for comparison. Options: "proximity", "separation_z_score", "separation". Default is "proximity".
+    score : {'proximity', 'separation_z_score', 'separation'}, optional
+        Score to compute for each source-target pair. Default is `'proximity'`.
 
-    properties : list, optional
-        The properties to retrieve from the analysis based on the `score`. Options vary based on the selected `score`:
-        - For "proximity": 'z_score', 'p_value_single_tail', 'p_value_double_tail', 'raw_amspl'
-        - For "separation_z_score": 'z_score', 'p_value_single_tail', 'p_value_double_tail', 'raw_separation'
-        - For "separation": 'raw_separation'
-        Default is ["z_score"].
+    properties : list of str, optional
+        Statistics to extract from the selected score:
+        - for `'proximity'`: `'z_score'`, `'p_value_single_tail'`,
+          `'p_value_double_tail'`, `'raw_amspl'`
+        - for `'separation_z_score'`: `'z_score'`, `'p_value_single_tail'`,
+          `'p_value_double_tail'`, `'raw_separation'`
+        - for `'separation'`: `'raw_separation'`
 
-    null_model : str, optional
-        Method for degree-preserving randomization. Valid options are 'degree_match', 'log_binning', 'uniform',
-        'strength_binning' and 'custom'. Default is 'degree_match'.
+    null_model : {'degree_match', 'log_binning', 'strength_binning',
+                  'uniform', 'custom'}, optional
+        Null model used for resampling when applicable.
 
-    node_bucket : dictionary, optional
-        A collection of nodes to be used in 'custom' mode, mandatory when the null_model is set to 'custom'.
-        This parameter should be a dictionary where each key represents a node ('node_k') from the network,
-        and the corresponding value is a list of alternative nodes ('proxy_i').
-        These alternatives are used by the null model for resampling:
-        node_bucket[node_k] = [proxy_1, proxy_2, ..., proxy_m].
-        Here, each 'proxy_i' serves as a potential substitute to be sampled in place of 'node_k'.
+    node_bucket : dict, optional
+        Required when `null_model='custom'`.
 
     n_iter : int, optional
-        Number of iterations/samples for assessing significance. Default is 1000.
+        Number of random iterations for significance calculations. Default is `1000`.
 
     bin_size : int, optional
-        Determines the size of the logarithmic bins when using the 'log-binning' method. Default is 100.
+        Bin size used by `log_binning` and `strength_binning`. Default is `100`.
 
     symmetric : bool, optional
-        If True, computes the symmetrical version of proximity using SASPL; otherwise, uses ASPL. Default is False.
+        Passed to `proximity` when `score='proximity'`. Default is `False`.
 
     n_procs : int, optional
-        Number of processors to use. Defaults to the number of CPUs available if None.
+        Number of worker processes. If `None`, uses all available CPUs.
 
-    Returns:
-    ---------
-    dict of pd.DataFrame
-        A dictionary where each key corresponds to a property from the `properties` list and the value is a DataFrame.
-        Each DataFrame is indexed by source entities with columns representing target entities, populated with
-        the values of the specified `score` for the corresponding property.
+    chunksize : int, optional
+        Chunk size passed to `ProcessPoolExecutor.map`. Default is `1`.
 
-    Raises:
-    --------
-    ValueError
-        If the network is not connected, if n_iter <= 0, if bin_size < 1 for certain null models,
-        or if the null model or score specified is invalid.
-
-    Notes:
+    Returns
     -------
-    This function utilizes Ray for parallel processing to efficiently compute the desired metrics across
-    multiple source-target pairs.
-    """
+    dict
+        Dictionary mapping each requested property to a pandas DataFrame whose
+        rows are source group names and columns are target group names.
 
+    Raises
+    ------
+    ValueError
+        If the network is disconnected, if parameters are invalid, or if
+        `node_bucket` is missing in custom mode.
+
+    Notes
+    -----
+    The function uses multiprocessing with shared memory so that the full
+    distance matrix is not duplicated across worker processes.
+    """
 
     if nx.number_connected_components(network) > 1:
         raise ValueError("The network is not connected (it contains more than one connected component)")
@@ -1537,127 +1808,123 @@ def screening(sources,targets, network, distance_matrix, score="proximity", prop
     if n_iter <= 0:
         raise ValueError("n_iter must be greater than 0")
 
-
-    if null_model == 'log_binning':
+    if null_model == "log_binning":
         if bin_size < 1:
             raise ValueError("bin_size must be greater or equal than 1")
-    elif null_model == 'strength_binning':
+    elif null_model == "strength_binning":
         if bin_size < 1:
             raise ValueError("bin_size must be greater or equal than 1")
-    elif null_model == 'custom':
-        if node_bucket == None:
+    elif null_model == "custom":
+        if node_bucket is None:
             raise ValueError("In custom mode, node_bucket must be provided")
     else:
-        if null_model not in ['degree_match','uniform']:
+        if null_model not in ["degree_match", "uniform"]:
             raise ValueError("Null model should be: 'degree_match'|'log_binning'|'uniform'|'custom'")
 
-
-    if score not in ["proximity","separation_z_score","separation"]:
+    if score not in ["proximity", "separation_z_score", "separation"]:
         raise ValueError("Score should be: 'proximity','separation_z_score','separation'")
 
     if score == "proximity":
-        if not set(properties) <= {"z_score","p_value_single_tail","p_value_double_tail","raw_amspl"}:
+        if not set(properties) <= {"z_score", "p_value_single_tail", "p_value_double_tail", "raw_amspl"}:
             raise ValueError("prop attribute should be: 'z_score','p_value_single_tail','p_value_double_tail','raw_amspl'")
     elif score == "separation_z_score":
-        if not set(properties) <= {"z_score","p_value_single_tail","p_value_double_tail","raw_separation"}:
+        if not set(properties) <= {"z_score", "p_value_single_tail", "p_value_double_tail", "raw_separation"}:
             raise ValueError("prop attribute should be: 'z_score','p_value_single_tail','p_value_double_tail','raw_separation'")
-
+    elif score == "separation":
+        if not set(properties) <= {"raw_separation"}:
+            raise ValueError("prop attribute should be: 'raw_separation'")
 
     valid_sources = _check_dictionary_integrity(network, sources)
     valid_targets = _check_dictionary_integrity(network, targets)
 
-    source_names = valid_sources.keys()
-    target_names = valid_targets.keys()
+    source_names = list(valid_sources.keys())
+    target_names = list(valid_targets.keys())
 
-    if n_procs == None:
-        num_cpus = os.cpu_count()
-    else:
-        num_cpus = n_procs
+    num_cpus = os.cpu_count() if n_procs is None else n_procs
 
-    ray.shutdown()
-    _clean_temp_dir()
-    ray.init(num_cpus = num_cpus)
+    shm, shape, dtype = _distance_matrix_to_shared(distance_matrix)
 
-    net_ref = ray.put(network)
-    sources_ref = ray.put(valid_sources)
-    targets_ref = ray.put(valid_targets)
-    node_bucket_ref = ray.put(node_bucket)
-    distance_matrix_ref = ray.put(distance_matrix)
+    tasks = [
+        (source, target, score, properties, null_model, n_iter, bin_size, symmetric)
+        for source in source_names
+        for target in target_names
+    ]
 
-    futures = []
+    ctx = get_context("spawn")
 
-    for source in source_names:
-        for target in target_names:
-            future = _calculate_score.remote(source, target, sources_ref, targets_ref,
-                                     net_ref, distance_matrix_ref, score, properties,
-                                     null_model, node_bucket_ref,n_iter,bin_size,
-                                     symmetric)
-            futures.append(future)
+    try:
+        with ProcessPoolExecutor(
+            max_workers=num_cpus,
+            mp_context=ctx,
+            initializer=_init_screening_worker,
+            initargs=(
+                shm.name,
+                shape,
+                dtype.str,
+                distance_matrix.nodes,
+                distance_matrix.node_to_idx,
+                network,
+                valid_sources,
+                valid_targets,
+                node_bucket,
+            ),
+        ) as ex:
+            results = list(ex.map(_calculate_score_worker, tasks, chunksize=chunksize))
 
-    results = ray.get(futures)
+    finally:
+        shm.close()
+        shm.unlink()
 
-    ray.shutdown()
-    _clean_temp_dir()
     dict_tables = _to_dict_tables(results, properties, target_names, source_names)
-
     return dict_tables
 
 
 def random_walk(G, seed, restart_prob=0.15):
     """
-    Perform a Biased Random Walk with Restart (BRWR) using the PageRank algorithm
-    with a personalization vector to bias the walk toward selected seed nodes.
+    Perform a random walk with restart (RWR) on a graph using NetworkX PageRank
+    with a personalized restart distribution.
 
-    This method is commonly used in network biology, recommendation systems, and
-    influence ranking, where it helps prioritize nodes based on their relevance
-    to a given set of seed nodes (e.g., disease genes, source nodes).
+    Seed nodes define the personalization vector:
+    - if `seed` is a list or set, all valid seed nodes receive equal weight
+    - if `seed` is a dictionary, values are interpreted as seed weights and are
+      normalized internally
+
+    The function returns both the raw random-walk score and a degree-normalized
+    score (`BScore`) that downweights high-degree hubs.
 
     Parameters
     ----------
     G : networkx.Graph
-        The input graph (can be directed or undirected).
+        Input graph.
 
     seed : list, set, or dict
-        The set of seed nodes used to bias the walk.
-        - If a list or set: all seeds are assigned equal weight.
-        - If a dict: keys are node names and values are their weights (importance).
+        Seed nodes or weighted seed nodes.
 
-    restart_prob : float, optional (default=0.15)
-        Probability of restarting the walk at a seed node at each step.
-        The complement (1 - restart_prob) is used to walk to neighbors.
+    restart_prob : float, optional
+        Probability of restarting at a seed node at each step. Default is `0.15`.
 
     Returns
     -------
     pandas.DataFrame
-        A DataFrame sorted by descending BScore, with the following columns:
-        - 'Node': Node identifier
-        - 'Degree': Degree of the node
-        - 'Score': PageRank score (influenced by proximity to seed nodes)
-        - 'BScore': Score normalized by degree, penalizing high-degree hubs
+        DataFrame sorted by descending `BScore`, with columns:
+        - 'Node'
+        - 'Degree'
+        - 'Score'
+        - 'BScore'
 
     Raises
     ------
     ValueError
-        If none of the provided seed nodes exist in the graph.
-    TypeError
-        If seed is not a list, set, or dict.
+        If no valid seed nodes are found in the graph.
 
-    Notes
-    -----
-    The normalized score 'BScore' is useful when you want to reduce the
-    influence of high-degree nodes that naturally accumulate higher PageRank scores.
+    TypeError
+        If `seed` is not a list, set, or dict.
 
     Example
     -------
     >>> import networkx as nx
-    >>> from netmedpy import BRWR
-
     >>> G = nx.karate_club_graph()
-    >>> seed_weights = {
-    ...     0: 0.7,   # Assign higher influence to node 0
-    ...     33: 0.3   # Assign lower influence to node 33
-    ... }
-    >>> result = BRWR(G, seed=seed_weights, restart_prob=0.2)
+    >>> result = random_walk(G, seed=[0, 33], restart_prob=0.2)
     >>> print(result.head())
     """
 
