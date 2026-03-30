@@ -52,6 +52,11 @@ For any issues or further instructions, refer to the documentation or contact th
 """
 import networkx as nx
 import netmedpy
+
+print(netmedpy.__file__)
+print(dir(netmedpy))
+
+# %%
 import random
 import seaborn as sns
 import matplotlib.pyplot as plt
