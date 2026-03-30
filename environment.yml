@@ -17,7 +17,7 @@ dependencies:
   - scipy
   - networkx
 
-  # Interactive stack (your optional dependencies, now default)
+  # Interactive stack
   - jupyterlab
   - notebook
   - ipython
