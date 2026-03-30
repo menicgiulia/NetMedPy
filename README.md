@@ -59,7 +59,7 @@ While not essential, we recommend installing NetMedPy in a dedicated conda envir
 - Activate your new conda environment:
 
   ```bash
-  conda activate netmedpy_environment
+  conda activate netmedpy_env
   ```
 
 - Install NetMedPy:
@@ -125,7 +125,7 @@ Working with Conda is recommended, but it is not essential. If you choose to wor
 3. Activate your new conda environment:
 
   ```bash
-  conda activate netmedpy_environment
+  conda activate netmedpy_env
   ```
   
 ##### Option B: working without Conda
